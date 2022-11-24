@@ -1,0 +1,2441 @@
+
+
+Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
+                                                                                               Thu Nov 24 10:56:06 2022
+
+Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
+     1                           	processor	18F67K40
+     2                           	fnconf	rparam,??,?,0
+     3                           	pagewidth 120
+     4                           	opt	flic
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     7                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text7,global,reloc=2,class=CODE,delta=1,group=1
+    15                           	psect	text8,global,reloc=2,class=CODE,delta=1,group=1
+    16                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    17                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    18                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=1,noexec
+    19                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    20   000000                     
+    21                           ; Version 2.35
+    22                           ; Generated 05/05/2021 GMT
+    23                           ; 
+    24                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    25                           ; All rights reserved.
+    26                           ; 
+    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    28                           ; 
+    29                           ; Redistribution and use in source and binary forms, with or without modification, are
+    30                           ; permitted provided that the following conditions are met:
+    31                           ; 
+    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    33                           ;        conditions and the following disclaimer.
+    34                           ; 
+    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    36                           ;        of conditions and the following disclaimer in the documentation and/or other
+    37                           ;        materials provided with the distribution. Publication is not required when
+    38                           ;        this file is used in an embedded application.
+    39                           ; 
+    40                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    41                           ;        software without specific prior written permission.
+    42                           ; 
+    43                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    44                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    45                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    46                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    47                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    48                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    49                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    50                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    51                           ; 
+    52                           ; 
+    53                           ; Code-generator required, PIC18F67K40 Definitions
+    54                           ; 
+    55                           ; SFR Addresses
+    56   000000                     _TRISDbits	set	3972
+    57   000000                     _SSP2CON2bits	set	3802
+    58   000000                     _SSP2CLKPPS	set	3612
+    59   000000                     _SSP2DATPPS	set	3613
+    60   000000                     _RC7PPS	set	3689
+    61   000000                     _RE2PPS	set	3700
+    62   000000                     _TRISCbits	set	3971
+    63   000000                     _TRISEbits	set	3973
+    64   000000                     _TRISGbits	set	3975
+    65   000000                     _T2PR	set	4028
+    66   000000                     _T2CONbits	set	4029
+    67   000000                     _CCPR2H	set	4006
+    68   000000                     _CCPR1H	set	4010
+    69   000000                     _RE4PPS	set	3702
+    70   000000                     _RG6PPS	set	3720
+    71   000000                     _RD5PPS	set	3695
+    72   000000                     _ANSELDbits	set	3751
+    73   000000                     _SSP2ADD	set	3798
+    74   000000                     _SSP2CON1bits	set	3801
+    75   000000                     _CCPR4H	set	3873
+    76   000000                     _CCPR3H	set	3877
+    77   000000                     _T2CLKCONbits	set	4031
+    78   000000                     _T2HLTbits	set	4030
+    79   000000                     _CCP1CONbits	set	4011
+    80   000000                     _CCPTMRS0bits	set	4013
+    81   000000                     _CCP2CONbits	set	4007
+    82   000000                     _CCP3CONbits	set	3878
+    83   000000                     _CCP4CONbits	set	3874
+    84   000000                     _SSP2CON2	set	3802
+    85   000000                     _SSP2STAT	set	3800
+    86   000000                     _SSP2BUF	set	3797
+    87   000000                     _RD6PPS	set	3696
+    88                           
+    89                           ; #config settings
+    90                           
+    91                           	psect	cinit
+    92   01F864                     __pcinit:
+    93                           	callstack 0
+    94   01F864                     start_initialization:
+    95                           	callstack 0
+    96   01F864                     __initialization:
+    97                           	callstack 0
+    98   01F864                     end_of_initialization:
+    99                           	callstack 0
+   100   01F864                     __end_of__initialization:
+   101                           	callstack 0
+   102   01F864  0100               	movlb	0
+   103   01F866  EFBA  F0FE         	goto	_main	;jump to C main() function
+   104                           
+   105                           	psect	cstackCOMRAM
+   106   000001                     __pcstackCOMRAM:
+   107                           	callstack 0
+   108   000001                     ?___wmul:
+   109                           	callstack 0
+   110   000001                     initDCmotorsPWM@PWMperiod:
+   111                           	callstack 0
+   112   000001                     ___wmul@multiplier:
+   113                           	callstack 0
+   114                           
+   115                           ; 2 bytes @ 0x0
+   116   000001                     	ds	2
+   117   000003                     ___wmul@multiplicand:
+   118                           	callstack 0
+   119                           
+   120                           ; 2 bytes @ 0x2
+   121   000003                     	ds	2
+   122   000005                     ___wmul@product:
+   123                           	callstack 0
+   124                           
+   125                           ; 2 bytes @ 0x4
+   126   000005                     	ds	2
+   127   000007                     ?___lwdiv:
+   128                           	callstack 0
+   129   000007                     ___lwdiv@dividend:
+   130                           	callstack 0
+   131                           
+   132                           ; 2 bytes @ 0x6
+   133   000007                     	ds	2
+   134   000009                     ___lwdiv@divisor:
+   135                           	callstack 0
+   136                           
+   137                           ; 2 bytes @ 0x8
+   138   000009                     	ds	2
+   139   00000B                     ___lwdiv@quotient:
+   140                           	callstack 0
+   141                           
+   142                           ; 2 bytes @ 0xA
+   143   00000B                     	ds	2
+   144   00000D                     ___lwdiv@counter:
+   145                           	callstack 0
+   146                           
+   147                           ; 1 bytes @ 0xC
+   148   00000D                     	ds	1
+   149   00000E                     setMotorPWM@m:
+   150                           	callstack 0
+   151                           
+   152                           ; 2 bytes @ 0xD
+   153   00000E                     	ds	2
+   154   000010                     ??_setMotorPWM:
+   155                           
+   156                           ; 1 bytes @ 0xF
+   157   000010                     	ds	2
+   158   000012                     setMotorPWM@posDuty:
+   159                           	callstack 0
+   160                           
+   161                           ; 1 bytes @ 0x11
+   162   000012                     	ds	1
+   163   000013                     setMotorPWM@negDuty:
+   164                           	callstack 0
+   165                           
+   166                           ; 1 bytes @ 0x12
+   167   000013                     	ds	1
+   168   000014                     stop@mL:
+   169                           	callstack 0
+   170   000014                     turnLeft@mL:
+   171                           	callstack 0
+   172   000014                     turnRight@mL:
+   173                           	callstack 0
+   174   000014                     fullSpeedAhead@mL:
+   175                           	callstack 0
+   176                           
+   177                           ; 2 bytes @ 0x13
+   178   000014                     	ds	2
+   179   000016                     stop@mR:
+   180                           	callstack 0
+   181   000016                     turnLeft@mR:
+   182                           	callstack 0
+   183   000016                     turnRight@mR:
+   184                           	callstack 0
+   185   000016                     fullSpeedAhead@mR:
+   186                           	callstack 0
+   187                           
+   188                           ; 2 bytes @ 0x15
+   189   000016                     	ds	2
+   190   000018                     ??_stop:
+   191   000018                     ??_turnLeft:
+   192   000018                     ??_turnRight:
+   193   000018                     ??_fullSpeedAhead:
+   194                           
+   195                           ; 1 bytes @ 0x17
+   196   000018                     	ds	1
+   197   000019                     fullSpeedAhead@i:
+   198                           	callstack 0
+   199                           
+   200                           ; 2 bytes @ 0x18
+   201   000019                     	ds	1
+   202   00001A                     turnLeft@i:
+   203                           	callstack 0
+   204   00001A                     turnRight@i:
+   205                           	callstack 0
+   206                           
+   207                           ; 2 bytes @ 0x19
+   208   00001A                     	ds	2
+   209   00001C                     ??_main:
+   210                           
+   211                           ; 1 bytes @ 0x1B
+   212   00001C                     	ds	2
+   213   00001E                     main@i:
+   214                           	callstack 0
+   215                           
+   216                           ; 2 bytes @ 0x1D
+   217   00001E                     	ds	2
+   218   000020                     main@i_937:
+   219                           	callstack 0
+   220                           
+   221                           ; 2 bytes @ 0x1F
+   222   000020                     	ds	2
+   223   000022                     main@PWMcycle:
+   224                           	callstack 0
+   225                           
+   226                           ; 1 bytes @ 0x21
+   227   000022                     	ds	1
+   228   000023                     main@motorL:
+   229                           	callstack 0
+   230                           
+   231                           ; 9 bytes @ 0x22
+   232   000023                     	ds	9
+   233   00002C                     main@motorR:
+   234                           	callstack 0
+   235                           
+   236                           ; 9 bytes @ 0x2B
+   237   00002C                     	ds	9
+   238                           
+   239 ;;
+   240 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   241 ;;
+   242 ;; *************** function _main *****************
+   243 ;; Defined at:
+   244 ;;		line 16 in file "main.c"
+   245 ;; Parameters:    Size  Location     Type
+   246 ;;		None
+   247 ;; Auto vars:     Size  Location     Type
+   248 ;;  i               2   31[COMRAM] int 
+   249 ;;  i               2   29[COMRAM] int 
+   250 ;;  motorR          9   43[COMRAM] struct DC_motor
+   251 ;;  motorL          9   34[COMRAM] struct DC_motor
+   252 ;;  PWMcycle        1   33[COMRAM] unsigned char 
+   253 ;; Return value:  Size  Location     Type
+   254 ;;                  1    wreg      void 
+   255 ;; Registers used:
+   256 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   257 ;; Tracked objects:
+   258 ;;		On entry : 0/0
+   259 ;;		On exit  : 0/0
+   260 ;;		Unchanged: 0/0
+   261 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+   262 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   263 ;;      Locals:        23       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   264 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   265 ;;      Totals:        25       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   266 ;;Total ram usage:       25 bytes
+   267 ;; Hardware stack levels required when called: 3
+   268 ;; This function calls:
+   269 ;;		_fullSpeedAhead
+   270 ;;		_initDCmotorsPWM
+   271 ;;		_setMotorPWM
+   272 ;;		_stop
+   273 ;;		_turnLeft
+   274 ;;		_turnRight
+   275 ;; This function is called by:
+   276 ;;		Startup code after reset
+   277 ;; This function uses a non-reentrant model
+   278 ;;
+   279                           
+   280                           	psect	text0
+   281   01FD74                     __ptext0:
+   282                           	callstack 0
+   283   01FD74                     _main:
+   284                           	callstack 28
+   285   01FD74                     
+   286                           ;main.c: 18:     initDCmotorsPWM(10);
+   287   01FD74  0E00               	movlw	0
+   288   01FD76  6E02               	movwf	(initDCmotorsPWM@PWMperiod+1)^0,c
+   289   01FD78  0E0A               	movlw	10
+   290   01FD7A  6E01               	movwf	initDCmotorsPWM@PWMperiod^0,c
+   291   01FD7C  EC82  F0FC         	call	_initDCmotorsPWM	;wreg free
+   292   01FD80                     
+   293                           ;main.c: 20:     unsigned char PWMcycle = T2PR;
+   294   01FD80  CFBC F022          	movff	4028,main@PWMcycle	;volatile
+   295   01FD84                     
+   296                           ;main.c: 22:     struct DC_motor motorL, motorR;;main.c: 24:     motorL.power=0;
+   297   01FD84  0E00               	movlw	0
+   298   01FD86  6E23               	movwf	main@motorL^0,c
+   299   01FD88                     
+   300                           ;main.c: 25:     motorL.direction=1;
+   301   01FD88  0E01               	movlw	1
+   302   01FD8A  6E24               	movwf	(main@motorL+1)^0,c
+   303   01FD8C                     
+   304                           ;main.c: 26:     motorL.brakemode=1;
+   305   01FD8C  0E01               	movlw	1
+   306   01FD8E  6E25               	movwf	(main@motorL+2)^0,c
+   307   01FD90                     
+   308                           ;main.c: 27:     motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
+   309   01FD90  0EAA               	movlw	170
+   310   01FD92  6E28               	movwf	(main@motorL+5)^0,c
+   311   01FD94  0E0F               	movlw	15
+   312   01FD96  6E29               	movwf	(main@motorL+6)^0,c
+   313   01FD98                     
+   314                           ;main.c: 28:     motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
+   315   01FD98  0EA6               	movlw	166
+   316   01FD9A  6E2A               	movwf	(main@motorL+7)^0,c
+   317   01FD9C  0E0F               	movlw	15
+   318   01FD9E  6E2B               	movwf	(main@motorL+8)^0,c
+   319   01FDA0                     
+   320                           ;main.c: 29:     motorL.PWMperiod=PWMcycle;
+   321   01FDA0  C022  F026         	movff	main@PWMcycle,main@motorL+3
+   322   01FDA4  6A27               	clrf	(main@motorL+4)^0,c
+   323   01FDA6                     
+   324                           ;main.c: 31:     motorR.power=0;
+   325   01FDA6  0E00               	movlw	0
+   326   01FDA8  6E2C               	movwf	main@motorR^0,c
+   327   01FDAA                     
+   328                           ;main.c: 32:     motorR.direction=1;
+   329   01FDAA  0E01               	movlw	1
+   330   01FDAC  6E2D               	movwf	(main@motorR+1)^0,c
+   331   01FDAE                     
+   332                           ;main.c: 33:     motorR.brakemode=1;
+   333   01FDAE  0E01               	movlw	1
+   334   01FDB0  6E2E               	movwf	(main@motorR+2)^0,c
+   335   01FDB2                     
+   336                           ;main.c: 34:     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
+   337   01FDB2  0E25               	movlw	37
+   338   01FDB4  6E31               	movwf	(main@motorR+5)^0,c
+   339   01FDB6  0E0F               	movlw	15
+   340   01FDB8  6E32               	movwf	(main@motorR+6)^0,c
+   341   01FDBA                     
+   342                           ;main.c: 35:     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
+   343   01FDBA  0E21               	movlw	33
+   344   01FDBC  6E33               	movwf	(main@motorR+7)^0,c
+   345   01FDBE  0E0F               	movlw	15
+   346   01FDC0  6E34               	movwf	(main@motorR+8)^0,c
+   347   01FDC2                     
+   348                           ;main.c: 36:     motorR.PWMperiod=PWMcycle;
+   349   01FDC2  C022  F02F         	movff	main@PWMcycle,main@motorR+3
+   350   01FDC6  6A30               	clrf	(main@motorR+4)^0,c
+   351   01FDC8                     
+   352                           ;main.c: 40:     setMotorPWM(&motorL);
+   353   01FDC8  0E23               	movlw	low main@motorL
+   354   01FDCA  6E0E               	movwf	setMotorPWM@m^0,c
+   355   01FDCC  0E00               	movlw	high main@motorL
+   356   01FDCE  6E0F               	movwf	(setMotorPWM@m+1)^0,c
+   357   01FDD0  EC04  F0FE         	call	_setMotorPWM	;wreg free
+   358   01FDD4                     
+   359                           ;main.c: 41:     setMotorPWM(&motorR);
+   360   01FDD4  0E2C               	movlw	low main@motorR
+   361   01FDD6  6E0E               	movwf	setMotorPWM@m^0,c
+   362   01FDD8  0E00               	movlw	high main@motorR
+   363   01FDDA  6E0F               	movwf	(setMotorPWM@m+1)^0,c
+   364   01FDDC  EC04  F0FE         	call	_setMotorPWM	;wreg free
+   365   01FDE0                     l1337:
+   366                           
+   367                           ;main.c: 47:         _delay((unsigned long)((3000)*(64000000/4000.0)));
+   368   01FDE0  0EF4               	movlw	244
+   369   01FDE2  6E1D               	movwf	(??_main+1)^0,c
+   370   01FDE4  0E82               	movlw	130
+   371   01FDE6  6E1C               	movwf	??_main^0,c
+   372   01FDE8  0E05               	movlw	5
+   373   01FDEA                     u297:
+   374   01FDEA  2EE8               	decfsz	wreg,f,c
+   375   01FDEC  D7FE               	bra	u297
+   376   01FDEE  2E1C               	decfsz	??_main^0,f,c
+   377   01FDF0  D7FC               	bra	u297
+   378   01FDF2  2E1D               	decfsz	(??_main+1)^0,f,c
+   379   01FDF4  D7FA               	bra	u297
+   380   01FDF6  F000               	nop	
+   381   01FDF8                     
+   382                           ;main.c: 48:         for (int i = 0; i< 4; i++){
+   383   01FDF8  0E00               	movlw	0
+   384   01FDFA  6E1F               	movwf	(main@i+1)^0,c
+   385   01FDFC  0E00               	movlw	0
+   386   01FDFE  6E1E               	movwf	main@i^0,c
+   387   01FE00                     l1345:
+   388                           
+   389                           ;main.c: 49:             fullSpeedAhead(&motorL, &motorR);
+   390   01FE00  0E23               	movlw	low main@motorL
+   391   01FE02  6E14               	movwf	fullSpeedAhead@mL^0,c
+   392   01FE04  0E00               	movlw	high main@motorL
+   393   01FE06  6E15               	movwf	(fullSpeedAhead@mL+1)^0,c
+   394   01FE08  0E2C               	movlw	low main@motorR
+   395   01FE0A  6E16               	movwf	fullSpeedAhead@mR^0,c
+   396   01FE0C  0E00               	movlw	high main@motorR
+   397   01FE0E  6E17               	movwf	(fullSpeedAhead@mR+1)^0,c
+   398   01FE10  EC0B  F0FD         	call	_fullSpeedAhead	;wreg free
+   399   01FE14                     
+   400                           ;main.c: 50:             _delay((unsigned long)((500)*(64000000/4000.0)));
+   401   01FE14  0E29               	movlw	41
+   402   01FE16  6E1D               	movwf	(??_main+1)^0,c
+   403   01FE18  0E96               	movlw	150
+   404   01FE1A  6E1C               	movwf	??_main^0,c
+   405   01FE1C  0E7F               	movlw	127
+   406   01FE1E                     u307:
+   407   01FE1E  2EE8               	decfsz	wreg,f,c
+   408   01FE20  D7FE               	bra	u307
+   409   01FE22  2E1C               	decfsz	??_main^0,f,c
+   410   01FE24  D7FC               	bra	u307
+   411   01FE26  2E1D               	decfsz	(??_main+1)^0,f,c
+   412   01FE28  D7FA               	bra	u307
+   413   01FE2A  F000               	nop	
+   414   01FE2C                     
+   415                           ;main.c: 51:             stop(&motorL, &motorR);
+   416   01FE2C  0E23               	movlw	low main@motorL
+   417   01FE2E  6E14               	movwf	stop@mL^0,c
+   418   01FE30  0E00               	movlw	high main@motorL
+   419   01FE32  6E15               	movwf	(stop@mL+1)^0,c
+   420   01FE34  0E2C               	movlw	low main@motorR
+   421   01FE36  6E16               	movwf	stop@mR^0,c
+   422   01FE38  0E00               	movlw	high main@motorR
+   423   01FE3A  6E17               	movwf	(stop@mR+1)^0,c
+   424   01FE3C  ECC6  F0FC         	call	_stop	;wreg free
+   425                           
+   426                           ;main.c: 52:             _delay((unsigned long)((500)*(64000000/4000.0)));
+   427   01FE40  0E29               	movlw	41
+   428   01FE42  6E1D               	movwf	(??_main+1)^0,c
+   429   01FE44  0E96               	movlw	150
+   430   01FE46  6E1C               	movwf	??_main^0,c
+   431   01FE48  0E7F               	movlw	127
+   432   01FE4A                     u317:
+   433   01FE4A  2EE8               	decfsz	wreg,f,c
+   434   01FE4C  D7FE               	bra	u317
+   435   01FE4E  2E1C               	decfsz	??_main^0,f,c
+   436   01FE50  D7FC               	bra	u317
+   437   01FE52  2E1D               	decfsz	(??_main+1)^0,f,c
+   438   01FE54  D7FA               	bra	u317
+   439   01FE56  F000               	nop	
+   440   01FE58                     
+   441                           ;main.c: 53:             turnLeft(&motorL, &motorR);
+   442   01FE58  0E23               	movlw	low main@motorL
+   443   01FE5A  6E14               	movwf	turnLeft@mL^0,c
+   444   01FE5C  0E00               	movlw	high main@motorL
+   445   01FE5E  6E15               	movwf	(turnLeft@mL+1)^0,c
+   446   01FE60  0E2C               	movlw	low main@motorR
+   447   01FE62  6E16               	movwf	turnLeft@mR^0,c
+   448   01FE64  0E00               	movlw	high main@motorR
+   449   01FE66  6E17               	movwf	(turnLeft@mR+1)^0,c
+   450   01FE68  EC58  F0FD         	call	_turnLeft	;wreg free
+   451   01FE6C                     
+   452                           ;main.c: 54:             stop(&motorL, &motorR);
+   453   01FE6C  0E23               	movlw	low main@motorL
+   454   01FE6E  6E14               	movwf	stop@mL^0,c
+   455   01FE70  0E00               	movlw	high main@motorL
+   456   01FE72  6E15               	movwf	(stop@mL+1)^0,c
+   457   01FE74  0E2C               	movlw	low main@motorR
+   458   01FE76  6E16               	movwf	stop@mR^0,c
+   459   01FE78  0E00               	movlw	high main@motorR
+   460   01FE7A  6E17               	movwf	(stop@mR+1)^0,c
+   461   01FE7C  ECC6  F0FC         	call	_stop	;wreg free
+   462                           
+   463                           ;main.c: 55:             _delay((unsigned long)((1000)*(64000000/4000.0)));
+   464   01FE80  0E52               	movlw	82
+   465   01FE82  6E1D               	movwf	(??_main+1)^0,c
+   466   01FE84  0E2B               	movlw	43
+   467   01FE86  6E1C               	movwf	??_main^0,c
+   468   01FE88  0E00               	movlw	0
+   469   01FE8A                     u327:
+   470   01FE8A  2EE8               	decfsz	wreg,f,c
+   471   01FE8C  D7FE               	bra	u327
+   472   01FE8E  2E1C               	decfsz	??_main^0,f,c
+   473   01FE90  D7FC               	bra	u327
+   474   01FE92  2E1D               	decfsz	(??_main+1)^0,f,c
+   475   01FE94  D7FA               	bra	u327
+   476   01FE96  D000               	nop2	
+   477   01FE98                     
+   478                           ;main.c: 56:         }
+   479   01FE98  4A1E               	infsnz	main@i^0,f,c
+   480   01FE9A  2A1F               	incf	(main@i+1)^0,f,c
+   481   01FE9C  BE1F               	btfsc	(main@i+1)^0,7,c
+   482   01FE9E  EF5A  F0FF         	goto	u271
+   483   01FEA2  501F               	movf	(main@i+1)^0,w,c
+   484   01FEA4  E109               	bnz	u270
+   485   01FEA6  0E04               	movlw	4
+   486   01FEA8  5C1E               	subwf	main@i^0,w,c
+   487   01FEAA  A0D8               	btfss	status,0,c
+   488   01FEAC  EF5A  F0FF         	goto	u271
+   489   01FEB0  EF5C  F0FF         	goto	u270
+   490   01FEB4                     u271:
+   491   01FEB4  EF00  F0FF         	goto	l1345
+   492   01FEB8                     u270:
+   493   01FEB8                     
+   494                           ;main.c: 57:         _delay((unsigned long)((500)*(64000000/4000.0)));
+   495   01FEB8  0E29               	movlw	41
+   496   01FEBA  6E1D               	movwf	(??_main+1)^0,c
+   497   01FEBC  0E96               	movlw	150
+   498   01FEBE  6E1C               	movwf	??_main^0,c
+   499   01FEC0  0E7F               	movlw	127
+   500   01FEC2                     u337:
+   501   01FEC2  2EE8               	decfsz	wreg,f,c
+   502   01FEC4  D7FE               	bra	u337
+   503   01FEC6  2E1C               	decfsz	??_main^0,f,c
+   504   01FEC8  D7FC               	bra	u337
+   505   01FECA  2E1D               	decfsz	(??_main+1)^0,f,c
+   506   01FECC  D7FA               	bra	u337
+   507   01FECE  F000               	nop	
+   508   01FED0                     
+   509                           ;main.c: 58:         turnLeft(&motorL, &motorR);
+   510   01FED0  0E23               	movlw	low main@motorL
+   511   01FED2  6E14               	movwf	turnLeft@mL^0,c
+   512   01FED4  0E00               	movlw	high main@motorL
+   513   01FED6  6E15               	movwf	(turnLeft@mL+1)^0,c
+   514   01FED8  0E2C               	movlw	low main@motorR
+   515   01FEDA  6E16               	movwf	turnLeft@mR^0,c
+   516   01FEDC  0E00               	movlw	high main@motorR
+   517   01FEDE  6E17               	movwf	(turnLeft@mR+1)^0,c
+   518   01FEE0  EC58  F0FD         	call	_turnLeft	;wreg free
+   519   01FEE4                     
+   520                           ;main.c: 59:         stop(&motorL, &motorR);
+   521   01FEE4  0E23               	movlw	low main@motorL
+   522   01FEE6  6E14               	movwf	stop@mL^0,c
+   523   01FEE8  0E00               	movlw	high main@motorL
+   524   01FEEA  6E15               	movwf	(stop@mL+1)^0,c
+   525   01FEEC  0E2C               	movlw	low main@motorR
+   526   01FEEE  6E16               	movwf	stop@mR^0,c
+   527   01FEF0  0E00               	movlw	high main@motorR
+   528   01FEF2  6E17               	movwf	(stop@mR+1)^0,c
+   529   01FEF4  ECC6  F0FC         	call	_stop	;wreg free
+   530                           
+   531                           ;main.c: 60:         _delay((unsigned long)((1000)*(64000000/4000.0)));
+   532   01FEF8  0E52               	movlw	82
+   533   01FEFA  6E1D               	movwf	(??_main+1)^0,c
+   534   01FEFC  0E2B               	movlw	43
+   535   01FEFE  6E1C               	movwf	??_main^0,c
+   536   01FF00  0E00               	movlw	0
+   537   01FF02                     u347:
+   538   01FF02  2EE8               	decfsz	wreg,f,c
+   539   01FF04  D7FE               	bra	u347
+   540   01FF06  2E1C               	decfsz	??_main^0,f,c
+   541   01FF08  D7FC               	bra	u347
+   542   01FF0A  2E1D               	decfsz	(??_main+1)^0,f,c
+   543   01FF0C  D7FA               	bra	u347
+   544   01FF0E  D000               	nop2	
+   545   01FF10                     
+   546                           ;main.c: 61:         for (int i = 0; i< 4; i++){
+   547   01FF10  0E00               	movlw	0
+   548   01FF12  6E21               	movwf	(main@i_937+1)^0,c
+   549   01FF14  0E00               	movlw	0
+   550   01FF16  6E20               	movwf	main@i_937^0,c
+   551   01FF18                     l1369:
+   552                           
+   553                           ;main.c: 62:             fullSpeedAhead(&motorL, &motorR);
+   554   01FF18  0E23               	movlw	low main@motorL
+   555   01FF1A  6E14               	movwf	fullSpeedAhead@mL^0,c
+   556   01FF1C  0E00               	movlw	high main@motorL
+   557   01FF1E  6E15               	movwf	(fullSpeedAhead@mL+1)^0,c
+   558   01FF20  0E2C               	movlw	low main@motorR
+   559   01FF22  6E16               	movwf	fullSpeedAhead@mR^0,c
+   560   01FF24  0E00               	movlw	high main@motorR
+   561   01FF26  6E17               	movwf	(fullSpeedAhead@mR+1)^0,c
+   562   01FF28  EC0B  F0FD         	call	_fullSpeedAhead	;wreg free
+   563   01FF2C                     
+   564                           ;main.c: 63:             _delay((unsigned long)((500)*(64000000/4000.0)));
+   565   01FF2C  0E29               	movlw	41
+   566   01FF2E  6E1D               	movwf	(??_main+1)^0,c
+   567   01FF30  0E96               	movlw	150
+   568   01FF32  6E1C               	movwf	??_main^0,c
+   569   01FF34  0E7F               	movlw	127
+   570   01FF36                     u357:
+   571   01FF36  2EE8               	decfsz	wreg,f,c
+   572   01FF38  D7FE               	bra	u357
+   573   01FF3A  2E1C               	decfsz	??_main^0,f,c
+   574   01FF3C  D7FC               	bra	u357
+   575   01FF3E  2E1D               	decfsz	(??_main+1)^0,f,c
+   576   01FF40  D7FA               	bra	u357
+   577   01FF42  F000               	nop	
+   578   01FF44                     
+   579                           ;main.c: 64:             stop(&motorL, &motorR);
+   580   01FF44  0E23               	movlw	low main@motorL
+   581   01FF46  6E14               	movwf	stop@mL^0,c
+   582   01FF48  0E00               	movlw	high main@motorL
+   583   01FF4A  6E15               	movwf	(stop@mL+1)^0,c
+   584   01FF4C  0E2C               	movlw	low main@motorR
+   585   01FF4E  6E16               	movwf	stop@mR^0,c
+   586   01FF50  0E00               	movlw	high main@motorR
+   587   01FF52  6E17               	movwf	(stop@mR+1)^0,c
+   588   01FF54  ECC6  F0FC         	call	_stop	;wreg free
+   589                           
+   590                           ;main.c: 65:             _delay((unsigned long)((500)*(64000000/4000.0)));
+   591   01FF58  0E29               	movlw	41
+   592   01FF5A  6E1D               	movwf	(??_main+1)^0,c
+   593   01FF5C  0E96               	movlw	150
+   594   01FF5E  6E1C               	movwf	??_main^0,c
+   595   01FF60  0E7F               	movlw	127
+   596   01FF62                     u367:
+   597   01FF62  2EE8               	decfsz	wreg,f,c
+   598   01FF64  D7FE               	bra	u367
+   599   01FF66  2E1C               	decfsz	??_main^0,f,c
+   600   01FF68  D7FC               	bra	u367
+   601   01FF6A  2E1D               	decfsz	(??_main+1)^0,f,c
+   602   01FF6C  D7FA               	bra	u367
+   603   01FF6E  F000               	nop	
+   604   01FF70                     
+   605                           ;main.c: 66:             turnRight(&motorL, &motorR);
+   606   01FF70  0E23               	movlw	low main@motorL
+   607   01FF72  6E14               	movwf	turnRight@mL^0,c
+   608   01FF74  0E00               	movlw	high main@motorL
+   609   01FF76  6E15               	movwf	(turnRight@mL+1)^0,c
+   610   01FF78  0E2C               	movlw	low main@motorR
+   611   01FF7A  6E16               	movwf	turnRight@mR^0,c
+   612   01FF7C  0E00               	movlw	high main@motorR
+   613   01FF7E  6E17               	movwf	(turnRight@mR+1)^0,c
+   614   01FF80  ECAE  F0FD         	call	_turnRight	;wreg free
+   615   01FF84                     
+   616                           ;main.c: 67:             stop(&motorL, &motorR);
+   617   01FF84  0E23               	movlw	low main@motorL
+   618   01FF86  6E14               	movwf	stop@mL^0,c
+   619   01FF88  0E00               	movlw	high main@motorL
+   620   01FF8A  6E15               	movwf	(stop@mL+1)^0,c
+   621   01FF8C  0E2C               	movlw	low main@motorR
+   622   01FF8E  6E16               	movwf	stop@mR^0,c
+   623   01FF90  0E00               	movlw	high main@motorR
+   624   01FF92  6E17               	movwf	(stop@mR+1)^0,c
+   625   01FF94  ECC6  F0FC         	call	_stop	;wreg free
+   626                           
+   627                           ;main.c: 68:             _delay((unsigned long)((1000)*(64000000/4000.0)));
+   628   01FF98  0E52               	movlw	82
+   629   01FF9A  6E1D               	movwf	(??_main+1)^0,c
+   630   01FF9C  0E2B               	movlw	43
+   631   01FF9E  6E1C               	movwf	??_main^0,c
+   632   01FFA0  0E00               	movlw	0
+   633   01FFA2                     u377:
+   634   01FFA2  2EE8               	decfsz	wreg,f,c
+   635   01FFA4  D7FE               	bra	u377
+   636   01FFA6  2E1C               	decfsz	??_main^0,f,c
+   637   01FFA8  D7FC               	bra	u377
+   638   01FFAA  2E1D               	decfsz	(??_main+1)^0,f,c
+   639   01FFAC  D7FA               	bra	u377
+   640   01FFAE  D000               	nop2	
+   641   01FFB0                     
+   642                           ;main.c: 69:         }
+   643   01FFB0  4A20               	infsnz	main@i_937^0,f,c
+   644   01FFB2  2A21               	incf	(main@i_937+1)^0,f,c
+   645   01FFB4  BE21               	btfsc	(main@i_937+1)^0,7,c
+   646   01FFB6  EFE6  F0FF         	goto	u281
+   647   01FFBA  5021               	movf	(main@i_937+1)^0,w,c
+   648   01FFBC  E109               	bnz	u280
+   649   01FFBE  0E04               	movlw	4
+   650   01FFC0  5C20               	subwf	main@i_937^0,w,c
+   651   01FFC2  A0D8               	btfss	status,0,c
+   652   01FFC4  EFE6  F0FF         	goto	u281
+   653   01FFC8  EFE8  F0FF         	goto	u280
+   654   01FFCC                     u281:
+   655   01FFCC  EF8C  F0FF         	goto	l1369
+   656   01FFD0                     u280:
+   657   01FFD0                     
+   658                           ;main.c: 70:         turnRight(&motorL, &motorR);
+   659   01FFD0  0E23               	movlw	low main@motorL
+   660   01FFD2  6E14               	movwf	turnRight@mL^0,c
+   661   01FFD4  0E00               	movlw	high main@motorL
+   662   01FFD6  6E15               	movwf	(turnRight@mL+1)^0,c
+   663   01FFD8  0E2C               	movlw	low main@motorR
+   664   01FFDA  6E16               	movwf	turnRight@mR^0,c
+   665   01FFDC  0E00               	movlw	high main@motorR
+   666   01FFDE  6E17               	movwf	(turnRight@mR+1)^0,c
+   667   01FFE0  ECAE  F0FD         	call	_turnRight	;wreg free
+   668                           
+   669                           ;main.c: 71:         stop(&motorL, &motorR);
+   670   01FFE4  0E23               	movlw	low main@motorL
+   671   01FFE6  6E14               	movwf	stop@mL^0,c
+   672   01FFE8  0E00               	movlw	high main@motorL
+   673   01FFEA  6E15               	movwf	(stop@mL+1)^0,c
+   674   01FFEC  0E2C               	movlw	low main@motorR
+   675   01FFEE  6E16               	movwf	stop@mR^0,c
+   676   01FFF0  0E00               	movlw	high main@motorR
+   677   01FFF2  6E17               	movwf	(stop@mR+1)^0,c
+   678   01FFF4  ECC6  F0FC         	call	_stop	;wreg free
+   679   01FFF8  EFF0  F0FE         	goto	l1337
+   680   01FFFC  EF00  F000         	goto	start
+   681   020000                     __end_of_main:
+   682                           	callstack 0
+   683                           
+   684 ;; *************** function _turnRight *****************
+   685 ;; Defined at:
+   686 ;;		line 116 in file "dc_motor.c"
+   687 ;; Parameters:    Size  Location     Type
+   688 ;;  mL              2   19[COMRAM] PTR struct DC_motor
+   689 ;;		 -> main@motorL(9), 
+   690 ;;  mR              2   21[COMRAM] PTR struct DC_motor
+   691 ;;		 -> main@motorR(9), 
+   692 ;; Auto vars:     Size  Location     Type
+   693 ;;  i               2   25[COMRAM] int 
+   694 ;; Return value:  Size  Location     Type
+   695 ;;                  1    wreg      void 
+   696 ;; Registers used:
+   697 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   698 ;; Tracked objects:
+   699 ;;		On entry : 0/0
+   700 ;;		On exit  : 0/0
+   701 ;;		Unchanged: 0/0
+   702 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+   703 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   704 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   705 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   706 ;;      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   707 ;;Total ram usage:        8 bytes
+   708 ;; Hardware stack levels used: 1
+   709 ;; Hardware stack levels required when called: 2
+   710 ;; This function calls:
+   711 ;;		_setMotorPWM
+   712 ;; This function is called by:
+   713 ;;		_main
+   714 ;; This function uses a non-reentrant model
+   715 ;;
+   716                           
+   717                           	psect	text1
+   718   01FB5C                     __ptext1:
+   719                           	callstack 0
+   720   01FB5C                     _turnRight:
+   721                           	callstack 28
+   722   01FB5C                     
+   723                           ;dc_motor.c: 116: void turnRight(DC_motor *mL, DC_motor *mR);dc_motor.c: 117: {;dc_motor
+      +                          .c: 118:     mL->direction=1;
+   724   01FB5C  EE20 F001          	lfsr	2,1
+   725   01FB60  5014               	movf	turnRight@mL^0,w,c
+   726   01FB62  26D9               	addwf	fsr2l,f,c
+   727   01FB64  5015               	movf	(turnRight@mL+1)^0,w,c
+   728   01FB66  22DA               	addwfc	fsr2h,f,c
+   729   01FB68  0E01               	movlw	1
+   730   01FB6A  6EDF               	movwf	indf2,c
+   731                           
+   732                           ;dc_motor.c: 119:     mR->direction=0;
+   733   01FB6C  EE20 F001          	lfsr	2,1
+   734   01FB70  5016               	movf	turnRight@mR^0,w,c
+   735   01FB72  26D9               	addwf	fsr2l,f,c
+   736   01FB74  5017               	movf	(turnRight@mR+1)^0,w,c
+   737   01FB76  22DA               	addwfc	fsr2h,f,c
+   738   01FB78  0E00               	movlw	0
+   739   01FB7A  6EDF               	movwf	indf2,c
+   740   01FB7C                     
+   741                           ;dc_motor.c: 120:     for(int i=0;i<40;i+=10){
+   742   01FB7C  0E00               	movlw	0
+   743   01FB7E  6E1B               	movwf	(turnRight@i+1)^0,c
+   744   01FB80  0E00               	movlw	0
+   745   01FB82  6E1A               	movwf	turnRight@i^0,c
+   746   01FB84                     l1269:
+   747                           
+   748                           ;dc_motor.c: 122:         mR->power=i;
+   749   01FB84  C016  FFD9         	movff	turnRight@mR,fsr2l
+   750   01FB88  C017  FFDA         	movff	turnRight@mR+1,fsr2h
+   751   01FB8C  C01A  FFDF         	movff	turnRight@i,indf2
+   752                           
+   753                           ;dc_motor.c: 123:         mL->power=i;
+   754   01FB90  C014  FFD9         	movff	turnRight@mL,fsr2l
+   755   01FB94  C015  FFDA         	movff	turnRight@mL+1,fsr2h
+   756   01FB98  C01A  FFDF         	movff	turnRight@i,indf2
+   757   01FB9C                     
+   758                           ;dc_motor.c: 124:         _delay((unsigned long)((20)*(64000000/4000.0)));
+   759   01FB9C  0E02               	movlw	2
+   760   01FB9E  6E19               	movwf	(??_turnRight+1)^0,c
+   761   01FBA0  0EA0               	movlw	160
+   762   01FBA2  6E18               	movwf	??_turnRight^0,c
+   763   01FBA4  0E92               	movlw	146
+   764   01FBA6                     u387:
+   765   01FBA6  2EE8               	decfsz	wreg,f,c
+   766   01FBA8  D7FE               	bra	u387
+   767   01FBAA  2E18               	decfsz	??_turnRight^0,f,c
+   768   01FBAC  D7FC               	bra	u387
+   769   01FBAE  2E19               	decfsz	(??_turnRight+1)^0,f,c
+   770   01FBB0  D7FA               	bra	u387
+   771   01FBB2  D000               	nop2	
+   772   01FBB4                     
+   773                           ;dc_motor.c: 125:         setMotorPWM(mL);
+   774   01FBB4  C014  F00E         	movff	turnRight@mL,setMotorPWM@m
+   775   01FBB8  C015  F00F         	movff	turnRight@mL+1,setMotorPWM@m+1
+   776   01FBBC  EC04  F0FE         	call	_setMotorPWM	;wreg free
+   777   01FBC0                     
+   778                           ;dc_motor.c: 126:         setMotorPWM(mR);}
+   779   01FBC0  C016  F00E         	movff	turnRight@mR,setMotorPWM@m
+   780   01FBC4  C017  F00F         	movff	turnRight@mR+1,setMotorPWM@m+1
+   781   01FBC8  EC04  F0FE         	call	_setMotorPWM	;wreg free
+   782   01FBCC  0E0A               	movlw	10
+   783   01FBCE  261A               	addwf	turnRight@i^0,f,c
+   784   01FBD0  0E00               	movlw	0
+   785   01FBD2  221B               	addwfc	(turnRight@i+1)^0,f,c
+   786   01FBD4  BE1B               	btfsc	(turnRight@i+1)^0,7,c
+   787   01FBD6  EFF6  F0FD         	goto	u251
+   788   01FBDA  501B               	movf	(turnRight@i+1)^0,w,c
+   789   01FBDC  E109               	bnz	u250
+   790   01FBDE  0E28               	movlw	40
+   791   01FBE0  5C1A               	subwf	turnRight@i^0,w,c
+   792   01FBE2  A0D8               	btfss	status,0,c
+   793   01FBE4  EFF6  F0FD         	goto	u251
+   794   01FBE8  EFF8  F0FD         	goto	u250
+   795   01FBEC                     u251:
+   796   01FBEC  EFC2  F0FD         	goto	l1269
+   797   01FBF0                     u250:
+   798   01FBF0                     
+   799                           ;dc_motor.c: 127:     _delay((unsigned long)((750)*(64000000/4000.0)));
+   800   01FBF0  0E3D               	movlw	61
+   801   01FBF2  6E19               	movwf	(??_turnRight+1)^0,c
+   802   01FBF4  0EE1               	movlw	225
+   803   01FBF6  6E18               	movwf	??_turnRight^0,c
+   804   01FBF8  0E40               	movlw	64
+   805   01FBFA                     u397:
+   806   01FBFA  2EE8               	decfsz	wreg,f,c
+   807   01FBFC  D7FE               	bra	u397
+   808   01FBFE  2E18               	decfsz	??_turnRight^0,f,c
+   809   01FC00  D7FC               	bra	u397
+   810   01FC02  2E19               	decfsz	(??_turnRight+1)^0,f,c
+   811   01FC04  D7FA               	bra	u397
+   812   01FC06  0012               	return		;funcret
+   813   01FC08                     __end_of_turnRight:
+   814                           	callstack 0
+   815                           
+   816 ;; *************** function _turnLeft *****************
+   817 ;; Defined at:
+   818 ;;		line 101 in file "dc_motor.c"
+   819 ;; Parameters:    Size  Location     Type
+   820 ;;  mL              2   19[COMRAM] PTR struct DC_motor
+   821 ;;		 -> main@motorL(9), 
+   822 ;;  mR              2   21[COMRAM] PTR struct DC_motor
+   823 ;;		 -> main@motorR(9), 
+   824 ;; Auto vars:     Size  Location     Type
+   825 ;;  i               2   25[COMRAM] int 
+   826 ;; Return value:  Size  Location     Type
+   827 ;;                  1    wreg      void 
+   828 ;; Registers used:
+   829 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   830 ;; Tracked objects:
+   831 ;;		On entry : 0/0
+   832 ;;		On exit  : 0/0
+   833 ;;		Unchanged: 0/0
+   834 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+   835 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   836 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   837 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   838 ;;      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   839 ;;Total ram usage:        8 bytes
+   840 ;; Hardware stack levels used: 1
+   841 ;; Hardware stack levels required when called: 2
+   842 ;; This function calls:
+   843 ;;		_setMotorPWM
+   844 ;; This function is called by:
+   845 ;;		_main
+   846 ;; This function uses a non-reentrant model
+   847 ;;
+   848                           
+   849                           	psect	text2
+   850   01FAB0                     __ptext2:
+   851                           	callstack 0
+   852   01FAB0                     _turnLeft:
+   853                           	callstack 28
+   854   01FAB0                     
+   855                           ;dc_motor.c: 101: void turnLeft(DC_motor *mL, DC_motor *mR);dc_motor.c: 102: {;dc_motor.
+      +                          c: 103:     mL->direction=0;
+   856   01FAB0  EE20 F001          	lfsr	2,1
+   857   01FAB4  5014               	movf	turnLeft@mL^0,w,c
+   858   01FAB6  26D9               	addwf	fsr2l,f,c
+   859   01FAB8  5015               	movf	(turnLeft@mL+1)^0,w,c
+   860   01FABA  22DA               	addwfc	fsr2h,f,c
+   861   01FABC  0E00               	movlw	0
+   862   01FABE  6EDF               	movwf	indf2,c
+   863                           
+   864                           ;dc_motor.c: 104:     mR->direction=1;
+   865   01FAC0  EE20 F001          	lfsr	2,1
+   866   01FAC4  5016               	movf	turnLeft@mR^0,w,c
+   867   01FAC6  26D9               	addwf	fsr2l,f,c
+   868   01FAC8  5017               	movf	(turnLeft@mR+1)^0,w,c
+   869   01FACA  22DA               	addwfc	fsr2h,f,c
+   870   01FACC  0E01               	movlw	1
+   871   01FACE  6EDF               	movwf	indf2,c
+   872   01FAD0                     
+   873                           ;dc_motor.c: 105:     for(int i=0;i<40;i+=10){
+   874   01FAD0  0E00               	movlw	0
+   875   01FAD2  6E1B               	movwf	(turnLeft@i+1)^0,c
+   876   01FAD4  0E00               	movlw	0
+   877   01FAD6  6E1A               	movwf	turnLeft@i^0,c
+   878   01FAD8                     l1247:
+   879                           
+   880                           ;dc_motor.c: 107:         mR->power=i;
+   881   01FAD8  C016  FFD9         	movff	turnLeft@mR,fsr2l
+   882   01FADC  C017  FFDA         	movff	turnLeft@mR+1,fsr2h
+   883   01FAE0  C01A  FFDF         	movff	turnLeft@i,indf2
+   884                           
+   885                           ;dc_motor.c: 108:         mL->power=i;
+   886   01FAE4  C014  FFD9         	movff	turnLeft@mL,fsr2l
+   887   01FAE8  C015  FFDA         	movff	turnLeft@mL+1,fsr2h
+   888   01FAEC  C01A  FFDF         	movff	turnLeft@i,indf2
+   889   01FAF0                     
+   890                           ;dc_motor.c: 109:         _delay((unsigned long)((20)*(64000000/4000.0)));
+   891   01FAF0  0E02               	movlw	2
+   892   01FAF2  6E19               	movwf	(??_turnLeft+1)^0,c
+   893   01FAF4  0EA0               	movlw	160
+   894   01FAF6  6E18               	movwf	??_turnLeft^0,c
+   895   01FAF8  0E92               	movlw	146
+   896   01FAFA                     u407:
+   897   01FAFA  2EE8               	decfsz	wreg,f,c
+   898   01FAFC  D7FE               	bra	u407
+   899   01FAFE  2E18               	decfsz	??_turnLeft^0,f,c
+   900   01FB00  D7FC               	bra	u407
+   901   01FB02  2E19               	decfsz	(??_turnLeft+1)^0,f,c
+   902   01FB04  D7FA               	bra	u407
+   903   01FB06  D000               	nop2	
+   904   01FB08                     
+   905                           ;dc_motor.c: 110:         setMotorPWM(mL);
+   906   01FB08  C014  F00E         	movff	turnLeft@mL,setMotorPWM@m
+   907   01FB0C  C015  F00F         	movff	turnLeft@mL+1,setMotorPWM@m+1
+   908   01FB10  EC04  F0FE         	call	_setMotorPWM	;wreg free
+   909   01FB14                     
+   910                           ;dc_motor.c: 111:         setMotorPWM(mR);}
+   911   01FB14  C016  F00E         	movff	turnLeft@mR,setMotorPWM@m
+   912   01FB18  C017  F00F         	movff	turnLeft@mR+1,setMotorPWM@m+1
+   913   01FB1C  EC04  F0FE         	call	_setMotorPWM	;wreg free
+   914   01FB20  0E0A               	movlw	10
+   915   01FB22  261A               	addwf	turnLeft@i^0,f,c
+   916   01FB24  0E00               	movlw	0
+   917   01FB26  221B               	addwfc	(turnLeft@i+1)^0,f,c
+   918   01FB28  BE1B               	btfsc	(turnLeft@i+1)^0,7,c
+   919   01FB2A  EFA0  F0FD         	goto	u241
+   920   01FB2E  501B               	movf	(turnLeft@i+1)^0,w,c
+   921   01FB30  E109               	bnz	u240
+   922   01FB32  0E28               	movlw	40
+   923   01FB34  5C1A               	subwf	turnLeft@i^0,w,c
+   924   01FB36  A0D8               	btfss	status,0,c
+   925   01FB38  EFA0  F0FD         	goto	u241
+   926   01FB3C  EFA2  F0FD         	goto	u240
+   927   01FB40                     u241:
+   928   01FB40  EF6C  F0FD         	goto	l1247
+   929   01FB44                     u240:
+   930   01FB44                     
+   931                           ;dc_motor.c: 112:     _delay((unsigned long)((750)*(64000000/4000.0)));
+   932   01FB44  0E3D               	movlw	61
+   933   01FB46  6E19               	movwf	(??_turnLeft+1)^0,c
+   934   01FB48  0EE1               	movlw	225
+   935   01FB4A  6E18               	movwf	??_turnLeft^0,c
+   936   01FB4C  0E40               	movlw	64
+   937   01FB4E                     u417:
+   938   01FB4E  2EE8               	decfsz	wreg,f,c
+   939   01FB50  D7FE               	bra	u417
+   940   01FB52  2E18               	decfsz	??_turnLeft^0,f,c
+   941   01FB54  D7FC               	bra	u417
+   942   01FB56  2E19               	decfsz	(??_turnLeft+1)^0,f,c
+   943   01FB58  D7FA               	bra	u417
+   944   01FB5A  0012               	return		;funcret
+   945   01FB5C                     __end_of_turnLeft:
+   946                           	callstack 0
+   947                           
+   948 ;; *************** function _stop *****************
+   949 ;; Defined at:
+   950 ;;		line 84 in file "dc_motor.c"
+   951 ;; Parameters:    Size  Location     Type
+   952 ;;  mL              2   19[COMRAM] PTR struct DC_motor
+   953 ;;		 -> main@motorL(9), 
+   954 ;;  mR              2   21[COMRAM] PTR struct DC_motor
+   955 ;;		 -> main@motorR(9), 
+   956 ;; Auto vars:     Size  Location     Type
+   957 ;;		None
+   958 ;; Return value:  Size  Location     Type
+   959 ;;                  1    wreg      void 
+   960 ;; Registers used:
+   961 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   962 ;; Tracked objects:
+   963 ;;		On entry : 0/0
+   964 ;;		On exit  : 0/0
+   965 ;;		Unchanged: 0/0
+   966 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+   967 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   968 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   969 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   970 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+   971 ;;Total ram usage:        5 bytes
+   972 ;; Hardware stack levels used: 1
+   973 ;; Hardware stack levels required when called: 2
+   974 ;; This function calls:
+   975 ;;		_setMotorPWM
+   976 ;; This function is called by:
+   977 ;;		_main
+   978 ;; This function uses a non-reentrant model
+   979 ;;
+   980                           
+   981                           	psect	text3
+   982   01F98C                     __ptext3:
+   983                           	callstack 0
+   984   01F98C                     _stop:
+   985                           	callstack 28
+   986   01F98C                     
+   987                           ;dc_motor.c: 84: void stop(DC_motor *mL, DC_motor *mR);dc_motor.c: 85: {;dc_motor.c: 86:
+      +                               while(mL->power !=0){
+   988   01F98C  EFDC  F0FC         	goto	l1229
+   989   01F990                     l1223:
+   990                           
+   991                           ;dc_motor.c: 87:         mL->power -=10;
+   992   01F990  C014  FFD9         	movff	stop@mL,fsr2l
+   993   01F994  C015  FFDA         	movff	stop@mL+1,fsr2h
+   994   01F998  0E0A               	movlw	10
+   995   01F99A  5EDF               	subwf	indf2,f,c
+   996   01F99C                     
+   997                           ;dc_motor.c: 88:         _delay((unsigned long)((5)*(64000000/4000.0)));
+   998   01F99C  0E68               	movlw	104
+   999   01F99E  6E18               	movwf	??_stop^0,c
+  1000   01F9A0  0EE4               	movlw	228
+  1001   01F9A2                     u427:
+  1002   01F9A2  2EE8               	decfsz	wreg,f,c
+  1003   01F9A4  D7FE               	bra	u427
+  1004   01F9A6  2E18               	decfsz	??_stop^0,f,c
+  1005   01F9A8  D7FC               	bra	u427
+  1006   01F9AA  D000               	nop2	
+  1007   01F9AC                     
+  1008                           ;dc_motor.c: 89:         setMotorPWM(mL);
+  1009   01F9AC  C014  F00E         	movff	stop@mL,setMotorPWM@m
+  1010   01F9B0  C015  F00F         	movff	stop@mL+1,setMotorPWM@m+1
+  1011   01F9B4  EC04  F0FE         	call	_setMotorPWM	;wreg free
+  1012   01F9B8                     l1229:
+  1013                           
+  1014                           ;dc_motor.c: 86:     while(mL->power !=0){
+  1015   01F9B8  C014  FFD9         	movff	stop@mL,fsr2l
+  1016   01F9BC  C015  FFDA         	movff	stop@mL+1,fsr2h
+  1017   01F9C0  50DF               	movf	indf2,w,c
+  1018   01F9C2  A4D8               	btfss	status,2,c
+  1019   01F9C4  EFE6  F0FC         	goto	u221
+  1020   01F9C8  EFE8  F0FC         	goto	u220
+  1021   01F9CC                     u221:
+  1022   01F9CC  EFC8  F0FC         	goto	l1223
+  1023   01F9D0                     u220:
+  1024   01F9D0  EFFE  F0FC         	goto	l1237
+  1025   01F9D4                     l1231:
+  1026                           
+  1027                           ;dc_motor.c: 92:         mR->power -=10;
+  1028   01F9D4  C016  FFD9         	movff	stop@mR,fsr2l
+  1029   01F9D8  C017  FFDA         	movff	stop@mR+1,fsr2h
+  1030   01F9DC  0E0A               	movlw	10
+  1031   01F9DE  5EDF               	subwf	indf2,f,c
+  1032   01F9E0                     
+  1033                           ;dc_motor.c: 93:         _delay((unsigned long)((5)*(64000000/4000.0)));
+  1034   01F9E0  0E68               	movlw	104
+  1035   01F9E2  6E18               	movwf	??_stop^0,c
+  1036   01F9E4  0EE4               	movlw	228
+  1037   01F9E6                     u437:
+  1038   01F9E6  2EE8               	decfsz	wreg,f,c
+  1039   01F9E8  D7FE               	bra	u437
+  1040   01F9EA  2E18               	decfsz	??_stop^0,f,c
+  1041   01F9EC  D7FC               	bra	u437
+  1042   01F9EE  D000               	nop2	
+  1043   01F9F0                     
+  1044                           ;dc_motor.c: 94:         setMotorPWM(mR);
+  1045   01F9F0  C016  F00E         	movff	stop@mR,setMotorPWM@m
+  1046   01F9F4  C017  F00F         	movff	stop@mR+1,setMotorPWM@m+1
+  1047   01F9F8  EC04  F0FE         	call	_setMotorPWM	;wreg free
+  1048   01F9FC                     l1237:
+  1049                           
+  1050                           ;dc_motor.c: 91:     while(mR -> power !=0){
+  1051   01F9FC  C016  FFD9         	movff	stop@mR,fsr2l
+  1052   01FA00  C017  FFDA         	movff	stop@mR+1,fsr2h
+  1053   01FA04  50DF               	movf	indf2,w,c
+  1054   01FA06  A4D8               	btfss	status,2,c
+  1055   01FA08  EF08  F0FD         	goto	u231
+  1056   01FA0C  EF0A  F0FD         	goto	u230
+  1057   01FA10                     u231:
+  1058   01FA10  EFEA  F0FC         	goto	l1231
+  1059   01FA14                     u230:
+  1060   01FA14  0012               	return		;funcret
+  1061   01FA16                     __end_of_stop:
+  1062                           	callstack 0
+  1063                           
+  1064 ;; *************** function _initDCmotorsPWM *****************
+  1065 ;; Defined at:
+  1066 ;;		line 6 in file "dc_motor.c"
+  1067 ;; Parameters:    Size  Location     Type
+  1068 ;;  PWMperiod       2    0[COMRAM] unsigned int 
+  1069 ;; Auto vars:     Size  Location     Type
+  1070 ;;		None
+  1071 ;; Return value:  Size  Location     Type
+  1072 ;;                  1    wreg      void 
+  1073 ;; Registers used:
+  1074 ;;		wreg, status,2
+  1075 ;; Tracked objects:
+  1076 ;;		On entry : 0/0
+  1077 ;;		On exit  : 0/0
+  1078 ;;		Unchanged: 0/0
+  1079 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+  1080 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1081 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1082 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1083 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1084 ;;Total ram usage:        2 bytes
+  1085 ;; Hardware stack levels used: 1
+  1086 ;; This function calls:
+  1087 ;;		Nothing
+  1088 ;; This function is called by:
+  1089 ;;		_main
+  1090 ;; This function uses a non-reentrant model
+  1091 ;;
+  1092                           
+  1093                           	psect	text4
+  1094   01F904                     __ptext4:
+  1095                           	callstack 0
+  1096   01F904                     _initDCmotorsPWM:
+  1097                           	callstack 30
+  1098   01F904                     
+  1099                           ;dc_motor.c: 8:     TRISEbits.TRISE2=0;
+  1100   01F904  9485               	bcf	133,2,c	;volatile
+  1101                           
+  1102                           ;dc_motor.c: 9:     TRISEbits.TRISE4=0;
+  1103   01F906  9885               	bcf	133,4,c	;volatile
+  1104                           
+  1105                           ;dc_motor.c: 10:     TRISCbits.TRISC7=0;
+  1106   01F908  9E83               	bcf	131,7,c	;volatile
+  1107                           
+  1108                           ;dc_motor.c: 11:     TRISGbits.TRISG6=0;
+  1109   01F90A  9C87               	bcf	135,6,c	;volatile
+  1110   01F90C                     
+  1111                           ;dc_motor.c: 14:     RE2PPS=0x05;
+  1112   01F90C  0E05               	movlw	5
+  1113   01F90E  010E               	movlb	14	; () banked
+  1114   01F910  6F74               	movwf	116,b	;volatile
+  1115                           
+  1116                           ;dc_motor.c: 15:     RE4PPS=0x06;
+  1117   01F912  0E06               	movlw	6
+  1118   01F914  6F76               	movwf	118,b	;volatile
+  1119                           
+  1120                           ;dc_motor.c: 16:     RC7PPS=0x07;
+  1121   01F916  0E07               	movlw	7
+  1122   01F918  6F69               	movwf	105,b	;volatile
+  1123                           
+  1124                           ;dc_motor.c: 17:     RG6PPS=0x08;
+  1125   01F91A  0E08               	movlw	8
+  1126   01F91C  6F88               	movwf	136,b	;volatile
+  1127                           
+  1128                           ;dc_motor.c: 20:     T2CONbits.CKPS=0b100;
+  1129   01F91E  50BD               	movf	189,w,c	;volatile
+  1130   01F920  0B8F               	andlw	-113
+  1131   01F922  0940               	iorlw	64
+  1132   01F924  6EBD               	movwf	189,c	;volatile
+  1133                           
+  1134                           ;dc_motor.c: 21:     T2HLTbits.MODE=0b00000;
+  1135   01F926  0EE0               	movlw	-32
+  1136   01F928  16BE               	andwf	190,f,c	;volatile
+  1137                           
+  1138                           ;dc_motor.c: 22:     T2CLKCONbits.CS=0b0001;
+  1139   01F92A  50BF               	movf	191,w,c	;volatile
+  1140   01F92C  0BF0               	andlw	-16
+  1141   01F92E  0901               	iorlw	1
+  1142   01F930  6EBF               	movwf	191,c	;volatile
+  1143                           
+  1144                           ;dc_motor.c: 26:     T2PR=99;
+  1145   01F932  0E63               	movlw	99
+  1146   01F934  6EBC               	movwf	188,c	;volatile
+  1147   01F936                     
+  1148                           ; BSR set to: 14
+  1149                           ;dc_motor.c: 27:     T2CONbits.ON=1;
+  1150   01F936  8EBD               	bsf	189,7,c	;volatile
+  1151                           
+  1152                           ;dc_motor.c: 31:     CCPR1H=0;
+  1153   01F938  0E00               	movlw	0
+  1154   01F93A  6EAA               	movwf	170,c	;volatile
+  1155                           
+  1156                           ;dc_motor.c: 32:     CCPR2H=0;
+  1157   01F93C  0E00               	movlw	0
+  1158   01F93E  6EA6               	movwf	166,c	;volatile
+  1159                           
+  1160                           ;dc_motor.c: 33:     CCPR3H=0;
+  1161   01F940  0E00               	movlw	0
+  1162   01F942  010F               	movlb	15	; () banked
+  1163   01F944  6F25               	movwf	37,b	;volatile
+  1164                           
+  1165                           ;dc_motor.c: 34:     CCPR4H=0;
+  1166   01F946  0E00               	movlw	0
+  1167   01F948  6F21               	movwf	33,b	;volatile
+  1168                           
+  1169                           ;dc_motor.c: 37:     CCPTMRS0bits.C1TSEL=0;
+  1170   01F94A  0EFC               	movlw	-4
+  1171   01F94C  16AD               	andwf	173,f,c	;volatile
+  1172                           
+  1173                           ;dc_motor.c: 38:     CCPTMRS0bits.C2TSEL=0;
+  1174   01F94E  0EF3               	movlw	-13
+  1175   01F950  16AD               	andwf	173,f,c	;volatile
+  1176                           
+  1177                           ;dc_motor.c: 39:     CCPTMRS0bits.C3TSEL=0;
+  1178   01F952  0ECF               	movlw	-49
+  1179   01F954  16AD               	andwf	173,f,c	;volatile
+  1180                           
+  1181                           ;dc_motor.c: 40:     CCPTMRS0bits.C4TSEL=0;
+  1182   01F956  0E3F               	movlw	-193
+  1183   01F958  16AD               	andwf	173,f,c	;volatile
+  1184   01F95A                     
+  1185                           ; BSR set to: 15
+  1186                           ;dc_motor.c: 43:     CCP1CONbits.FMT=1;
+  1187   01F95A  88AB               	bsf	171,4,c	;volatile
+  1188                           
+  1189                           ;dc_motor.c: 44:     CCP1CONbits.CCP1MODE=0b1100;
+  1190   01F95C  50AB               	movf	171,w,c	;volatile
+  1191   01F95E  0BF0               	andlw	-16
+  1192   01F960  090C               	iorlw	12
+  1193   01F962  6EAB               	movwf	171,c	;volatile
+  1194   01F964                     
+  1195                           ; BSR set to: 15
+  1196                           ;dc_motor.c: 45:     CCP1CONbits.EN=1;
+  1197   01F964  8EAB               	bsf	171,7,c	;volatile
+  1198   01F966                     
+  1199                           ; BSR set to: 15
+  1200                           ;dc_motor.c: 47:     CCP2CONbits.FMT=1;
+  1201   01F966  88A7               	bsf	167,4,c	;volatile
+  1202                           
+  1203                           ;dc_motor.c: 48:     CCP2CONbits.CCP2MODE=0b1100;
+  1204   01F968  50A7               	movf	167,w,c	;volatile
+  1205   01F96A  0BF0               	andlw	-16
+  1206   01F96C  090C               	iorlw	12
+  1207   01F96E  6EA7               	movwf	167,c	;volatile
+  1208   01F970                     
+  1209                           ; BSR set to: 15
+  1210                           ;dc_motor.c: 49:     CCP2CONbits.EN=1;
+  1211   01F970  8EA7               	bsf	167,7,c	;volatile
+  1212   01F972                     
+  1213                           ; BSR set to: 15
+  1214                           ;dc_motor.c: 51:     CCP3CONbits.FMT=1;
+  1215   01F972  8926               	bsf	38,4,b	;volatile
+  1216                           
+  1217                           ;dc_motor.c: 52:     CCP3CONbits.CCP3MODE=0b1100;
+  1218   01F974  5126               	movf	38,w,b	;volatile
+  1219   01F976  0BF0               	andlw	-16
+  1220   01F978  090C               	iorlw	12
+  1221   01F97A  6F26               	movwf	38,b	;volatile
+  1222   01F97C                     
+  1223                           ; BSR set to: 15
+  1224                           ;dc_motor.c: 53:     CCP3CONbits.EN=1;
+  1225   01F97C  8F26               	bsf	38,7,b	;volatile
+  1226   01F97E                     
+  1227                           ; BSR set to: 15
+  1228                           ;dc_motor.c: 55:     CCP4CONbits.FMT=1;
+  1229   01F97E  8922               	bsf	34,4,b	;volatile
+  1230                           
+  1231                           ;dc_motor.c: 56:     CCP4CONbits.CCP4MODE=0b1100;
+  1232   01F980  5122               	movf	34,w,b	;volatile
+  1233   01F982  0BF0               	andlw	-16
+  1234   01F984  090C               	iorlw	12
+  1235   01F986  6F22               	movwf	34,b	;volatile
+  1236   01F988                     
+  1237                           ; BSR set to: 15
+  1238                           ;dc_motor.c: 57:     CCP4CONbits.EN=1;
+  1239   01F988  8F22               	bsf	34,7,b	;volatile
+  1240   01F98A                     
+  1241                           ; BSR set to: 15
+  1242   01F98A  0012               	return		;funcret
+  1243   01F98C                     __end_of_initDCmotorsPWM:
+  1244                           	callstack 0
+  1245                           
+  1246 ;; *************** function _fullSpeedAhead *****************
+  1247 ;; Defined at:
+  1248 ;;		line 131 in file "dc_motor.c"
+  1249 ;; Parameters:    Size  Location     Type
+  1250 ;;  mL              2   19[COMRAM] PTR struct DC_motor
+  1251 ;;		 -> main@motorL(9), 
+  1252 ;;  mR              2   21[COMRAM] PTR struct DC_motor
+  1253 ;;		 -> main@motorR(9), 
+  1254 ;; Auto vars:     Size  Location     Type
+  1255 ;;  i               2   24[COMRAM] int 
+  1256 ;; Return value:  Size  Location     Type
+  1257 ;;                  1    wreg      void 
+  1258 ;; Registers used:
+  1259 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1260 ;; Tracked objects:
+  1261 ;;		On entry : 0/0
+  1262 ;;		On exit  : 0/0
+  1263 ;;		Unchanged: 0/0
+  1264 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+  1265 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1266 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1267 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1268 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1269 ;;Total ram usage:        7 bytes
+  1270 ;; Hardware stack levels used: 1
+  1271 ;; Hardware stack levels required when called: 2
+  1272 ;; This function calls:
+  1273 ;;		_setMotorPWM
+  1274 ;; This function is called by:
+  1275 ;;		_main
+  1276 ;; This function uses a non-reentrant model
+  1277 ;;
+  1278                           
+  1279                           	psect	text5
+  1280   01FA16                     __ptext5:
+  1281                           	callstack 0
+  1282   01FA16                     _fullSpeedAhead:
+  1283                           	callstack 28
+  1284   01FA16                     
+  1285                           ;dc_motor.c: 131: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);dc_motor.c: 132: {;dc_
+      +                          motor.c: 133:     mL->direction=1;
+  1286   01FA16  EE20 F001          	lfsr	2,1
+  1287   01FA1A  5014               	movf	fullSpeedAhead@mL^0,w,c
+  1288   01FA1C  26D9               	addwf	fsr2l,f,c
+  1289   01FA1E  5015               	movf	(fullSpeedAhead@mL+1)^0,w,c
+  1290   01FA20  22DA               	addwfc	fsr2h,f,c
+  1291   01FA22  0E01               	movlw	1
+  1292   01FA24  6EDF               	movwf	indf2,c
+  1293                           
+  1294                           ;dc_motor.c: 134:     mR->direction=1;
+  1295   01FA26  EE20 F001          	lfsr	2,1
+  1296   01FA2A  5016               	movf	fullSpeedAhead@mR^0,w,c
+  1297   01FA2C  26D9               	addwf	fsr2l,f,c
+  1298   01FA2E  5017               	movf	(fullSpeedAhead@mR+1)^0,w,c
+  1299   01FA30  22DA               	addwfc	fsr2h,f,c
+  1300   01FA32  0E01               	movlw	1
+  1301   01FA34  6EDF               	movwf	indf2,c
+  1302   01FA36                     
+  1303                           ;dc_motor.c: 135:     for(int i=0;i<60;i+=10){
+  1304   01FA36  0E00               	movlw	0
+  1305   01FA38  6E1A               	movwf	(fullSpeedAhead@i+1)^0,c
+  1306   01FA3A  0E00               	movlw	0
+  1307   01FA3C  6E19               	movwf	fullSpeedAhead@i^0,c
+  1308   01FA3E                     l1291:
+  1309                           
+  1310                           ;dc_motor.c: 136:         mL->power=i;
+  1311   01FA3E  C014  FFD9         	movff	fullSpeedAhead@mL,fsr2l
+  1312   01FA42  C015  FFDA         	movff	fullSpeedAhead@mL+1,fsr2h
+  1313   01FA46  C019  FFDF         	movff	fullSpeedAhead@i,indf2
+  1314                           
+  1315                           ;dc_motor.c: 137:         mR->power=i;
+  1316   01FA4A  C016  FFD9         	movff	fullSpeedAhead@mR,fsr2l
+  1317   01FA4E  C017  FFDA         	movff	fullSpeedAhead@mR+1,fsr2h
+  1318   01FA52  C019  FFDF         	movff	fullSpeedAhead@i,indf2
+  1319   01FA56                     
+  1320                           ;dc_motor.c: 138:         setMotorPWM(mL);
+  1321   01FA56  C014  F00E         	movff	fullSpeedAhead@mL,setMotorPWM@m
+  1322   01FA5A  C015  F00F         	movff	fullSpeedAhead@mL+1,setMotorPWM@m+1
+  1323   01FA5E  EC04  F0FE         	call	_setMotorPWM	;wreg free
+  1324   01FA62                     
+  1325                           ;dc_motor.c: 139:         setMotorPWM(mR);
+  1326   01FA62  C016  F00E         	movff	fullSpeedAhead@mR,setMotorPWM@m
+  1327   01FA66  C017  F00F         	movff	fullSpeedAhead@mR+1,setMotorPWM@m+1
+  1328   01FA6A  EC04  F0FE         	call	_setMotorPWM	;wreg free
+  1329   01FA6E                     
+  1330                           ;dc_motor.c: 140:         _delay((unsigned long)((10)*(64000000/4000.0)));
+  1331   01FA6E  0ED0               	movlw	208
+  1332   01FA70  6E18               	movwf	??_fullSpeedAhead^0,c
+  1333   01FA72  0ECA               	movlw	202
+  1334   01FA74                     u447:
+  1335   01FA74  2EE8               	decfsz	wreg,f,c
+  1336   01FA76  D7FE               	bra	u447
+  1337   01FA78  2E18               	decfsz	??_fullSpeedAhead^0,f,c
+  1338   01FA7A  D7FC               	bra	u447
+  1339   01FA7C                     
+  1340                           ;dc_motor.c: 141:     }
+  1341   01FA7C  0E0A               	movlw	10
+  1342   01FA7E  2619               	addwf	fullSpeedAhead@i^0,f,c
+  1343   01FA80  0E00               	movlw	0
+  1344   01FA82  221A               	addwfc	(fullSpeedAhead@i+1)^0,f,c
+  1345   01FA84  BE1A               	btfsc	(fullSpeedAhead@i+1)^0,7,c
+  1346   01FA86  EF4E  F0FD         	goto	u261
+  1347   01FA8A  501A               	movf	(fullSpeedAhead@i+1)^0,w,c
+  1348   01FA8C  E109               	bnz	u260
+  1349   01FA8E  0E3C               	movlw	60
+  1350   01FA90  5C19               	subwf	fullSpeedAhead@i^0,w,c
+  1351   01FA92  A0D8               	btfss	status,0,c
+  1352   01FA94  EF4E  F0FD         	goto	u261
+  1353   01FA98  EF50  F0FD         	goto	u260
+  1354   01FA9C                     u261:
+  1355   01FA9C  EF1F  F0FD         	goto	l1291
+  1356   01FAA0                     u260:
+  1357   01FAA0                     
+  1358                           ;dc_motor.c: 142:     _delay((unsigned long)((10)*(64000000/4000.0)));
+  1359   01FAA0  0ED0               	movlw	208
+  1360   01FAA2  6E18               	movwf	??_fullSpeedAhead^0,c
+  1361   01FAA4  0ECA               	movlw	202
+  1362   01FAA6                     u457:
+  1363   01FAA6  2EE8               	decfsz	wreg,f,c
+  1364   01FAA8  D7FE               	bra	u457
+  1365   01FAAA  2E18               	decfsz	??_fullSpeedAhead^0,f,c
+  1366   01FAAC  D7FC               	bra	u457
+  1367   01FAAE  0012               	return		;funcret
+  1368   01FAB0                     __end_of_fullSpeedAhead:
+  1369                           	callstack 0
+  1370                           
+  1371 ;; *************** function _setMotorPWM *****************
+  1372 ;; Defined at:
+  1373 ;;		line 61 in file "dc_motor.c"
+  1374 ;; Parameters:    Size  Location     Type
+  1375 ;;  m               2   13[COMRAM] PTR struct DC_motor
+  1376 ;;		 -> main@motorR(9), main@motorL(9), 
+  1377 ;; Auto vars:     Size  Location     Type
+  1378 ;;  negDuty         1   18[COMRAM] unsigned char 
+  1379 ;;  posDuty         1   17[COMRAM] unsigned char 
+  1380 ;; Return value:  Size  Location     Type
+  1381 ;;                  1    wreg      void 
+  1382 ;; Registers used:
+  1383 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1384 ;; Tracked objects:
+  1385 ;;		On entry : 0/0
+  1386 ;;		On exit  : 0/0
+  1387 ;;		Unchanged: 0/0
+  1388 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+  1389 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1390 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1391 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1392 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1393 ;;Total ram usage:        6 bytes
+  1394 ;; Hardware stack levels used: 1
+  1395 ;; Hardware stack levels required when called: 1
+  1396 ;; This function calls:
+  1397 ;;		___lwdiv
+  1398 ;;		___wmul
+  1399 ;; This function is called by:
+  1400 ;;		_stop
+  1401 ;;		_turnLeft
+  1402 ;;		_turnRight
+  1403 ;;		_fullSpeedAhead
+  1404 ;;		_main
+  1405 ;; This function uses a non-reentrant model
+  1406 ;;
+  1407                           
+  1408                           	psect	text6
+  1409   01FC08                     __ptext6:
+  1410                           	callstack 0
+  1411   01FC08                     _setMotorPWM:
+  1412                           	callstack 28
+  1413   01FC08                     
+  1414                           ;dc_motor.c: 61: void setMotorPWM(DC_motor *m);dc_motor.c: 62: {;dc_motor.c: 63:     uns
+      +                          igned char posDuty, negDuty;;dc_motor.c: 65:     if(m->brakemode) {
+  1415   01FC08  EE20 F002          	lfsr	2,2
+  1416   01FC0C  500E               	movf	setMotorPWM@m^0,w,c
+  1417   01FC0E  26D9               	addwf	fsr2l,f,c
+  1418   01FC10  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1419   01FC12  22DA               	addwfc	fsr2h,f,c
+  1420   01FC14  50DF               	movf	indf2,w,c
+  1421   01FC16  B4D8               	btfsc	status,2,c
+  1422   01FC18  EF10  F0FE         	goto	u201
+  1423   01FC1C  EF12  F0FE         	goto	u200
+  1424   01FC20                     u201:
+  1425   01FC20  EF46  F0FE         	goto	l1189
+  1426   01FC24                     u200:
+  1427   01FC24                     
+  1428                           ;dc_motor.c: 66:         posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod)
+      +                          )/100;
+  1429   01FC24  C00E  FFD9         	movff	setMotorPWM@m,fsr2l
+  1430   01FC28  C00F  FFDA         	movff	setMotorPWM@m+1,fsr2h
+  1431   01FC2C  50DF               	movf	indf2,w,c
+  1432   01FC2E  6E10               	movwf	??_setMotorPWM^0,c
+  1433   01FC30  5010               	movf	??_setMotorPWM^0,w,c
+  1434   01FC32  6E01               	movwf	___wmul@multiplier^0,c
+  1435   01FC34  6A02               	clrf	(___wmul@multiplier+1)^0,c
+  1436   01FC36  EE20 F003          	lfsr	2,3
+  1437   01FC3A  500E               	movf	setMotorPWM@m^0,w,c
+  1438   01FC3C  26D9               	addwf	fsr2l,f,c
+  1439   01FC3E  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1440   01FC40  22DA               	addwfc	fsr2h,f,c
+  1441   01FC42  CFDE F003          	movff	postinc2,___wmul@multiplicand
+  1442   01FC46  CFDD F004          	movff	postdec2,___wmul@multiplicand+1
+  1443   01FC4A  EC35  F0FC         	call	___wmul	;wreg free
+  1444   01FC4E  C001  F007         	movff	?___wmul,___lwdiv@dividend
+  1445   01FC52  C002  F008         	movff	?___wmul+1,___lwdiv@dividend+1
+  1446   01FC56  0E00               	movlw	0
+  1447   01FC58  6E0A               	movwf	(___lwdiv@divisor+1)^0,c
+  1448   01FC5A  0E64               	movlw	100
+  1449   01FC5C  6E09               	movwf	___lwdiv@divisor^0,c
+  1450   01FC5E  EC48  F0FC         	call	___lwdiv	;wreg free
+  1451   01FC62  EE20 F003          	lfsr	2,3
+  1452   01FC66  500E               	movf	setMotorPWM@m^0,w,c
+  1453   01FC68  26D9               	addwf	fsr2l,f,c
+  1454   01FC6A  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1455   01FC6C  22DA               	addwfc	fsr2h,f,c
+  1456   01FC6E  50DF               	movf	indf2,w,c
+  1457   01FC70  6E11               	movwf	(??_setMotorPWM+1)^0,c
+  1458   01FC72  5007               	movf	?___lwdiv^0,w,c
+  1459   01FC74  5C11               	subwf	(??_setMotorPWM+1)^0,w,c
+  1460   01FC76  6E12               	movwf	setMotorPWM@posDuty^0,c
+  1461   01FC78                     
+  1462                           ;dc_motor.c: 67:         negDuty=m->PWMperiod;
+  1463   01FC78  EE20 F003          	lfsr	2,3
+  1464   01FC7C  500E               	movf	setMotorPWM@m^0,w,c
+  1465   01FC7E  26D9               	addwf	fsr2l,f,c
+  1466   01FC80  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1467   01FC82  22DA               	addwfc	fsr2h,f,c
+  1468   01FC84  50DF               	movf	indf2,w,c
+  1469   01FC86  6E13               	movwf	setMotorPWM@negDuty^0,c
+  1470                           
+  1471                           ;dc_motor.c: 68:     }
+  1472   01FC88  EF69  F0FE         	goto	l1193
+  1473   01FC8C                     l1189:
+  1474                           
+  1475                           ;dc_motor.c: 70:         posDuty=0;
+  1476   01FC8C  0E00               	movlw	0
+  1477   01FC8E  6E12               	movwf	setMotorPWM@posDuty^0,c
+  1478   01FC90                     
+  1479                           ;dc_motor.c: 71:         negDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
+  1480   01FC90  C00E  FFD9         	movff	setMotorPWM@m,fsr2l
+  1481   01FC94  C00F  FFDA         	movff	setMotorPWM@m+1,fsr2h
+  1482   01FC98  50DF               	movf	indf2,w,c
+  1483   01FC9A  6E10               	movwf	??_setMotorPWM^0,c
+  1484   01FC9C  5010               	movf	??_setMotorPWM^0,w,c
+  1485   01FC9E  6E01               	movwf	___wmul@multiplier^0,c
+  1486   01FCA0  6A02               	clrf	(___wmul@multiplier+1)^0,c
+  1487   01FCA2  EE20 F003          	lfsr	2,3
+  1488   01FCA6  500E               	movf	setMotorPWM@m^0,w,c
+  1489   01FCA8  26D9               	addwf	fsr2l,f,c
+  1490   01FCAA  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1491   01FCAC  22DA               	addwfc	fsr2h,f,c
+  1492   01FCAE  CFDE F003          	movff	postinc2,___wmul@multiplicand
+  1493   01FCB2  CFDD F004          	movff	postdec2,___wmul@multiplicand+1
+  1494   01FCB6  EC35  F0FC         	call	___wmul	;wreg free
+  1495   01FCBA  C001  F007         	movff	?___wmul,___lwdiv@dividend
+  1496   01FCBE  C002  F008         	movff	?___wmul+1,___lwdiv@dividend+1
+  1497   01FCC2  0E00               	movlw	0
+  1498   01FCC4  6E0A               	movwf	(___lwdiv@divisor+1)^0,c
+  1499   01FCC6  0E64               	movlw	100
+  1500   01FCC8  6E09               	movwf	___lwdiv@divisor^0,c
+  1501   01FCCA  EC48  F0FC         	call	___lwdiv	;wreg free
+  1502   01FCCE  5007               	movf	?___lwdiv^0,w,c
+  1503   01FCD0  6E13               	movwf	setMotorPWM@negDuty^0,c
+  1504   01FCD2                     l1193:
+  1505                           
+  1506                           ;dc_motor.c: 74:     if (m->direction) {
+  1507   01FCD2  EE20 F001          	lfsr	2,1
+  1508   01FCD6  500E               	movf	setMotorPWM@m^0,w,c
+  1509   01FCD8  26D9               	addwf	fsr2l,f,c
+  1510   01FCDA  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1511   01FCDC  22DA               	addwfc	fsr2h,f,c
+  1512   01FCDE  50DF               	movf	indf2,w,c
+  1513   01FCE0  B4D8               	btfsc	status,2,c
+  1514   01FCE2  EF75  F0FE         	goto	u211
+  1515   01FCE6  EF77  F0FE         	goto	u210
+  1516   01FCEA                     u211:
+  1517   01FCEA  EF99  F0FE         	goto	l1197
+  1518   01FCEE                     u210:
+  1519   01FCEE                     
+  1520                           ;dc_motor.c: 75:         *(m->posDutyHighByte)=posDuty;
+  1521   01FCEE  EE20 F005          	lfsr	2,5
+  1522   01FCF2  500E               	movf	setMotorPWM@m^0,w,c
+  1523   01FCF4  26D9               	addwf	fsr2l,f,c
+  1524   01FCF6  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1525   01FCF8  22DA               	addwfc	fsr2h,f,c
+  1526   01FCFA  CFDE F010          	movff	postinc2,??_setMotorPWM
+  1527   01FCFE  CFDD F011          	movff	postdec2,??_setMotorPWM+1
+  1528   01FD02  C010  FFD9         	movff	??_setMotorPWM,fsr2l
+  1529   01FD06  C011  FFDA         	movff	??_setMotorPWM+1,fsr2h
+  1530   01FD0A  C012  FFDF         	movff	setMotorPWM@posDuty,indf2
+  1531                           
+  1532                           ;dc_motor.c: 76:         *(m->negDutyHighByte)=negDuty;
+  1533   01FD0E  EE20 F007          	lfsr	2,7
+  1534   01FD12  500E               	movf	setMotorPWM@m^0,w,c
+  1535   01FD14  26D9               	addwf	fsr2l,f,c
+  1536   01FD16  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1537   01FD18  22DA               	addwfc	fsr2h,f,c
+  1538   01FD1A  CFDE F010          	movff	postinc2,??_setMotorPWM
+  1539   01FD1E  CFDD F011          	movff	postdec2,??_setMotorPWM+1
+  1540   01FD22  C010  FFD9         	movff	??_setMotorPWM,fsr2l
+  1541   01FD26  C011  FFDA         	movff	??_setMotorPWM+1,fsr2h
+  1542   01FD2A  C013  FFDF         	movff	setMotorPWM@negDuty,indf2
+  1543                           
+  1544                           ;dc_motor.c: 77:     } else {
+  1545   01FD2E  EFB9  F0FE         	goto	l77
+  1546   01FD32                     l1197:
+  1547                           
+  1548                           ;dc_motor.c: 78:         *(m->posDutyHighByte)=negDuty;
+  1549   01FD32  EE20 F005          	lfsr	2,5
+  1550   01FD36  500E               	movf	setMotorPWM@m^0,w,c
+  1551   01FD38  26D9               	addwf	fsr2l,f,c
+  1552   01FD3A  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1553   01FD3C  22DA               	addwfc	fsr2h,f,c
+  1554   01FD3E  CFDE F010          	movff	postinc2,??_setMotorPWM
+  1555   01FD42  CFDD F011          	movff	postdec2,??_setMotorPWM+1
+  1556   01FD46  C010  FFD9         	movff	??_setMotorPWM,fsr2l
+  1557   01FD4A  C011  FFDA         	movff	??_setMotorPWM+1,fsr2h
+  1558   01FD4E  C013  FFDF         	movff	setMotorPWM@negDuty,indf2
+  1559                           
+  1560                           ;dc_motor.c: 79:         *(m->negDutyHighByte)=posDuty;
+  1561   01FD52  EE20 F007          	lfsr	2,7
+  1562   01FD56  500E               	movf	setMotorPWM@m^0,w,c
+  1563   01FD58  26D9               	addwf	fsr2l,f,c
+  1564   01FD5A  500F               	movf	(setMotorPWM@m+1)^0,w,c
+  1565   01FD5C  22DA               	addwfc	fsr2h,f,c
+  1566   01FD5E  CFDE F010          	movff	postinc2,??_setMotorPWM
+  1567   01FD62  CFDD F011          	movff	postdec2,??_setMotorPWM+1
+  1568   01FD66  C010  FFD9         	movff	??_setMotorPWM,fsr2l
+  1569   01FD6A  C011  FFDA         	movff	??_setMotorPWM+1,fsr2h
+  1570   01FD6E  C012  FFDF         	movff	setMotorPWM@posDuty,indf2
+  1571   01FD72                     l77:
+  1572   01FD72  0012               	return		;funcret
+  1573   01FD74                     __end_of_setMotorPWM:
+  1574                           	callstack 0
+  1575                           
+  1576 ;; *************** function ___wmul *****************
+  1577 ;; Defined at:
+  1578 ;;		line 15 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c"
+  1579 ;; Parameters:    Size  Location     Type
+  1580 ;;  multiplier      2    0[COMRAM] unsigned int 
+  1581 ;;  multiplicand    2    2[COMRAM] unsigned int 
+  1582 ;; Auto vars:     Size  Location     Type
+  1583 ;;  product         2    4[COMRAM] unsigned int 
+  1584 ;; Return value:  Size  Location     Type
+  1585 ;;                  2    0[COMRAM] unsigned int 
+  1586 ;; Registers used:
+  1587 ;;		wreg, status,2, status,0, prodl, prodh
+  1588 ;; Tracked objects:
+  1589 ;;		On entry : 0/0
+  1590 ;;		On exit  : 0/0
+  1591 ;;		Unchanged: 0/0
+  1592 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+  1593 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1594 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1595 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1596 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1597 ;;Total ram usage:        6 bytes
+  1598 ;; Hardware stack levels used: 1
+  1599 ;; This function calls:
+  1600 ;;		Nothing
+  1601 ;; This function is called by:
+  1602 ;;		_setMotorPWM
+  1603 ;; This function uses a non-reentrant model
+  1604 ;;
+  1605                           
+  1606                           	psect	text7
+  1607   01F86A                     __ptext7:
+  1608                           	callstack 0
+  1609   01F86A                     ___wmul:
+  1610                           	callstack 28
+  1611   01F86A  5001               	movf	___wmul@multiplier^0,w,c
+  1612   01F86C  0203               	mulwf	___wmul@multiplicand^0,c
+  1613   01F86E  CFF3 F005          	movff	prodl,___wmul@product
+  1614   01F872  CFF4 F006          	movff	prodh,___wmul@product+1
+  1615   01F876  5001               	movf	___wmul@multiplier^0,w,c
+  1616   01F878  0204               	mulwf	(___wmul@multiplicand+1)^0,c
+  1617   01F87A  50F3               	movf	243,w,c
+  1618   01F87C  2606               	addwf	(___wmul@product+1)^0,f,c
+  1619   01F87E  5002               	movf	(___wmul@multiplier+1)^0,w,c
+  1620   01F880  0203               	mulwf	___wmul@multiplicand^0,c
+  1621   01F882  50F3               	movf	243,w,c
+  1622   01F884  2606               	addwf	(___wmul@product+1)^0,f,c
+  1623   01F886  C005  F001         	movff	___wmul@product,?___wmul
+  1624   01F88A  C006  F002         	movff	___wmul@product+1,?___wmul+1
+  1625   01F88E  0012               	return		;funcret
+  1626   01F890                     __end_of___wmul:
+  1627                           	callstack 0
+  1628                           
+  1629 ;; *************** function ___lwdiv *****************
+  1630 ;; Defined at:
+  1631 ;;		line 7 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c"
+  1632 ;; Parameters:    Size  Location     Type
+  1633 ;;  dividend        2    6[COMRAM] unsigned int 
+  1634 ;;  divisor         2    8[COMRAM] unsigned int 
+  1635 ;; Auto vars:     Size  Location     Type
+  1636 ;;  quotient        2   10[COMRAM] unsigned int 
+  1637 ;;  counter         1   12[COMRAM] unsigned char 
+  1638 ;; Return value:  Size  Location     Type
+  1639 ;;                  2    6[COMRAM] unsigned int 
+  1640 ;; Registers used:
+  1641 ;;		wreg, status,2, status,0
+  1642 ;; Tracked objects:
+  1643 ;;		On entry : 0/0
+  1644 ;;		On exit  : 0/0
+  1645 ;;		Unchanged: 0/0
+  1646 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13
+  1647 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1648 ;;      Locals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1649 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1650 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0
+  1651 ;;Total ram usage:        7 bytes
+  1652 ;; Hardware stack levels used: 1
+  1653 ;; This function calls:
+  1654 ;;		Nothing
+  1655 ;; This function is called by:
+  1656 ;;		_setMotorPWM
+  1657 ;; This function uses a non-reentrant model
+  1658 ;;
+  1659                           
+  1660                           	psect	text8
+  1661   01F890                     __ptext8:
+  1662                           	callstack 0
+  1663   01F890                     ___lwdiv:
+  1664                           	callstack 28
+  1665   01F890  0E00               	movlw	0
+  1666   01F892  6E0C               	movwf	(___lwdiv@quotient+1)^0,c
+  1667   01F894  0E00               	movlw	0
+  1668   01F896  6E0B               	movwf	___lwdiv@quotient^0,c
+  1669   01F898  5009               	movf	___lwdiv@divisor^0,w,c
+  1670   01F89A  100A               	iorwf	(___lwdiv@divisor+1)^0,w,c
+  1671   01F89C  B4D8               	btfsc	status,2,c
+  1672   01F89E  EF53  F0FC         	goto	u171
+  1673   01F8A2  EF55  F0FC         	goto	u170
+  1674   01F8A6                     u171:
+  1675   01F8A6  EF7D  F0FC         	goto	l679
+  1676   01F8AA                     u170:
+  1677   01F8AA  0E01               	movlw	1
+  1678   01F8AC  6E0D               	movwf	___lwdiv@counter^0,c
+  1679   01F8AE  EF5D  F0FC         	goto	l1169
+  1680   01F8B2                     l1167:
+  1681   01F8B2  90D8               	bcf	status,0,c
+  1682   01F8B4  3609               	rlcf	___lwdiv@divisor^0,f,c
+  1683   01F8B6  360A               	rlcf	(___lwdiv@divisor+1)^0,f,c
+  1684   01F8B8  2A0D               	incf	___lwdiv@counter^0,f,c
+  1685   01F8BA                     l1169:
+  1686   01F8BA  AE0A               	btfss	(___lwdiv@divisor+1)^0,7,c
+  1687   01F8BC  EF62  F0FC         	goto	u181
+  1688   01F8C0  EF64  F0FC         	goto	u180
+  1689   01F8C4                     u181:
+  1690   01F8C4  EF59  F0FC         	goto	l1167
+  1691   01F8C8                     u180:
+  1692   01F8C8                     l1171:
+  1693   01F8C8  90D8               	bcf	status,0,c
+  1694   01F8CA  360B               	rlcf	___lwdiv@quotient^0,f,c
+  1695   01F8CC  360C               	rlcf	(___lwdiv@quotient+1)^0,f,c
+  1696   01F8CE  5009               	movf	___lwdiv@divisor^0,w,c
+  1697   01F8D0  5C07               	subwf	___lwdiv@dividend^0,w,c
+  1698   01F8D2  500A               	movf	(___lwdiv@divisor+1)^0,w,c
+  1699   01F8D4  5808               	subwfb	(___lwdiv@dividend+1)^0,w,c
+  1700   01F8D6  A0D8               	btfss	status,0,c
+  1701   01F8D8  EF70  F0FC         	goto	u191
+  1702   01F8DC  EF72  F0FC         	goto	u190
+  1703   01F8E0                     u191:
+  1704   01F8E0  EF77  F0FC         	goto	l1179
+  1705   01F8E4                     u190:
+  1706   01F8E4  5009               	movf	___lwdiv@divisor^0,w,c
+  1707   01F8E6  5E07               	subwf	___lwdiv@dividend^0,f,c
+  1708   01F8E8  500A               	movf	(___lwdiv@divisor+1)^0,w,c
+  1709   01F8EA  5A08               	subwfb	(___lwdiv@dividend+1)^0,f,c
+  1710   01F8EC  800B               	bsf	___lwdiv@quotient^0,0,c
+  1711   01F8EE                     l1179:
+  1712   01F8EE  90D8               	bcf	status,0,c
+  1713   01F8F0  320A               	rrcf	(___lwdiv@divisor+1)^0,f,c
+  1714   01F8F2  3209               	rrcf	___lwdiv@divisor^0,f,c
+  1715   01F8F4  2E0D               	decfsz	___lwdiv@counter^0,f,c
+  1716   01F8F6  EF64  F0FC         	goto	l1171
+  1717   01F8FA                     l679:
+  1718   01F8FA  C00B  F007         	movff	___lwdiv@quotient,?___lwdiv
+  1719   01F8FE  C00C  F008         	movff	___lwdiv@quotient+1,?___lwdiv+1
+  1720   01F902  0012               	return		;funcret
+  1721   01F904                     __end_of___lwdiv:
+  1722                           	callstack 0
+  1723   000000                     
+  1724                           	psect	rparam
+  1725   000000                     
+  1726                           	psect	idloc
+  1727                           
+  1728                           ;Config register IDLOC0 @ 0x200000
+  1729                           ;	unspecified, using default values
+  1730   200000                     	org	2097152
+  1731   200000  0FFF               	dw	4095
+  1732                           
+  1733                           ;Config register IDLOC1 @ 0x200002
+  1734                           ;	unspecified, using default values
+  1735   200002                     	org	2097154
+  1736   200002  0FFF               	dw	4095
+  1737                           
+  1738                           ;Config register IDLOC2 @ 0x200004
+  1739                           ;	unspecified, using default values
+  1740   200004                     	org	2097156
+  1741   200004  0FFF               	dw	4095
+  1742                           
+  1743                           ;Config register IDLOC3 @ 0x200006
+  1744                           ;	unspecified, using default values
+  1745   200006                     	org	2097158
+  1746   200006  0FFF               	dw	4095
+  1747                           
+  1748                           ;Config register IDLOC4 @ 0x200008
+  1749                           ;	unspecified, using default values
+  1750   200008                     	org	2097160
+  1751   200008  0FFF               	dw	4095
+  1752                           
+  1753                           ;Config register IDLOC5 @ 0x20000A
+  1754                           ;	unspecified, using default values
+  1755   20000A                     	org	2097162
+  1756   20000A  0FFF               	dw	4095
+  1757                           
+  1758                           ;Config register IDLOC6 @ 0x20000C
+  1759                           ;	unspecified, using default values
+  1760   20000C                     	org	2097164
+  1761   20000C  0FFF               	dw	4095
+  1762                           
+  1763                           ;Config register IDLOC7 @ 0x20000E
+  1764                           ;	unspecified, using default values
+  1765   20000E                     	org	2097166
+  1766   20000E  0FFF               	dw	4095
+  1767                           
+  1768                           	psect	config
+  1769                           
+  1770                           ;Config register CONFIG1L @ 0x300000
+  1771                           ;	External Oscillator mode Selection bits
+  1772                           ;	FEXTOSC = HS, HS (crystal oscillator) above 8 MHz; PFM set to high power
+  1773                           ;	Power-up default value for COSC bits
+  1774                           ;	RSTOSC = EXTOSC_4PLL, EXTOSC with 4x PLL, with EXTOSC operating per FEXTOSC bits
+  1775   300000                     	org	3145728
+  1776   300000  AA                 	db	170
+  1777                           
+  1778                           ;Config register CONFIG1H @ 0x300001
+  1779                           ;	unspecified, using default values
+  1780                           ;	Clock Out Enable bit
+  1781                           ;	CLKOUTEN = 0x1, unprogrammed default
+  1782                           ;	Clock Switch Enable bit
+  1783                           ;	CSWEN = 0x1, unprogrammed default
+  1784                           ;	Fail-Safe Clock Monitor Enable bit
+  1785                           ;	FCMEN = 0x1, unprogrammed default
+  1786   300001                     	org	3145729
+  1787   300001  FF                 	db	255
+  1788                           
+  1789                           ;Config register CONFIG2L @ 0x300002
+  1790                           ;	unspecified, using default values
+  1791                           ;	Master Clear Enable bit
+  1792                           ;	MCLRE = 0x1, unprogrammed default
+  1793                           ;	Power-up Timer Enable bit
+  1794                           ;	PWRTE = 0x1, unprogrammed default
+  1795                           ;	Low-power BOR enable bit
+  1796                           ;	LPBOREN = 0x1, unprogrammed default
+  1797                           ;	Brown-out Reset Enable bits
+  1798                           ;	BOREN = 0x3, unprogrammed default
+  1799   300002                     	org	3145730
+  1800   300002  FF                 	db	255
+  1801                           
+  1802                           ;Config register CONFIG2H @ 0x300003
+  1803                           ;	unspecified, using default values
+  1804                           ;	Brown Out Reset Voltage selection bits
+  1805                           ;	BORV = 0x3, unprogrammed default
+  1806                           ;	ZCD Disable bit
+  1807                           ;	ZCD = 0x1, unprogrammed default
+  1808                           ;	PPSLOCK bit One-Way Set Enable bit
+  1809                           ;	PPS1WAY = 0x1, unprogrammed default
+  1810                           ;	Stack Full/Underflow Reset Enable bit
+  1811                           ;	STVREN = 0x1, unprogrammed default
+  1812                           ;	Debugger Enable bit
+  1813                           ;	DEBUG = 0x1, unprogrammed default
+  1814                           ;	Extended Instruction Set Enable bit
+  1815                           ;	XINST = 0x1, unprogrammed default
+  1816   300003                     	org	3145731
+  1817   300003  FF                 	db	255
+  1818                           
+  1819                           ;Config register CONFIG3L @ 0x300004
+  1820                           ;	WDT Period Select bits
+  1821                           ;	WDTCPS = 0x1F, unprogrammed default
+  1822                           ;	WDT operating mode
+  1823                           ;	WDTE = OFF, WDT Disabled
+  1824   300004                     	org	3145732
+  1825   300004  9F                 	db	159
+  1826                           
+  1827                           ;Config register CONFIG3H @ 0x300005
+  1828                           ;	unspecified, using default values
+  1829                           ;	WDT Window Select bits
+  1830                           ;	WDTCWS = 0x7, unprogrammed default
+  1831                           ;	WDT input clock selector
+  1832                           ;	WDTCCS = 0x7, unprogrammed default
+  1833   300005                     	org	3145733
+  1834   300005  FF                 	db	255
+  1835                           
+  1836                           ;Config register CONFIG4L @ 0x300006
+  1837                           ;	unspecified, using default values
+  1838                           ;	Write Protection Block 0
+  1839                           ;	WRT0 = 0x1, unprogrammed default
+  1840                           ;	Write Protection Block 1
+  1841                           ;	WRT1 = 0x1, unprogrammed default
+  1842                           ;	Write Protection Block 2
+  1843                           ;	WRT2 = 0x1, unprogrammed default
+  1844                           ;	Write Protection Block 3
+  1845                           ;	WRT3 = 0x1, unprogrammed default
+  1846                           ;	Write Protection Block 3
+  1847                           ;	WRT4 = 0x1, unprogrammed default
+  1848                           ;	Write Protection Block 3
+  1849                           ;	WRT5 = 0x1, unprogrammed default
+  1850                           ;	Write Protection Block 3
+  1851                           ;	WRT6 = 0x1, unprogrammed default
+  1852                           ;	Write Protection Block 3
+  1853                           ;	WRT7 = 0x1, unprogrammed default
+  1854   300006                     	org	3145734
+  1855   300006  FF                 	db	255
+  1856                           
+  1857                           ;Config register CONFIG4H @ 0x300007
+  1858                           ;	unspecified, using default values
+  1859                           ;	Configuration Register Write Protection bit
+  1860                           ;	WRTC = 0x1, unprogrammed default
+  1861                           ;	Boot Block Write Protection bit
+  1862                           ;	WRTB = 0x1, unprogrammed default
+  1863                           ;	Data EEPROM Write Protection bit
+  1864                           ;	WRTD = 0x1, unprogrammed default
+  1865                           ;	Scanner Enable bit
+  1866                           ;	SCANE = 0x1, unprogrammed default
+  1867                           ;	Low Voltage Programming Enable bit
+  1868                           ;	LVP = 0x1, unprogrammed default
+  1869   300007                     	org	3145735
+  1870   300007  FF                 	db	255
+  1871                           
+  1872                           ;Config register CONFIG5L @ 0x300008
+  1873                           ;	unspecified, using default values
+  1874                           ;	UserNVM Program Memory Code Protection bit
+  1875                           ;	CP = 0x1, unprogrammed default
+  1876                           ;	DataNVM Memory Code Protection bit
+  1877                           ;	CPD = 0x1, unprogrammed default
+  1878   300008                     	org	3145736
+  1879   300008  FF                 	db	255
+  1880                           
+  1881                           ;Config register CONFIG5H @ 0x300009
+  1882                           ;	unspecified, using default values
+  1883   300009                     	org	3145737
+  1884   300009  FF                 	db	255
+  1885                           
+  1886                           ;Config register CONFIG6L @ 0x30000A
+  1887                           ;	unspecified, using default values
+  1888                           ;	Table Read Protection Block 0
+  1889                           ;	EBTR0 = 0x1, unprogrammed default
+  1890                           ;	Table Read Protection Block 1
+  1891                           ;	EBTR1 = 0x1, unprogrammed default
+  1892                           ;	Table Read Protection Block 2
+  1893                           ;	EBTR2 = 0x1, unprogrammed default
+  1894                           ;	Table Read Protection Block 3
+  1895                           ;	EBTR3 = 0x1, unprogrammed default
+  1896                           ;	Table Read Protection Block 4
+  1897                           ;	EBTR4 = 0x1, unprogrammed default
+  1898                           ;	Table Read Protection Block 5
+  1899                           ;	EBTR5 = 0x1, unprogrammed default
+  1900                           ;	Table Read Protection Block 6
+  1901                           ;	EBTR6 = 0x1, unprogrammed default
+  1902                           ;	Table Read Protection Block 7
+  1903                           ;	EBTR7 = 0x1, unprogrammed default
+  1904   30000A                     	org	3145738
+  1905   30000A  FF                 	db	255
+  1906                           
+  1907                           ;Config register CONFIG6H @ 0x30000B
+  1908                           ;	unspecified, using default values
+  1909                           ;	Boot Block Table Read Protection bit
+  1910                           ;	EBTRB = 0x1, unprogrammed default
+  1911   30000B                     	org	3145739
+  1912   30000B  FF                 	db	255
+  1913                           tosu	equ	0xFFF
+  1914                           tosh	equ	0xFFE
+  1915                           tosl	equ	0xFFD
+  1916                           stkptr	equ	0xFFC
+  1917                           pclatu	equ	0xFFB
+  1918                           pclath	equ	0xFFA
+  1919                           pcl	equ	0xFF9
+  1920                           tblptru	equ	0xFF8
+  1921                           tblptrh	equ	0xFF7
+  1922                           tblptrl	equ	0xFF6
+  1923                           tablat	equ	0xFF5
+  1924                           prodh	equ	0xFF4
+  1925                           prodl	equ	0xFF3
+  1926                           indf0	equ	0xFEF
+  1927                           postinc0	equ	0xFEE
+  1928                           postdec0	equ	0xFED
+  1929                           preinc0	equ	0xFEC
+  1930                           plusw0	equ	0xFEB
+  1931                           fsr0h	equ	0xFEA
+  1932                           fsr0l	equ	0xFE9
+  1933                           wreg	equ	0xFE8
+  1934                           indf1	equ	0xFE7
+  1935                           postinc1	equ	0xFE6
+  1936                           postdec1	equ	0xFE5
+  1937                           preinc1	equ	0xFE4
+  1938                           plusw1	equ	0xFE3
+  1939                           fsr1h	equ	0xFE2
+  1940                           fsr1l	equ	0xFE1
+  1941                           bsr	equ	0xFE0
+  1942                           indf2	equ	0xFDF
+  1943                           postinc2	equ	0xFDE
+  1944                           postdec2	equ	0xFDD
+  1945                           preinc2	equ	0xFDC
+  1946                           plusw2	equ	0xFDB
+  1947                           fsr2h	equ	0xFDA
+  1948                           fsr2l	equ	0xFD9
+  1949                           status	equ	0xFD8
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95     52      52
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          234      0       0
+
+Pointer List with Targets:
+
+    motorR.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    motorR.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    motorL.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    motorL.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    fullSpeedAhead@mR.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    fullSpeedAhead@mR.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    fullSpeedAhead@mR	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorR(COMRAM[9]), 
+
+    fullSpeedAhead@mL.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    fullSpeedAhead@mL.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    fullSpeedAhead@mL	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorL(COMRAM[9]), 
+
+    turnRight@mR.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    turnRight@mR.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    turnRight@mR	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorR(COMRAM[9]), 
+
+    turnRight@mL.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    turnRight@mL.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    turnRight@mL	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorL(COMRAM[9]), 
+
+    turnLeft@mR.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    turnLeft@mR.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    turnLeft@mR	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorR(COMRAM[9]), 
+
+    turnLeft@mL.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    turnLeft@mL.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    turnLeft@mL	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorL(COMRAM[9]), 
+
+    stop@mR.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    stop@mR.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    stop@mR	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorR(COMRAM[9]), 
+
+    stop@mL.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    stop@mL.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    stop@mL	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorL(COMRAM[9]), 
+
+    S519DC_motor$negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    setMotorPWM@m.negDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR4H(BITBIGSFRllhhhlllll[1]), CCPR2H(BITBIGSFRhhlll[1]), 
+
+    S519DC_motor$posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    setMotorPWM@m.posDutyHighByte	PTR unsigned char  size(2) Largest target is 1
+		 -> CCPR3H(BITBIGSFRllhhhlllll[1]), CCPR1H(BITBIGSFRhhlll[1]), 
+
+    setMotorPWM@m	PTR struct DC_motor size(2) Largest target is 11
+		 -> main@motorR(COMRAM[9]), main@motorL(COMRAM[9]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_turnLeft
+    _main->_turnRight
+    _turnRight->_setMotorPWM
+    _turnLeft->_setMotorPWM
+    _stop->_setMotorPWM
+    _fullSpeedAhead->_setMotorPWM
+    _setMotorPWM->___lwdiv
+    ___lwdiv->___wmul
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                25    25      0   12848
+                                             27 COMRAM    25    25      0
+                     _fullSpeedAhead
+                    _initDCmotorsPWM
+                        _setMotorPWM
+                               _stop
+                           _turnLeft
+                          _turnRight
+ ---------------------------------------------------------------------------------
+ (1) _turnRight                                            8     4      4    2355
+                                             19 COMRAM     8     4      4
+                        _setMotorPWM
+ ---------------------------------------------------------------------------------
+ (1) _turnLeft                                             8     4      4    2355
+                                             19 COMRAM     8     4      4
+                        _setMotorPWM
+ ---------------------------------------------------------------------------------
+ (1) _stop                                                 5     1      4    2873
+                                             19 COMRAM     5     1      4
+                        _setMotorPWM
+ ---------------------------------------------------------------------------------
+ (1) _initDCmotorsPWM                                      2     0      2      76
+                                              0 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (1) _fullSpeedAhead                                       7     3      4    2355
+                                             19 COMRAM     7     3      4
+                        _setMotorPWM
+ ---------------------------------------------------------------------------------
+ (2) _setMotorPWM                                          6     4      2    1829
+                                             13 COMRAM     6     4      2
+                            ___lwdiv
+                             ___wmul
+ ---------------------------------------------------------------------------------
+ (3) ___wmul                                               6     2      4     355
+                                              0 COMRAM     6     2      4
+ ---------------------------------------------------------------------------------
+ (3) ___lwdiv                                              7     3      4     358
+                                              6 COMRAM     7     3      4
+                             ___wmul (ARG)
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _fullSpeedAhead
+     _setMotorPWM
+       ___lwdiv
+         ___wmul (ARG)
+       ___wmul
+   _initDCmotorsPWM
+   _setMotorPWM
+   _stop
+     _setMotorPWM
+   _turnLeft
+     _setMotorPWM
+   _turnRight
+     _setMotorPWM
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMRAM           5F      0       0       0        0.0%
+EEDATA             400      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMRAM              5F     34      34       1       54.7%
+STACK                0      0       0       2        0.0%
+DATA                 0      0       0       3        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK8           100      0       0      20        0.0%
+BANK8              100      0       0      21        0.0%
+BITBANK9           100      0       0      22        0.0%
+BANK9              100      0       0      23        0.0%
+BITBANK10          100      0       0      24        0.0%
+BANK10             100      0       0      25        0.0%
+BITBANK11          100      0       0      26        0.0%
+BANK11             100      0       0      27        0.0%
+BITBANK12          100      0       0      28        0.0%
+BANK12             100      0       0      29        0.0%
+BITBANK13           EA      0       0      30        0.0%
+BANK13              EA      0       0      31        0.0%
+BITBIGSFRhhh        40      0       0      32        0.0%
+BITBIGSFRhhlhh       E      0       0      33        0.0%
+BITBIGSFRhhlhl       1      0       0      34        0.0%
+BITBIGSFRhhllh       2      0       0      35        0.0%
+BITBIGSFRhhlll      1E      0       0      36        0.0%
+BITBIGSFRhl          1      0       0      37        0.0%
+BITBIGSFRllhhhh     5C      0       0      38        0.0%
+BITBIGSFRllhhhl      2      0       0      39        0.0%
+BITBIGSFRllhhhl     46      0       0      40        0.0%
+BITBIGSFRllhhhl      1      0       0      41        0.0%
+BITBIGSFRllhhhl     2D      0       0      42        0.0%
+BITBIGSFRllhhhl     1E      0       0      43        0.0%
+BITBIGSFRllhhl      11      0       0      44        0.0%
+BITBIGSFRllhl        1      0       0      45        0.0%
+BITBIGSFRlllhh       3      0       0      46        0.0%
+BITBIGSFRlllhl       5      0       0      47        0.0%
+BITBIGSFRllllh      4B      0       0      48        0.0%
+BITBIGSFRlllll      2D      0       0      49        0.0%
+ABS                  0      0       0      50        0.0%
+BIGRAM             DE9      0       0      51        0.0%
+BIGSFR               0      0       0     200        0.0%
+BITSFR_3             0      0       0     200        0.0%
+SFR_3                0      0       0     200        0.0%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.40 build 20220703182018 
+Symbol Table                                                                                   Thu Nov 24 10:56:06 2022
+
+                      l70 F98A                        l91 FB5A                        l77 FD72  
+                      l86 FA14                        l96 FC06       ___wmul@multiplicand 0003  
+                     l101 FAAE                       l188 F88E                       l686 F902  
+                     l679 F8FA                       u200 FC24                       u201 FC20  
+                     u210 FCEE                       u211 FCEA                       u220 F9D0  
+                     u221 F9CC                       u230 FA14                       u231 FA10  
+                     u240 FB44                       u241 FB40                       u170 F8AA  
+                     u250 FBF0                       u171 F8A6                       u251 FBEC  
+                     u307 FE1E                       u180 F8C8                       u260 FAA0  
+                     u181 F8C4                       u261 FA9C                       u317 FE4A  
+                     u190 F8E4                       u270 FEB8                       u191 F8E0  
+                     u407 FAFA                       u271 FEB4                       u327 FE8A  
+                     u280 FFD0                       u417 FB4E                       u281 FFCC  
+                     u337 FEC2                       u427 F9A2                       u347 FF02  
+                     u437 F9E6                       u357 FF36                       u447 FA74  
+                     u367 FF62                       u457 FAA6                       u377 FFA2  
+                     u297 FDEA                       u387 FBA6                       u397 FBFA  
+                     wreg 000FE8                      l1201 F90C                      l1211 F970  
+                    l1203 F936                      l1301 FA84                      l1213 F972  
+                    l1205 F95A                      l1221 F98C                      l1303 FAA0  
+                    l1215 F97C                      l1207 F964                      l1231 F9D4  
+                    l1223 F990                      l1311 FD88                      l1161 F890  
+                    l1217 F97E                      l1209 F966                      l1233 F9E0  
+                    l1225 F99C                      l1241 FAD0                      l1321 FDA6  
+                    l1313 FD8C                      l1305 FD74                      l1171 F8C8  
+                    l1163 F898                      l1155 F86A                      l1219 F988  
+                    l1235 F9F0                      l1227 F9AC                      l1251 FB08  
+                    l1331 FDC2                      l1323 FDAA                      l1315 FD90  
+                    l1307 FD80                      l1181 F8F4                      l1173 F8CE  
+                    l1165 F8AA                      l1157 F886                      l1237 F9FC  
+                    l1229 F9B8                      l1253 FB14                      l1261 FB5C  
+                    l1333 FDC8                      l1325 FDAE                      l1317 FD98  
+                    l1309 FD84                      l1175 F8E4                      l1167 F8B2  
+                    l1191 FC90                      l1183 FC08                      l1255 FB20  
+                    l1247 FAD8                      l1239 FAB0                      l1271 FB9C  
+                    l1263 FB7C                      l1351 FE58                      l1335 FDD4  
+                    l1327 FDB2                      l1319 FDA0                      l1177 F8EC  
+                    l1169 F8BA                      l1193 FCD2                      l1185 FC24  
+                    l1257 FB28                      l1249 FAF0                      l1281 FBF0  
+                    l1273 FBB4                      l1361 FEE4                      l1353 FE6C  
+                    l1345 FE00                      l1337 FDE0                      l1329 FDBA  
+                    l1179 F8EE                      l1195 FCEE                      l1187 FC78  
+                    l1291 FA3E                      l1283 FA16                      l1259 FB44  
+                    l1275 FBC0                      l1371 FF2C                      l1363 FF10  
+                    l1355 FE98                      l1347 FE14                      l1339 FDF8  
+                    l1197 FD32                      l1189 FC8C                      l1293 FA56  
+                    l1285 FA36                      l1277 FBCC                      l1269 FB84  
+                    l1381 FFD0                      l1373 FF44                      l1357 FEB8  
+                    l1349 FE2C                      l1295 FA62                      l1199 F904  
+                    l1279 FBD4                      l1375 FF70                      l1359 FED0  
+                    l1297 FA6E                      l1377 FF84                      l1369 FF18  
+                    l1299 FA7C                      l1379 FFB0                      _T2PR 000FBC  
+                    _main FD74                      fsr2h 000FDA                      indf2 000FDF  
+                    fsr2l 000FD9                      _stop F98C                      prodh 000FF4  
+                    prodl 000FF3                      start 0000              ___param_bank 000000  
+                   ?_main 0001                     ?_stop 0014           __end_of___lwdiv F904  
+                   main@i 001E                     status 000FD8           __initialization F864  
+            __end_of_main 0000              __end_of_stop FA16                    ??_main 001C  
+                  ??_stop 0018             __activetblptr 000000              ?_setMotorPWM 000E  
+                  _CCPR1H 000FAA                    _CCPR2H 000FA6                    _CCPR3H 000F25  
+                  _CCPR4H 000F21                    _RE2PPS 000E74                    _RD5PPS 000E6F  
+                  _RC7PPS 000E69                    _RD6PPS 000E70                    _RE4PPS 000E76  
+                  _RG6PPS 000E88              _CCPTMRS0bits 000FAD                    ___wmul F86A  
+               ??___lwdiv 000B                    isa$std 000001                    stop@mL 0014  
+                  stop@mR 0016         ??_initDCmotorsPWM 0003          __end_of_turnLeft FB5C  
+              __accesstop 0060   __end_of__initialization F864           fullSpeedAhead@i 0019  
+           ___rparam_used 000001            __pcstackCOMRAM 0001              _T2CLKCONbits 000FBF  
+                 ?___wmul 0001                   _SSP2ADD 000ED6                   _SSP2BUF 000ED5  
+                 __Hparam 0000                   __Lparam 0000                   ___lwdiv F890  
+                 __pcinit F864                   __ramtop 0E00                 ?_turnLeft 0014  
+                 __ptext0 FD74                   __ptext1 FB5C                   __ptext2 FAB0  
+                 __ptext3 F98C                   __ptext4 F904                   __ptext5 FA16  
+                 __ptext6 FC08                   __ptext7 F86A                   __ptext8 F890  
+               _T2CONbits 000FBD                 _T2HLTbits 000FBE      end_of_initialization F864  
+                 postdec2 000FDD                   postinc2 000FDE           _initDCmotorsPWM F904  
+              ??_turnLeft 0018        setMotorPWM@negDuty 0013         __end_of_turnRight FC08  
+      setMotorPWM@posDuty 0012                 _TRISCbits 000F83                 _TRISDbits 000F84  
+               _TRISEbits 000F85                 _TRISGbits 000F87          fullSpeedAhead@mL 0014  
+        fullSpeedAhead@mR 0016               _CCP1CONbits 000FAB               _CCP2CONbits 000FA7  
+             _CCP3CONbits 000F26               _CCP4CONbits 000F22                main@motorL 0023  
+              main@motorR 002C            _fullSpeedAhead FA16            __end_of___wmul F890  
+     start_initialization F864   __end_of_initDCmotorsPWM F98C    __end_of_fullSpeedAhead FAB0  
+                ??___wmul 0005          ___lwdiv@dividend 0007           ?_fullSpeedAhead 0014  
+                ?___lwdiv 0007             ??_setMotorPWM 0010          ___lwdiv@quotient 000B  
+initDCmotorsPWM@PWMperiod 0001            ___wmul@product 0005               turnRight@mL 0014  
+             turnRight@mR 0016          ?_initDCmotorsPWM 0001                  _SSP2CON2 000EDA  
+                _SSP2STAT 000ED8                 main@i_937 0020         ___wmul@multiplier 0001  
+            setMotorPWM@m 000E                 _turnRight FB5C       __end_of_setMotorPWM FD74  
+                __Hrparam 0000                  __Lrparam 0000                _ANSELDbits 000EA7  
+         ___lwdiv@divisor 0009           ___lwdiv@counter 000D                ?_turnRight 0014  
+            _SSP2CON1bits 000ED9              _SSP2CON2bits 000EDA                turnLeft@mL 0014  
+              turnLeft@mR 0016                turnRight@i 001A                  isa$xinst 000000  
+                _turnLeft FAB0               _setMotorPWM FC08          ??_fullSpeedAhead 0018  
+               turnLeft@i 001A                _SSP2DATPPS 000E1D                _SSP2CLKPPS 000E1C  
+             ??_turnRight 0018              main@PWMcycle 0022  
