@@ -10,11 +10,11 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 5h		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
-  1FB7Ah - 1FFFFh		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
+  1FB4Ch - 1FFFFh		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
   200000h - 20000Fh		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
   300000h - 30000Bh		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
  Unused ranges:
-  6h - 1FB79h
+  6h - 1FB4Bh
   20000h - 1FFFFFh
   200010h - 2FFFFFh
 
@@ -27,7 +27,10 @@
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-0001FB70 | -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1 H1 H1
+0001FB40 | -- -- -- -- -- -- -- -- -- -- -- -- H1 H1 H1 H1
+0001FB50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FB60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001FB70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FB80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FB90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001FBA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

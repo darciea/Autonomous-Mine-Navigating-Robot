@@ -24257,7 +24257,7 @@ typedef struct DC_motor {
 } DC_motor;
 
 
-void initDCmotorsPWM(unsigned int PWMperiod);
+void initDCmotorsPWM(void);
 void setMotorPWM(DC_motor *m);
 void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft(DC_motor *mL, DC_motor *mR);
@@ -24281,6 +24281,8 @@ void color_writetoaddr(char address, char value);
 
 
 unsigned int color_read_Red(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_Blue(void);
 # 10 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24318,30 +24320,30 @@ void I2C_2_Master_Write(unsigned char data_byte);
 unsigned char I2C_2_Master_Read(unsigned char ack);
 # 11 "main.c" 2
 
+# 1 "./LEDsOn.h" 1
+# 26 "./LEDsOn.h"
+void LEDSon_init(void);
+# 12 "main.c" 2
+
 
 
 
 
 void main(void) {
 
-    TRISDbits.TRISD7 = 0;
-    LATDbits.LATD7 = 1;
 
-    TRISHbits.TRISH1 = 0;
-    TRISHbits.TRISH0 = 0;
-    TRISDbits.TRISD4 = 0;
-    TRISDbits.TRISD3 = 0;
-    TRISFbits.TRISF0 = 0;
 
-    LATDbits.LATD4 = 1;
-    LATDbits.LATD3 = 1;
-    LATHbits.LATH0 = 1;
-    LATHbits.LATH1 = 1;
-    LATFbits.LATF0 = 1;
 
+    LEDSon_init();
     I2C_2_Master_Init();
     color_click_init();
-    initDCmotorsPWM(10);
+    initDCmotorsPWM();
+
+
+
+
+
+
 
     unsigned char PWMcycle = T2PR;
 
@@ -24367,10 +24369,13 @@ void main(void) {
 
 
 
-
+    unsigned int onoff = 0;
+    LATDbits.LATD7=1;
+    TRISDbits.TRISD7=0;
     while (1) {
+        onoff = color_read_Blue();
+        if (onoff != 0) {LATDbits.LATD7 = 0;}
 
-        color_read_Red();
 
 
 

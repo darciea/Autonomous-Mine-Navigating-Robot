@@ -54,9 +54,12 @@ void main(void) {
     
     
     
-
+    unsigned int onoff = 0;
+    LATDbits.LATD7=1;   //set initial output state of RD7 LED
+    TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
     while (1) {
-       
+        onoff = color_read_Blue();
+        if (onoff != 0) {LATDbits.LATD7 = 0;}
         
         
         

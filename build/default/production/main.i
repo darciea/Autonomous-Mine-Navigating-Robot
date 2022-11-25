@@ -24367,9 +24367,12 @@ void main(void) {
 
 
 
-
+    unsigned int onoff = 0;
+    LATDbits.LATD7=0;
+    TRISDbits.TRISD7=0;
     while (1) {
-
+        onoff = color_read_Red();
+        if (onoff != 0) {LATDbits.LATD7 = 1;}
 
 
 
