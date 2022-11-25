@@ -3,7 +3,7 @@
 #include "dc_motor.h"
 
 // function initialise T2 and CCP for DC motor control
-void initDCmotorsPWM(unsigned int PWMperiod){
+void initDCmotorsPWM(void){
     //initialise your TRIS and LAT registers for PWM  
     TRISEbits.TRISE2=0;
     TRISEbits.TRISE4=0;

@@ -24620,7 +24620,7 @@ typedef struct DC_motor {
 } DC_motor;
 
 
-void initDCmotorsPWM(unsigned int PWMperiod);
+void initDCmotorsPWM(void);
 void setMotorPWM(DC_motor *m);
 void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft(DC_motor *mL, DC_motor *mR);
@@ -24630,7 +24630,7 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
 
 
 
-void initDCmotorsPWM(unsigned int PWMperiod){
+void initDCmotorsPWM(void){
 
     TRISEbits.TRISE2=0;
     TRISEbits.TRISE4=0;

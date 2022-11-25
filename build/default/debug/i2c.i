@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "i2c.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-#pragma config FEXTOSC = HS
-#pragma config RSTOSC = EXTOSC_4PLL
-
-
-#pragma config WDTE = OFF
-
-
+# 1 "i2c.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24237,51 +24229,7 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 8 "main.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-
-void initDCmotorsPWM(void);
-void setMotorPWM(DC_motor *m);
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-# 9 "main.c" 2
-
-# 1 "./color.h" 1
-# 12 "./color.h"
-void color_click_init(void);
-
-
-
-
-
-
-void color_writetoaddr(char address, char value);
-
-
-
-
-
-unsigned int color_read_Red(void);
-# 10 "main.c" 2
+# 1 "i2c.c" 2
 
 # 1 "./i2c.h" 1
 # 13 "./i2c.h"
@@ -24316,63 +24264,65 @@ void I2C_2_Master_Write(unsigned char data_byte);
 
 
 unsigned char I2C_2_Master_Read(unsigned char ack);
-# 11 "main.c" 2
-
-# 1 "./LEDsOn.h" 1
-# 26 "./LEDsOn.h"
-void LEDSon_init(void);
-# 12 "main.c" 2
+# 2 "i2c.c" 2
 
 
+void I2C_2_Master_Init(void)
+{
+
+  SSP2CON1bits.SSPM= 0b1000;
+  SSP2CON1bits.SSPEN = 1;
+  SSP2ADD = (64000000/(4*100000))-1;
 
 
+  TRISDbits.TRISD5 = 1;
+  TRISDbits.TRISD6 = 1;
+  ANSELDbits.ANSELD5=0;
+  ANSELDbits.ANSELD6=0;
+  SSP2DATPPS=0x1D;
+  SSP2CLKPPS=0x1E;
+  RD5PPS=0x1C;
+  RD6PPS=0x1B;
+}
 
-void main(void) {
+void I2C_2_Master_Idle(void)
+{
+  while ((SSP2STAT & 0x04) || (SSP2CON2 & 0x1F));
+}
 
+void I2C_2_Master_Start(void)
+{
+  I2C_2_Master_Idle();
+  SSP2CON2bits.SEN = 1;
+}
 
+void I2C_2_Master_RepStart(void)
+{
+  I2C_2_Master_Idle();
+  SSP2CON2bits.RSEN = 1;
+}
 
+void I2C_2_Master_Stop()
+{
+  I2C_2_Master_Idle();
+  SSP2CON2bits.PEN = 1;
+}
 
-    LEDSon_init();
-    I2C_2_Master_Init();
-    color_click_init();
-    initDCmotorsPWM();
+void I2C_2_Master_Write(unsigned char data_byte)
+{
+  I2C_2_Master_Idle();
+  SSP2BUF = data_byte;
+}
 
-
-
-
-
-
-
-    unsigned char PWMcycle = T2PR;
-
-    struct DC_motor motorL, motorR;
-
-    motorL.power=0;
-    motorL.direction=1;
-    motorL.brakemode=1;
-    motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
-    motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
-    motorL.PWMperiod=PWMcycle;
-
-    motorR.power=0;
-    motorR.direction=1;
-    motorR.brakemode=1;
-    motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
-    motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
-    motorR.PWMperiod=PWMcycle;
-
-    setMotorPWM(&motorL);
-    setMotorPWM(&motorR);
-
-
-
-
-
-    while (1) {
-
-
-
-
-
-    }
+unsigned char I2C_2_Master_Read(unsigned char ack)
+{
+  unsigned char tmp;
+  I2C_2_Master_Idle();
+  SSP2CON2bits.RCEN = 1;
+  I2C_2_Master_Idle();
+  tmp = SSP2BUF;
+  I2C_2_Master_Idle();
+  SSP2CON2bits.ACKDT = !ack;
+  SSP2CON2bits.ACKEN = 1;
+  return tmp;
 }

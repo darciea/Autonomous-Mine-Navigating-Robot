@@ -1,252 +1,96 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"29829 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29829:     struct {
-[s S1384 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1384 . TRISE0 TRISE1 TRISE2 TRISE3 TRISE4 TRISE5 TRISE6 TRISE7 ]
-"29828
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29828: typedef union {
-[u S1383 `S1384 1 ]
-[n S1383 . . ]
-"29840
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29840: extern volatile TRISEbits_t TRISEbits __attribute__((address(0xF85)));
-[v _TRISEbits `VS1383 ~T0 @X0 0 e@3973 ]
-"29585
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29585:     struct {
-[s S1376 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1376 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"29584
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29584: typedef union {
-[u S1375 `S1376 1 ]
-[n S1375 . . ]
-"29596
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29596: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF83)));
-[v _TRISCbits `VS1375 ~T0 @X0 0 e@3971 ]
-"30008
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30008:     struct {
-[s S1390 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1390 . TRISG0 TRISG1 TRISG2 TRISG3 TRISG4 . TRISG6 TRISG7 ]
-"30007
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30007: typedef union {
-[u S1389 `S1390 1 ]
-[n S1389 . . ]
-"30019
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30019: extern volatile TRISGbits_t TRISGbits __attribute__((address(0xF87)));
-[v _TRISGbits `VS1389 ~T0 @X0 0 e@3975 ]
-"8759
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 8759: extern volatile unsigned char RE2PPS __attribute__((address(0xE74)));
-[v _RE2PPS `Vuc ~T0 @X0 0 e@3700 ]
-"8859
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 8859: extern volatile unsigned char RE4PPS __attribute__((address(0xE76)));
-[v _RE4PPS `Vuc ~T0 @X0 0 e@3702 ]
-"8209
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 8209: extern volatile unsigned char RC7PPS __attribute__((address(0xE69)));
-[v _RC7PPS `Vuc ~T0 @X0 0 e@3689 ]
-"9709
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 9709: extern volatile unsigned char RG6PPS __attribute__((address(0xE88)));
-[v _RG6PPS `Vuc ~T0 @X0 0 e@3720 ]
-"35980
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35980:     struct {
-[s S1754 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S1754 . OUTPS CKPS ON ]
-"35985
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35985:     struct {
-[s S1755 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1755 . OUTPS0 OUTPS1 OUTPS2 OUTPS3 CKPS0 CKPS1 CKPS2 ]
-"35994
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35994:     struct {
-[s S1756 :4 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S1756 . T2OUTPS T2CKPS T2ON ]
-"35999
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35999:     struct {
-[s S1757 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1757 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 T2CKPS0 T2CKPS1 T2CKPS2 TMR2ON ]
-"35979
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35979: typedef union {
-[u S1753 `S1754 1 `S1755 1 `S1756 1 `S1757 1 ]
-[n S1753 . . . . . ]
-"36010
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36010: extern volatile T2CONbits_t T2CONbits __attribute__((address(0xFBD)));
-[v _T2CONbits `VS1753 ~T0 @X0 0 e@4029 ]
-"36126
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36126:     struct {
-[s S1759 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1759 . MODE CKSYNC CKPOL PSYNC ]
-"36132
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36132:     struct {
-[s S1760 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1760 . MODE0 MODE1 MODE2 MODE3 MODE4 ]
-"36139
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36139:     struct {
-[s S1761 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1761 . T2MODE T2CKSYNC T2CKPOL T2PSYNC ]
-"36145
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36145:     struct {
-[s S1762 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1762 . T2MODE0 T2MODE1 T2MODE2 T2MODE3 T2MODE4 ]
-"36125
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36125: typedef union {
-[u S1758 `S1759 1 `S1760 1 `S1761 1 `S1762 1 ]
-[n S1758 . . . . . ]
-"36153
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36153: extern volatile T2HLTbits_t T2HLTbits __attribute__((address(0xFBE)));
-[v _T2HLTbits `VS1758 ~T0 @X0 0 e@4030 ]
-"36254
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36254:     struct {
-[s S1764 :4 `uc 1 ]
-[n S1764 . CS ]
-"36257
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36257:     struct {
-[s S1765 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1765 . CS0 CS1 CS2 CS3 ]
-"36263
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36263:     struct {
-[s S1766 :4 `uc 1 ]
-[n S1766 . T2CS ]
-"36266
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36266:     struct {
-[s S1767 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1767 . T2CS0 T2CS1 T2CS2 T2CS3 ]
-"36253
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36253: typedef union {
-[u S1763 `S1764 1 `S1765 1 `S1766 1 `S1767 1 ]
-[n S1763 . . . . . ]
-"36273
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 36273: extern volatile T2CLKCONbits_t T2CLKCONbits __attribute__((address(0xFBF)));
-[v _T2CLKCONbits `VS1763 ~T0 @X0 0 e@4031 ]
-"35920
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35920: extern volatile unsigned char T2PR __attribute__((address(0xFBC)));
-[v _T2PR `Vuc ~T0 @X0 0 e@4028 ]
-"34421
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34421: extern volatile unsigned char CCPR1H __attribute__((address(0xFAA)));
-[v _CCPR1H `Vuc ~T0 @X0 0 e@4010 ]
-"34200
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34200: extern volatile unsigned char CCPR2H __attribute__((address(0xFA6)));
-[v _CCPR2H `Vuc ~T0 @X0 0 e@4006 ]
-"21402
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21402: extern volatile unsigned char CCPR3H __attribute__((address(0xF25)));
-[v _CCPR3H `Vuc ~T0 @X0 0 e@3877 ]
-"21099
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21099: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
-[v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"34630
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34630:     struct {
-[s S1672 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1672 . C1TSEL0 C1TSEL1 C2TSEL0 C2TSEL1 C3TSEL0 C3TSEL1 C4TSEL0 C4TSEL1 ]
-"34640
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34640:     struct {
-[s S1673 :2 `uc 1 :2 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S1673 . C1TSEL C2TSEL C3TSEL C4TSEL ]
-"34629
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34629: typedef union {
-[u S1671 `S1672 1 `S1673 1 ]
-[n S1671 . . . ]
-"34647
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34647: extern volatile CCPTMRS0bits_t CCPTMRS0bits __attribute__((address(0xFAD)));
-[v _CCPTMRS0bits `VS1671 ~T0 @X0 0 e@4013 ]
-"34447
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34447:     struct {
-[s S1661 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1661 . MODE FMT OUT . EN ]
-"34454
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34454:     struct {
-[s S1662 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1662 . MODE0 MODE1 MODE2 MODE3 ]
-"34460
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34460:     struct {
-[s S1663 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1663 . CCP1MODE CCP1FMT CCP1OUT . CCP1EN ]
-"34467
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34467:     struct {
-[s S1664 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1664 . CCP1MODE0 CCP1MODE1 CCP1MODE2 CCP1MODE3 ]
-"34473
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34473:     struct {
-[s S1665 :7 `uc 1 :1 `uc 1 ]
-[n S1665 . . P1M1 ]
-"34446
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34446: typedef union {
-[u S1660 `S1661 1 `S1662 1 `S1663 1 `S1664 1 `S1665 1 ]
-[n S1660 . . . . . . ]
-"34478
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34478: extern volatile CCP1CONbits_t CCP1CONbits __attribute__((address(0xFAB)));
-[v _CCP1CONbits `VS1660 ~T0 @X0 0 e@4011 ]
-"34226
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34226:     struct {
-[s S1647 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1647 . MODE FMT OUT . EN ]
-"34233
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34233:     struct {
-[s S1648 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1648 . MODE0 MODE1 MODE2 MODE3 ]
-"34239
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34239:     struct {
-[s S1649 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1649 . CCP2MODE CCP2FMT CCP2OUT . CCP2EN ]
-"34246
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34246:     struct {
-[s S1650 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1650 . CCP2MODE0 CCP2MODE1 CCP2MODE2 CCP2MODE3 ]
-"34225
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34225: typedef union {
-[u S1646 `S1647 1 `S1648 1 `S1649 1 `S1650 1 ]
-[n S1646 . . . . . ]
-"34253
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34253: extern volatile CCP2CONbits_t CCP2CONbits __attribute__((address(0xFA7)));
-[v _CCP2CONbits `VS1646 ~T0 @X0 0 e@4007 ]
-"21428
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21428:     struct {
-[s S1015 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1015 . MODE FMT OUT OE EN ]
-"21435
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21435:     struct {
-[s S1016 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1016 . MODE0 MODE1 MODE2 MODE3 ]
-"21441
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21441:     struct {
-[s S1017 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1017 . CCP3MODE CCP3FMT CCP3OUT CCP3OE CCP3EN ]
-"21448
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21448:     struct {
-[s S1018 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1018 . CCP3MODE0 CCP3MODE1 CCP3MODE2 CCP3MODE3 ]
-"21427
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21427: typedef union {
-[u S1014 `S1015 1 `S1016 1 `S1017 1 `S1018 1 ]
-[n S1014 . . . . . ]
-"21455
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21455: extern volatile CCP3CONbits_t CCP3CONbits __attribute__((address(0xF26)));
-[v _CCP3CONbits `VS1014 ~T0 @X0 0 e@3878 ]
-"21125
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21125:     struct {
-[s S1001 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1001 . MODE FMT OUT OE EN ]
-"21132
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21132:     struct {
-[s S1002 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1002 . MODE0 MODE1 MODE2 MODE3 ]
-"21138
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21138:     struct {
-[s S1003 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1003 . CCP4MODE CCP4FMT CCP4OUT CCP4OE CCP4EN ]
-"21145
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21145:     struct {
-[s S1004 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1004 . CCP4MODE0 CCP4MODE1 CCP4MODE2 CCP4MODE3 ]
-"21124
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21124: typedef union {
-[u S1000 `S1001 1 `S1002 1 `S1003 1 `S1004 1 ]
-[n S1000 . . . . . ]
-"21152
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21152: extern volatile CCP4CONbits_t CCP4CONbits __attribute__((address(0xF22)));
-[v _CCP4CONbits `VS1000 ~T0 @X0 0 e@3874 ]
-"8 ./dc_motor.h
-[; ;./dc_motor.h: 8: typedef struct DC_motor {
-[s S2015 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
-[n S2015 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
+"14867 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14867:     struct {
+[s S693 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S693 . SSPM CKP SSPEN SSPOV WCOL ]
+"14874
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14874:     struct {
+[s S694 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S694 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"14880
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14880:     struct {
+[s S695 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S695 . SSPM02 SSPM12 SSPM22 SSPM32 CKP2 SSPEN2 SSPOV2 WCOL2 ]
+"14866
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14866: typedef union {
+[u S692 `S693 1 `S694 1 `S695 1 ]
+[n S692 . . . . ]
+"14891
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14891: extern volatile SSP2CON1bits_t SSP2CON1bits __attribute__((address(0xED9)));
+[v _SSP2CON1bits `VS692 ~T0 @X0 0 e@3801 ]
+"14217
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14217: extern volatile unsigned char SSP2ADD __attribute__((address(0xED6)));
+[v _SSP2ADD `Vuc ~T0 @X0 0 e@3798 ]
+"29707
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29707:     struct {
+[s S1380 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1380 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"29706
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29706: typedef union {
+[u S1379 `S1380 1 ]
+[n S1379 . . ]
+"29718
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29718: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF84)));
+[v _TRISDbits `VS1379 ~T0 @X0 0 e@3972 ]
+"11503
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 11503:     struct {
+[s S542 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S542 . ANSELD0 ANSELD1 ANSELD2 ANSELD3 ANSELD4 ANSELD5 ANSELD6 ANSELD7 ]
+"11502
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 11502: typedef union {
+[u S541 `S542 1 ]
+[n S541 . . ]
+"11514
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 11514: extern volatile ANSELDbits_t ANSELDbits __attribute__((address(0xEA7)));
+[v _ANSELDbits `VS541 ~T0 @X0 0 e@3751 ]
+"3863
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 3863: extern volatile unsigned char SSP2DATPPS __attribute__((address(0xE1D)));
+[v _SSP2DATPPS `Vuc ~T0 @X0 0 e@3613 ]
+"3797
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 3797: extern volatile unsigned char SSP2CLKPPS __attribute__((address(0xE1C)));
+[v _SSP2CLKPPS `Vuc ~T0 @X0 0 e@3612 ]
+"8509
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 8509: extern volatile unsigned char RD5PPS __attribute__((address(0xE6F)));
+[v _RD5PPS `Vuc ~T0 @X0 0 e@3695 ]
+"8559
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 8559: extern volatile unsigned char RD6PPS __attribute__((address(0xE70)));
+[v _RD6PPS `Vuc ~T0 @X0 0 e@3696 ]
+"14407
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14407: extern volatile unsigned char SSP2STAT __attribute__((address(0xED8)));
+[v _SSP2STAT `Vuc ~T0 @X0 0 e@3800 ]
+"14981
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14981: extern volatile unsigned char SSP2CON2 __attribute__((address(0xEDA)));
+[v _SSP2CON2 `Vuc ~T0 @X0 0 e@3802 ]
+"14987
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14987:     struct {
+[s S697 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S697 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
+"14997
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14997:     struct {
+[s S698 :1 `uc 1 :5 `uc 1 ]
+[n S698 . . ADMSK ]
+"15001
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 15001:     struct {
+[s S699 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S699 . . ADMSK1 ADMSK2 ADMSK3 ADMSK4 ADMSK5 ]
+"15009
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 15009:     struct {
+[s S700 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S700 . SEN2 ADMSK12 ADMSK22 ADMSK32 ACKEN2 ACKDT2 ACKSTAT2 GCEN2 ]
+"15019
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 15019:     struct {
+[s S701 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S701 . . RSEN2 PEN2 RCEN2 ADMSK42 ADMSK52 ]
+"14986
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14986: typedef union {
+[u S696 `S697 1 `S698 1 `S699 1 `S700 1 `S701 1 ]
+[n S696 . . . . . . ]
+"15028
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 15028: extern volatile SSP2CON2bits_t SSP2CON2bits __attribute__((address(0xEDA)));
+[v _SSP2CON2bits `VS696 ~T0 @X0 0 e@3802 ]
+"14197
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 14197: extern volatile unsigned char SSP2BUF __attribute__((address(0xED5)));
+[v _SSP2BUF `Vuc ~T0 @X0 0 e@3797 ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 55: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2221,419 +2065,189 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40928
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"6 dc_motor.c
-[; ;dc_motor.c: 6: void initDCmotorsPWM(void){
-[v _initDCmotorsPWM `(v ~T0 @X0 1 ef ]
+"4 i2c.c
+[; ;i2c.c: 4: void I2C_2_Master_Init(void)
+[v _I2C_2_Master_Init `(v ~T0 @X0 1 ef ]
+"5
+[; ;i2c.c: 5: {
 {
-[e :U _initDCmotorsPWM ]
+[e :U _I2C_2_Master_Init ]
 [f ]
+"7
+[; ;i2c.c: 7:   SSP2CON1bits.SSPM= 0b1000;
+[e = . . _SSP2CON1bits 0 0 -> -> 8 `i `uc ]
 "8
-[; ;dc_motor.c: 8:     TRISEbits.TRISE2=0;
-[e = . . _TRISEbits 0 2 -> -> 0 `i `uc ]
+[; ;i2c.c: 8:   SSP2CON1bits.SSPEN = 1;
+[e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
 "9
-[; ;dc_motor.c: 9:     TRISEbits.TRISE4=0;
-[e = . . _TRISEbits 0 4 -> -> 0 `i `uc ]
-"10
-[; ;dc_motor.c: 10:     TRISCbits.TRISC7=0;
-[e = . . _TRISCbits 0 7 -> -> 0 `i `uc ]
-"11
-[; ;dc_motor.c: 11:     TRISGbits.TRISG6=0;
-[e = . . _TRISGbits 0 6 -> -> 0 `i `uc ]
+[; ;i2c.c: 9:   SSP2ADD = (64000000/(4*100000))-1;
+[e = _SSP2ADD -> - / -> 64000000 `l * -> -> 4 `i `l -> 100000 `l -> -> 1 `i `l `uc ]
+"12
+[; ;i2c.c: 12:   TRISDbits.TRISD5 = 1;
+[e = . . _TRISDbits 0 5 -> -> 1 `i `uc ]
+"13
+[; ;i2c.c: 13:   TRISDbits.TRISD6 = 1;
+[e = . . _TRISDbits 0 6 -> -> 1 `i `uc ]
 "14
-[; ;dc_motor.c: 14:     RE2PPS=0x05;
-[e = _RE2PPS -> -> 5 `i `uc ]
+[; ;i2c.c: 14:   ANSELDbits.ANSELD5=0;
+[e = . . _ANSELDbits 0 5 -> -> 0 `i `uc ]
 "15
-[; ;dc_motor.c: 15:     RE4PPS=0x06;
-[e = _RE4PPS -> -> 6 `i `uc ]
+[; ;i2c.c: 15:   ANSELDbits.ANSELD6=0;
+[e = . . _ANSELDbits 0 6 -> -> 0 `i `uc ]
 "16
-[; ;dc_motor.c: 16:     RC7PPS=0x07;
-[e = _RC7PPS -> -> 7 `i `uc ]
+[; ;i2c.c: 16:   SSP2DATPPS=0x1D;
+[e = _SSP2DATPPS -> -> 29 `i `uc ]
 "17
-[; ;dc_motor.c: 17:     RG6PPS=0x08;
-[e = _RG6PPS -> -> 8 `i `uc ]
+[; ;i2c.c: 17:   SSP2CLKPPS=0x1E;
+[e = _SSP2CLKPPS -> -> 30 `i `uc ]
+"18
+[; ;i2c.c: 18:   RD5PPS=0x1C;
+[e = _RD5PPS -> -> 28 `i `uc ]
+"19
+[; ;i2c.c: 19:   RD6PPS=0x1B;
+[e = _RD6PPS -> -> 27 `i `uc ]
 "20
-[; ;dc_motor.c: 20:     T2CONbits.CKPS=0b100;
-[e = . . _T2CONbits 0 1 -> -> 4 `i `uc ]
-"21
-[; ;dc_motor.c: 21:     T2HLTbits.MODE=0b00000;
-[e = . . _T2HLTbits 0 0 -> -> 0 `i `uc ]
+[; ;i2c.c: 20: }
+[e :UE 2015 ]
+}
 "22
-[; ;dc_motor.c: 22:     T2CLKCONbits.CS=0b0001;
-[e = . . _T2CLKCONbits 0 0 -> -> 1 `i `uc ]
-"26
-[; ;dc_motor.c: 26:     T2PR=99;
-[e = _T2PR -> -> 99 `i `uc ]
-"27
-[; ;dc_motor.c: 27:     T2CONbits.ON=1;
-[e = . . _T2CONbits 0 2 -> -> 1 `i `uc ]
-"31
-[; ;dc_motor.c: 31:     CCPR1H=0;
-[e = _CCPR1H -> -> 0 `i `uc ]
-"32
-[; ;dc_motor.c: 32:     CCPR2H=0;
-[e = _CCPR2H -> -> 0 `i `uc ]
-"33
-[; ;dc_motor.c: 33:     CCPR3H=0;
-[e = _CCPR3H -> -> 0 `i `uc ]
-"34
-[; ;dc_motor.c: 34:     CCPR4H=0;
-[e = _CCPR4H -> -> 0 `i `uc ]
-"37
-[; ;dc_motor.c: 37:     CCPTMRS0bits.C1TSEL=0;
-[e = . . _CCPTMRS0bits 1 0 -> -> 0 `i `uc ]
-"38
-[; ;dc_motor.c: 38:     CCPTMRS0bits.C2TSEL=0;
-[e = . . _CCPTMRS0bits 1 1 -> -> 0 `i `uc ]
-"39
-[; ;dc_motor.c: 39:     CCPTMRS0bits.C3TSEL=0;
-[e = . . _CCPTMRS0bits 1 2 -> -> 0 `i `uc ]
-"40
-[; ;dc_motor.c: 40:     CCPTMRS0bits.C4TSEL=0;
-[e = . . _CCPTMRS0bits 1 3 -> -> 0 `i `uc ]
-"43
-[; ;dc_motor.c: 43:     CCP1CONbits.FMT=1;
-[e = . . _CCP1CONbits 0 1 -> -> 1 `i `uc ]
-"44
-[; ;dc_motor.c: 44:     CCP1CONbits.CCP1MODE=0b1100;
-[e = . . _CCP1CONbits 2 0 -> -> 12 `i `uc ]
-"45
-[; ;dc_motor.c: 45:     CCP1CONbits.EN=1;
-[e = . . _CCP1CONbits 0 4 -> -> 1 `i `uc ]
-"47
-[; ;dc_motor.c: 47:     CCP2CONbits.FMT=1;
-[e = . . _CCP2CONbits 0 1 -> -> 1 `i `uc ]
-"48
-[; ;dc_motor.c: 48:     CCP2CONbits.CCP2MODE=0b1100;
-[e = . . _CCP2CONbits 2 0 -> -> 12 `i `uc ]
-"49
-[; ;dc_motor.c: 49:     CCP2CONbits.EN=1;
-[e = . . _CCP2CONbits 0 4 -> -> 1 `i `uc ]
-"51
-[; ;dc_motor.c: 51:     CCP3CONbits.FMT=1;
-[e = . . _CCP3CONbits 0 1 -> -> 1 `i `uc ]
-"52
-[; ;dc_motor.c: 52:     CCP3CONbits.CCP3MODE=0b1100;
-[e = . . _CCP3CONbits 2 0 -> -> 12 `i `uc ]
-"53
-[; ;dc_motor.c: 53:     CCP3CONbits.EN=1;
-[e = . . _CCP3CONbits 0 4 -> -> 1 `i `uc ]
-"55
-[; ;dc_motor.c: 55:     CCP4CONbits.FMT=1;
-[e = . . _CCP4CONbits 0 1 -> -> 1 `i `uc ]
-"56
-[; ;dc_motor.c: 56:     CCP4CONbits.CCP4MODE=0b1100;
-[e = . . _CCP4CONbits 2 0 -> -> 12 `i `uc ]
-"57
-[; ;dc_motor.c: 57:     CCP4CONbits.EN=1;
-[e = . . _CCP4CONbits 0 4 -> -> 1 `i `uc ]
-"58
-[; ;dc_motor.c: 58: }
+[; ;i2c.c: 22: void I2C_2_Master_Idle(void)
+[v _I2C_2_Master_Idle `(v ~T0 @X0 1 ef ]
+"23
+[; ;i2c.c: 23: {
+{
+[e :U _I2C_2_Master_Idle ]
+[f ]
+"24
+[; ;i2c.c: 24:   while ((SSP2STAT & 0x04) || (SSP2CON2 & 0x1F));
+[e $U 2017  ]
+[e :U 2018 ]
+[e :U 2017 ]
+[e $ || != & -> _SSP2STAT `i -> 4 `i -> 0 `i != & -> _SSP2CON2 `i -> 31 `i -> 0 `i 2018  ]
+[e :U 2019 ]
+"25
+[; ;i2c.c: 25: }
 [e :UE 2016 ]
 }
-"61
-[; ;dc_motor.c: 61: void setMotorPWM(DC_motor *m)
-[v _setMotorPWM `(v ~T0 @X0 1 ef1`*S2015 ]
-"62
-[; ;dc_motor.c: 62: {
+"27
+[; ;i2c.c: 27: void I2C_2_Master_Start(void)
+[v _I2C_2_Master_Start `(v ~T0 @X0 1 ef ]
+"28
+[; ;i2c.c: 28: {
 {
-[e :U _setMotorPWM ]
-"61
-[; ;dc_motor.c: 61: void setMotorPWM(DC_motor *m)
-[v _m `*S2015 ~T0 @X0 1 r1 ]
-"62
-[; ;dc_motor.c: 62: {
+[e :U _I2C_2_Master_Start ]
 [f ]
-"63
-[; ;dc_motor.c: 63:     unsigned char posDuty, negDuty;
-[v _posDuty `uc ~T0 @X0 1 a ]
-[v _negDuty `uc ~T0 @X0 1 a ]
-"65
-[; ;dc_motor.c: 65:     if(m->brakemode) {
-[e $ ! != -> . *U _m 2 `i -> 0 `i 2018  ]
-{
-"66
-[; ;dc_motor.c: 66:         posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100;
-[e = _posDuty -> - . *U _m 3 / * -> . *U _m 0 `ui . *U _m 3 -> -> 100 `i `ui `uc ]
-"67
-[; ;dc_motor.c: 67:         negDuty=m->PWMperiod;
-[e = _negDuty -> . *U _m 3 `uc ]
-"68
-[; ;dc_motor.c: 68:     }
+"29
+[; ;i2c.c: 29:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"30
+[; ;i2c.c: 30:   SSP2CON2bits.SEN = 1;
+[e = . . _SSP2CON2bits 0 0 -> -> 1 `i `uc ]
+"31
+[; ;i2c.c: 31: }
+[e :UE 2020 ]
 }
-[e $U 2019  ]
-"69
-[; ;dc_motor.c: 69:     else {
-[e :U 2018 ]
+"33
+[; ;i2c.c: 33: void I2C_2_Master_RepStart(void)
+[v _I2C_2_Master_RepStart `(v ~T0 @X0 1 ef ]
+"34
+[; ;i2c.c: 34: {
 {
-"70
-[; ;dc_motor.c: 70:         posDuty=0;
-[e = _posDuty -> -> 0 `i `uc ]
-"71
-[; ;dc_motor.c: 71:         negDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
-[e = _negDuty -> / * -> . *U _m 0 `ui . *U _m 3 -> -> 100 `i `ui `uc ]
-"72
-[; ;dc_motor.c: 72:     }
-}
-[e :U 2019 ]
-"74
-[; ;dc_motor.c: 74:     if (m->direction) {
-[e $ ! != -> . *U _m 1 `i -> 0 `i 2020  ]
-{
-"75
-[; ;dc_motor.c: 75:         *(m->posDutyHighByte)=posDuty;
-[e = *U . *U _m 4 _posDuty ]
-"76
-[; ;dc_motor.c: 76:         *(m->negDutyHighByte)=negDuty;
-[e = *U . *U _m 5 _negDuty ]
-"77
-[; ;dc_motor.c: 77:     } else {
-}
-[e $U 2021  ]
-[e :U 2020 ]
-{
-"78
-[; ;dc_motor.c: 78:         *(m->posDutyHighByte)=negDuty;
-[e = *U . *U _m 4 _negDuty ]
-"79
-[; ;dc_motor.c: 79:         *(m->negDutyHighByte)=posDuty;
-[e = *U . *U _m 5 _posDuty ]
-"80
-[; ;dc_motor.c: 80:     }
-}
-[e :U 2021 ]
-"81
-[; ;dc_motor.c: 81: }
-[e :UE 2017 ]
-}
-"84
-[; ;dc_motor.c: 84: void stop(DC_motor *mL, DC_motor *mR)
-[v _stop `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"85
-[; ;dc_motor.c: 85: {
-{
-[e :U _stop ]
-"84
-[; ;dc_motor.c: 84: void stop(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-"85
-[; ;dc_motor.c: 85: {
+[e :U _I2C_2_Master_RepStart ]
 [f ]
-"86
-[; ;dc_motor.c: 86:     while(mL->power !=0){
-[e $U 2023  ]
-[e :U 2024 ]
-{
-"87
-[; ;dc_motor.c: 87:         mL->power -=10;
-[e =- . *U _mL 0 -> -> 10 `i `uc ]
-"88
-[; ;dc_motor.c: 88:         _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"89
-[; ;dc_motor.c: 89:         setMotorPWM(mL);
-[e ( _setMotorPWM (1 _mL ]
-"90
-[; ;dc_motor.c: 90:     }
+"35
+[; ;i2c.c: 35:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"36
+[; ;i2c.c: 36:   SSP2CON2bits.RSEN = 1;
+[e = . . _SSP2CON2bits 0 1 -> -> 1 `i `uc ]
+"37
+[; ;i2c.c: 37: }
+[e :UE 2021 ]
 }
-[e :U 2023 ]
-"86
-[; ;dc_motor.c: 86:     while(mL->power !=0){
-[e $ != -> . *U _mL 0 `i -> 0 `i 2024  ]
-[e :U 2025 ]
-"91
-[; ;dc_motor.c: 91:     while(mR -> power !=0){
-[e $U 2026  ]
-[e :U 2027 ]
+"39
+[; ;i2c.c: 39: void I2C_2_Master_Stop()
+[v _I2C_2_Master_Stop `(v ~T0 @X0 1 ef ]
+"40
+[; ;i2c.c: 40: {
 {
-"92
-[; ;dc_motor.c: 92:         mR->power -=10;
-[e =- . *U _mR 0 -> -> 10 `i `uc ]
-"93
-[; ;dc_motor.c: 93:         _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"94
-[; ;dc_motor.c: 94:         setMotorPWM(mR);
-[e ( _setMotorPWM (1 _mR ]
-"95
-[; ;dc_motor.c: 95:     }
-}
-[e :U 2026 ]
-"91
-[; ;dc_motor.c: 91:     while(mR -> power !=0){
-[e $ != -> . *U _mR 0 `i -> 0 `i 2027  ]
-[e :U 2028 ]
-"98
-[; ;dc_motor.c: 98: }
+[e :U _I2C_2_Master_Stop ]
+[f ]
+"41
+[; ;i2c.c: 41:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"42
+[; ;i2c.c: 42:   SSP2CON2bits.PEN = 1;
+[e = . . _SSP2CON2bits 0 2 -> -> 1 `i `uc ]
+"43
+[; ;i2c.c: 43: }
 [e :UE 2022 ]
 }
-"101
-[; ;dc_motor.c: 101: void turnLeft(DC_motor *mL, DC_motor *mR)
-[v _turnLeft `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"102
-[; ;dc_motor.c: 102: {
+"45
+[; ;i2c.c: 45: void I2C_2_Master_Write(unsigned char data_byte)
+[v _I2C_2_Master_Write `(v ~T0 @X0 1 ef1`uc ]
+"46
+[; ;i2c.c: 46: {
 {
-[e :U _turnLeft ]
-"101
-[; ;dc_motor.c: 101: void turnLeft(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-"102
-[; ;dc_motor.c: 102: {
+[e :U _I2C_2_Master_Write ]
+"45
+[; ;i2c.c: 45: void I2C_2_Master_Write(unsigned char data_byte)
+[v _data_byte `uc ~T0 @X0 1 r1 ]
+"46
+[; ;i2c.c: 46: {
 [f ]
-"103
-[; ;dc_motor.c: 103:     mL->direction=0;
-[e = . *U _mL 1 -> -> 0 `i `uc ]
-"104
-[; ;dc_motor.c: 104:     mR->direction=1;
-[e = . *U _mR 1 -> -> 1 `i `uc ]
-"105
-[; ;dc_motor.c: 105:     for(int i=0;i<40;i+=10){
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 40 `i 2030  ]
-[e $U 2031  ]
-[e :U 2030 ]
-{
-"107
-[; ;dc_motor.c: 107:         mR->power=i;
-[e = . *U _mR 0 -> _i `uc ]
-"108
-[; ;dc_motor.c: 108:         mL->power=i;
-[e = . *U _mL 0 -> _i `uc ]
-"109
-[; ;dc_motor.c: 109:         _delay((unsigned long)((20)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"110
-[; ;dc_motor.c: 110:         setMotorPWM(mL);
-[e ( _setMotorPWM (1 _mL ]
-"111
-[; ;dc_motor.c: 111:         setMotorPWM(mR);}
-[e ( _setMotorPWM (1 _mR ]
+"47
+[; ;i2c.c: 47:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"48
+[; ;i2c.c: 48:   SSP2BUF = data_byte;
+[e = _SSP2BUF _data_byte ]
+"49
+[; ;i2c.c: 49: }
+[e :UE 2023 ]
 }
-[e =+ _i -> 10 `i ]
-[e $ < _i -> 40 `i 2030  ]
-[e :U 2031 ]
-}
-"112
-[; ;dc_motor.c: 112:     _delay((unsigned long)((750)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 750 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"113
-[; ;dc_motor.c: 113: }
-[e :UE 2029 ]
-}
-"116
-[; ;dc_motor.c: 116: void turnRight(DC_motor *mL, DC_motor *mR)
-[v _turnRight `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"117
-[; ;dc_motor.c: 117: {
+"51
+[; ;i2c.c: 51: unsigned char I2C_2_Master_Read(unsigned char ack)
+[v _I2C_2_Master_Read `(uc ~T0 @X0 1 ef1`uc ]
+"52
+[; ;i2c.c: 52: {
 {
-[e :U _turnRight ]
-"116
-[; ;dc_motor.c: 116: void turnRight(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-"117
-[; ;dc_motor.c: 117: {
+[e :U _I2C_2_Master_Read ]
+"51
+[; ;i2c.c: 51: unsigned char I2C_2_Master_Read(unsigned char ack)
+[v _ack `uc ~T0 @X0 1 r1 ]
+"52
+[; ;i2c.c: 52: {
 [f ]
-"118
-[; ;dc_motor.c: 118:     mL->direction=1;
-[e = . *U _mL 1 -> -> 1 `i `uc ]
-"119
-[; ;dc_motor.c: 119:     mR->direction=0;
-[e = . *U _mR 1 -> -> 0 `i `uc ]
-"120
-[; ;dc_motor.c: 120:     for(int i=0;i<40;i+=10){
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 40 `i 2034  ]
-[e $U 2035  ]
-[e :U 2034 ]
-{
-"122
-[; ;dc_motor.c: 122:         mR->power=i;
-[e = . *U _mR 0 -> _i `uc ]
-"123
-[; ;dc_motor.c: 123:         mL->power=i;
-[e = . *U _mL 0 -> _i `uc ]
-"124
-[; ;dc_motor.c: 124:         _delay((unsigned long)((20)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"125
-[; ;dc_motor.c: 125:         setMotorPWM(mL);
-[e ( _setMotorPWM (1 _mL ]
-"126
-[; ;dc_motor.c: 126:         setMotorPWM(mR);}
-[e ( _setMotorPWM (1 _mR ]
-}
-[e =+ _i -> 10 `i ]
-[e $ < _i -> 40 `i 2034  ]
-[e :U 2035 ]
-}
-"127
-[; ;dc_motor.c: 127:     _delay((unsigned long)((750)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 750 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"128
-[; ;dc_motor.c: 128: }
-[e :UE 2033 ]
-}
-"131
-[; ;dc_motor.c: 131: void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
-[v _fullSpeedAhead `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
-"132
-[; ;dc_motor.c: 132: {
-{
-[e :U _fullSpeedAhead ]
-"131
-[; ;dc_motor.c: 131: void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
-[v _mL `*S2015 ~T0 @X0 1 r1 ]
-[v _mR `*S2015 ~T0 @X0 1 r2 ]
-"132
-[; ;dc_motor.c: 132: {
-[f ]
-"133
-[; ;dc_motor.c: 133:     mL->direction=1;
-[e = . *U _mL 1 -> -> 1 `i `uc ]
-"134
-[; ;dc_motor.c: 134:     mR->direction=1;
-[e = . *U _mR 1 -> -> 1 `i `uc ]
-"135
-[; ;dc_motor.c: 135:     for(int i=0;i<60;i+=10){
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 60 `i 2038  ]
-[e $U 2039  ]
-[e :U 2038 ]
-{
-"136
-[; ;dc_motor.c: 136:         mL->power=i;
-[e = . *U _mL 0 -> _i `uc ]
-"137
-[; ;dc_motor.c: 137:         mR->power=i;
-[e = . *U _mR 0 -> _i `uc ]
-"138
-[; ;dc_motor.c: 138:         setMotorPWM(mL);
-[e ( _setMotorPWM (1 _mL ]
-"139
-[; ;dc_motor.c: 139:         setMotorPWM(mR);
-[e ( _setMotorPWM (1 _mR ]
-"140
-[; ;dc_motor.c: 140:         _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"141
-[; ;dc_motor.c: 141:     }
-}
-[e =+ _i -> 10 `i ]
-[e $ < _i -> 60 `i 2038  ]
-[e :U 2039 ]
-}
-"142
-[; ;dc_motor.c: 142:     _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"143
-[; ;dc_motor.c: 143: }
-[e :UE 2037 ]
+"53
+[; ;i2c.c: 53:   unsigned char tmp;
+[v _tmp `uc ~T0 @X0 1 a ]
+"54
+[; ;i2c.c: 54:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"55
+[; ;i2c.c: 55:   SSP2CON2bits.RCEN = 1;
+[e = . . _SSP2CON2bits 0 3 -> -> 1 `i `uc ]
+"56
+[; ;i2c.c: 56:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"57
+[; ;i2c.c: 57:   tmp = SSP2BUF;
+[e = _tmp _SSP2BUF ]
+"58
+[; ;i2c.c: 58:   I2C_2_Master_Idle();
+[e ( _I2C_2_Master_Idle ..  ]
+"59
+[; ;i2c.c: 59:   SSP2CON2bits.ACKDT = !ack;
+[e = . . _SSP2CON2bits 0 5 -> -> ! != -> _ack `i -> 0 `i `i `uc ]
+"60
+[; ;i2c.c: 60:   SSP2CON2bits.ACKEN = 1;
+[e = . . _SSP2CON2bits 0 4 -> -> 1 `i `uc ]
+"61
+[; ;i2c.c: 61:   return tmp;
+[e ) _tmp ]
+[e $UE 2024  ]
+"62
+[; ;i2c.c: 62: }
+[e :UE 2024 ]
 }

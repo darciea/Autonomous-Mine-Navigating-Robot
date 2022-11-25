@@ -2222,10 +2222,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 "6 dc_motor.c
-[; ;dc_motor.c: 6: void initDCmotorsPWM(void){
-[v _initDCmotorsPWM `(v ~T0 @X0 1 ef ]
+[; ;dc_motor.c: 6: void initDCmotorsPWM(unsigned int PWMperiod){
+[v _initDCmotorsPWM `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _initDCmotorsPWM ]
+[v _PWMperiod `ui ~T0 @X0 1 r1 ]
 [f ]
 "8
 [; ;dc_motor.c: 8:     TRISEbits.TRISE2=0;

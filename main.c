@@ -9,13 +9,26 @@
 #include "dc_motor.h"
 #include "color.h"
 #include "i2c.h"
+#include "LEDsOn.h"
 
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
 void main(void) {
     
-    initDCmotorsPWM(10); //arbitrary number here - need to figure out how to incorporate period as int
+    /********************************************//**
+    *  Initialising all components
+    ***********************************************/
+    LEDSon_init(); //starts with all lights off
+    I2C_2_Master_Init();
+    color_click_init();
+    initDCmotorsPWM(); 
+    
+    
+    
+    /********************************************//**
+    *  Initialising DC motor variables
+    ***********************************************/
     
     unsigned char PWMcycle = T2PR;
     
@@ -34,47 +47,19 @@ void main(void) {
     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);  //store address of CCP3 duty high byte
     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);  //store address of CCP4 duty high byte
     motorR.PWMperiod=PWMcycle; 			//store PWMperiod for motor (value of T2PR in this case)
-
-    //CHECK CCP registers
     
     setMotorPWM(&motorL);
     setMotorPWM(&motorR);
     
     
+    
+    
 
     while (1) {
+       
         
-        __delay_ms(3000);
-        for (int i = 0; i< 4; i++){ //go forward and turn left 4 times
-            fullSpeedAhead(&motorL, &motorR); 
-            __delay_ms(500);
-            stop(&motorL, &motorR);
-            __delay_ms(500);
-            turnLeft(&motorL, &motorR);
-            stop(&motorL, &motorR);
-            __delay_ms(1000);
-        }
-        __delay_ms(500);
-        turnLeft(&motorL, &motorR); //turn left once more to face back where it came from
-        stop(&motorL, &motorR);
-        __delay_ms(1000);
-        for (int i = 0; i< 4; i++){ //go forward and turn right 4 times
-            fullSpeedAhead(&motorL, &motorR); 
-            __delay_ms(500);
-            stop(&motorL, &motorR);
-            __delay_ms(500);
-            turnRight(&motorL, &motorR);
-            stop(&motorL, &motorR);
-            __delay_ms(1000);
-        }
-        turnRight(&motorL, &motorR); //turn right once more to face the direction it came from
-        stop(&motorL, &motorR);
-         
         
-        /*
-        turnRight(&motorL, &motorR);
-        stop(&motorL, &motorR);
-        __delay_ms(1000);
-         */
+        
+        
     }
 }
