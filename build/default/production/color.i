@@ -24247,6 +24247,8 @@ void color_writetoaddr(char address, char value);
 
 
 unsigned int color_read_Red(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_Blue(void);
 # 2 "color.c" 2
 
 # 1 "./i2c.h" 1
@@ -24315,6 +24317,34 @@ unsigned int color_read_Red(void)
  I2C_2_Master_Start();
  I2C_2_Master_Write(0x52 | 0x00);
  I2C_2_Master_Write(0xA0 | 0x16);
+ I2C_2_Master_RepStart();
+ I2C_2_Master_Write(0x52 | 0x01);
+ tmp=I2C_2_Master_Read(1);
+ tmp=tmp | (I2C_2_Master_Read(0)<<8);
+ I2C_2_Master_Stop();
+ return tmp;
+}
+
+unsigned int color_read_Green(void)
+{
+ unsigned int tmp;
+ I2C_2_Master_Start();
+ I2C_2_Master_Write(0x52 | 0x00);
+ I2C_2_Master_Write(0xA0 | 0x18);
+ I2C_2_Master_RepStart();
+ I2C_2_Master_Write(0x52 | 0x01);
+ tmp=I2C_2_Master_Read(1);
+ tmp=tmp | (I2C_2_Master_Read(0)<<8);
+ I2C_2_Master_Stop();
+ return tmp;
+}
+
+unsigned int color_read_Blue(void)
+{
+ unsigned int tmp;
+ I2C_2_Master_Start();
+ I2C_2_Master_Write(0x52 | 0x00);
+ I2C_2_Master_Write(0xA0 | 0x1A);
  I2C_2_Master_RepStart();
  I2C_2_Master_Write(0x52 | 0x01);
  tmp=I2C_2_Master_Read(1);

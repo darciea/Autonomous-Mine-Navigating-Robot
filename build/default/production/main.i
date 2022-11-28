@@ -24281,6 +24281,8 @@ void color_writetoaddr(char address, char value);
 
 
 unsigned int color_read_Red(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_Blue(void);
 # 10 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24366,15 +24368,21 @@ void main(void) {
 
 
 
+    unsigned int clear = 0;
+    unsigned int blue = 0;
+    unsigned int red = 0;
+    unsigned int green = 0;
 
-    unsigned int onoff = 0;
-    LATDbits.LATD7=0;
+    LATDbits.LATD7=1;
     TRISDbits.TRISD7=0;
     while (1) {
-        onoff = color_read_Red();
-        if (onoff != 0) {LATDbits.LATD7 = 1;}
+
+        LATDbits.LATD4 = 1;
 
 
+        blue = color_read_Blue();
+        if (blue != 0) {LATDbits.LATD7 = 0;}
+        LATFbits.LATF0 = 1;
 
 
     }

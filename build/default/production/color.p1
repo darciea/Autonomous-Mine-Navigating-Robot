@@ -2095,3 +2095,89 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;color.c: 41: }
 [e :UE 2017 ]
 }
+"43
+[; ;color.c: 43: unsigned int color_read_Green(void)
+[v _color_read_Green `(ui ~T0 @X0 1 ef ]
+"44
+[; ;color.c: 44: {
+{
+[e :U _color_read_Green ]
+[f ]
+"45
+[; ;color.c: 45:  unsigned int tmp;
+[v _tmp `ui ~T0 @X0 1 a ]
+"46
+[; ;color.c: 46:  I2C_2_Master_Start();
+[e ( _I2C_2_Master_Start ..  ]
+"47
+[; ;color.c: 47:  I2C_2_Master_Write(0x52 | 0x00);
+[e ( _I2C_2_Master_Write (1 -> | -> 82 `i -> 0 `i `uc ]
+"48
+[; ;color.c: 48:  I2C_2_Master_Write(0xA0 | 0x18);
+[e ( _I2C_2_Master_Write (1 -> | -> 160 `i -> 24 `i `uc ]
+"49
+[; ;color.c: 49:  I2C_2_Master_RepStart();
+[e ( _I2C_2_Master_RepStart ..  ]
+"50
+[; ;color.c: 50:  I2C_2_Master_Write(0x52 | 0x01);
+[e ( _I2C_2_Master_Write (1 -> | -> 82 `i -> 1 `i `uc ]
+"51
+[; ;color.c: 51:  tmp=I2C_2_Master_Read(1);
+[e = _tmp -> ( _I2C_2_Master_Read (1 -> -> 1 `i `uc `ui ]
+"52
+[; ;color.c: 52:  tmp=tmp | (I2C_2_Master_Read(0)<<8);
+[e = _tmp | _tmp -> << -> ( _I2C_2_Master_Read (1 -> -> 0 `i `uc `i -> 8 `i `ui ]
+"53
+[; ;color.c: 53:  I2C_2_Master_Stop();
+[e ( _I2C_2_Master_Stop ..  ]
+"54
+[; ;color.c: 54:  return tmp;
+[e ) _tmp ]
+[e $UE 2018  ]
+"55
+[; ;color.c: 55: }
+[e :UE 2018 ]
+}
+"57
+[; ;color.c: 57: unsigned int color_read_Blue(void)
+[v _color_read_Blue `(ui ~T0 @X0 1 ef ]
+"58
+[; ;color.c: 58: {
+{
+[e :U _color_read_Blue ]
+[f ]
+"59
+[; ;color.c: 59:  unsigned int tmp;
+[v _tmp `ui ~T0 @X0 1 a ]
+"60
+[; ;color.c: 60:  I2C_2_Master_Start();
+[e ( _I2C_2_Master_Start ..  ]
+"61
+[; ;color.c: 61:  I2C_2_Master_Write(0x52 | 0x00);
+[e ( _I2C_2_Master_Write (1 -> | -> 82 `i -> 0 `i `uc ]
+"62
+[; ;color.c: 62:  I2C_2_Master_Write(0xA0 | 0x1A);
+[e ( _I2C_2_Master_Write (1 -> | -> 160 `i -> 26 `i `uc ]
+"63
+[; ;color.c: 63:  I2C_2_Master_RepStart();
+[e ( _I2C_2_Master_RepStart ..  ]
+"64
+[; ;color.c: 64:  I2C_2_Master_Write(0x52 | 0x01);
+[e ( _I2C_2_Master_Write (1 -> | -> 82 `i -> 1 `i `uc ]
+"65
+[; ;color.c: 65:  tmp=I2C_2_Master_Read(1);
+[e = _tmp -> ( _I2C_2_Master_Read (1 -> -> 1 `i `uc `ui ]
+"66
+[; ;color.c: 66:  tmp=tmp | (I2C_2_Master_Read(0)<<8);
+[e = _tmp | _tmp -> << -> ( _I2C_2_Master_Read (1 -> -> 0 `i `uc `i -> 8 `i `ui ]
+"67
+[; ;color.c: 67:  I2C_2_Master_Stop();
+[e ( _I2C_2_Master_Stop ..  ]
+"68
+[; ;color.c: 68:  return tmp;
+[e ) _tmp ]
+[e $UE 2019  ]
+"69
+[; ;color.c: 69: }
+[e :UE 2019 ]
+}

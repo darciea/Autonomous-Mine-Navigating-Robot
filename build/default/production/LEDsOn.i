@@ -24415,10 +24415,12 @@ void LEDSon_init(void) {
     LATGbits.LATG1 = 1;
     LATAbits.LATA4 = 1;
 
+
     LATDbits.LATD4 = 0;
     LATHbits.LATH1 = 0;
     LATFbits.LATF0 = 0;
     LATHbits.LATH0 = 0;
     LATDbits.LATD3 = 0;
+
 
 }

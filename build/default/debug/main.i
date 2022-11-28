@@ -24368,15 +24368,21 @@ void main(void) {
 
 
 
+    unsigned int clear = 0;
+    unsigned int blue = 0;
+    unsigned int red = 0;
+    unsigned int green = 0;
 
-    unsigned int onoff = 0;
     LATDbits.LATD7=1;
     TRISDbits.TRISD7=0;
     while (1) {
-        onoff = color_read_Blue();
-        if (onoff != 0) {LATDbits.LATD7 = 0;}
+
+        LATDbits.LATD4 = 1;
 
 
+        blue = color_read_Blue();
+        if (blue != 0) {LATDbits.LATD7 = 0;}
+        LATFbits.LATF0 = 1;
 
 
     }

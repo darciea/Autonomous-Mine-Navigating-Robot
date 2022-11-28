@@ -51,17 +51,66 @@ void main(void) {
     setMotorPWM(&motorL);
     setMotorPWM(&motorR);
     
+    /********************************************//**
+    *  Setting up arrays and variables for collecting data
+    ***********************************************/
+    unsigned int card  = 0;
+    unsigned char expected_values[8][3];
+    unsigned char normalised_values[8][3];
+    unsigned char master_closeness[8];
+    
+    unsigned char red_read = 0;
+    unsigned char green_read = 0
+    unsigned char blue_read = 0;
     
     
     
-    unsigned int onoff = 0;
+    /********************************************//**
+    *  Ideal main function code
+    ***********************************************/
+    
+    /*Calibration sequence
+    1. Press button (within for statement(8 iterations) require button push before incrementing)
+    2. Read card using collect avg readings function (decide if want to use new variables for these ones)
+    3. Store those values in first index of each row of array (assign which colour that index will be)
+    4. Press button to increment i and repeat for all 8 colours
+    */
+    TRISFbits.TRISF2=1; //set TRIS value for pin (input)
+    ANSELFbits.ANSELF2=0; //turn off analogue input on pin
+    for(unsigned int i = 0; i<=7; i++){
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        expected_values[i][0] = red_read;
+        expected_values[i][1] = green_read;
+        expected_values[i][2] = blue_read;
+        while(PORTFbits.RF2){
+            
+        }
+    }
+    
+    card = 1; //flag to show that a card has been seen
+    stop(&motorL, &motorR);
+    collect_avg_readings(&red_read, &green_read, &blue_read);
+    normalise_readings(&red_read, &green_read, &blue_read, &expected_values, &normalised_values);
+    make_master_closeness(&normalised_values,&master_closeness);
+    
+    card = determine_card();
+    
+    respond_to_card(card);
+    
+    
+   /********************************************//**
+    *  Trying code
+    ***********************************************/
     LATDbits.LATD7=1;   //set initial output state of RD7 LED
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
     while (1) {
-        onoff = color_read_Blue();
-        if (onoff != 0) {LATDbits.LATD7 = 0;}
         
-        
+        BRAKE = 1;
+        //red = color_read_Red();
+        //green = color_read_Green();
+        blue = color_read_Blue();
+        if (blue != 0) {LATDbits.LATD7 = 0;}
+        LEFT = 1;
         
         
     }
