@@ -98,36 +98,36 @@ void stop(DC_motor *mL, DC_motor *mR)
 }
 
 //function to make the robot turn left 
-void turnLeft(DC_motor *mL, DC_motor *mR)
+void turnLeft45(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=0;//set direction of motors to get it to turn on the spot without having to slide any wheels
     mR->direction=1;
-    for(int i=0;i<40;i+=10){//increase motor power in increments of 10 until max is hit. 
+    for(int i=0;i<80;i+=10){//increase motor power in increments of 10 until max is hit. 
         //This method relies on both wheels turning using the same power, just in different directions. Varying power is possible, but more complicated.
         mR->power=i; 
         mL->power=i; 
-        __delay_ms(20);//delay ensures current has time to adjust
+        __delay_ms(15);//delay ensures current has time to adjust
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    __delay_ms(750);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
+    __delay_ms(40);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
 }
 
 //function to make the robot turn right 
-void turnRight(DC_motor *mL, DC_motor *mR)
+void turnRight45(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=1; //set direction of motors to get it to turn on the spot without having to slide any wheels
     mR->direction=0;
-    for(int i=0;i<40;i+=10){ //increase motor power in increments of 10 until max is hit. 
+    for(int i=0;i<80;i+=10){//increase motor power in increments of 10 until max is hit. 
         //This method relies on both wheels turning using the same power, just in different directions. Varying power is possible, but more complicated.
         mR->power=i; 
         mL->power=i; 
-        __delay_ms(20); //delay ensures current has time to adjust
+        __delay_ms(15);//delay ensures current has time to adjust
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    __delay_ms(750); // this delay is used to adjust angle of turn. May also adjust previous delay if required.
+    __delay_ms(45);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
 }
 
-//function to make the robot go straight
+//function to make the robot go straight forward
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=1; //set direction of motors to make it move forwards
@@ -140,5 +140,21 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
         __delay_ms(10);//delay ensures current has time to adjust
     }
     __delay_ms(10);
+}
+
+//function to make the robot go reverse
+void reverseOneSquare(DC_motor *mL, DC_motor *mR)
+{
+    mL->direction=0; //set direction of motors to make it move forwards
+    mR->direction=0;
+    for(int i=0;i<60;i+=10){  
+        mL->power=i;
+        mR->power=i;
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        __delay_ms(10);//delay ensures current has time to adjust
+    }
+    __delay_ms(1000);
+    stop(mL, mR);
 }
 

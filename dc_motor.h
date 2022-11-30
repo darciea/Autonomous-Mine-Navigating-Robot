@@ -18,8 +18,9 @@ typedef struct DC_motor { //definition of DC_motor structure
 void initDCmotorsPWM(void); // function to setup PWM
 void setMotorPWM(DC_motor *m);
 void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
+void turnLeft45(DC_motor *mL, DC_motor *mR);
+void turnRight45(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverseOneSquare(DC_motor *mL, DC_motor *mR);
 
 #endif

@@ -19,9 +19,9 @@
  *  Tri-colour LEDs
  ***********************************************/
 
-#define RED LATGbits.LATG1
-#define BLUE LATFbits.LATF7
-#define GREEN LATAbits.LATA4
+#define REDL LATGbits.LATG1
+#define BLUEL LATFbits.LATF7
+#define GREENL LATAbits.LATA4
 
 void LEDSon_init(void);
 

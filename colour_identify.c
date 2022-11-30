@@ -3,8 +3,9 @@
 
 #include <xc.h>
 #include "colour_identify.h"
+#include "dc_motor.h"
 
-
+/*
 void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read)
 {   
     for(int i = 0; i = 2; i++){
@@ -57,43 +58,68 @@ void make_master_closeness(unsigned char *normalised_values, *master_closeness){
     }
 }
 
-unsigned int determine_card(unsigned char *master_closeness){
+colour determine_card(unsigned char *master_closeness){
+    colour smallest = 0;
     for(unsigned int i = 0; i<=7; i++){
-        unsigned char smallest = 0;
         if(master_closeness[i] < master_closeness[i-1]){smallest = i;}
         }
     return smallest;
 }
-/*
-void respond_to_card(unsigned int card,DC_motor *mL, DC_motor *mR ){
+*/
+ 
+void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
     //PROBABLY WANT TO REVERSE A LITTLE BEFORE EVERYTHING TO HAVE SPACE TO TURN
-    if (card = RED){turnRight(&motorL,&motorR);}
-    else if(card = GREEN){turnLeft(&motorL,&motorR);}
-    else if (card = BLUE){
-        turnRight(&motorL,&motorR);
-        turnRight(&motorL,&motorR);
+    switch (card){
+        case RED:
+            turnRight45(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case GREEN:
+            turnLeft45(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case BLUE:
+            turnRight45(mL,mR);
+            turnRight45(mL,mR);
+            turnRight45(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case YELLOW:
+            reverseOneSquare(mL,mR);
+            turnRight45(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case PINK:
+            reverseOneSquare(mL,mR);
+            turnLeft45(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case ORANGE:
+            turnRight45(mL,mR);
+            turnRight45(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case LIGHT_BLUE:
+            turnLeft45(mL,mR);
+            turnLeft45(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case WHITE:
+            //CODE FOR CHANGING A FLAG TO START THE RETURN HOME SEQUENCE
+            break;
+        case BLACK:
+            //CODE FOR THE EVENTUALITY IT RUNS INTO A WALL?
+            break;    
+        default:
+            break;
     }
-    else if (card = YELLOW){
-        //CODE FOR REVERSING 1 SQUARE
-        turnRight(&motorL,&motorR);
-    }
-    else if (card = PINK){
-        //CODE FOR REVERSING 1 SQUARE
-        turnLeft(&motorL,&motorR);
-    }
-    else if (card = ORANGE){
-        //TURN RIGHT 135
-    }
-    else if (card = LIGHT BLUE){
-        //TURN LEFT 135
-    }
-    else if (card = WHITE){
-        //CODE FOR CHANGING A FLAG TO START THE RETURN HOME SEQUENCE
-    }
-    else if (card = BLACK){
-        //CODE FOR THE EVENTUALITY IT RUNS INTO A WALL?
-    }
-    //else MAYBE HAVE CODE HERE TO CHANGE A FLAG AND DO THE READING AGAIN?
     
-}*/
+}
 

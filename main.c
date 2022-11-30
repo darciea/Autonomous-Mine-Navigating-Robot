@@ -10,6 +10,7 @@
 #include "color.h"
 #include "i2c.h"
 #include "LEDsOn.h"
+#include "colour_identify.h"
 
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
@@ -54,13 +55,13 @@ void main(void) {
     /********************************************//**
     *  Setting up arrays and variables for collecting data
     ***********************************************/
-    unsigned int card  = 0;
+    colour card  = BLACK;
     unsigned char expected_values[8][3];
     unsigned char normalised_values[8][3];
     unsigned char master_closeness[8];
     
     unsigned char red_read = 0;
-    unsigned char green_read = 0
+    unsigned char green_read = 0;
     unsigned char blue_read = 0;
     
     
@@ -75,6 +76,8 @@ void main(void) {
     3. Store those values in first index of each row of array (assign which colour that index will be)
     4. Press button to increment i and repeat for all 8 colours
     */
+    
+    /*
     TRISFbits.TRISF2=1; //set TRIS value for pin (input)
     ANSELFbits.ANSELF2=0; //turn off analogue input on pin
     for(unsigned int i = 0; i<=7; i++){
@@ -86,7 +89,8 @@ void main(void) {
             
         }
     }
-    
+    */
+    /*
     card = 1; //flag to show that a card has been seen
     stop(&motorL, &motorR);
     collect_avg_readings(&red_read, &green_read, &blue_read);
@@ -94,8 +98,10 @@ void main(void) {
     make_master_closeness(&normalised_values,&master_closeness);
     
     card = determine_card();
+    */
     
-    respond_to_card(card);
+    card = GREEN;
+    
     
     
    /********************************************//**
@@ -106,10 +112,11 @@ void main(void) {
     while (1) {
         
         BRAKE = 1;
-        //red = color_read_Red();
-        //green = color_read_Green();
-        blue = color_read_Blue();
-        if (blue != 0) {LATDbits.LATD7 = 0;}
+        respond_to_card(card, &motorL, &motorR);
+        reverseOneSquare(&motorL, &motorR);
+        //card = PINK;
+        //respond_to_card(card, &motorL, &motorR);
+        __delay_ms(3000);
         LEFT = 1;
         
         
