@@ -24623,9 +24623,10 @@ typedef struct DC_motor {
 void initDCmotorsPWM(void);
 void setMotorPWM(DC_motor *m);
 void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
+void turnLeft45(DC_motor *mL, DC_motor *mR);
+void turnRight45(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverseOneSquare(DC_motor *mL, DC_motor *mR);
 # 3 "dc_motor.c" 2
 
 
@@ -24725,33 +24726,33 @@ void stop(DC_motor *mL, DC_motor *mR)
 }
 
 
-void turnLeft(DC_motor *mL, DC_motor *mR)
+void turnLeft45(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=0;
     mR->direction=1;
-    for(int i=0;i<40;i+=10){
+    for(int i=0;i<80;i+=10){
 
         mR->power=i;
         mL->power=i;
-        _delay((unsigned long)((20)*(64000000/4000.0)));
+        _delay((unsigned long)((15)*(64000000/4000.0)));
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    _delay((unsigned long)((750)*(64000000/4000.0)));
+    _delay((unsigned long)((40)*(64000000/4000.0)));
 }
 
 
-void turnRight(DC_motor *mL, DC_motor *mR)
+void turnRight45(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=1;
     mR->direction=0;
-    for(int i=0;i<40;i+=10){
+    for(int i=0;i<80;i+=10){
 
         mR->power=i;
         mL->power=i;
-        _delay((unsigned long)((20)*(64000000/4000.0)));
+        _delay((unsigned long)((15)*(64000000/4000.0)));
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    _delay((unsigned long)((750)*(64000000/4000.0)));
+    _delay((unsigned long)((45)*(64000000/4000.0)));
 }
 
 
@@ -24767,4 +24768,20 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
         _delay((unsigned long)((10)*(64000000/4000.0)));
     }
     _delay((unsigned long)((10)*(64000000/4000.0)));
+}
+
+
+void reverseOneSquare(DC_motor *mL, DC_motor *mR)
+{
+    mL->direction=0;
+    mR->direction=0;
+    for(int i=0;i<60;i+=10){
+        mL->power=i;
+        mR->power=i;
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+    }
+    _delay((unsigned long)((1000)*(64000000/4000.0)));
+    stop(mL, mR);
 }

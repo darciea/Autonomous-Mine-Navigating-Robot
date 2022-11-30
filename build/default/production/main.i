@@ -24333,7 +24333,7 @@ typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, B
 void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read);
 void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values);
 void make_master_closeness(unsigned char *normalised_values, unsigned char *master_closeness);
-void determine_card(unsigned char *master_closeness);
+colour determine_card(unsigned char *master_closeness);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 # 13 "main.c" 2
@@ -24385,13 +24385,13 @@ void main(void) {
     colour card = BLACK;
     unsigned char expected_values[8][3];
     unsigned char normalised_values[8][3];
-    unsigned char master_closeness[8];
+    unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
 
     unsigned char red_read = 0;
     unsigned char green_read = 0;
     unsigned char blue_read = 0;
 # 103 "main.c"
-    card = GREEN;
+    card = determine_card(master_closeness);
 
 
 
@@ -24402,13 +24402,13 @@ void main(void) {
     TRISDbits.TRISD7=0;
     while (1) {
 
-        LATDbits.LATD4 = 1;
+
         respond_to_card(card, &motorL, &motorR);
-        reverseOneSquare(&motorL, &motorR);
+
 
 
         _delay((unsigned long)((3000)*(64000000/4000.0)));
-        LATFbits.LATF0 = 1;
+
 
 
     }

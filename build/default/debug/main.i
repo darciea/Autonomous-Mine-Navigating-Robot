@@ -24260,9 +24260,10 @@ typedef struct DC_motor {
 void initDCmotorsPWM(void);
 void setMotorPWM(DC_motor *m);
 void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft(DC_motor *mL, DC_motor *mR);
-void turnRight(DC_motor *mL, DC_motor *mR);
+void turnLeft45(DC_motor *mL, DC_motor *mR);
+void turnRight45(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+void reverseOneSquare(DC_motor *mL, DC_motor *mR);
 # 9 "main.c" 2
 
 # 1 "./color.h" 1
@@ -24325,6 +24326,18 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 void LEDSon_init(void);
 # 12 "main.c" 2
 
+# 1 "./colour_identify.h" 1
+# 11 "./colour_identify.h"
+typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
+
+void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read);
+void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values);
+void make_master_closeness(unsigned char *normalised_values, unsigned char *master_closeness);
+colour determine_card(unsigned char *master_closeness);
+
+void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
+# 13 "main.c" 2
+
 
 
 
@@ -24368,21 +24381,34 @@ void main(void) {
 
 
 
-    unsigned int clear = 0;
-    unsigned int blue = 0;
-    unsigned int red = 0;
-    unsigned int green = 0;
+
+    colour card = BLACK;
+    unsigned char expected_values[8][3];
+    unsigned char normalised_values[8][3];
+    unsigned char master_closeness[9] = {14, 28, 12, 13, 10, 11, 12, 14, 16};
+
+    unsigned char red_read = 0;
+    unsigned char green_read = 0;
+    unsigned char blue_read = 0;
+# 103 "main.c"
+    card = determine_card(master_closeness);
+
+
+
+
+
 
     LATDbits.LATD7=1;
     TRISDbits.TRISD7=0;
     while (1) {
 
-        LATDbits.LATD4 = 1;
+
+        respond_to_card(card, &motorL, &motorR);
 
 
-        blue = color_read_Blue();
-        if (blue != 0) {LATDbits.LATD7 = 0;}
-        LATFbits.LATF0 = 1;
+
+        _delay((unsigned long)((3000)*(64000000/4000.0)));
+
 
 
     }

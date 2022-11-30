@@ -58,7 +58,7 @@ void main(void) {
     colour card  = BLACK;
     unsigned char expected_values[8][3];
     unsigned char normalised_values[8][3];
-    unsigned char master_closeness[8];
+    unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
     
     unsigned char red_read = 0;
     unsigned char green_read = 0;
@@ -100,7 +100,7 @@ void main(void) {
     card = determine_card();
     */
     
-    card = GREEN;
+    card = determine_card(master_closeness);
     
     
     
@@ -111,13 +111,13 @@ void main(void) {
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
     while (1) {
         
-        BRAKE = 1;
+        //BRAKE = 1;
         respond_to_card(card, &motorL, &motorR);
-        reverseOneSquare(&motorL, &motorR);
+        //reverseOneSquare(&motorL, &motorR);
         //card = PINK;
         //respond_to_card(card, &motorL, &motorR);
         __delay_ms(3000);
-        LEFT = 1;
+        //LEFT = 1;
         
         
     }

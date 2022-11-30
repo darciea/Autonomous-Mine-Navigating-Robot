@@ -38,6 +38,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 58:     colour card = BLACK;
 [c E14250 0 1 2 3 4 5 6 7 8 .. ]
 [n E14250 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
+"16 ./colour_identify.h
+[; ;./colour_identify.h: 16: colour determine_card(unsigned char *master_closeness);
+[v _determine_card `(E14250 ~T0 @X0 0 ef1`*uc ]
 "28811 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28811:     struct {
 [s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -67,28 +70,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18 ./colour_identify.h
 [; ;./colour_identify.h: 18: void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 [v _respond_to_card `(v ~T0 @X0 0 ef3`E14250`*S2015`*S2015 ]
-"24 ./dc_motor.h
-[; ;./dc_motor.h: 24: void reverseOneSquare(DC_motor *mL, DC_motor *mR);
-[v _reverseOneSquare `(v ~T0 @X0 0 ef2`*S2015`*S2015 ]
 [v F192 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
 [v __delay `JF192 ~T0 @X0 0 e ]
 [p i __delay ]
-"29035 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29035:     struct {
-[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
-"29045
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29045:     struct {
-[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
-"29034
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29034: typedef union {
-[u S1354 `S1355 1 `S1356 1 ]
-[n S1354 . . . ]
-"29056
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29056: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
-[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2150,9 +2135,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;main.c: 60:     unsigned char normalised_values[8][3];
 [v _normalised_values `F14287 ~T0 @X0 -> 8 `i a ]
+[v F14288 `uc ~T0 @X0 -> 9 `i s ]
+[i F14288
+:U ..
 "61
-[; ;main.c: 61:     unsigned char master_closeness[8];
-[v _master_closeness `uc ~T0 @X0 -> 8 `i a ]
+[; ;main.c: 61:     unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
+-> -> 17 `i `uc
+-> -> 2 `i `uc
+-> -> 12 `i `uc
+-> -> 12 `i `uc
+-> -> 10 `i `uc
+-> -> 11 `i `uc
+-> -> 12 `i `uc
+-> -> 14 `i `uc
+-> -> 16 `i `uc
+..
+]
+[v _master_closeness `uc ~T0 @X0 -> 9 `i a ]
+[e = _master_closeness F14288 ]
 "63
 [; ;main.c: 63:     unsigned char red_read = 0;
 [v _red_read `uc ~T0 @X0 1 a ]
@@ -2166,8 +2166,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _blue_read `uc ~T0 @X0 1 a ]
 [e = _blue_read -> -> 0 `i `uc ]
 "103
-[; ;main.c: 103:     card = GREEN;
-[e = _card . `E14250 1 ]
+[; ;main.c: 103:     card = determine_card(master_closeness);
+[e = _card ( _determine_card (1 &U _master_closeness ]
 "110
 [; ;main.c: 110:     LATDbits.LATD7=1;
 [e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
@@ -2178,21 +2178,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 112:     while (1) {
 [e :U 2018 ]
 {
-"114
-[; ;main.c: 114:         LATDbits.LATD4 = 1;
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 "115
 [; ;main.c: 115:         respond_to_card(card, &motorL, &motorR);
 [e ( _respond_to_card (3 , , _card &U _motorL &U _motorR ]
-"116
-[; ;main.c: 116:         reverseOneSquare(&motorL, &motorR);
-[e ( _reverseOneSquare (2 , &U _motorL &U _motorR ]
 "119
 [; ;main.c: 119:         _delay((unsigned long)((3000)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"120
-[; ;main.c: 120:         LATFbits.LATF0 = 1;
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
 "123
 [; ;main.c: 123:     }
 }

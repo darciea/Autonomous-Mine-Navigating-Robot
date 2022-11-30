@@ -4,6 +4,7 @@
 #include <xc.h>
 #include "colour_identify.h"
 #include "dc_motor.h"
+#include "LEDsOn.h"
 
 /*
 void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read)
@@ -57,28 +58,39 @@ void make_master_closeness(unsigned char *normalised_values, *master_closeness){
         *master_closeness[i] = average;
     }
 }
+*/
 
 colour determine_card(unsigned char *master_closeness){
-    colour smallest = 0;
-    for(unsigned int i = 0; i<=7; i++){
-        if(master_closeness[i] < master_closeness[i-1]){smallest = i;}
+    colour predicted_colour = RED;
+    unsigned char current_smallest = master_closeness[RED];
+    for(colour i = GREEN; i<=BLACK; i++){
+        if(master_closeness[i] < current_smallest){
+            current_smallest = master_closeness[i];
+            predicted_colour = i;
         }
-    return smallest;
+    }
+    return predicted_colour;
 }
-*/
+
  
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
     //PROBABLY WANT TO REVERSE A LITTLE BEFORE EVERYTHING TO HAVE SPACE TO TURN
     switch (card){
         case RED:
+            LEFT = 1;
+            /*
             turnRight45(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
+             * */
             break;
         case GREEN:
+            RIGHT = 1;
+            /*
             turnLeft45(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
+             */
             break;
         case BLUE:
             turnRight45(mL,mR);
@@ -88,16 +100,22 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
             stop(mL,mR);
             break;
         case YELLOW:
+            MBEAM = 1;
+            /*
             reverseOneSquare(mL,mR);
             turnRight45(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
+             */
             break;
         case PINK:
+            BRAKE = 1;
+            /*
             reverseOneSquare(mL,mR);
             turnLeft45(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
+             */
             break;
         case ORANGE:
             turnRight45(mL,mR);
