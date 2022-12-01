@@ -17,8 +17,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./dc_motor.h: 21: void turnLeft45(DC_motor *mL, DC_motor *mR);
 [v _turnLeft45 `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
 "24
-[; ;./dc_motor.h: 24: void reverseOneSquare(DC_motor *mL, DC_motor *mR);
-[v _reverseOneSquare `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
+[; ;./dc_motor.h: 24: void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
+[v _reverseFullSpeed `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
+[v F510 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
+[v __delay `JF510 ~T0 @X0 0 e ]
+[p i __delay ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 55: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2002,55 +2006,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mL `*S2017 ~T0 @X0 1 r2 ]
 [v _mR `*S2017 ~T0 @X0 1 r3 ]
 [f ]
-"72
-[; ;colour_identify.c: 72:     switch (card){
+"73
+[; ;colour_identify.c: 73:     switch (card){
 [e $U 2020  ]
 {
-"73
-[; ;colour_identify.c: 73:         case RED:
-[e :U 2021 ]
 "74
-[; ;colour_identify.c: 74:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
+[; ;colour_identify.c: 74:         case RED:
+[e :U 2021 ]
 "75
-[; ;colour_identify.c: 75:             stop(mL,mR);
-[e ( _stop (2 , _mL _mR ]
+[; ;colour_identify.c: 75:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "76
-[; ;colour_identify.c: 76:             break;
-[e $U 2019  ]
+[; ;colour_identify.c: 76:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
 "77
-[; ;colour_identify.c: 77:         case GREEN:
-[e :U 2022 ]
+[; ;colour_identify.c: 77:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "78
-[; ;colour_identify.c: 78:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
+[; ;colour_identify.c: 78:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
 "79
-[; ;colour_identify.c: 79:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
+[; ;colour_identify.c: 79:             break;
+[e $U 2019  ]
 "80
-[; ;colour_identify.c: 80:             stop(mL,mR);
-[e ( _stop (2 , _mL _mR ]
+[; ;colour_identify.c: 80:         case GREEN:
+[e :U 2022 ]
 "81
-[; ;colour_identify.c: 81:             break;
-[e $U 2019  ]
+[; ;colour_identify.c: 81:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
 "82
-[; ;colour_identify.c: 82:         case BLUE:
-[e :U 2023 ]
-"83
-[; ;colour_identify.c: 83:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
-"84
-[; ;colour_identify.c: 84:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
-"85
-[; ;colour_identify.c: 85:             stop(mL,mR);
+[; ;colour_identify.c: 82:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
-"86
-[; ;colour_identify.c: 86:             break;
+"83
+[; ;colour_identify.c: 83:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
+"84
+[; ;colour_identify.c: 84:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"85
+[; ;colour_identify.c: 85:             break;
 [e $U 2019  ]
+"86
+[; ;colour_identify.c: 86:         case BLUE:
+[e :U 2023 ]
 "87
-[; ;colour_identify.c: 87:         case YELLOW:
-[e :U 2024 ]
+[; ;colour_identify.c: 87:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
+"88
+[; ;colour_identify.c: 88:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
 "89
 [; ;colour_identify.c: 89:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
@@ -2058,79 +2062,142 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 90:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "91
-[; ;colour_identify.c: 91:             break;
-[e $U 2019  ]
-"92
-[; ;colour_identify.c: 92:         case PINK:
-[e :U 2025 ]
-"94
-[; ;colour_identify.c: 94:             reverseOneSquare(mL,mR);
-[e ( _reverseOneSquare (2 , _mL _mR ]
-"95
-[; ;colour_identify.c: 95:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
-"96
-[; ;colour_identify.c: 96:             stop(mL,mR);
-[e ( _stop (2 , _mL _mR ]
-"97
-[; ;colour_identify.c: 97:             break;
-[e $U 2019  ]
-"98
-[; ;colour_identify.c: 98:         case ORANGE:
-[e :U 2026 ]
-"99
-[; ;colour_identify.c: 99:             turnRight45(mL,mR);
+[; ;colour_identify.c: 91:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
+"92
+[; ;colour_identify.c: 92:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"93
+[; ;colour_identify.c: 93:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
+"94
+[; ;colour_identify.c: 94:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"95
+[; ;colour_identify.c: 95:             break;
+[e $U 2019  ]
+"96
+[; ;colour_identify.c: 96:         case YELLOW:
+[e :U 2024 ]
+"97
+[; ;colour_identify.c: 97:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"98
+[; ;colour_identify.c: 98:             _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"99
+[; ;colour_identify.c: 99:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
 "100
 [; ;colour_identify.c: 100:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
 "101
-[; ;colour_identify.c: 101:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
-"102
-[; ;colour_identify.c: 102:             stop(mL,mR);
+[; ;colour_identify.c: 101:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
+"102
+[; ;colour_identify.c: 102:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "103
-[; ;colour_identify.c: 103:             break;
-[e $U 2019  ]
+[; ;colour_identify.c: 103:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
 "104
-[; ;colour_identify.c: 104:         case LIGHT_BLUE:
-[e :U 2027 ]
+[; ;colour_identify.c: 104:             break;
+[e $U 2019  ]
 "105
-[; ;colour_identify.c: 105:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
+[; ;colour_identify.c: 105:         case PINK:
+[e :U 2025 ]
 "106
-[; ;colour_identify.c: 106:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
+[; ;colour_identify.c: 106:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
 "107
-[; ;colour_identify.c: 107:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
+[; ;colour_identify.c: 107:             _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "108
 [; ;colour_identify.c: 108:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "109
-[; ;colour_identify.c: 109:             break;
-[e $U 2019  ]
+[; ;colour_identify.c: 109:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
 "110
-[; ;colour_identify.c: 110:         case WHITE:
-[e :U 2028 ]
+[; ;colour_identify.c: 110:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"111
+[; ;colour_identify.c: 111:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
 "112
-[; ;colour_identify.c: 112:             break;
-[e $U 2019  ]
+[; ;colour_identify.c: 112:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
 "113
-[; ;colour_identify.c: 113:         case BLACK:
-[e :U 2029 ]
+[; ;colour_identify.c: 113:             break;
+[e $U 2019  ]
+"114
+[; ;colour_identify.c: 114:         case ORANGE:
+[e :U 2026 ]
 "115
-[; ;colour_identify.c: 115:             break;
-[e $U 2019  ]
+[; ;colour_identify.c: 115:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "116
-[; ;colour_identify.c: 116:         default:
-[e :U 2030 ]
+[; ;colour_identify.c: 116:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
 "117
-[; ;colour_identify.c: 117:             break;
-[e $U 2019  ]
+[; ;colour_identify.c: 117:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "118
-[; ;colour_identify.c: 118:     }
+[; ;colour_identify.c: 118:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"119
+[; ;colour_identify.c: 119:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
+"120
+[; ;colour_identify.c: 120:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"121
+[; ;colour_identify.c: 121:             break;
+[e $U 2019  ]
+"122
+[; ;colour_identify.c: 122:         case LIGHT_BLUE:
+[e :U 2027 ]
+"123
+[; ;colour_identify.c: 123:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
+"124
+[; ;colour_identify.c: 124:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"125
+[; ;colour_identify.c: 125:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
+"126
+[; ;colour_identify.c: 126:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"127
+[; ;colour_identify.c: 127:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
+"128
+[; ;colour_identify.c: 128:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"129
+[; ;colour_identify.c: 129:             break;
+[e $U 2019  ]
+"130
+[; ;colour_identify.c: 130:         case WHITE:
+[e :U 2028 ]
+"132
+[; ;colour_identify.c: 132:             break;
+[e $U 2019  ]
+"133
+[; ;colour_identify.c: 133:         case BLACK:
+[e :U 2029 ]
+"135
+[; ;colour_identify.c: 135:             break;
+[e $U 2019  ]
+"136
+[; ;colour_identify.c: 136:         default:
+[e :U 2030 ]
+"137
+[; ;colour_identify.c: 137:             break;
+[e $U 2019  ]
+"138
+[; ;colour_identify.c: 138:     }
 }
 [e $U 2019  ]
 [e :U 2020 ]
@@ -2145,7 +2212,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E14551 8 `ui 2029
  2030 ]
 [e :U 2019 ]
-"120
-[; ;colour_identify.c: 120: }
+"140
+[; ;colour_identify.c: 140: }
 [e :UE 2018 ]
 }

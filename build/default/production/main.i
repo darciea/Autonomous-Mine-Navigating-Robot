@@ -24263,7 +24263,7 @@ void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft45(DC_motor *mL, DC_motor *mR);
 void turnRight45(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void reverseOneSquare(DC_motor *mL, DC_motor *mR);
+void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
 # 9 "main.c" 2
 
 # 1 "./color.h" 1
@@ -24404,7 +24404,7 @@ void main(void) {
 
         LATDbits.LATD4 = 1;
         respond_to_card(card, &motorL, &motorR);
-        reverseOneSquare(&motorL, &motorR);
+
 
 
         _delay((unsigned long)((3000)*(64000000/4000.0)));

@@ -113,7 +113,7 @@ void main(void) {
         
         BRAKE = 1;
         respond_to_card(card, &motorL, &motorR);
-        reverseOneSquare(&motorL, &motorR);
+        //reverseOneSquare(&motorL, &motorR);
         //card = PINK;
         //respond_to_card(card, &motorL, &motorR);
         __delay_ms(3000);

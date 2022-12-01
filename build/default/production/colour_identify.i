@@ -24398,7 +24398,7 @@ void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft45(DC_motor *mL, DC_motor *mR);
 void turnRight45(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void reverseOneSquare(DC_motor *mL, DC_motor *mR);
+void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
 # 5 "./colour_identify.h" 2
 
 
@@ -24418,41 +24418,61 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 # 70 "colour_identify.c"
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
 
+
     switch (card){
         case RED:
+            turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
         case GREEN:
             turnLeft45(mL,mR);
+            stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
             break;
         case BLUE:
             turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
         case YELLOW:
-
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
         case PINK:
-
-            reverseOneSquare(mL,mR);
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
             break;
         case ORANGE:
             turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
         case LIGHT_BLUE:
             turnLeft45(mL,mR);
+            stop(mL,mR);
             turnLeft45(mL,mR);
+            stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
             break;

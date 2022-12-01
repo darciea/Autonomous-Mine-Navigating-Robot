@@ -68,46 +68,62 @@ colour determine_card(unsigned char *master_closeness){
 */
  
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
-    //PROBABLY WANT TO REVERSE A LITTLE BEFORE EVERYTHING TO HAVE SPACE TO TURN
+    //reverseFullSpeed(mL,mR);
+    //        __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
     switch (card){
         case RED:
             turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
         case GREEN:
             turnLeft45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
             stop(mL,mR);
             break;
         case BLUE:
             turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
         case YELLOW:
-            reverseOneSquare(mL,mR);
+            reverseFullSpeed(mL,mR);
+            __delay_ms(500); //adjust according to what 'one square' means
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
         case PINK:
-            reverseOneSquare(mL,mR);
+            reverseFullSpeed(mL,mR);
+            __delay_ms(500); //adjust according to what 'one square' means
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
+            stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
             break;
         case ORANGE:
             turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
+            stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
         case LIGHT_BLUE:
             turnLeft45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
+            stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
             break;
