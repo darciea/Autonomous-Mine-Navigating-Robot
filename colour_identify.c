@@ -20,31 +20,33 @@ void __interrupt(high_priority) HighISR()
     //undecided on how to define flag that indicates card has been detected
     }
 }
-
-void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read)
+*/ 
+void collect_avg_readings(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {   
     //for each measured colour (Red Green Blue) take three readings and average them, and store them in the appropriate location
 
-    for(int i = 0; i = 2; i++){
+    for(colour i = RED; i <= BLUE; i++){
         *red_read += color_read_Red();
+        sprintf(buf, "Raw %d, %d, %d \n", red_read, green_read, blue_read);
+        sendStringSerial4(buf);
         __delay_ms(10);
     }
     *red_read = *red_read/3;
     
-    for(int i = 0; i = 2; i++){
+    for(colour i = RED; i <= BLUE; i++){
         *green_read += color_read_Green();
         __delay_ms(10);
     }
     *green_read = *green_read/3;
 
-    for(int i = 0; i = 2; i++){
+    for(colour i = RED; i <= BLUE; i++){
         *blue_read += color_read_Blue();
         __delay_ms(10);
     }
     *blue_read = *blue_read/3;
         
 }
-
+/*
 void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values, unsigned char *normalised_values)
 {   
         //for each colourcard: 

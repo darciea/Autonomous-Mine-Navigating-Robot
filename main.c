@@ -6,11 +6,13 @@
 #pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
 
 #include <xc.h>
+#include <stdio.h>
 #include "dc_motor.h"
 #include "color.h"
 #include "i2c.h"
 #include "LEDsOn.h"
 #include "colour_identify.h"
+#include "serial.h"
 
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
@@ -23,7 +25,8 @@ void main(void) {
     LEDSon_init(); //starts with all lights off
     I2C_2_Master_Init();
     color_click_init();
-    initDCmotorsPWM(); 
+    initDCmotorsPWM();
+    initUSART4();
     
     
     
@@ -60,9 +63,9 @@ void main(void) {
     unsigned char normalised_values[8][3];
     unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
     
-    unsigned char red_read = 0;
-    unsigned char green_read = 0;
-    unsigned char blue_read = 0;
+    volatile unsigned int red_read = 0;
+    volatile unsigned int green_read = 0;
+    volatile unsigned int blue_read = 0;
     
     
     
@@ -110,14 +113,28 @@ void main(void) {
     ***********************************************/
     LATDbits.LATD7=0;   //set initial output state of RD7 LED
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
-    BLUEL = 1;
-    REDL = 1;
-    GREENL = 1;
+
+    char buf[20];
+    
     while (1) {
         
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+
+        
+        sprintf(buf, "Raw %d, %d, %d \n", red_read, green_read, blue_read);
+        sendStringSerial4(buf);
+        __delay_ms(1000);
+        
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        
+        sprintf(buf, "Averages %d, %d, %d \n", red_read, green_read, blue_read);
+        sendStringSerial4(buf);
+        
         //BRAKE = 1;
-        unsigned int test = color_read_Red();
-        if (test > 0) {LATDbits.LATD7 = 1;}
+        
+        
         //respond_to_card(card, &motorL, &motorR);
         //reverseOneSquare(&motorL, &motorR);
         //card = PINK;

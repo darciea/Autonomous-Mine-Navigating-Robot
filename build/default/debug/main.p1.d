@@ -4,4 +4,5 @@ dc_motor.h  \
 color.h  \
 i2c.h  \
 LEDsOn.h  \
-colour_identify.h 
+colour_identify.h  \
+serial.h 

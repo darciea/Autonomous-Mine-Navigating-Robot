@@ -1,4 +1,21 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"28 colour_identify.c
+[; ;colour_identify.c: 28:     for(colour i = RED; i <= BLUE; i++){
+[c E14551 0 1 2 3 4 5 6 7 8 .. ]
+[n E14551 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
+"25 ./color.h
+[; ;./color.h: 25: unsigned int color_read_Red(void);
+[v _color_read_Red `(ui ~T0 @X0 0 ef ]
+[v F510 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
+[v __delay `JF510 ~T0 @X0 0 e ]
+[p i __delay ]
+"26 ./color.h
+[; ;./color.h: 26: unsigned int color_read_Green(void);
+[v _color_read_Green `(ui ~T0 @X0 0 ef ]
+"27
+[; ;./color.h: 27: unsigned int color_read_Blue(void);
+[v _color_read_Blue `(ui ~T0 @X0 0 ef ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 55: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -1973,3 +1990,97 @@ Version 4.0 HI-TECH Software Intermediate Code
 "40928
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 40928: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"24 colour_identify.c
+[; ;colour_identify.c: 24: void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
+[v _collect_avg_readings `(v ~T0 @X0 1 ef3`*ui`*ui`*ui ]
+"25
+[; ;colour_identify.c: 25: {
+{
+[e :U _collect_avg_readings ]
+"24
+[; ;colour_identify.c: 24: void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
+[v _red_read `*ui ~T0 @X0 1 r1 ]
+[v _green_read `*ui ~T0 @X0 1 r2 ]
+[v _blue_read `*ui ~T0 @X0 1 r3 ]
+"25
+[; ;colour_identify.c: 25: {
+[f ]
+"28
+[; ;colour_identify.c: 28:     for(colour i = RED; i <= BLUE; i++){
+{
+[v _i `E14551 ~T0 @X0 1 a ]
+[e = _i . `E14551 0 ]
+[e $ <= -> _i `ui -> . `E14551 2 `ui 2019  ]
+[e $U 2020  ]
+[e :U 2019 ]
+{
+"29
+[; ;colour_identify.c: 29:         *red_read += color_read_Red();
+[e =+ *U _red_read ( _color_read_Red ..  ]
+"30
+[; ;colour_identify.c: 30:         _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"31
+[; ;colour_identify.c: 31:     }
+}
+[e ++ _i -> -> 1 `i `E14551 ]
+[e $ <= -> _i `ui -> . `E14551 2 `ui 2019  ]
+[e :U 2020 ]
+}
+"32
+[; ;colour_identify.c: 32:     *red_read = *red_read/3;
+[e = *U _red_read / *U _red_read -> -> 3 `i `ui ]
+"34
+[; ;colour_identify.c: 34:     for(colour i = RED; i <= BLUE; i++){
+{
+[v _i `E14551 ~T0 @X0 1 a ]
+[e = _i . `E14551 0 ]
+[e $ <= -> _i `ui -> . `E14551 2 `ui 2022  ]
+[e $U 2023  ]
+[e :U 2022 ]
+{
+"35
+[; ;colour_identify.c: 35:         *green_read += color_read_Green();
+[e =+ *U _green_read ( _color_read_Green ..  ]
+"36
+[; ;colour_identify.c: 36:         _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"37
+[; ;colour_identify.c: 37:     }
+}
+[e ++ _i -> -> 1 `i `E14551 ]
+[e $ <= -> _i `ui -> . `E14551 2 `ui 2022  ]
+[e :U 2023 ]
+}
+"38
+[; ;colour_identify.c: 38:     *green_read = *green_read/3;
+[e = *U _green_read / *U _green_read -> -> 3 `i `ui ]
+"40
+[; ;colour_identify.c: 40:     for(colour i = RED; i <= BLUE; i++){
+{
+[v _i `E14551 ~T0 @X0 1 a ]
+[e = _i . `E14551 0 ]
+[e $ <= -> _i `ui -> . `E14551 2 `ui 2025  ]
+[e $U 2026  ]
+[e :U 2025 ]
+{
+"41
+[; ;colour_identify.c: 41:         *blue_read += color_read_Blue();
+[e =+ *U _blue_read ( _color_read_Blue ..  ]
+"42
+[; ;colour_identify.c: 42:         _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"43
+[; ;colour_identify.c: 43:     }
+}
+[e ++ _i -> -> 1 `i `E14551 ]
+[e $ <= -> _i `ui -> . `E14551 2 `ui 2025  ]
+[e :U 2026 ]
+}
+"44
+[; ;colour_identify.c: 44:     *blue_read = *blue_read/3;
+[e = *U _blue_read / *U _blue_read -> -> 3 `i `ui ]
+"46
+[; ;colour_identify.c: 46: }
+[e :UE 2018 ]
+}

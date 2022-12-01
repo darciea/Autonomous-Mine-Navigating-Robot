@@ -24409,7 +24409,7 @@ void reverseOneSquare(DC_motor *mL, DC_motor *mR);
 typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
 
-void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read);
+void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
 void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values, unsigned char *normalised_values);
 void make_master_closeness(unsigned char *normalised_values, unsigned char *master_closeness);
 colour determine_card(unsigned char *master_closeness);
@@ -24445,4 +24445,27 @@ void enable_color_interrupt(void);
 void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
 unsigned int read_interrupt_status(void);
 # 7 "colour_identify.c" 2
+# 24 "colour_identify.c"
+void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
+{
 
+
+    for(colour i = RED; i <= BLUE; i++){
+        *red_read += color_read_Red();
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+    }
+    *red_read = *red_read/3;
+
+    for(colour i = RED; i <= BLUE; i++){
+        *green_read += color_read_Green();
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+    }
+    *green_read = *green_read/3;
+
+    for(colour i = RED; i <= BLUE; i++){
+        *blue_read += color_read_Blue();
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+    }
+    *blue_read = *blue_read/3;
+
+}
