@@ -5,11 +5,11 @@
 #include "colour_identify.h"
 #include "dc_motor.h"
 #include "color.h"
-
+/*
 void Interrupts_init(void)
 {
     enable_color_interrupt(); //enable interrupts from color click board
-    set_interrupt_threshold(0b00000010,0b00000100); //set low threshold to 1024 and high to 2048 (most significant bits only)
+    set_interrupt_threshold(0b00000010,0b00000100,0b0011); //set low threshold to 1024 and high to 2048 (most significant bits only) and persistence filter to 3 consecutive values out of range (may need adjusting)
     INTCONbits.GIEH=1; 	//turn on interrupts globally (when this is off, all interrupts are deactivated)
     INTCONbits.GIEL = 1;} // Peripheral Interrupt Enable bit
 
@@ -165,3 +165,4 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
     }
     
 } 
+ */

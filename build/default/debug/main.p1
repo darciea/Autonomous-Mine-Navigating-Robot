@@ -36,11 +36,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _setMotorPWM `(v ~T0 @X0 0 ef1`*S2015 ]
 "58 main.c
 [; ;main.c: 58:     colour card = BLACK;
-[c E14250 0 1 2 3 4 5 6 7 8 .. ]
-[n E14250 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
-"16 ./colour_identify.h
-[; ;./colour_identify.h: 16: colour determine_card(unsigned char *master_closeness);
-[v _determine_card `(E14250 ~T0 @X0 0 ef1`*uc ]
+[c E14257 0 1 2 3 4 5 6 7 8 .. ]
+[n E14257 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
 "28811 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28811:     struct {
 [s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -67,13 +64,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29718
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29718: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF84)));
 [v _TRISDbits `VS1379 ~T0 @X0 0 e@3972 ]
-"18 ./colour_identify.h
-[; ;./colour_identify.h: 18: void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
-[v _respond_to_card `(v ~T0 @X0 0 ef3`E14250`*S2015`*S2015 ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
+"29035
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29035:     struct {
+[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
+"29045
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29045:     struct {
+[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
+"29034
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29034: typedef union {
+[u S1354 `S1355 1 `S1356 1 ]
+[n S1354 . . . ]
+"29056
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29056: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
+[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
+"29147
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29147:     struct {
+[s S1358 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1358 . LATG0 LATG1 LATG2 LATG3 LATG4 . LATG6 LATG7 ]
+"29157
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29157:     struct {
+[s S1359 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1359 . LG0 LG1 LG2 LG3 LG4 ]
+"29146
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29146: typedef union {
+[u S1357 `S1358 1 `S1359 1 ]
+[n S1357 . . . ]
+"29165
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29165: extern volatile LATGbits_t LATGbits __attribute__((address(0xF7F)));
+[v _LATGbits `VS1357 ~T0 @X0 0 e@3967 ]
+"28475
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28475:     struct {
+[s S1340 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1340 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"28485
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28485:     struct {
+[s S1341 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1341 . LA0 LA1 LA2 LA3 LA4 LA5 LA6 LA7 ]
+"28474
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28474: typedef union {
+[u S1339 `S1340 1 `S1341 1 ]
+[n S1339 . . . ]
+"28496
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28496: extern volatile LATAbits_t LATAbits __attribute__((address(0xF79)));
+[v _LATAbits `VS1339 ~T0 @X0 0 e@3961 ]
+"25 ./color.h
+[; ;./color.h: 25: unsigned int color_read_Red(void);
+[v _color_read_Red `(ui ~T0 @X0 0 ef ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2125,25 +2163,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 &U _motorR ]
 "58
 [; ;main.c: 58:     colour card = BLACK;
-[v _card `E14250 ~T0 @X0 1 a ]
-[e = _card . `E14250 8 ]
-[v F14285 `uc ~T0 @X0 -> 3 `i t ]
+[v _card `E14257 ~T0 @X0 1 a ]
+[e = _card . `E14257 8 ]
+[v F14295 `uc ~T0 @X0 -> 3 `i t ]
 "59
 [; ;main.c: 59:     unsigned char expected_values[8][3];
-[v _expected_values `F14285 ~T0 @X0 -> 8 `i a ]
-[v F14287 `uc ~T0 @X0 -> 3 `i t ]
+[v _expected_values `F14295 ~T0 @X0 -> 8 `i a ]
+[v F14297 `uc ~T0 @X0 -> 3 `i t ]
 "60
 [; ;main.c: 60:     unsigned char normalised_values[8][3];
-[v _normalised_values `F14287 ~T0 @X0 -> 8 `i a ]
-[v F14288 `uc ~T0 @X0 -> 9 `i s ]
-[i F14288
+[v _normalised_values `F14297 ~T0 @X0 -> 8 `i a ]
+[v F14298 `uc ~T0 @X0 -> 9 `i s ]
+[i F14298
 :U ..
 "61
-[; ;main.c: 61:     unsigned char master_closeness[9] = {14, 28, 12, 13, 10, 11, 12, 14, 16};
--> -> 14 `i `uc
--> -> 28 `i `uc
+[; ;main.c: 61:     unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
+-> -> 17 `i `uc
+-> -> 2 `i `uc
 -> -> 12 `i `uc
--> -> 13 `i `uc
+-> -> 12 `i `uc
 -> -> 10 `i `uc
 -> -> 11 `i `uc
 -> -> 12 `i `uc
@@ -2152,7 +2190,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _master_closeness `uc ~T0 @X0 -> 9 `i a ]
-[e = _master_closeness F14288 ]
+[e = _master_closeness F14298 ]
 "63
 [; ;main.c: 63:     unsigned char red_read = 0;
 [v _red_read `uc ~T0 @X0 1 a ]
@@ -2165,32 +2203,43 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 65:     unsigned char blue_read = 0;
 [v _blue_read `uc ~T0 @X0 1 a ]
 [e = _blue_read -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:     card = determine_card(master_closeness);
-[e = _card ( _determine_card (1 &U _master_closeness ]
-"110
-[; ;main.c: 110:     LATDbits.LATD7=1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "111
-[; ;main.c: 111:     TRISDbits.TRISD7=0;
-[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 111:     LATDbits.LATD7=0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
 "112
-[; ;main.c: 112:     while (1) {
+[; ;main.c: 112:     TRISDbits.TRISD7=0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"113
+[; ;main.c: 113:     LATFbits.LATF7 = 1;
+[e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
+"114
+[; ;main.c: 114:     LATGbits.LATG1 = 1;
+[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
+"115
+[; ;main.c: 115:     LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
+"116
+[; ;main.c: 116:     while (1) {
 [e :U 2018 ]
 {
-"115
-[; ;main.c: 115:         respond_to_card(card, &motorL, &motorR);
-[e ( _respond_to_card (3 , , _card &U _motorL &U _motorR ]
 "119
-[; ;main.c: 119:         _delay((unsigned long)((3000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"123
-[; ;main.c: 123:     }
+[; ;main.c: 119:         unsigned int test = color_read_Red();
+[v _test `ui ~T0 @X0 1 a ]
+[e = _test ( _color_read_Red ..  ]
+"120
+[; ;main.c: 120:         if (test > 0) {LATDbits.LATD7 = 1;}
+[e $ ! > _test -> -> 0 `i `ui 2020  ]
+{
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+}
+[e :U 2020 ]
+"131
+[; ;main.c: 131:     }
 }
 [e :U 2017 ]
 [e $U 2018  ]
 [e :U 2019 ]
-"124
-[; ;main.c: 124: }
+"132
+[; ;main.c: 132: }
 [e :UE 2016 ]
 }

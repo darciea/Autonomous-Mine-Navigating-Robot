@@ -24287,7 +24287,7 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 
 void enable_color_interrupt(void);
-void set_interrupt_threshold(unsigned int AILTH, unsigned int AIHTH);
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
 unsigned int read_interrupt_status(void);
 # 10 "main.c" 2
 
@@ -24400,12 +24400,16 @@ void main(void) {
     unsigned char green_read = 0;
     unsigned char blue_read = 0;
 # 111 "main.c"
-    LATDbits.LATD7=1;
+    LATDbits.LATD7=0;
     TRISDbits.TRISD7=0;
+    LATFbits.LATF7 = 1;
+    LATGbits.LATG1 = 1;
+    LATAbits.LATA4 = 1;
     while (1) {
 
 
-        unsigned int test = colour_read_Red();
-# 125 "main.c"
+        unsigned int test = color_read_Red();
+        if (test > 0) {LATDbits.LATD7 = 1;}
+# 131 "main.c"
     }
 }

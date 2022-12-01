@@ -24284,6 +24284,11 @@ void color_writetoaddr(char address, char value);
 unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
+unsigned int color_read_Clear(void);
+
+void enable_color_interrupt(void);
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
+unsigned int read_interrupt_status(void);
 # 10 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24330,12 +24335,16 @@ void LEDSon_init(void);
 # 11 "./colour_identify.h"
 typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
+
 void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read);
-void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values);
+void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values, unsigned char *normalised_values);
 void make_master_closeness(unsigned char *normalised_values, unsigned char *master_closeness);
 colour determine_card(unsigned char *master_closeness);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 13 "main.c" 2
 
 
@@ -24385,31 +24394,22 @@ void main(void) {
     colour card = BLACK;
     unsigned char expected_values[8][3];
     unsigned char normalised_values[8][3];
-    unsigned char master_closeness[9] = {14, 28, 12, 13, 10, 11, 12, 14, 16};
+    unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
 
     unsigned char red_read = 0;
     unsigned char green_read = 0;
     unsigned char blue_read = 0;
-# 103 "main.c"
-    card = determine_card(master_closeness);
-
-
-
-
-
-
-    LATDbits.LATD7=1;
+# 111 "main.c"
+    LATDbits.LATD7=0;
     TRISDbits.TRISD7=0;
+    LATFbits.LATF7 = 1;
+    LATGbits.LATG1 = 1;
+    LATAbits.LATA4 = 1;
     while (1) {
 
 
-        respond_to_card(card, &motorL, &motorR);
-
-
-
-        _delay((unsigned long)((3000)*(64000000/4000.0)));
-
-
-
+        unsigned int test = color_read_Red();
+        if (test > 0) {LATDbits.LATD7 = 1;}
+# 131 "main.c"
     }
 }

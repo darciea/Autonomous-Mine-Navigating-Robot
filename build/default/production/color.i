@@ -24252,7 +24252,7 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 
 void enable_color_interrupt(void);
-void set_interrupt_threshold(unsigned int AILTH, unsigned int AIHTH);
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
 unsigned int read_interrupt_status(void);
 # 2 "color.c" 2
 
@@ -24373,23 +24373,13 @@ unsigned int color_read_Clear(void)
 }
 
 void enable_color_interrupt(void){
- I2C_2_Master_Start();
- I2C_2_Master_Write(0x52 | 0x00);
-    I2C_2_Master_Write(0xA0 | 0x00);
-    I2C_2_Master_RepStart();
- I2C_2_Master_Write(0x52 | 0x00);
-
-    I2C_2_Master_Stop();
+ color_writetoaddr(0x00, 0x01);
 }
 
-void set_interrupt_threshold(unsigned int AILTH, unsigned int AIHTH){
- I2C_2_Master_Start();
- I2C_2_Master_Write(0x52 | 0x00);
- I2C_2_Master_Write(0xA0 | 0x04);
- I2C_2_Master_RepStart();
- I2C_2_Master_Write(0x52 | 0x00);
-
- I2C_2_Master_Stop();
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence){
+    color_writetoaddr(0x0C, persistence);
+    color_writetoaddr(0x05, AILTH);
+    color_writetoaddr(0x07, AILTH);
 }
 
 unsigned int read_interrupt_status(void){

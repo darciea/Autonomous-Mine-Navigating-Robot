@@ -108,18 +108,24 @@ void main(void) {
    /********************************************//**
     *  Trying code
     ***********************************************/
-    LATDbits.LATD7=1;   //set initial output state of RD7 LED
+    LATDbits.LATD7=0;   //set initial output state of RD7 LED
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
+    BLUEL = 1;
+    REDL = 1;
+    GREENL = 1;
     while (1) {
         
         //BRAKE = 1;
-        unsigned int test = colour_read_Red();
+        unsigned int test = color_read_Red();
+        if (test > 0) {LATDbits.LATD7 = 1;}
         //respond_to_card(card, &motorL, &motorR);
         //reverseOneSquare(&motorL, &motorR);
         //card = PINK;
         //respond_to_card(card, &motorL, &motorR);
         //__delay_ms(3000);
         //LEFT = 1;
+
+                
         
         
     }

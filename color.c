@@ -83,23 +83,13 @@ unsigned int color_read_Clear(void)
 }
 
 void enable_color_interrupt(void){
-	I2C_2_Master_Start();         //Start condition
-	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
-    I2C_2_Master_Write(0xA0 | 0x00);    //command (auto-increment protocol transaction) + write into ENABLE bit address
-    I2C_2_Master_RepStart();			// start a repeated transmission
-	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write (0) mode
-	//somehow write that we want to turn the ENABLE bit to 1
-    I2C_2_Master_Stop();          //Stop condition
+	color_writetoaddr(0x00, 0x01); //address for ENABLE bit is 0x00 and we want to turn it on
 }
 
-void set_interrupt_threshold(unsigned int AILTH, unsigned int AIHTH){
-	I2C_2_Master_Start();         //Start condition
-	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
-	I2C_2_Master_Write(0xA0 | 0x04);    //command (auto-increment protocol transaction) + start at CLEAR low register
-	I2C_2_Master_RepStart();			// start a repeated transmission
-	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write (0) mode
-    //somehow write 0 into 0x04, AILTH into 0x05, 0 into 0x06 and AIHTH into 0x07 (don't care about least significant bits so just set to 0)
-	I2C_2_Master_Stop();          //Stop condition
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence){
+    color_writetoaddr(0x0C, persistence); // set the persistence filter
+    color_writetoaddr(0x05, AILTH); // set most significant bit of the low threshold register
+    color_writetoaddr(0x07, AILTH); // set most significant bit of the high threshold register
 }
 
 unsigned int read_interrupt_status(void){

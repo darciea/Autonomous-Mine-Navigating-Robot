@@ -24442,46 +24442,7 @@ unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 
 void enable_color_interrupt(void);
-void set_interrupt_threshold(unsigned int AILTH, unsigned int AIHTH);
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
 unsigned int read_interrupt_status(void);
 # 7 "colour_identify.c" 2
 
-
-void Interrupts_init(void)
-{
-    enable_color_interrupt();
-    set_interrupt_threshold(0b00000010,0b00000100);
-    INTCONbits.GIEH=1;
-    INTCONbits.GIEL = 1;}
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
-{
-
-    if(read_interrupt_status()) {
-
-    }
-}
-
-void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read)
-{
-
-
-    for(int i = 0; i = 2; i++){
-        *red_read += color_read_Red();
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-    }
-    *red_read = *red_read/3;
-
-    for(int i = 0; i = 2; i++){
-        *green_read += color_read_Green();
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-    }
-    *green_read = *green_read/3;
-
-    for(int i = 0; i = 2; i++){
-        *blue_read += color_read_Blue();
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-    }
-    *blue_read = *blue_read/3;
-
-}
