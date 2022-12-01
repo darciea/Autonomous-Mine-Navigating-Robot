@@ -24408,97 +24408,80 @@ void reverseOneSquare(DC_motor *mL, DC_motor *mR);
 
 typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
+
 void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read);
-void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values);
+void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values, unsigned char *normalised_values);
 void make_master_closeness(unsigned char *normalised_values, unsigned char *master_closeness);
 colour determine_card(unsigned char *master_closeness);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 5 "colour_identify.c" 2
 
 
-# 1 "./LEDsOn.h" 1
-# 26 "./LEDsOn.h"
-void LEDSon_init(void);
+# 1 "./color.h" 1
+# 12 "./color.h"
+void color_click_init(void);
+
+
+
+
+
+
+void color_writetoaddr(char address, char value);
+
+
+
+
+
+unsigned int color_read_Red(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Clear(void);
+
+void enable_color_interrupt(void);
+void set_interrupt_threshold(unsigned int AILTH, unsigned int AIHTH);
+unsigned int read_interrupt_status(void);
 # 7 "colour_identify.c" 2
-# 63 "colour_identify.c"
-colour determine_card(unsigned char *master_closeness){
-    colour predicted_colour = RED;
-    unsigned char current_smallest = master_closeness[RED];
-    for(colour i = GREEN; i<=BLACK; i++){
-        if(master_closeness[i] < current_smallest){
-            current_smallest = master_closeness[i];
-            predicted_colour = i;
-        }
+
+
+void Interrupts_init(void)
+{
+    enable_color_interrupt();
+    set_interrupt_threshold(0b00000010,0b00000100);
+    INTCONbits.GIEH=1;
+    INTCONbits.GIEL = 1;}
+
+void __attribute__((picinterrupt(("high_priority")))) HighISR()
+{
+
+    if(read_interrupt_status()) {
+
     }
-    return predicted_colour;
 }
 
-
-void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
-
-    switch (card){
-        case RED:
-            LATFbits.LATF0 = 1;
+void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read)
+{
 
 
-
-
-
-            break;
-        case GREEN:
-            LATHbits.LATH0 = 1;
-
-
-
-
-
-            break;
-        case BLUE:
-            turnRight45(mL,mR);
-            turnRight45(mL,mR);
-            turnRight45(mL,mR);
-            turnRight45(mL,mR);
-            stop(mL,mR);
-            break;
-        case YELLOW:
-            LATDbits.LATD3 = 1;
-
-
-
-
-
-
-            break;
-        case PINK:
-            LATDbits.LATD4 = 1;
-
-
-
-
-
-
-            break;
-        case ORANGE:
-            turnRight45(mL,mR);
-            turnRight45(mL,mR);
-            turnRight45(mL,mR);
-            stop(mL,mR);
-            break;
-        case LIGHT_BLUE:
-            turnLeft45(mL,mR);
-            turnLeft45(mL,mR);
-            turnLeft45(mL,mR);
-            stop(mL,mR);
-            break;
-        case WHITE:
-
-            break;
-        case BLACK:
-
-            break;
-        default:
-            break;
+    for(int i = 0; i = 2; i++){
+        *red_read += color_read_Red();
+        _delay((unsigned long)((10)*(64000000/4000.0)));
     }
+    *red_read = *red_read/3;
+
+    for(int i = 0; i = 2; i++){
+        *green_read += color_read_Green();
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+    }
+    *green_read = *green_read/3;
+
+    for(int i = 0; i = 2; i++){
+        *blue_read += color_read_Blue();
+        _delay((unsigned long)((10)*(64000000/4000.0)));
+    }
+    *blue_read = *blue_read/3;
 
 }

@@ -85,12 +85,12 @@ void stop(DC_motor *mL, DC_motor *mR)
 {
     while(mL->power !=0){
         mL->power -=10;
-        __delay_ms(5); //delay ensures the current decreases gradually without noticeably affecting direction
+        __delay_ms(2); //delay ensures the current decreases gradually without noticeably affecting direction
         setMotorPWM(mL);
     }
     while(mR -> power !=0){
         mR->power -=10;
-        __delay_ms(5); //delay ensures the current decreases gradually without noticeably affecting direction
+        __delay_ms(2); //delay ensures the current decreases gradually without noticeably affecting direction
         setMotorPWM(mR);
     }
 
@@ -139,13 +139,12 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
         setMotorPWM(mR);
         __delay_ms(10);//delay ensures current has time to adjust
     }
-    __delay_ms(10);
 }
 
 //function to make the robot go reverse
-void reverseOneSquare(DC_motor *mL, DC_motor *mR)
+void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
 {
-    mL->direction=0; //set direction of motors to make it move forwards
+    mL->direction=0; //set direction of motors to make it move backwards
     mR->direction=0;
     for(int i=0;i<60;i+=10){  
         mL->power=i;
@@ -154,7 +153,5 @@ void reverseOneSquare(DC_motor *mL, DC_motor *mR)
         setMotorPWM(mR);
         __delay_ms(10);//delay ensures current has time to adjust
     }
-    __delay_ms(1000);
-    stop(mL, mR);
 }
 

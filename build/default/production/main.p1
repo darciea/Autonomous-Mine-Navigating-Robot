@@ -36,11 +36,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _setMotorPWM `(v ~T0 @X0 0 ef1`*S2015 ]
 "58 main.c
 [; ;main.c: 58:     colour card = BLACK;
-[c E14250 0 1 2 3 4 5 6 7 8 .. ]
-[n E14250 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
-"16 ./colour_identify.h
-[; ;./colour_identify.h: 16: colour determine_card(unsigned char *master_closeness);
-[v _determine_card `(E14250 ~T0 @X0 0 ef1`*uc ]
+[c E14256 0 1 2 3 4 5 6 7 8 .. ]
+[n E14256 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
 "28811 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28811:     struct {
 [s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -67,13 +64,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29718
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29718: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF84)));
 [v _TRISDbits `VS1379 ~T0 @X0 0 e@3972 ]
-"18 ./colour_identify.h
-[; ;./colour_identify.h: 18: void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
-[v _respond_to_card `(v ~T0 @X0 0 ef3`E14250`*S2015`*S2015 ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
+"116 main.c
+[; ;main.c: 116:         unsigned int test = colour_read_Red();
+[v _colour_read_Red `(i ~T0 @X0 0 e? ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2125,18 +2118,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 &U _motorR ]
 "58
 [; ;main.c: 58:     colour card = BLACK;
-[v _card `E14250 ~T0 @X0 1 a ]
-[e = _card . `E14250 8 ]
-[v F14285 `uc ~T0 @X0 -> 3 `i t ]
+[v _card `E14256 ~T0 @X0 1 a ]
+[e = _card . `E14256 8 ]
+[v F14294 `uc ~T0 @X0 -> 3 `i t ]
 "59
 [; ;main.c: 59:     unsigned char expected_values[8][3];
-[v _expected_values `F14285 ~T0 @X0 -> 8 `i a ]
-[v F14287 `uc ~T0 @X0 -> 3 `i t ]
+[v _expected_values `F14294 ~T0 @X0 -> 8 `i a ]
+[v F14296 `uc ~T0 @X0 -> 3 `i t ]
 "60
 [; ;main.c: 60:     unsigned char normalised_values[8][3];
-[v _normalised_values `F14287 ~T0 @X0 -> 8 `i a ]
-[v F14288 `uc ~T0 @X0 -> 9 `i s ]
-[i F14288
+[v _normalised_values `F14296 ~T0 @X0 -> 8 `i a ]
+[v F14297 `uc ~T0 @X0 -> 9 `i s ]
+[i F14297
 :U ..
 "61
 [; ;main.c: 61:     unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
@@ -2152,7 +2145,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v _master_closeness `uc ~T0 @X0 -> 9 `i a ]
-[e = _master_closeness F14288 ]
+[e = _master_closeness F14297 ]
 "63
 [; ;main.c: 63:     unsigned char red_read = 0;
 [v _red_read `uc ~T0 @X0 1 a ]
@@ -2165,32 +2158,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 65:     unsigned char blue_read = 0;
 [v _blue_read `uc ~T0 @X0 1 a ]
 [e = _blue_read -> -> 0 `i `uc ]
-"103
-[; ;main.c: 103:     card = determine_card(master_closeness);
-[e = _card ( _determine_card (1 &U _master_closeness ]
-"110
-[; ;main.c: 110:     LATDbits.LATD7=1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "111
-[; ;main.c: 111:     TRISDbits.TRISD7=0;
-[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+[; ;main.c: 111:     LATDbits.LATD7=1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "112
-[; ;main.c: 112:     while (1) {
+[; ;main.c: 112:     TRISDbits.TRISD7=0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"113
+[; ;main.c: 113:     while (1) {
 [e :U 2018 ]
 {
-"115
-[; ;main.c: 115:         respond_to_card(card, &motorL, &motorR);
-[e ( _respond_to_card (3 , , _card &U _motorL &U _motorR ]
-"119
-[; ;main.c: 119:         _delay((unsigned long)((3000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"123
-[; ;main.c: 123:     }
+"116
+[; ;main.c: 116:         unsigned int test = colour_read_Red();
+[v _test `ui ~T0 @X0 1 a ]
+[e = _test -> ( _colour_read_Red ..  `ui ]
+"125
+[; ;main.c: 125:     }
 }
 [e :U 2017 ]
 [e $U 2018  ]
 [e :U 2019 ]
-"124
-[; ;main.c: 124: }
+"126
+[; ;main.c: 126: }
 [e :UE 2016 ]
 }

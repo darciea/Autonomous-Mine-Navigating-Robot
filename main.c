@@ -98,9 +98,10 @@ void main(void) {
     make_master_closeness(&normalised_values,&master_closeness);
     
     card = determine_card();
-    */
+    
     
     card = determine_card(master_closeness);
+    */
     
     
     
@@ -112,11 +113,12 @@ void main(void) {
     while (1) {
         
         //BRAKE = 1;
-        respond_to_card(card, &motorL, &motorR);
+        unsigned int test = colour_read_Red();
+        //respond_to_card(card, &motorL, &motorR);
         //reverseOneSquare(&motorL, &motorR);
         //card = PINK;
         //respond_to_card(card, &motorL, &motorR);
-        __delay_ms(3000);
+        //__delay_ms(3000);
         //LEFT = 1;
         
         

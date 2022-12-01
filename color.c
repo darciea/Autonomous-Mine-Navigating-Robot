@@ -67,3 +67,49 @@ unsigned int color_read_Blue(void)
 	I2C_2_Master_Stop();          //Stop condition
 	return tmp;
 }
+
+unsigned int color_read_Clear(void)
+{
+	unsigned int tmp;
+	I2C_2_Master_Start();         //Start condition
+	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
+	I2C_2_Master_Write(0xA0 | 0x14);    //command (auto-increment protocol transaction) + start at CLEAR low register
+	I2C_2_Master_RepStart();			// start a repeated transmission
+	I2C_2_Master_Write(0x52 | 0x01);     //7 bit address + Read (1) mode
+	tmp=I2C_2_Master_Read(1);			//read the Clear LSB
+	tmp=tmp | (I2C_2_Master_Read(0)<<8); //read the Clear MSB (don't acknowledge as this is the last read)
+	I2C_2_Master_Stop();          //Stop condition
+	return tmp;
+}
+
+void enable_color_interrupt(void){
+	I2C_2_Master_Start();         //Start condition
+	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
+    I2C_2_Master_Write(0xA0 | 0x00);    //command (auto-increment protocol transaction) + write into ENABLE bit address
+    I2C_2_Master_RepStart();			// start a repeated transmission
+	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write (0) mode
+	//somehow write that we want to turn the ENABLE bit to 1
+    I2C_2_Master_Stop();          //Stop condition
+}
+
+void set_interrupt_threshold(unsigned int AILTH, unsigned int AIHTH){
+	I2C_2_Master_Start();         //Start condition
+	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
+	I2C_2_Master_Write(0xA0 | 0x04);    //command (auto-increment protocol transaction) + start at CLEAR low register
+	I2C_2_Master_RepStart();			// start a repeated transmission
+	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write (0) mode
+    //somehow write 0 into 0x04, AILTH into 0x05, 0 into 0x06 and AIHTH into 0x07 (don't care about least significant bits so just set to 0)
+	I2C_2_Master_Stop();          //Stop condition
+}
+
+unsigned int read_interrupt_status(void){
+    unsigned int status;
+    I2C_2_Master_Start();         //Start condition
+	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
+	I2C_2_Master_Write(0xA0 | 0x13);    //command (auto-increment protocol transaction) + start at CLEAR low register
+	I2C_2_Master_RepStart();			// start a repeated transmission
+	I2C_2_Master_Write(0x52 | 0x01);     //7 bit address + Read (1) mode
+	status=I2C_2_Master_Read(1);			//read the STATUS bit
+	I2C_2_Master_Stop();          //Stop condition
+	return status;
+}
