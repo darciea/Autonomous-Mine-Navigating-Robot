@@ -24409,7 +24409,7 @@ void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft45(DC_motor *mL, DC_motor *mR);
 void turnRight45(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void reverseOneSquare(DC_motor *mL, DC_motor *mR);
+void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
 # 10 "main.c" 2
 
 # 1 "./color.h" 1
@@ -24479,13 +24479,13 @@ void LEDSon_init(void);
 
 # 1 "./colour_identify.h" 1
 # 11 "./colour_identify.h"
-typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
+typedef enum colour{RED, GREEN, BLUE, } colour;
 
 
-void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read);
-void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values, unsigned char *normalised_values);
-void make_master_closeness(unsigned char *normalised_values, unsigned char *master_closeness);
-colour determine_card(unsigned char *master_closeness);
+void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
+void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]);
+void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]);
+colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 
@@ -24568,29 +24568,50 @@ void main(void) {
 
 
 
-    colour card = BLACK;
-    unsigned char expected_values[8][3];
-    unsigned char normalised_values[8][3];
-    unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
+    colour card = BLUE;
+    unsigned int expected_values[3][3] = {{14000, 2100, 2800},{8400, 6500, 5000},{4400, 1800, 2800}};
+    unsigned int normalised_values[3][3];
+    unsigned int master_closeness[3]= {8000, 0 , 8000 };
 
-    volatile unsigned char red_read = 0;
-    volatile unsigned char green_read = 0;
-    volatile unsigned char blue_read = 0;
-# 114 "main.c"
+    unsigned int red_read = 0;
+    unsigned int green_read = 0;
+    unsigned int blue_read = 0;
+# 99 "main.c"
+    while(PORTFbits.RF2){
+        LATHbits.LATH1 = 1;
+    }
+# 122 "main.c"
     LATDbits.LATD7=0;
     TRISDbits.TRISD7=0;
 
     char buf[20];
 
     while (1) {
-
-        red_read = color_read_Red();
-
-
-
-
-        sprintf(buf, "Red read = %d \n", red_read);
+# 142 "main.c"
+        sprintf(buf, "red %d \n", master_closeness[0]);
         sendStringSerial4(buf);
-# 141 "main.c"
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        sprintf(buf, "green %d \n", master_closeness[1]);
+        sendStringSerial4(buf);
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        sprintf(buf, "blue %d \n", master_closeness[2]);
+        sendStringSerial4(buf);
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
+
+        card = determine_card(master_closeness);
+
+        sprintf(buf, "CARD %d \n", card);
+        sendStringSerial4(buf);
+
+
+
+
+
+
+        LATFbits.LATF0 = 1;
+
+
+
+
     }
 }

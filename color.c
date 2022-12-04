@@ -96,7 +96,7 @@ unsigned int read_interrupt_status(void){
     unsigned int status;
     I2C_2_Master_Start();         //Start condition
 	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
-	I2C_2_Master_Write(0xA0 | 0x13);    //command (auto-increment protocol transaction) + start at CLEAR low register
+	I2C_2_Master_Write(0xA0 | 0x13);    //command (auto-increment protocol transaction) + start at STATUS low register
 	I2C_2_Master_RepStart();			// start a repeated transmission
 	I2C_2_Master_Write(0x52 | 0x01);     //7 bit address + Read (1) mode
 	status=I2C_2_Master_Read(1);			//read the STATUS bit

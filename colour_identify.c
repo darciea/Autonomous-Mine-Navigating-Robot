@@ -5,6 +5,7 @@
 #include "colour_identify.h"
 #include "dc_motor.h"
 #include "color.h"
+#include "serial.h"
 /*
 void Interrupts_init(void)
 {
@@ -16,71 +17,93 @@ void Interrupts_init(void)
 void __interrupt(high_priority) HighISR()
 {
 	//trigger flag that indicates a card has been identified in front of the sensor
-    if(read_interrupt_status()) {			//check the interrupt source (color click board status bit)
+    if(read_interrupt_status()) {LATDbits.LATD7 = 1; color_writetoaddr(0x13, 0x01);		//check the interrupt source (color click board status bit)
     //undecided on how to define flag that indicates card has been detected
     }
 }
-*/ 
-void collect_avg_readings(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
+ */
+void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {   
     //for each measured colour (Red Green Blue) take three readings and average them, and store them in the appropriate location
 
     for(colour i = RED; i <= BLUE; i++){
         *red_read += color_read_Red();
-        sprintf(buf, "Raw %d, %d, %d \n", red_read, green_read, blue_read);
-        sendStringSerial4(buf);
-        __delay_ms(10);
+        __delay_ms(200);
+        //sprintf(buf, "Raw red %d \n", *red_read);
+        //sendStringSerial4(buf);
+        
+        //__delay_ms(1000);
     }
     *red_read = *red_read/3;
+    //sprintf(buf, "Average red %d \n", *red_read);
+    //sendStringSerial4(buf);
     
     for(colour i = RED; i <= BLUE; i++){
         *green_read += color_read_Green();
-        __delay_ms(10);
+        __delay_ms(200);
+        //sprintf(buf, "Raw green %d \n", *green_read);
+        //sendStringSerial4(buf);
+        
+        //__delay_ms(1000);
     }
     *green_read = *green_read/3;
+    //sprintf(buf, "Average green %d \n", *green_read);
+    //sendStringSerial4(buf);
 
     for(colour i = RED; i <= BLUE; i++){
         *blue_read += color_read_Blue();
-        __delay_ms(10);
+        __delay_ms(200);
+        //sprintf(buf, "Raw blue %d \n", *blue_read);
+        //sendStringSerial4(buf);
+        
+        //__delay_ms(1000);
     }
     *blue_read = *blue_read/3;
+    //sprintf(buf, "Average blue %d \n", *blue_read);
+    //sendStringSerial4(buf);
         
 }
-/*
-void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values, unsigned char *normalised_values)
-{   
+
+void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]){   
         //for each colourcard: 
             //for each measured colour (Red, Green, Blue):
                 //calculation done is (absolute value of the difference between measured and expected value)/expected value
                 //this is then stored in the full array of all normalised differences
  
 
-    for(unsigned int i = 0; i<=7; i++){
+    for(colour i = RED; i<= BLACK; i++){
         
         //check the red readings against the expected readings and express as a number between 0 and 1
-        *normalised_values[i][0] = (abs(*red_read - *expected_values[i][0])) / (*expected_values[i][0]);
+        normalised_values[0][0] = (abs(*red_read - expected_values[0][0])) / (expected_values[0][0]);
+        //sprintf(buf, "Read %d, expected %d, normalised %d \n", red_read, expected_values[0][1], normalised_values[0][0]);
+        //sendStringSerial4(buf);
         
         //check the green readings against the expected readings and express as a number between 0 and 1
-        *normalised_values[i][1] = (abs(*green_read - *expected_values[i][1])) / (*expected_values[i][1]);
+        normalised_values[i][GREEN] = (abs(*green_read - expected_values[i][1])) / (expected_values[i][1]);
         
         //check the blue readings against the expected readings and express as a number between 0 and 1
-        *normalised_values[i][2] = (abs(*blue_read - *expected_values[i][2])) / (*expected_values[i][2]);
+        normalised_values[i][BLUE] = (abs(*blue_read - expected_values[i][2])) / (expected_values[i][2]);
+        
     }
         
 }
  
-void make_master_closeness(unsigned char *normalised_values, unsigned char *master_closeness){
-    for(int i = 0; i<=7; i++){
-        *master_closeness[i] = (*normalised_values[i][0] + *normalised_values[i][1] + *normalised_values[i][2])/3;
+void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]){
+    for(colour i = RED; i<=BLACK; i++){
+        master_closeness[i] = (normalised_values[i][0] + normalised_values[i][1] + normalised_values[i][2])/3;
     }
 }
  
-colour determine_card(unsigned char *master_closeness){
-    colour smallest = 0;
-    for(unsigned int i = 0; i<=7; i++){
-        if(master_closeness[i] < master_closeness[i-1]){smallest = i;}
+colour determine_card(unsigned int master_closeness[]){
+    colour predicted_colour = RED;
+    unsigned int current_smallest = master_closeness[RED];
+    for(colour i = GREEN; i<=BLACK; i++){
+        if(master_closeness[i] < current_smallest){
+            current_smallest = master_closeness[i];
+            predicted_colour = i;
         }
-    return smallest;
+    }
+    return predicted_colour;
 }
 
  
@@ -167,4 +190,4 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
     }
     
 } 
- */
+ 

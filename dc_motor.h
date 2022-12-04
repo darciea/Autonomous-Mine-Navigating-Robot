@@ -21,6 +21,6 @@ void stop(DC_motor *mL, DC_motor *mR);
 void turnLeft45(DC_motor *mL, DC_motor *mR);
 void turnRight45(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void reverseOneSquare(DC_motor *mL, DC_motor *mR);
+void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
 
 #endif

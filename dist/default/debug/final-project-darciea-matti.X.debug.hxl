@@ -10,14 +10,12 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 5h		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
-  E00h - 1CCCh		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
-  1CCEh - 1CCFh		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
+  E00h - 1DC3h		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
   200000h - 20000Fh		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
   300000h - 30000Bh		(dist/default/debug\final-project-darciea-matti.X.debug.hex)
  Unused ranges:
   6h - DFFh
-  1CCDh - 1CCDh
-  1CD0h - 1FFFFFh
+  1DC4h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -265,7 +263,23 @@
 00001C90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001CA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00001CB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00001CC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1
+00001CC0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001CD0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001CE0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001CF0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D80 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001D90 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001DA0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001DB0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001DC0 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

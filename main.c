@@ -58,14 +58,14 @@ void main(void) {
     /********************************************//**
     *  Setting up arrays and variables for collecting data
     ***********************************************/
-    colour card  = BLACK;
-    unsigned char expected_values[8][3];
-    unsigned char normalised_values[8][3];
-    unsigned char master_closeness[9] = {17, 2, 12, 12, 10, 11, 12, 14, 16};
+    colour card  = BLUE;
+    unsigned int expected_values[3][3] = {{13000, 2600, 1800},{8400, 6500, 5000},{4400, 1800, 2800}};
+    unsigned int normalised_values[3][3];
+    unsigned int master_closeness[3];//= {80, 990/*3467*/, 8000/*3533*/};// = {17, 2, 12, 12, 10, 11, 12, 14, 16};
     
-    volatile unsigned int red_read = 0;
-    volatile unsigned int green_read = 0;
-    volatile unsigned int blue_read = 0;
+    unsigned int red_read = 0;
+    unsigned int green_read = 0;
+    unsigned int blue_read = 0;
     
     
     
@@ -83,16 +83,24 @@ void main(void) {
     /*
     TRISFbits.TRISF2=1; //set TRIS value for pin (input)
     ANSELFbits.ANSELF2=0; //turn off analogue input on pin
-    for(unsigned int i = 0; i<=7; i++){
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        expected_values[i][0] = red_read;
-        expected_values[i][1] = green_read;
-        expected_values[i][2] = blue_read;
+    for(colour i = RED; i<=BLUE; i++){
         while(PORTFbits.RF2){
-            
+            BRAKE = 1;
         }
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        expected_values[i][RED] = red_read;
+        expected_values[i][GREEN] = green_read;
+        expected_values[i][BLUE] = blue_read;
+        BRAKE = 0;
+        __delay_ms(1000);
+        
     }
     */
+    while(PORTFbits.RF2){
+        HLAMPS = 1;
+    }
+    
+    
     /*
     card = 1; //flag to show that a card has been seen
     stop(&motorL, &motorR);
@@ -117,30 +125,24 @@ void main(void) {
     char buf[20];
     
     while (1) {
-        
+        /*
         red_read = color_read_Red();
         blue_read = color_read_Blue();
         green_read = color_read_Green();
-
+         */
         
-        sprintf(buf, "Raw %d, %d, %d \n", red_read, green_read, blue_read);
-        sendStringSerial4(buf);
-        __delay_ms(1000);
+        
+        //__delay_ms(1000);
+        
         
         collect_avg_readings(&red_read, &green_read, &blue_read);
-        
-        sprintf(buf, "Averages %d, %d, %d \n", red_read, green_read, blue_read);
-        sendStringSerial4(buf);
-        
-        //BRAKE = 1;
-        
-        
+        normalise_readings(&red_read,&green_read, &blue_read, &expected_values, &normalised_values);
+        //make_master_closeness(&normalised_values,&master_closeness);
+      
         //respond_to_card(card, &motorL, &motorR);
-        //reverseOneSquare(&motorL, &motorR);
         //card = PINK;
-        //respond_to_card(card, &motorL, &motorR);
-        //__delay_ms(3000);
-        //LEFT = 1;
+
+        LEFT = 1;
 
                 
         
