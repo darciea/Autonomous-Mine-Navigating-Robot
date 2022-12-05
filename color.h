@@ -27,8 +27,4 @@ unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
 
-void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
-unsigned int read_interrupt_status(void);
-
 #endif

@@ -17,9 +17,4 @@ colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 
-void Interrupts_init(void);
-void __interrupt(high_priority) HighISR();
-
-#endif	
-
-
+#endif

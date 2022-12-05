@@ -13,6 +13,7 @@
 #include "LEDsOn.h"
 #include "colour_identify.h"
 #include "serial.h"
+#include "interrupts.h"
 
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
@@ -27,6 +28,7 @@ void main(void) {
     color_click_init();
     initDCmotorsPWM();
     initUSART4();
+    Interrupts_init();
     
     
     
@@ -66,6 +68,7 @@ void main(void) {
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
+    unsigned int clear_read = 0;
     
     
     
@@ -119,19 +122,32 @@ void main(void) {
    /********************************************//**
     *  Trying code
     ***********************************************/
+    
+    
+    
+    LATHbits.LATH3=0;   //set initial output state of RH3 LED
+    TRISHbits.TRISH3=0; //set TRIS value for H3 pin (output)
+    
+    char buf[20];
+        
     LATDbits.LATD7=0;   //set initial output state of RD7 LED
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
-
-    char buf[20];
     
     while (1) {
-        /*
+        
         red_read = color_read_Red();
         blue_read = color_read_Blue();
         green_read = color_read_Green();
-         */
-        
+        clear_read = color_read_Clear();
 
+        
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+        sendStringSerial4(buf);
+        __delay_ms(100);
+        LATHbits.LATH3=!LATHbits.LATH3;
+         
+        
+/*
         BRAKE = 1;
         respond_to_card(card, &motorL, &motorR);
         //reverseOneSquare(&motorL, &motorR);
@@ -151,7 +167,7 @@ void main(void) {
 
         LEFT = 1;
 
-                
+                */
         
         
     }
