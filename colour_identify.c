@@ -22,75 +22,79 @@ void __interrupt(high_priority) HighISR()
     }
 }
  */
-void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
+void collect_avg_readings(/*char *buf, */unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {   
     //for each measured colour (Red Green Blue) take three readings and average them, and store them in the appropriate location
 
-    for(colour i = RED; i <= BLUE; i++){
+    for(colour i = 0; i <= 2; i++){
         *red_read += color_read_Red();
-        __delay_ms(200);
-        //sprintf(buf, "Raw red %d \n", *red_read);
-        //sendStringSerial4(buf);
-        
-        //__delay_ms(1000);
+        __delay_ms(200);   
     }
     *red_read = *red_read/3;
+    
     //sprintf(buf, "Average red %d \n", *red_read);
     //sendStringSerial4(buf);
     
-    for(colour i = RED; i <= BLUE; i++){
+    for(colour i = 0; i <= 2; i++){
         *green_read += color_read_Green();
         __delay_ms(200);
-        //sprintf(buf, "Raw green %d \n", *green_read);
-        //sendStringSerial4(buf);
-        
-        //__delay_ms(1000);
     }
     *green_read = *green_read/3;
+    
     //sprintf(buf, "Average green %d \n", *green_read);
     //sendStringSerial4(buf);
 
-    for(colour i = RED; i <= BLUE; i++){
+    for(colour i = 0; i <= 2; i++){
         *blue_read += color_read_Blue();
         __delay_ms(200);
-        //sprintf(buf, "Raw blue %d \n", *blue_read);
-        //sendStringSerial4(buf);
-        
-        //__delay_ms(1000);
     }
     *blue_read = *blue_read/3;
+    
     //sprintf(buf, "Average blue %d \n", *blue_read);
     //sendStringSerial4(buf);
         
 }
 
-void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]){   
+void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]){   
         //for each colourcard: 
             //for each measured colour (Red, Green, Blue):
                 //calculation done is (absolute value of the difference between measured and expected value)/expected value
                 //this is then stored in the full array of all normalised differences
  
 
-    for(colour i = RED; i<= BLACK; i++){
+    for(colour i = RED; i<= BLUE; i++){
         
         //check the red readings against the expected readings and express as a number between 0 and 1
-        normalised_values[0][0] = (abs(*red_read - expected_values[0][0])) / (expected_values[0][0]);
-        //sprintf(buf, "Read %d, expected %d, normalised %d \n", red_read, expected_values[0][1], normalised_values[0][0]);
-        //sendStringSerial4(buf);
+        unsigned int differenceR = abs(red_read - expected_values[i][RED]);
+        unsigned int normalR = (differenceR*100) / expected_values[i][RED];
+        //normalised_values[i][RED] = (difference*100) / expected_values[i][RED];
+        sprintf(buf, "RED: Read %d, expected %d, difference %d, normalised %d \n", red_read, expected_values[i][RED], differenceR, normalR);
+        sendStringSerial4(buf);
+        __delay_ms(1000);
         
         //check the green readings against the expected readings and express as a number between 0 and 1
-        normalised_values[i][GREEN] = (abs(*green_read - expected_values[i][1])) / (expected_values[i][1]);
+        unsigned int differenceG = abs(green_read - expected_values[i][GREEN]);
+        unsigned int normalG = (differenceG*100) / expected_values[i][GREEN];
+        sprintf(buf, "GREEN: Read %d, expected %d, difference %d, normalised %d \n", green_read, expected_values[i][GREEN], differenceG, normalG);
+        sendStringSerial4(buf);
+        __delay_ms(1000);
         
         //check the blue readings against the expected readings and express as a number between 0 and 1
-        normalised_values[i][BLUE] = (abs(*blue_read - expected_values[i][2])) / (expected_values[i][2]);
-        
+        unsigned int differenceB = abs(blue_read - expected_values[i][BLUE]);
+        unsigned int normalB = (differenceB*100) / expected_values[i][BLUE];
+        sprintf(buf, "BLUE: Read %d, expected %d, difference %d, normalised %d \n", blue_read, expected_values[i][BLUE], differenceB, normalB);
+        sendStringSerial4(buf);
+        __delay_ms(1000);
     }
         
 }
  
-void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]){
+void make_master_closeness(char *buf, unsigned int normalised_values[][3], unsigned int master_closeness[]){
     for(colour i = RED; i<=BLACK; i++){
-        master_closeness[i] = (normalised_values[i][0] + normalised_values[i][1] + normalised_values[i][2])/3;
+        master_closeness[i] = (normalised_values[i][RED] + normalised_values[i][GREEN] + normalised_values[i][BLUE])/3;
+        sprintf(buf, "MC Avg: normRED %d, normGREEN %d, normBLUE %d, master %d \n", normalised_values[i][RED], normalised_values[i][GREEN],normalised_values[i][BLUE], master_closeness[i]);
+        __delay_ms(1000);
+        sendStringSerial4(buf);
     }
 }
  
@@ -136,7 +140,7 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
             stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
-            break;
+            break;/*
         case YELLOW:
             reverseFullSpeed(mL,mR);
             __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
@@ -184,7 +188,7 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case BLACK:
             //CODE FOR THE EVENTUALITY IT RUNS INTO A WALL?
-            break;    
+            break; */   
         default:
             break;
     }

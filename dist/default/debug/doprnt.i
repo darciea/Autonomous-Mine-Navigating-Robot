@@ -921,6 +921,40 @@ static void dtoa(FILE *fp, long long d)
 
     return (void) pad(fp, &dbuf[i], w);
 }
+# 894 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\common\\doprnt.c"
+static void utoa(FILE *fp, unsigned long long d)
+{
+    int i, p, w;
+    unsigned long long n;
+
+
+
+
+
+
+
+    p = (0 < prec) ? prec : 1;
+    w = width;
+
+
+    n = d;
+    i = sizeof(dbuf) - 1;
+    dbuf[i] = '\0';
+    while (i && (n || (0 < p)
+
+
+
+    )) {
+        --i;
+        dbuf[i] = '0' + (n % 10);
+        --p;
+        --w;
+        n = n / 10;
+    }
+
+
+    return (void) pad(fp, &dbuf[i], w);
+}
 # 1006 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\common\\doprnt.c"
 static void
 vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
@@ -949,6 +983,30 @@ vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
 
    *fmt = cp+1;
    return (void) dtoa(fp, convarg.ll);
+  }
+
+
+
+
+  if (0
+# 1250 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\common\\doprnt.c"
+    || *cp == 'u'
+
+    ) {
+# 1295 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\common\\doprnt.c"
+   convarg.llu = (unsigned long long)(unsigned int)(*(unsigned int *)__va_arg(*(unsigned int **)ap, (unsigned int)0));
+
+   *fmt = cp+1;
+   switch (*cp) {
+
+
+
+
+
+    case 'u':
+     return (void) utoa(fp, convarg.llu);
+# 1316 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\common\\doprnt.c"
+   }
   }
 # 1509 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\sources\\c99\\common\\doprnt.c"
         ++*fmt;
