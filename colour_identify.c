@@ -7,34 +7,6 @@
 #include "color.h"
 #include "serial.h"
 
-void Interrupts_init(void)
-{
-    enable_color_interrupt(); //enable interrupts from color click board
-    set_interrupt_threshold(5, 5000, 0b0100); //set low and high threshold and persistence filter
-    TRISBbits.TRISB1 = 1; //interrupt pin on the clickerboard
-    ANSELBbits.ANSELB1 = 0; //disable analogue input
-    INT1PPS=0x09; // which PPS register needs to be open for interrupt
-    PIE0bits.INT1IE = 1; //which peripheral interrupt is enabled
-    IPR0bits.INT1IP = 1; //high priority (HighISR)
-    INTCONbits.INT1EDG = 0; //rising/falling edge
-    INTCONbits.IPEN = 1;    // Priority levels enable bit
-    INTCONbits.GIEL = 1; // Peripheral Interrupt Enable bit
-    INTCONbits.GIEH=1;} 	//turn on interrupts globally (when this is off, all interrupts are deactivated)
-
-void __interrupt(high_priority) HighISR()
-{
-	//trigger flag that indicates a card has been identified in front of the sensor
-    if(PIR0bits.INT1IF == 1) {			// interrupt source is clickerboard bit corresponding to the colorclick interrupt pin
-        LATDbits.LATD7=1;
-        __delay_ms(50);
-        LATDbits.LATD7=0;
-        __delay_ms(50);
-        clear_interrupt_flag();
-        PIR0bits.INT1IF = 0; //need to clear clickerboard interrupt pin separately
-    //undecided on how to define flag that indicates card has been detected
-    }
-}
-
 void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {   
     //for each measured colour (Red Green Blue) take three readings and average them, and store them in the appropriate location

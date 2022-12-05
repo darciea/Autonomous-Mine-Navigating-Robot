@@ -24431,10 +24431,6 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
-
-void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
-unsigned int read_interrupt_status(void);
 # 11 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24487,9 +24483,6 @@ void make_master_closeness(unsigned int normalised_values[][3], unsigned int mas
 colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 14 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -24522,6 +24515,22 @@ void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 15 "main.c" 2
 
+# 1 "./interrupts.h" 1
+
+
+
+
+
+
+
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void enable_color_interrupt(void);
+void set_interrupt_threshold(char AILT, char AIHT, char persistence);
+void clear_interrupt_flag(void);
+# 16 "main.c" 2
+
 
 
 
@@ -24536,6 +24545,7 @@ void main(void) {
     color_click_init();
     initDCmotorsPWM();
     initUSART4();
+    Interrupts_init();
 
 
 
@@ -24575,29 +24585,32 @@ void main(void) {
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-# 99 "main.c"
+    unsigned int clear_read = 0;
+# 102 "main.c"
     while(PORTFbits.RF2){
         LATHbits.LATH1 = 1;
     }
-# 122 "main.c"
-    LATDbits.LATD7=0;
-    TRISDbits.TRISD7=0;
+# 128 "main.c"
+        LATHbits.LATH3=0;
+    TRISHbits.TRISH3=0;
 
     char buf[20];
 
+    LATDbits.LATD7=0;
+    TRISDbits.TRISD7=0;
+
     while (1) {
-# 138 "main.c"
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        normalise_readings(&red_read,&green_read, &blue_read, &expected_values, &normalised_values);
+
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+        clear_read = color_read_Clear();
 
 
-
-
-
-        LATFbits.LATF0 = 1;
-
-
-
-
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+        sendStringSerial4(buf);
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+        LATHbits.LATH3=!LATHbits.LATH3;
+# 173 "main.c"
     }
 }

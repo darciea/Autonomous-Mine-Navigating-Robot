@@ -5,4 +5,5 @@ color.h  \
 i2c.h  \
 LEDsOn.h  \
 colour_identify.h  \
-serial.h 
+serial.h  \
+interrupts.h 
