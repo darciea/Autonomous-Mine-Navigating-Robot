@@ -92,9 +92,10 @@ colour determine_card(unsigned int master_closeness[]){
 }
 
  
-void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
+void respond_to_card(colour card, DC_motor *mL, DC_motor *mR/*, unsigned int ReturnHomeArray[][2]*/){//HAVE TO USE SPECIFIED LENGTH ARRAY
     //reverseFullSpeed(mL,mR);
     //        __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
+    //stop
     switch (card){
         case RED:
             reverseFullSpeed(mL,mR);
@@ -168,6 +169,21 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case WHITE:
             //CODE FOR CHANGING A FLAG TO START THE RETURN HOME SEQUENCE
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            for(i = lengthArray; i >= 0; i--){
+                fullSpeedAhead(mL,mR);
+                __delay_ms(array[0][i] - (wallspace));
+                stop(mL,mR);
+                home_response(array[1][i]);   
+            }
             break;
         case BLACK:
             //CODE FOR THE EVENTUALITY IT RUNS INTO A WALL?
@@ -177,4 +193,67 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
     }
     
 } 
- 
+
+void home_response(colour card, DC_motor *mL, DC_motor *mR){
+    switch(card){
+        case RED:
+            turnLeft45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case GREEN:
+            turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case BLUE:
+            turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case YELLOW:
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            fullSpeedAhead(mL,mR);
+            __delay_ms(500); //adjust according to what 'one square' means
+            break;
+        case PINK:
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            fullSpeedAhead(mL,mR);
+            __delay_ms(500); //adjust according to what 'one square' means
+            break;
+        case ORANGE:
+            turnLeft45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case LIGHT_BLUE:
+            turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        default:
+            break;
+    }
+    
+}

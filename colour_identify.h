@@ -16,5 +16,6 @@ void make_master_closeness(unsigned int normalised_values[][3], unsigned int mas
 colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
+void home_response(colour card, DC_motor *mL, DC_motor *mR);
 
 #endif
