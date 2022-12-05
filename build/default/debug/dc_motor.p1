@@ -2428,8 +2428,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 87:         mL->power -=10;
 [e =- . *U _mL 0 -> -> 10 `i `uc ]
 "88
-[; ;dc_motor.c: 88:         _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 88:         _delay((unsigned long)((2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "89
 [; ;dc_motor.c: 89:         setMotorPWM(mL);
 [e ( _setMotorPWM (1 _mL ]
@@ -2450,8 +2450,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 92:         mR->power -=10;
 [e =- . *U _mR 0 -> -> 10 `i `uc ]
 "93
-[; ;dc_motor.c: 93:         _delay((unsigned long)((5)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 93:         _delay((unsigned long)((2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "94
 [; ;dc_motor.c: 94:         setMotorPWM(mR);
 [e ( _setMotorPWM (1 _mR ]
@@ -2468,14 +2468,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2022 ]
 }
 "101
-[; ;dc_motor.c: 101: void turnLeft(DC_motor *mL, DC_motor *mR)
-[v _turnLeft `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+[; ;dc_motor.c: 101: void turnLeft45(DC_motor *mL, DC_motor *mR)
+[v _turnLeft45 `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
 "102
 [; ;dc_motor.c: 102: {
 {
-[e :U _turnLeft ]
+[e :U _turnLeft45 ]
 "101
-[; ;dc_motor.c: 101: void turnLeft(DC_motor *mL, DC_motor *mR)
+[; ;dc_motor.c: 101: void turnLeft45(DC_motor *mL, DC_motor *mR)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 "102
@@ -2488,11 +2488,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 104:     mR->direction=1;
 [e = . *U _mR 1 -> -> 1 `i `uc ]
 "105
-[; ;dc_motor.c: 105:     for(int i=0;i<40;i+=10){
+[; ;dc_motor.c: 105:     for(int i=0;i<80;i+=10){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 40 `i 2030  ]
+[e $ < _i -> 80 `i 2030  ]
 [e $U 2031  ]
 [e :U 2030 ]
 {
@@ -2503,8 +2503,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 108:         mL->power=i;
 [e = . *U _mL 0 -> _i `uc ]
 "109
-[; ;dc_motor.c: 109:         _delay((unsigned long)((20)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 109:         _delay((unsigned long)((15)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "110
 [; ;dc_motor.c: 110:         setMotorPWM(mL);
 [e ( _setMotorPWM (1 _mL ]
@@ -2513,25 +2513,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 }
 [e =+ _i -> 10 `i ]
-[e $ < _i -> 40 `i 2030  ]
+[e $ < _i -> 80 `i 2030  ]
 [e :U 2031 ]
 }
 "112
-[; ;dc_motor.c: 112:     _delay((unsigned long)((750)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 750 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 112:     _delay((unsigned long)((40)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "113
 [; ;dc_motor.c: 113: }
 [e :UE 2029 ]
 }
 "116
-[; ;dc_motor.c: 116: void turnRight(DC_motor *mL, DC_motor *mR)
-[v _turnRight `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+[; ;dc_motor.c: 116: void turnRight45(DC_motor *mL, DC_motor *mR)
+[v _turnRight45 `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
 "117
 [; ;dc_motor.c: 117: {
 {
-[e :U _turnRight ]
+[e :U _turnRight45 ]
 "116
-[; ;dc_motor.c: 116: void turnRight(DC_motor *mL, DC_motor *mR)
+[; ;dc_motor.c: 116: void turnRight45(DC_motor *mL, DC_motor *mR)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
 "117
@@ -2544,11 +2544,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 119:     mR->direction=0;
 [e = . *U _mR 1 -> -> 0 `i `uc ]
 "120
-[; ;dc_motor.c: 120:     for(int i=0;i<40;i+=10){
+[; ;dc_motor.c: 120:     for(int i=0;i<80;i+=10){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 40 `i 2034  ]
+[e $ < _i -> 80 `i 2034  ]
 [e $U 2035  ]
 [e :U 2034 ]
 {
@@ -2559,8 +2559,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 123:         mL->power=i;
 [e = . *U _mL 0 -> _i `uc ]
 "124
-[; ;dc_motor.c: 124:         _delay((unsigned long)((20)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 124:         _delay((unsigned long)((15)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "125
 [; ;dc_motor.c: 125:         setMotorPWM(mL);
 [e ( _setMotorPWM (1 _mL ]
@@ -2569,12 +2569,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _setMotorPWM (1 _mR ]
 }
 [e =+ _i -> 10 `i ]
-[e $ < _i -> 40 `i 2034  ]
+[e $ < _i -> 80 `i 2034  ]
 [e :U 2035 ]
 }
 "127
-[; ;dc_motor.c: 127:     _delay((unsigned long)((750)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 750 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 127:     _delay((unsigned long)((45)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 45 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "128
 [; ;dc_motor.c: 128: }
 [e :UE 2033 ]
@@ -2631,9 +2631,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2039 ]
 }
 "142
-[; ;dc_motor.c: 142:     _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"143
-[; ;dc_motor.c: 143: }
+[; ;dc_motor.c: 142: }
 [e :UE 2037 ]
+}
+"145
+[; ;dc_motor.c: 145: void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
+[v _reverseFullSpeed `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+"146
+[; ;dc_motor.c: 146: {
+{
+[e :U _reverseFullSpeed ]
+"145
+[; ;dc_motor.c: 145: void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
+[v _mL `*S2015 ~T0 @X0 1 r1 ]
+[v _mR `*S2015 ~T0 @X0 1 r2 ]
+"146
+[; ;dc_motor.c: 146: {
+[f ]
+"147
+[; ;dc_motor.c: 147:     mL->direction=0;
+[e = . *U _mL 1 -> -> 0 `i `uc ]
+"148
+[; ;dc_motor.c: 148:     mR->direction=0;
+[e = . *U _mR 1 -> -> 0 `i `uc ]
+"149
+[; ;dc_motor.c: 149:     for(int i=0;i<60;i+=10){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 60 `i 2042  ]
+[e $U 2043  ]
+[e :U 2042 ]
+{
+"150
+[; ;dc_motor.c: 150:         mL->power=i;
+[e = . *U _mL 0 -> _i `uc ]
+"151
+[; ;dc_motor.c: 151:         mR->power=i;
+[e = . *U _mR 0 -> _i `uc ]
+"152
+[; ;dc_motor.c: 152:         setMotorPWM(mL);
+[e ( _setMotorPWM (1 _mL ]
+"153
+[; ;dc_motor.c: 153:         setMotorPWM(mR);
+[e ( _setMotorPWM (1 _mR ]
+"154
+[; ;dc_motor.c: 154:         _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"155
+[; ;dc_motor.c: 155:     }
+}
+[e =+ _i -> 10 `i ]
+[e $ < _i -> 60 `i 2042  ]
+[e :U 2043 ]
+}
+"156
+[; ;dc_motor.c: 156: }
+[e :UE 2041 ]
 }

@@ -10,11 +10,11 @@
 ### Memory Usage ###
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\final-project-darciea-matti.X.production.hex)
-  1F5A2h - 1FFFFh		(dist/default/production\final-project-darciea-matti.X.production.hex)
+  1F672h - 1FFFFh		(dist/default/production\final-project-darciea-matti.X.production.hex)
   200000h - 20000Fh		(dist/default/production\final-project-darciea-matti.X.production.hex)
   300000h - 30000Bh		(dist/default/production\final-project-darciea-matti.X.production.hex)
  Unused ranges:
-  4h - 1F5A1h
+  4h - 1F671h
   20000h - 1FFFFFh
   200010h - 2FFFFFh
 
@@ -27,20 +27,7 @@
 ----------------------------------------------------------
 00000000 | H1 H1 H1 H1 -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
-0001F5A0 | -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F5B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F5C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F5D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F5E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F5F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F600 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F610 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F620 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F630 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F640 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F650 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F660 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-0001F670 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+0001F670 | -- -- H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001F680 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001F690 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 0001F6A0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1

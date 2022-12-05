@@ -139,7 +139,6 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
         setMotorPWM(mR);
         __delay_ms(10);//delay ensures current has time to adjust
     }
-    __delay_ms(10);
 }
 
 //function to make the robot go reverse
@@ -154,6 +153,5 @@ void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
         setMotorPWM(mR);
         __delay_ms(10);//delay ensures current has time to adjust
     }
-   
 }
 

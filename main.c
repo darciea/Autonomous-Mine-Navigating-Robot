@@ -6,11 +6,13 @@
 #pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
 
 #include <xc.h>
+#include <stdio.h>
 #include "dc_motor.h"
 #include "color.h"
 #include "i2c.h"
 #include "LEDsOn.h"
 #include "colour_identify.h"
+#include "serial.h"
 
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
@@ -23,7 +25,8 @@ void main(void) {
     LEDSon_init(); //starts with all lights off
     I2C_2_Master_Init();
     color_click_init();
-    initDCmotorsPWM(); 
+    initDCmotorsPWM();
+    initUSART4();
     
     
     
@@ -55,14 +58,14 @@ void main(void) {
     /********************************************//**
     *  Setting up arrays and variables for collecting data
     ***********************************************/
-    colour card  = BLACK;
-    unsigned char expected_values[8][3];
-    unsigned char normalised_values[8][3];
-    unsigned char master_closeness[8];
+    colour card  = BLUE;
+    unsigned int expected_values[3][3] = {{13000, 2600, 1800},{8400, 6500, 5000},{4400, 1800, 2800}};
+    unsigned int normalised_values[3][3];
+    unsigned int master_closeness[3];//= {80, 990/*3467*/, 8000/*3533*/};// = {17, 2, 12, 12, 10, 11, 12, 14, 16};
     
-    unsigned char red_read = 0;
-    unsigned char green_read = 0;
-    unsigned char blue_read = 0;
+    unsigned int red_read = 0;
+    unsigned int green_read = 0;
+    unsigned int blue_read = 0;
     
     
     
@@ -80,16 +83,24 @@ void main(void) {
     /*
     TRISFbits.TRISF2=1; //set TRIS value for pin (input)
     ANSELFbits.ANSELF2=0; //turn off analogue input on pin
-    for(unsigned int i = 0; i<=7; i++){
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        expected_values[i][0] = red_read;
-        expected_values[i][1] = green_read;
-        expected_values[i][2] = blue_read;
+    for(colour i = RED; i<=BLUE; i++){
         while(PORTFbits.RF2){
-            
+            BRAKE = 1;
         }
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        expected_values[i][RED] = red_read;
+        expected_values[i][GREEN] = green_read;
+        expected_values[i][BLUE] = blue_read;
+        BRAKE = 0;
+        __delay_ms(1000);
+        
     }
     */
+    while(PORTFbits.RF2){
+        HLAMPS = 1;
+    }
+    
+    
     /*
     card = 1; //flag to show that a card has been seen
     stop(&motorL, &motorR);
@@ -98,26 +109,49 @@ void main(void) {
     make_master_closeness(&normalised_values,&master_closeness);
     
     card = determine_card();
-    */
     
-    card = GREEN;
+    
+    card = determine_card(master_closeness);
+    */
     
     
     
    /********************************************//**
     *  Trying code
     ***********************************************/
-    LATDbits.LATD7=1;   //set initial output state of RD7 LED
+    LATDbits.LATD7=0;   //set initial output state of RD7 LED
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
+
+    char buf[20];
+    
     while (1) {
+        /*
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+         */
         
+
         BRAKE = 1;
         respond_to_card(card, &motorL, &motorR);
         //reverseOneSquare(&motorL, &motorR);
         //card = PINK;
+
+        
+        //__delay_ms(1000);
+        
+        
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        normalise_readings(&red_read,&green_read, &blue_read, &expected_values, &normalised_values);
+        //make_master_closeness(&normalised_values,&master_closeness);
+      
+
         //respond_to_card(card, &motorL, &motorR);
-        __delay_ms(3000);
+        //card = PINK;
+
         LEFT = 1;
+
+                
         
         
     }

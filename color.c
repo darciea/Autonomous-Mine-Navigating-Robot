@@ -67,3 +67,39 @@ unsigned int color_read_Blue(void)
 	I2C_2_Master_Stop();          //Stop condition
 	return tmp;
 }
+
+unsigned int color_read_Clear(void)
+{
+	unsigned int tmp;
+	I2C_2_Master_Start();         //Start condition
+	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
+	I2C_2_Master_Write(0xA0 | 0x14);    //command (auto-increment protocol transaction) + start at CLEAR low register
+	I2C_2_Master_RepStart();			// start a repeated transmission
+	I2C_2_Master_Write(0x52 | 0x01);     //7 bit address + Read (1) mode
+	tmp=I2C_2_Master_Read(1);			//read the Clear LSB
+	tmp=tmp | (I2C_2_Master_Read(0)<<8); //read the Clear MSB (don't acknowledge as this is the last read)
+	I2C_2_Master_Stop();          //Stop condition
+	return tmp;
+}
+
+void enable_color_interrupt(void){
+	color_writetoaddr(0x00, 0x01); //address for ENABLE bit is 0x00 and we want to turn it on
+}
+
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence){
+    color_writetoaddr(0x0C, persistence); // set the persistence filter
+    color_writetoaddr(0x05, AILTH); // set most significant bit of the low threshold register
+    color_writetoaddr(0x07, AILTH); // set most significant bit of the high threshold register
+}
+
+unsigned int read_interrupt_status(void){
+    unsigned int status;
+    I2C_2_Master_Start();         //Start condition
+	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
+	I2C_2_Master_Write(0xA0 | 0x13);    //command (auto-increment protocol transaction) + start at STATUS low register
+	I2C_2_Master_RepStart();			// start a repeated transmission
+	I2C_2_Master_Write(0x52 | 0x01);     //7 bit address + Read (1) mode
+	status=I2C_2_Master_Read(1);			//read the STATUS bit
+	I2C_2_Master_Stop();          //Stop condition
+	return status;
+}

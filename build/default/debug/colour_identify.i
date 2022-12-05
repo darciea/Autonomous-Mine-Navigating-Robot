@@ -1,4 +1,4 @@
-# 1 "dc_motor.c"
+# 1 "colour_identify.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,25 +6,13 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "dc_motor.c" 2
-# 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
-# 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\xc8debug.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 1 3
+# 1 "colour_identify.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 1 3
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\musl_xc8.h" 1 3
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 2 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 2 3
 
 
 
@@ -32,17 +20,163 @@ extern double __fpnormalize(double);
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\features.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 2 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 2 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long int wchar_t;
+
+
+
+
+
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
 # 122 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef unsigned size_t;
+# 137 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long ssize_t;
 # 168 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __int24 int24_t;
 # 204 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
 typedef __uint24 uint24_t;
+# 246 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long long off_t;
+# 399 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 24 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+int ungetc(int, FILE *);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 1 "colour_identify.c" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 1 3
+# 21 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 18 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef long int wchar_t;
 # 21 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdlib.h" 2 3
 
 
@@ -101,15 +235,19 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 4 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\xc8debug.h" 2 3
+# 2 "colour_identify.c" 2
+
+
+# 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
+# 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
 
 
 
-
-
-
-
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\xc8debug.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\xc8debug.h" 3
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 24 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
@@ -24229,378 +24367,12 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 1 "dc_motor.c" 2
+# 4 "colour_identify.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 1 3
-# 15 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 33 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef float float_t;
+# 1 "./colour_identify.h" 1
 
 
 
-
-typedef double double_t;
-# 15 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 2 3
-# 42 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-int __fpclassifyf(float);
-
-
-
-
-
-
-
-int __signbitf(float);
-# 59 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-double acos(double);
-float acosf(float);
-long double acosl(long double);
-
-
-
-double acosh(double);
-float acoshf(float);
-long double acoshl(long double);
-
-
-
-double asin(double);
-float asinf(float);
-long double asinl(long double);
-
-
-
-double asinh(double);
-float asinhf(float);
-long double asinhl(long double);
-
-
-
-double atan(double);
-float atanf(float);
-long double atanl(long double);
-
-
-
-double atan2(double, double);
-float atan2f(float, float);
-long double atan2l(long double, long double);
-
-
-
-double atanh(double);
-float atanhf(float);
-long double atanhl(long double);
-
-
-
-double cbrt(double);
-float cbrtf(float);
-long double cbrtl(long double);
-
-
-
-double ceil(double);
-float ceilf(float);
-long double ceill(long double);
-
-
-
-double copysign(double, double);
-float copysignf(float, float);
-long double copysignl(long double, long double);
-
-
-
-double cos(double);
-float cosf(float);
-long double cosl(long double);
-
-
-
-double cosh(double);
-float coshf(float);
-long double coshl(long double);
-
-
-
-double erf(double);
-float erff(float);
-long double erfl(long double);
-
-
-
-double erfc(double);
-float erfcf(float);
-long double erfcl(long double);
-
-
-
-double exp(double);
-float expf(float);
-long double expl(long double);
-
-
-
-double exp2(double);
-float exp2f(float);
-long double exp2l(long double);
-
-
-
-double expm1(double);
-float expm1f(float);
-long double expm1l(long double);
-
-
-
-double fabs(double);
-float fabsf(float);
-long double fabsl(long double);
-
-
-
-double fdim(double, double);
-float fdimf(float, float);
-long double fdiml(long double, long double);
-
-
-
-double floor(double);
-float floorf(float);
-long double floorl(long double);
-
-
-
-double fma(double, double, double);
-float fmaf(float, float, float);
-long double fmal(long double, long double, long double);
-
-
-
-double fmax(double, double);
-float fmaxf(float, float);
-long double fmaxl(long double, long double);
-
-
-
-double fmin(double, double);
-float fminf(float, float);
-long double fminl(long double, long double);
-
-
-
-double fmod(double, double);
-float fmodf(float, float);
-long double fmodl(long double, long double);
-
-
-
-double frexp(double, int *);
-float frexpf(float, int *);
-long double frexpl(long double, int *);
-
-
-
-double hypot(double, double);
-float hypotf(float, float);
-long double hypotl(long double, long double);
-
-
-
-int ilogb(double);
-int ilogbf(float);
-int ilogbl(long double);
-
-
-
-double ldexp(double, int);
-float ldexpf(float, int);
-long double ldexpl(long double, int);
-
-
-
-double lgamma(double);
-float lgammaf(float);
-long double lgammal(long double);
-
-
-
-long long llrint(double);
-long long llrintf(float);
-long long llrintl(long double);
-
-
-
-long long llround(double);
-long long llroundf(float);
-long long llroundl(long double);
-
-
-
-double log(double);
-float logf(float);
-long double logl(long double);
-
-
-
-double log10(double);
-float log10f(float);
-long double log10l(long double);
-
-
-
-double log1p(double);
-float log1pf(float);
-long double log1pl(long double);
-
-
-
-double log2(double);
-float log2f(float);
-long double log2l(long double);
-
-
-
-double logb(double);
-float logbf(float);
-long double logbl(long double);
-
-
-
-long lrint(double);
-long lrintf(float);
-long lrintl(long double);
-
-
-
-long lround(double);
-long lroundf(float);
-long lroundl(long double);
-
-
-
-double modf(double, double *);
-float modff(float, float *);
-long double modfl(long double, long double *);
-
-
-
-double nan(const char *);
-float nanf(const char *);
-long double nanl(const char *);
-
-
-
-double nearbyint(double);
-float nearbyintf(float);
-long double nearbyintl(long double);
-
-
-
-double nextafter(double, double);
-float nextafterf(float, float);
-long double nextafterl(long double, long double);
-
-
-
-double nexttoward(double, long double);
-float nexttowardf(float, long double);
-long double nexttowardl(long double, long double);
-# 323 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-double pow(double, double);
-__attribute__((nonreentrant)) float powf(float, float);
-long double powl(long double, long double);
-
-
-
-double remainder(double, double);
-float remainderf(float, float);
-long double remainderl(long double, long double);
-
-
-
-double remquo(double, double, int *);
-float remquof(float, float, int *);
-long double remquol(long double, long double, int *);
-
-
-
-double rint(double);
-float rintf(float);
-long double rintl(long double);
-
-
-
-double round(double);
-float roundf(float);
-long double roundl(long double);
-
-
-
-double scalbln(double, long);
-float scalblnf(float, long);
-long double scalblnl(long double, long);
-
-
-
-double scalbn(double, int);
-float scalbnf(float, int);
-long double scalbnl(long double, int);
-
-
-
-double sin(double);
-float sinf(float);
-long double sinl(long double);
-
-
-
-double sinh(double);
-float sinhf(float);
-long double sinhl(long double);
-
-
-
-double sqrt(double);
-float sqrtf(float);
-long double sqrtl(long double);
-
-
-
-double tan(double);
-float tanf(float);
-long double tanl(long double);
-
-
-
-double tanh(double);
-float tanhf(float);
-long double tanhl(long double);
-
-
-
-double tgamma(double);
-float tgammaf(float);
-long double tgammal(long double);
-
-
-
-double trunc(double);
-float truncf(float);
-long double truncl(long double);
-# 428 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-extern int signgam;
-
-double j0(double);
-double j1(double);
-double jn(int, double);
-
-double y0(double);
-double y1(double);
-double yn(int, double);
-# 2 "dc_motor.c" 2
 
 # 1 "./dc_motor.h" 1
 
@@ -24627,158 +24399,196 @@ void turnLeft45(DC_motor *mL, DC_motor *mR);
 void turnRight45(DC_motor *mL, DC_motor *mR);
 void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
 void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
-# 3 "dc_motor.c" 2
+# 5 "./colour_identify.h" 2
 
 
 
-void initDCmotorsPWM(void){
-
-    TRISEbits.TRISE2=0;
-    TRISEbits.TRISE4=0;
-    TRISCbits.TRISC7=0;
-    TRISGbits.TRISG6=0;
-
-
-    RE2PPS=0x05;
-    RE4PPS=0x06;
-    RC7PPS=0x07;
-    RG6PPS=0x08;
-
-
-    T2CONbits.CKPS=0b100;
-    T2HLTbits.MODE=0b00000;
-    T2CLKCONbits.CS=0b0001;
 
 
 
-    T2PR=99;
-    T2CONbits.ON=1;
+typedef enum colour{RED, GREEN, BLUE, } colour;
+
+
+void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
+void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]);
+void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]);
+colour determine_card(unsigned int master_closeness[]);
+
+void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+# 5 "colour_identify.c" 2
+
+
+# 1 "./color.h" 1
+# 12 "./color.h"
+void color_click_init(void);
 
 
 
-    CCPR1H=0;
-    CCPR2H=0;
-    CCPR3H=0;
-    CCPR4H=0;
 
 
-    CCPTMRS0bits.C1TSEL=0;
-    CCPTMRS0bits.C2TSEL=0;
-    CCPTMRS0bits.C3TSEL=0;
-    CCPTMRS0bits.C4TSEL=0;
+
+void color_writetoaddr(char address, char value);
 
 
-    CCP1CONbits.FMT=1;
-    CCP1CONbits.CCP1MODE=0b1100;
-    CCP1CONbits.EN=1;
 
-    CCP2CONbits.FMT=1;
-    CCP2CONbits.CCP2MODE=0b1100;
-    CCP2CONbits.EN=1;
 
-    CCP3CONbits.FMT=1;
-    CCP3CONbits.CCP3MODE=0b1100;
-    CCP3CONbits.EN=1;
 
-    CCP4CONbits.FMT=1;
-    CCP4CONbits.CCP4MODE=0b1100;
-    CCP4CONbits.EN=1;
+unsigned int color_read_Red(void);
+unsigned int color_read_Green(void);
+unsigned int color_read_Blue(void);
+unsigned int color_read_Clear(void);
+
+void enable_color_interrupt(void);
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
+unsigned int read_interrupt_status(void);
+# 7 "colour_identify.c" 2
+
+# 1 "./serial.h" 1
+# 13 "./serial.h"
+volatile char EUSART4RXbuf[20];
+volatile char RxBufWriteCnt=0;
+volatile char RxBufReadCnt=0;
+
+volatile char EUSART4TXbuf[60];
+volatile char TxBufWriteCnt=0;
+volatile char TxBufReadCnt=0;
+
+
+
+void initUSART4(void);
+char getCharSerial4(void);
+void sendCharSerial4(char charToSend);
+void sendStringSerial4(char *string);
+
+
+char getCharFromRxBuf(void);
+void putCharToRxBuf(char byte);
+char isDataInRxBuf (void);
+
+
+char getCharFromTxBuf(void);
+void putCharToTxBuf(char byte);
+char isDataInTxBuf (void);
+void TxBufferedString(char *string);
+void sendTxBuf(void);
+# 8 "colour_identify.c" 2
+# 25 "colour_identify.c"
+void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
+{
+
+
+    for(colour i = RED; i <= BLUE; i++){
+        *red_read += color_read_Red();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+
+
+
+
+    }
+    *red_read = *red_read/3;
+
+
+
+    for(colour i = RED; i <= BLUE; i++){
+        *green_read += color_read_Green();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+
+
+
+
+    }
+    *green_read = *green_read/3;
+
+
+
+    for(colour i = RED; i <= BLUE; i++){
+        *blue_read += color_read_Blue();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+
+
+
+
+    }
+    *blue_read = *blue_read/3;
+
+
+
+}
+
+void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3])
+{
+
+
+
+
+
+
+    for(colour i = RED; i<= BLUE; i++){
+
+
+        normalised_values[i][RED] = (abs(*red_read - expected_values[i][0])) / (expected_values[i][0]);
+
+
+        normalised_values[i][GREEN] = (abs(*green_read - expected_values[i][1])) / (expected_values[i][1]);
+
+
+        normalised_values[i][BLUE] = (abs(*blue_read - expected_values[i][2])) / (expected_values[i][2]);
+    }
+
+}
+
+void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]){
+    for(colour i = RED; i<=BLUE; i++){
+        master_closeness[i] = (normalised_values[i][0] + normalised_values[i][1] + normalised_values[i][2])/3;
+    }
+}
+
+colour determine_card(unsigned int master_closeness[]){
+    colour predicted_colour = RED;
+    unsigned int current_smallest = master_closeness[RED];
+    for(colour i = GREEN; i<=BLUE; i++){
+        if(master_closeness[i] < current_smallest){
+            current_smallest = master_closeness[i];
+            predicted_colour = i;
+        }
+    }
 }
 
 
-void setMotorPWM(DC_motor *m)
-{
-    unsigned char posDuty, negDuty;
-
-    if(m->brakemode) {
-        posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100;
-        negDuty=m->PWMperiod;
-    }
-    else {
-        posDuty=0;
-        negDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
-    }
-
-    if (m->direction) {
-        *(m->posDutyHighByte)=posDuty;
-        *(m->negDutyHighByte)=negDuty;
-    } else {
-        *(m->posDutyHighByte)=negDuty;
-        *(m->negDutyHighByte)=posDuty;
-    }
-}
-
-
-void stop(DC_motor *mL, DC_motor *mR)
-{
-    while(mL->power !=0){
-        mL->power -=10;
-        _delay((unsigned long)((2)*(64000000/4000.0)));
-        setMotorPWM(mL);
-    }
-    while(mR -> power !=0){
-        mR->power -=10;
-        _delay((unsigned long)((2)*(64000000/4000.0)));
-        setMotorPWM(mR);
+void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
+    switch (card){
+        case RED:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case GREEN:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case BLUE:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+# 187 "colour_identify.c"
     }
 
-
-}
-
-
-void turnLeft45(DC_motor *mL, DC_motor *mR)
-{
-    mL->direction=0;
-    mR->direction=1;
-    for(int i=0;i<80;i+=10){
-
-        mR->power=i;
-        mL->power=i;
-        _delay((unsigned long)((15)*(64000000/4000.0)));
-        setMotorPWM(mL);
-        setMotorPWM(mR);}
-    _delay((unsigned long)((40)*(64000000/4000.0)));
-}
-
-
-void turnRight45(DC_motor *mL, DC_motor *mR)
-{
-    mL->direction=1;
-    mR->direction=0;
-    for(int i=0;i<80;i+=10){
-
-        mR->power=i;
-        mL->power=i;
-        _delay((unsigned long)((15)*(64000000/4000.0)));
-        setMotorPWM(mL);
-        setMotorPWM(mR);}
-    _delay((unsigned long)((45)*(64000000/4000.0)));
-}
-
-
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
-{
-    mL->direction=1;
-    mR->direction=1;
-    for(int i=0;i<60;i+=10){
-        mL->power=i;
-        mR->power=i;
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-    }
-}
-
-
-void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
-{
-    mL->direction=0;
-    mR->direction=0;
-    for(int i=0;i<60;i+=10){
-        mL->power=i;
-        mR->power=i;
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-    }
 }

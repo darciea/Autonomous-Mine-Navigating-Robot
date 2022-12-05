@@ -9,6 +9,7 @@
       <itemPath>i2c.h</itemPath>
       <itemPath>LEDsOn.h</itemPath>
       <itemPath>colour_identify.h</itemPath>
+      <itemPath>serial.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -23,6 +24,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>LEDsOn.c</itemPath>
       <itemPath>colour_identify.c</itemPath>
+      <itemPath>serial.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

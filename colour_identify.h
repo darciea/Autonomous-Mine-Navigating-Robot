@@ -8,14 +8,18 @@
 
 
 
-typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
+typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour; 
 
-void collect_avg_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read);
-void normalise_readings(unsigned char *red_read, unsigned char *green_read, unsigned char *blue_read, unsigned char *expected_values);
-void make_master_closeness(unsigned char *normalised_values, unsigned char *master_closeness);
-void determine_card(unsigned char *master_closeness);
+void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
+void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]);
+void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]);
+colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 
+void Interrupts_init(void);
+void __interrupt(high_priority) HighISR();
+
 #endif	
+
 

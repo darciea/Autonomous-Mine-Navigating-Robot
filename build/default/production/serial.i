@@ -1,4 +1,4 @@
-# 1 "dc_motor.c"
+# 1 "serial.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "dc_motor.c" 2
+# 1 "serial.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -24229,556 +24229,131 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\\pic\\include\\xc.h" 2 3
-# 1 "dc_motor.c" 2
+# 1 "serial.c" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 1 3
-# 15 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 1 3
-# 33 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef float float_t;
+# 1 "./serial.h" 1
+# 13 "./serial.h"
+volatile char EUSART4RXbuf[20];
+volatile char RxBufWriteCnt=0;
+volatile char RxBufReadCnt=0;
 
+volatile char EUSART4TXbuf[60];
+volatile char TxBufWriteCnt=0;
+volatile char TxBufReadCnt=0;
 
 
 
-typedef double double_t;
-# 15 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 2 3
-# 42 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-int __fpclassifyf(float);
+void initUSART4(void);
+char getCharSerial4(void);
+void sendCharSerial4(char charToSend);
+void sendStringSerial4(char *string);
 
 
+char getCharFromRxBuf(void);
+void putCharToRxBuf(char byte);
+char isDataInRxBuf (void);
 
 
+char getCharFromTxBuf(void);
+void putCharToTxBuf(char byte);
+char isDataInTxBuf (void);
+void TxBufferedString(char *string);
+void sendTxBuf(void);
+# 2 "serial.c" 2
 
 
 
-int __signbitf(float);
-# 59 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-double acos(double);
-float acosf(float);
-long double acosl(long double);
 
+void initUSART4(void) {
 
 
-double acosh(double);
-float acoshf(float);
-long double acoshl(long double);
 
+    RC0PPS = 0x12;
+    RX4PPS = 0x11;
+    TRISCbits.TRISC1 = 1;
 
+    BAUD4CONbits.BRG16 = 0;
+    TX4STAbits.BRGH = 0;
 
-double asin(double);
-float asinf(float);
-long double asinl(long double);
+    SP4BRGL = 51;
+    SP4BRGH = 0;
 
-
-
-double asinh(double);
-float asinhf(float);
-long double asinhl(long double);
-
-
-
-double atan(double);
-float atanf(float);
-long double atanl(long double);
-
-
-
-double atan2(double, double);
-float atan2f(float, float);
-long double atan2l(long double, long double);
-
-
-
-double atanh(double);
-float atanhf(float);
-long double atanhl(long double);
-
-
-
-double cbrt(double);
-float cbrtf(float);
-long double cbrtl(long double);
-
-
-
-double ceil(double);
-float ceilf(float);
-long double ceill(long double);
-
-
-
-double copysign(double, double);
-float copysignf(float, float);
-long double copysignl(long double, long double);
-
-
-
-double cos(double);
-float cosf(float);
-long double cosl(long double);
-
-
-
-double cosh(double);
-float coshf(float);
-long double coshl(long double);
-
-
-
-double erf(double);
-float erff(float);
-long double erfl(long double);
-
-
-
-double erfc(double);
-float erfcf(float);
-long double erfcl(long double);
-
-
-
-double exp(double);
-float expf(float);
-long double expl(long double);
-
-
-
-double exp2(double);
-float exp2f(float);
-long double exp2l(long double);
-
-
-
-double expm1(double);
-float expm1f(float);
-long double expm1l(long double);
-
-
-
-double fabs(double);
-float fabsf(float);
-long double fabsl(long double);
-
-
-
-double fdim(double, double);
-float fdimf(float, float);
-long double fdiml(long double, long double);
-
-
-
-double floor(double);
-float floorf(float);
-long double floorl(long double);
-
-
-
-double fma(double, double, double);
-float fmaf(float, float, float);
-long double fmal(long double, long double, long double);
-
-
-
-double fmax(double, double);
-float fmaxf(float, float);
-long double fmaxl(long double, long double);
-
-
-
-double fmin(double, double);
-float fminf(float, float);
-long double fminl(long double, long double);
-
-
-
-double fmod(double, double);
-float fmodf(float, float);
-long double fmodl(long double, long double);
-
-
-
-double frexp(double, int *);
-float frexpf(float, int *);
-long double frexpl(long double, int *);
-
-
-
-double hypot(double, double);
-float hypotf(float, float);
-long double hypotl(long double, long double);
-
-
-
-int ilogb(double);
-int ilogbf(float);
-int ilogbl(long double);
-
-
-
-double ldexp(double, int);
-float ldexpf(float, int);
-long double ldexpl(long double, int);
-
-
-
-double lgamma(double);
-float lgammaf(float);
-long double lgammal(long double);
-
-
-
-long long llrint(double);
-long long llrintf(float);
-long long llrintl(long double);
-
-
-
-long long llround(double);
-long long llroundf(float);
-long long llroundl(long double);
-
-
-
-double log(double);
-float logf(float);
-long double logl(long double);
-
-
-
-double log10(double);
-float log10f(float);
-long double log10l(long double);
-
-
-
-double log1p(double);
-float log1pf(float);
-long double log1pl(long double);
-
-
-
-double log2(double);
-float log2f(float);
-long double log2l(long double);
-
-
-
-double logb(double);
-float logbf(float);
-long double logbl(long double);
-
-
-
-long lrint(double);
-long lrintf(float);
-long lrintl(long double);
-
-
-
-long lround(double);
-long lroundf(float);
-long lroundl(long double);
-
-
-
-double modf(double, double *);
-float modff(float, float *);
-long double modfl(long double, long double *);
-
-
-
-double nan(const char *);
-float nanf(const char *);
-long double nanl(const char *);
-
-
-
-double nearbyint(double);
-float nearbyintf(float);
-long double nearbyintl(long double);
-
-
-
-double nextafter(double, double);
-float nextafterf(float, float);
-long double nextafterl(long double, long double);
-
-
-
-double nexttoward(double, long double);
-float nexttowardf(float, long double);
-long double nexttowardl(long double, long double);
-# 323 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-double pow(double, double);
-__attribute__((nonreentrant)) float powf(float, float);
-long double powl(long double, long double);
-
-
-
-double remainder(double, double);
-float remainderf(float, float);
-long double remainderl(long double, long double);
-
-
-
-double remquo(double, double, int *);
-float remquof(float, float, int *);
-long double remquol(long double, long double, int *);
-
-
-
-double rint(double);
-float rintf(float);
-long double rintl(long double);
-
-
-
-double round(double);
-float roundf(float);
-long double roundl(long double);
-
-
-
-double scalbln(double, long);
-float scalblnf(float, long);
-long double scalblnl(long double, long);
-
-
-
-double scalbn(double, int);
-float scalbnf(float, int);
-long double scalbnl(long double, int);
-
-
-
-double sin(double);
-float sinf(float);
-long double sinl(long double);
-
-
-
-double sinh(double);
-float sinhf(float);
-long double sinhl(long double);
-
-
-
-double sqrt(double);
-float sqrtf(float);
-long double sqrtl(long double);
-
-
-
-double tan(double);
-float tanf(float);
-long double tanl(long double);
-
-
-
-double tanh(double);
-float tanhf(float);
-long double tanhl(long double);
-
-
-
-double tgamma(double);
-float tgammaf(float);
-long double tgammal(long double);
-
-
-
-double trunc(double);
-float truncf(float);
-long double truncl(long double);
-# 428 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\math.h" 3
-extern int signgam;
-
-double j0(double);
-double j1(double);
-double jn(int, double);
-
-double y0(double);
-double y1(double);
-double yn(int, double);
-# 2 "dc_motor.c" 2
-
-# 1 "./dc_motor.h" 1
-
-
-
-
-
-
-
-typedef struct DC_motor {
-    char power;
-    char direction;
-    char brakemode;
-    unsigned int PWMperiod;
-    unsigned char *posDutyHighByte;
-    unsigned char *negDutyHighByte;
-} DC_motor;
-
-
-void initDCmotorsPWM(void);
-void setMotorPWM(DC_motor *m);
-void stop(DC_motor *mL, DC_motor *mR);
-void turnLeft45(DC_motor *mL, DC_motor *mR);
-void turnRight45(DC_motor *mL, DC_motor *mR);
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
-# 3 "dc_motor.c" 2
-
-
-
-void initDCmotorsPWM(void){
-
-    TRISEbits.TRISE2=0;
-    TRISEbits.TRISE4=0;
-    TRISCbits.TRISC7=0;
-    TRISGbits.TRISG6=0;
-
-
-    RE2PPS=0x05;
-    RE4PPS=0x06;
-    RC7PPS=0x07;
-    RG6PPS=0x08;
-
-
-    T2CONbits.CKPS=0b100;
-    T2HLTbits.MODE=0b00000;
-    T2CLKCONbits.CS=0b0001;
-
-
-
-    T2PR=99;
-    T2CONbits.ON=1;
-
-
-
-    CCPR1H=0;
-    CCPR2H=0;
-    CCPR3H=0;
-    CCPR4H=0;
-
-
-    CCPTMRS0bits.C1TSEL=0;
-    CCPTMRS0bits.C2TSEL=0;
-    CCPTMRS0bits.C3TSEL=0;
-    CCPTMRS0bits.C4TSEL=0;
-
-
-    CCP1CONbits.FMT=1;
-    CCP1CONbits.CCP1MODE=0b1100;
-    CCP1CONbits.EN=1;
-
-    CCP2CONbits.FMT=1;
-    CCP2CONbits.CCP2MODE=0b1100;
-    CCP2CONbits.EN=1;
-
-    CCP3CONbits.FMT=1;
-    CCP3CONbits.CCP3MODE=0b1100;
-    CCP3CONbits.EN=1;
-
-    CCP4CONbits.FMT=1;
-    CCP4CONbits.CCP4MODE=0b1100;
-    CCP4CONbits.EN=1;
+    RC4STAbits.CREN = 1;
+    TX4STAbits.TXEN = 1;
+    RC4STAbits.SPEN = 1;
 }
 
 
-void setMotorPWM(DC_motor *m)
-{
-    unsigned char posDuty, negDuty;
+char getCharSerial4(void) {
+    while (!PIR4bits.RC4IF);
+    return RC4REG;
+}
 
-    if(m->brakemode) {
-        posDuty=m->PWMperiod - ((unsigned int)(m->power)*(m->PWMperiod))/100;
-        negDuty=m->PWMperiod;
-    }
-    else {
-        posDuty=0;
-        negDuty=((unsigned int)(m->power)*(m->PWMperiod))/100;
-    }
 
-    if (m->direction) {
-        *(m->posDutyHighByte)=posDuty;
-        *(m->negDutyHighByte)=negDuty;
-    } else {
-        *(m->posDutyHighByte)=negDuty;
-        *(m->negDutyHighByte)=posDuty;
+void sendCharSerial4(char charToSend) {
+    while (!PIR4bits.TX4IF);
+    TX4REG = charToSend;
+}
+
+
+
+void sendStringSerial4(char *string){
+ while(*string != 0) {
+        sendCharSerial4(*string++);
     }
 }
 
 
-void stop(DC_motor *mL, DC_motor *mR)
-{
-    while(mL->power !=0){
-        mL->power -=10;
-        _delay((unsigned long)((2)*(64000000/4000.0)));
-        setMotorPWM(mL);
-    }
-    while(mR -> power !=0){
-        mR->power -=10;
-        _delay((unsigned long)((2)*(64000000/4000.0)));
-        setMotorPWM(mR);
-    }
 
 
+
+
+char getCharFromRxBuf(void){
+    if (RxBufReadCnt>=20) {RxBufReadCnt=0;}
+    return EUSART4RXbuf[RxBufReadCnt++];
 }
 
 
-void turnLeft45(DC_motor *mL, DC_motor *mR)
-{
-    mL->direction=0;
-    mR->direction=1;
-    for(int i=0;i<80;i+=10){
-
-        mR->power=i;
-        mL->power=i;
-        _delay((unsigned long)((15)*(64000000/4000.0)));
-        setMotorPWM(mL);
-        setMotorPWM(mR);}
-    _delay((unsigned long)((40)*(64000000/4000.0)));
+void putCharToRxBuf(char byte){
+    if (RxBufWriteCnt>=20) {RxBufWriteCnt=0;}
+    EUSART4RXbuf[RxBufWriteCnt++]=byte;
 }
 
 
-void turnRight45(DC_motor *mL, DC_motor *mR)
-{
-    mL->direction=1;
-    mR->direction=0;
-    for(int i=0;i<80;i+=10){
 
-        mR->power=i;
-        mL->power=i;
-        _delay((unsigned long)((15)*(64000000/4000.0)));
-        setMotorPWM(mL);
-        setMotorPWM(mR);}
-    _delay((unsigned long)((45)*(64000000/4000.0)));
+
+char isDataInRxBuf (void){
+    return (RxBufWriteCnt!=RxBufReadCnt);
 }
 
 
-void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
-{
-    mL->direction=1;
-    mR->direction=1;
-    for(int i=0;i<60;i+=10){
-        mL->power=i;
-        mR->power=i;
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-    }
+
+char getCharFromTxBuf(void){
+    if (TxBufReadCnt>=60) {TxBufReadCnt=0;}
+    return EUSART4TXbuf[TxBufReadCnt++];
 }
 
 
-void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
-{
-    mL->direction=0;
-    mR->direction=0;
-    for(int i=0;i<60;i+=10){
-        mL->power=i;
-        mR->power=i;
-        setMotorPWM(mL);
-        setMotorPWM(mR);
-        _delay((unsigned long)((10)*(64000000/4000.0)));
-    }
+void putCharToTxBuf(char byte){
+    if (TxBufWriteCnt>=60) {TxBufWriteCnt=0;}
+    EUSART4TXbuf[TxBufWriteCnt++]=byte;
+}
+
+
+
+
+char isDataInTxBuf (void){
+    return (TxBufWriteCnt!=TxBufReadCnt);
+}
+
+
+void TxBufferedString(char *string){
+ while(*string != 0)
+        putCharToTxBuf(*string++);
+}
+
+
+
+void sendTxBuf(void){
+    if (isDataInTxBuf()) {PIE4bits.TX4IE=1;}
 }
