@@ -83,16 +83,21 @@ unsigned int color_read_Clear(void)
 }
 
 void enable_color_interrupt(void){
-	color_writetoaddr(0x00, 0x01); //address for ENABLE bit is 0x00 and we want to turn it on
+    clear_interrupt_flag(); //make sure interrupt flag is cleared to start with
+	color_writetoaddr(0x00, 0b10011); //address for ENABLE bit is 0x00 and we want to turn it on, and enable interrupts
 }
 
-void set_interrupt_threshold(char AILTH, char AIHTH, char persistence){
+void set_interrupt_threshold(char AILT, char AIHT, char persistence){
+    
     color_writetoaddr(0x0C, persistence); // set the persistence filter
-    color_writetoaddr(0x05, AILTH); // set most significant bit of the low threshold register
-    color_writetoaddr(0x07, AILTH); // set most significant bit of the high threshold register
+    color_writetoaddr(0x05, AILT && 0b1111111100000000); // set most significant bit of the low threshold register
+    color_writetoaddr(0x04, AILT && 0b0000000011111111); // set least significant bit of the low threshold register
+    color_writetoaddr(0x07, AIHT && 0b1111111100000000); // set most significant bit of the high threshold register
+    color_writetoaddr(0x06, AIHT && 0b0000000011111111); // set least significant bit of the high threshold register
+     
 }
 
-unsigned int read_interrupt_status(void){
+unsigned int read_interrupt_status(void){ //I think this function is superfluous - interrupt source is simply the clickerboard interrupt pin, its not necessary to communicate manually with the color click
     unsigned int status;
     I2C_2_Master_Start();         //Start condition
 	I2C_2_Master_Write(0x52 | 0x00);     //7 bit address + Write mode
@@ -102,4 +107,11 @@ unsigned int read_interrupt_status(void){
 	status=I2C_2_Master_Read(1);			//read the STATUS bit
 	I2C_2_Master_Stop();          //Stop condition
 	return status;
+}
+
+void clear_interrupt_flag(void){
+    I2C_2_Master_Start();
+    I2C_2_Master_Write(0x52 | 0x00); // write mode
+    I2C_2_Master_Write(0b11100110);  // Command + Register address  
+    I2C_2_Master_Stop();             // Send stop bit
 }

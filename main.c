@@ -119,9 +119,19 @@ void main(void) {
    /********************************************//**
     *  Trying code
     ***********************************************/
+    
+    
+    
+        LATHbits.LATH3=0;   //set initial output state of RH3 LED
+    TRISHbits.TRISH3=0; //set TRIS value for H3 pin (output)
+    
+    char buf[20];
+    
+    while (1) {
+        
     LATDbits.LATD7=0;   //set initial output state of RD7 LED
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
-
+        
     char buf[20];
     
     while (1) {
@@ -129,6 +139,13 @@ void main(void) {
         red_read = color_read_Red();
         blue_read = color_read_Blue();
         green_read = color_read_Green();
+        clear_read = color_read_Clear();
+
+        
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+        sendStringSerial4(buf);
+        __delay_ms(100);
+        LATHbits.LATH3=!LATHbits.LATH3;
          */
         
 
