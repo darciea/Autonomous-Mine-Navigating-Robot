@@ -59,13 +59,9 @@ void main(void) {
     *  Setting up arrays and variables for collecting data
     ***********************************************/
     colour card  = BLUE;
-    unsigned int expected_values[3][3] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-    unsigned int normalised_values[3][3];
-    unsigned int master_closeness[3];//= {80, 990/*3467*/, 8000/*3533*/};// = {17, 2, 12, 12, 10, 11, 12, 14, 16};
+    unsigned int expected_values[3][9];// = {{14500, 1950, 2850},{8885, 10350, 5350},{2300, 2600, 2750}};
+    unsigned int normalised_values[3][9];
+    unsigned int master_closeness[9];//= {80, 990/*3467*/, 8000/*3533*/};// = {17, 2, 12, 12, 10, 11, 12, 14, 16};
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
@@ -79,21 +75,21 @@ void main(void) {
         3. Store those values in first index of each row of array (assign which colour that index will be)
         4. Press button to increment i and repeat for all 8 colours                                           * 
     ***********************************************/
-    /*
+    BRAKE = 0;
     TRISFbits.TRISF2=1; //set TRIS value for pin (input)
     ANSELFbits.ANSELF2=0; //turn off analogue input on pin
-    for(colour i = RED; i<=BLUE; i++){
+    for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
+        BRAKE = 0;
         collect_avg_readings(&red_read, &green_read, &blue_read);
         expected_values[i][RED] = red_read;
         expected_values[i][GREEN] = green_read;
         expected_values[i][BLUE] = blue_read;
-        BRAKE = 0;
-        __delay_ms(1000);  
+        
     }
-    */
+    
     
     /********************************************//**
     *  Ideal main function code
@@ -113,40 +109,28 @@ void main(void) {
    /********************************************//**
     *  Trying code
     ***********************************************/
-    char buf[20];
+    char buf[150];
     
     
     while (1) {
         
-        
+        while(PORTFbits.RF2){
+            BRAKE = 1;
+            LEFT = 1;
+        }
+        LEFT = 0;
         //__delay_ms(1000);
         collect_avg_readings(&red_read, &green_read, &blue_read);
         
         sprintf(buf, "\n AVG: R %d, G %d, B %d \n", red_read, green_read, blue_read);
-        sendStringSerial4(buf);
-        __delay_ms(1000);
-        sprintf(buf, "\n Expected values: %u \n", expected_values[1][1]);
-        sendStringSerial4(buf);
-        __delay_ms(1000);
-        LEFT = 0;
-        
+        sendStringSerial4(buf);        
         
         normalise_readings(buf, red_read, green_read, blue_read, expected_values, normalised_values);
-        //sprintf(buf, "\n Normalised: R %d, G %d, B %d \n", normalised_values[0][0], normalised_values[0][1], normalised_values[0][2]);
-        //sendStringSerial4(buf);
-        __delay_ms(1000);
-        
-        
         make_master_closeness(buf, normalised_values,master_closeness);
         card = determine_card(master_closeness);
-        //sprintf(buf, "CARD %d \n", card);
-        //sendStringSerial4(buf);
+        sprintf(buf, "CARD %d \n", card);
+        sendStringSerial4(buf);
         
-       
-        LEFT = 1;
-        BRAKE = 1;
-        __delay_ms(3000);
-        __delay_ms(3000);
                 
         
         

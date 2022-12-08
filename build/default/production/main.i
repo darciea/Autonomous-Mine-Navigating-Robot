@@ -24482,8 +24482,8 @@ void LEDSon_init(void);
 typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
 void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
-void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]);
-void make_master_closeness(char *buf, unsigned int normalised_values[][3], unsigned int master_closeness[]);
+void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
+void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
 colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
@@ -24568,51 +24568,50 @@ void main(void) {
 
 
     colour card = BLUE;
-    unsigned int expected_values[3][3] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-    unsigned int normalised_values[3][3];
-    unsigned int master_closeness[3];
+    unsigned int expected_values[3][9];
+    unsigned int normalised_values[3][9];
+    unsigned int master_closeness[9];
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-# 116 "main.c"
-    char buf[20];
+# 78 "main.c"
+    LATDbits.LATD4 = 0;
+    TRISFbits.TRISF2=1;
+    ANSELFbits.ANSELF2=0;
+    for(colour i = RED; i<= BLACK; i++){
+        while(PORTFbits.RF2){
+            LATDbits.LATD4 = 1;
+        }
+        LATDbits.LATD4 = 0;
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        expected_values[i][RED] = red_read;
+        expected_values[i][GREEN] = green_read;
+        expected_values[i][BLUE] = blue_read;
+
+    }
+# 112 "main.c"
+    char buf[150];
 
 
     while (1) {
 
-
+        while(PORTFbits.RF2){
+            LATDbits.LATD4 = 1;
+            LATFbits.LATF0 = 1;
+        }
+        LATFbits.LATF0 = 0;
 
         collect_avg_readings(&red_read, &green_read, &blue_read);
 
         sprintf(buf, "\n AVG: R %d, G %d, B %d \n", red_read, green_read, blue_read);
         sendStringSerial4(buf);
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
-        sprintf(buf, "\n Expected values: %u \n", expected_values[1][1]);
-        sendStringSerial4(buf);
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
-        LATFbits.LATF0 = 0;
-
 
         normalise_readings(buf, red_read, green_read, blue_read, expected_values, normalised_values);
-
-
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
-
-
         make_master_closeness(buf, normalised_values,master_closeness);
         card = determine_card(master_closeness);
+        sprintf(buf, "CARD %d \n", card);
+        sendStringSerial4(buf);
 
-
-
-
-        LATFbits.LATF0 = 1;
-        LATDbits.LATD4 = 1;
-        _delay((unsigned long)((3000)*(64000000/4000.0)));
-        _delay((unsigned long)((3000)*(64000000/4000.0)));
 
 
 

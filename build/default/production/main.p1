@@ -41,46 +41,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 61:     colour card = BLUE;
 [c E14575 0 1 2 3 4 5 6 7 8 .. ]
 [n E14575 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
-"13 ./colour_identify.h
-[; ;./colour_identify.h: 13: void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
-[v _collect_avg_readings `(v ~T0 @X0 0 ef3`*ui`*ui`*ui ]
-"109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"26 ./serial.h
-[; ;./serial.h: 26: void sendStringSerial4(char *string);
-[v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
-"29035 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29035:     struct {
-[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
-"29045
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29045:     struct {
-[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
-"29034
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29034: typedef union {
-[u S1354 `S1355 1 `S1356 1 ]
-[n S1354 . . . ]
-"29056
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29056: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
-[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
-[v F14591 `ui ~T0 @X0 -> 3 `i t ]
-[v F14592 `ui ~T0 @X0 -> 3 `i t ]
-"14 ./colour_identify.h
-[; ;./colour_identify.h: 14: void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]);
-[v _normalise_readings `(v ~T0 @X0 0 ef6`*uc`ui`ui`ui`*F14591`*F14592 ]
-[v F14602 `ui ~T0 @X0 -> 3 `i t ]
-"15
-[; ;./colour_identify.h: 15: void make_master_closeness(char *buf, unsigned int normalised_values[][3], unsigned int master_closeness[]);
-[v _make_master_closeness `(v ~T0 @X0 0 ef3`*uc`*F14602`*ui ]
-"16
-[; ;./colour_identify.h: 16: colour determine_card(unsigned int master_closeness[]);
-[v _determine_card `(E14575 ~T0 @X0 0 ef1`*ui ]
 "28811 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28811:     struct {
 [s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -96,6 +56,79 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28832
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28832: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
 [v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
+"29946
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29946:     struct {
+[s S1388 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1388 . TRISF0 TRISF1 TRISF2 TRISF3 TRISF4 TRISF5 TRISF6 TRISF7 ]
+"29945
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29945: typedef union {
+[u S1387 `S1388 1 ]
+[n S1387 . . ]
+"29957
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29957: extern volatile TRISFbits_t TRISFbits __attribute__((address(0xF86)));
+[v _TRISFbits `VS1387 ~T0 @X0 0 e@3974 ]
+"12309
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 12309:     struct {
+[s S568 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S568 . ANSELF0 ANSELF1 ANSELF2 ANSELF3 ANSELF4 ANSELF5 ANSELF6 ANSELF7 ]
+"12308
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 12308: typedef union {
+[u S567 `S568 1 ]
+[n S567 . . ]
+"12320
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 12320: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
+[v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
+"30586
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30586:     struct {
+[s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1412 . RF0 RF1 RF2 RF3 RF4 RF5 RF6 RF7 ]
+"30596
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30596:     struct {
+[s S1413 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1413 . . C2OUTF C1OUTF ]
+"30585
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30585: typedef union {
+[u S1411 `S1412 1 `S1413 1 ]
+[n S1411 . . . ]
+"30602
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30602: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF8E)));
+[v _PORTFbits `VS1411 ~T0 @X0 0 e@3982 ]
+"13 ./colour_identify.h
+[; ;./colour_identify.h: 13: void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
+[v _collect_avg_readings `(v ~T0 @X0 0 ef3`*ui`*ui`*ui ]
+"29035 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29035:     struct {
+[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
+"29045
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29045:     struct {
+[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
+"29034
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29034: typedef union {
+[u S1354 `S1355 1 `S1356 1 ]
+[n S1354 . . . ]
+"29056
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29056: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
+[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
+"109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"26 ./serial.h
+[; ;./serial.h: 26: void sendStringSerial4(char *string);
+[v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
+[v F14591 `ui ~T0 @X0 -> 9 `i t ]
+[v F14592 `ui ~T0 @X0 -> 9 `i t ]
+"14 ./colour_identify.h
+[; ;./colour_identify.h: 14: void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
+[v _normalise_readings `(v ~T0 @X0 0 ef6`*uc`ui`ui`ui`*F14591`*F14592 ]
+[v F14602 `ui ~T0 @X0 -> 9 `i t ]
+"15
+[; ;./colour_identify.h: 15: void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
+[v _make_master_closeness `(v ~T0 @X0 0 ef3`*uc`*F14602`*ui ]
+"16
+[; ;./colour_identify.h: 16: colour determine_card(unsigned int master_closeness[]);
+[v _determine_card `(E14575 ~T0 @X0 0 ef1`*ui ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2182,58 +2215,114 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 61:     colour card = BLUE;
 [v _card `E14575 ~T0 @X0 1 a ]
 [e = _card . `E14575 2 ]
-[v F14644 `ui ~T0 @X0 -> 3 `i t ]
-[v F14643 `F14644 ~T0 @X0 -> 3 `i s ]
-[i F14643
-:U ..
-:U ..
+[v F14644 `ui ~T0 @X0 -> 9 `i t ]
 "62
-[; ;main.c: 62:     unsigned int expected_values[3][3] = {
--> -> 1 `i `ui
--> -> 2 `i `ui
--> -> 3 `i `ui
-..
-:U ..
--> -> 4 `i `ui
--> -> 5 `i `ui
--> -> 6 `i `ui
-..
-:U ..
--> -> 7 `i `ui
--> -> 8 `i `ui
--> -> 9 `i `ui
-..
-..
-]
-[v F14646 `ui ~T0 @X0 -> 3 `i t ]
-[v _expected_values `F14646 ~T0 @X0 -> 3 `i a ]
-[e = _expected_values F14643 ]
-[v F14648 `ui ~T0 @X0 -> 3 `i t ]
-"67
-[; ;main.c: 67:     unsigned int normalised_values[3][3];
-[v _normalised_values `F14648 ~T0 @X0 -> 3 `i a ]
-"68
-[; ;main.c: 68:     unsigned int master_closeness[3];
-[v _master_closeness `ui ~T0 @X0 -> 3 `i a ]
-"69
-[; ;main.c: 69:     unsigned int red_read = 0;
+[; ;main.c: 62:     unsigned int expected_values[3][9];
+[v _expected_values `F14644 ~T0 @X0 -> 3 `i a ]
+[v F14646 `ui ~T0 @X0 -> 9 `i t ]
+"63
+[; ;main.c: 63:     unsigned int normalised_values[3][9];
+[v _normalised_values `F14646 ~T0 @X0 -> 3 `i a ]
+"64
+[; ;main.c: 64:     unsigned int master_closeness[9];
+[v _master_closeness `ui ~T0 @X0 -> 9 `i a ]
+"65
+[; ;main.c: 65:     unsigned int red_read = 0;
 [v _red_read `ui ~T0 @X0 1 a ]
 [e = _red_read -> -> 0 `i `ui ]
-"70
-[; ;main.c: 70:     unsigned int green_read = 0;
+"66
+[; ;main.c: 66:     unsigned int green_read = 0;
 [v _green_read `ui ~T0 @X0 1 a ]
 [e = _green_read -> -> 0 `i `ui ]
-"71
-[; ;main.c: 71:     unsigned int blue_read = 0;
+"67
+[; ;main.c: 67:     unsigned int blue_read = 0;
 [v _blue_read `ui ~T0 @X0 1 a ]
 [e = _blue_read -> -> 0 `i `ui ]
-"116
-[; ;main.c: 116:     char buf[20];
-[v _buf `uc ~T0 @X0 -> 20 `i a ]
-"119
-[; ;main.c: 119:     while (1) {
-[e :U 2020 ]
+"78
+[; ;main.c: 78:     LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+"79
+[; ;main.c: 79:     TRISFbits.TRISF2=1;
+[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
+"80
+[; ;main.c: 80:     ANSELFbits.ANSELF2=0;
+[e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
+"81
+[; ;main.c: 81:     for(colour i = RED; i<= BLACK; i++){
 {
+[v _i `E14575 ~T0 @X0 1 a ]
+[e = _i . `E14575 0 ]
+[e $ <= -> _i `ui -> . `E14575 8 `ui 2019  ]
+[e $U 2020  ]
+[e :U 2019 ]
+{
+"82
+[; ;main.c: 82:         while(PORTFbits.RF2){
+[e $U 2022  ]
+[e :U 2023 ]
+{
+"83
+[; ;main.c: 83:             LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+"84
+[; ;main.c: 84:         }
+}
+[e :U 2022 ]
+"82
+[; ;main.c: 82:         while(PORTFbits.RF2){
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2023  ]
+[e :U 2024 ]
+"85
+[; ;main.c: 85:         LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+"86
+[; ;main.c: 86:         collect_avg_readings(&red_read, &green_read, &blue_read);
+[e ( _collect_avg_readings (3 , , &U _red_read &U _green_read &U _blue_read ]
+"87
+[; ;main.c: 87:         expected_values[i][RED] = red_read;
+[e = *U + &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> . `E14575 0 `ux -> -> # *U &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _red_read ]
+"88
+[; ;main.c: 88:         expected_values[i][GREEN] = green_read;
+[e = *U + &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> . `E14575 1 `ux -> -> # *U &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _green_read ]
+"89
+[; ;main.c: 89:         expected_values[i][BLUE] = blue_read;
+[e = *U + &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> . `E14575 2 `ux -> -> # *U &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _blue_read ]
+"91
+[; ;main.c: 91:     }
+}
+[e ++ _i -> -> 1 `i `E14575 ]
+[e $ <= -> _i `ui -> . `E14575 8 `ui 2019  ]
+[e :U 2020 ]
+}
+"112
+[; ;main.c: 112:     char buf[150];
+[v _buf `uc ~T0 @X0 -> 150 `i a ]
+"115
+[; ;main.c: 115:     while (1) {
+[e :U 2026 ]
+{
+"117
+[; ;main.c: 117:         while(PORTFbits.RF2){
+[e $U 2028  ]
+[e :U 2029 ]
+{
+"118
+[; ;main.c: 118:             LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+"119
+[; ;main.c: 119:             LATFbits.LATF0 = 1;
+[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
+"120
+[; ;main.c: 120:         }
+}
+[e :U 2028 ]
+"117
+[; ;main.c: 117:         while(PORTFbits.RF2){
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2029  ]
+[e :U 2030 ]
+"121
+[; ;main.c: 121:         LATFbits.LATF0 = 0;
+[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
 "123
 [; ;main.c: 123:         collect_avg_readings(&red_read, &green_read, &blue_read);
 [e ( _collect_avg_readings (3 , , &U _red_read &U _green_read &U _blue_read ]
@@ -2243,55 +2332,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "126
 [; ;main.c: 126:         sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 &U _buf ]
-"127
-[; ;main.c: 127:         _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "128
-[; ;main.c: 128:         sprintf(buf, "\n Expected values: %u \n", expected_values[1][1]);
-[e ( _sprintf (1 , (. , &U _buf :s 2C *U + &U *U + &U _expected_values * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 3 `i `ui `ux * -> -> -> 1 `i `ui `ux -> -> # *U &U *U + &U _expected_values * -> -> -> 1 `i `ui `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 3 `i `ui `ux `ui `ux ]
-"129
-[; ;main.c: 129:         sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
-"130
-[; ;main.c: 130:         _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"131
-[; ;main.c: 131:         LATFbits.LATF0 = 0;
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-"134
-[; ;main.c: 134:         normalise_readings(buf, red_read, green_read, blue_read, expected_values, normalised_values);
+[; ;main.c: 128:         normalise_readings(buf, red_read, green_read, blue_read, expected_values, normalised_values);
 [e ( _normalise_readings (4 , , , , , &U _buf _red_read _green_read _blue_read &U _expected_values &U _normalised_values ]
-"137
-[; ;main.c: 137:         _delay((unsigned long)((1000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"140
-[; ;main.c: 140:         make_master_closeness(buf, normalised_values,master_closeness);
+"129
+[; ;main.c: 129:         make_master_closeness(buf, normalised_values,master_closeness);
 [e ( _make_master_closeness (3 , , &U _buf &U _normalised_values &U _master_closeness ]
-"141
-[; ;main.c: 141:         card = determine_card(master_closeness);
+"130
+[; ;main.c: 130:         card = determine_card(master_closeness);
 [e = _card ( _determine_card (1 &U _master_closeness ]
-"146
-[; ;main.c: 146:         LATFbits.LATF0 = 1;
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-"147
-[; ;main.c: 147:         LATDbits.LATD4 = 1;
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-"148
-[; ;main.c: 148:         _delay((unsigned long)((3000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"149
-[; ;main.c: 149:         _delay((unsigned long)((3000)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"153
-[; ;main.c: 153:     }
+"131
+[; ;main.c: 131:         sprintf(buf, "CARD %d \n", card);
+[e ( _sprintf (1 , (. , &U _buf :s 2C -> _card `ui ]
+"132
+[; ;main.c: 132:         sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"137
+[; ;main.c: 137:     }
 }
-[e :U 2019 ]
-[e $U 2020  ]
-[e :U 2021 ]
-"154
-[; ;main.c: 154: }
+[e :U 2025 ]
+[e $U 2026  ]
+[e :U 2027 ]
+"138
+[; ;main.c: 138: }
 [e :UE 2018 ]
 }
-[p f _sprintf 8389760 ]
-[a 2C 10 32 69 120 112 101 99 116 101 100 32 118 97 108 117 101 115 58 32 37 117 32 10 0 ]
+[p f _sprintf 8388736 ]
+[a 2C 67 65 82 68 32 37 100 32 10 0 ]
 [a 1C 10 32 65 86 71 58 32 82 32 37 100 44 32 71 32 37 100 44 32 66 32 37 100 32 10 0 ]
