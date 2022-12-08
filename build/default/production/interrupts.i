@@ -24610,14 +24610,17 @@ double yn(int, double);
 
 
 
-unsigned int count;
+unsigned int TimerFlag;
 
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILT, char AIHT, char persistence);
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
 void clear_interrupt_flag(void);
+
+unsigned int response_in_progress=0;
+unsigned int card_detected=0;
 # 3 "interrupts.c" 2
 
 # 1 "./color.h" 1
@@ -24679,37 +24682,32 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 void Interrupts_init(void)
 {
-# 21 "interrupts.c"
+# 23 "interrupts.c"
     TMR0IE=1;
     T0CON1bits.T0CS=0b010;
     T0CON1bits.T0ASYNC=1;
-    T0CON1bits.T0CKPS=0b0110;
-    T0CON0bits.T016BIT=0;
-    TMR0H=0b00000000;
-    TMR0L=0b00000000;
+    T0CON1bits.T0CKPS=0b0101;
+    T0CON0bits.T016BIT=1;
+    IPR0bits.TMR0IP = 0;
+    TMR0H=0b00111100;
+    TMR0L=0b10101111;
     T0CON0bits.T0EN=1;
-    count = 0;
 
 
     INTCONbits.GIEL = 1;
     INTCONbits.GIEH=1;}
-# 73 "interrupts.c"
+# 76 "interrupts.c"
 void __attribute__((picinterrupt(("low_priority")))) LowISR()
 {
 
     if(TMR0IF){
-
-        TMR0H = 0b00000000;
-        TMR0L = 0b00000111;
-
+    TMR0H=0b00111100;
+    TMR0L=0b10101111;
 
 
 
 
-        count +=1;
-        if (count == 1000){
-            LATHbits.LATH3 = !LATHbits.LATH3;
-            count = 0;}
+        TimerFlag=1;
 
        TMR0IF=0;
     }

@@ -24406,8 +24406,7 @@ void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
 
 
 
-typedef enum colour{RED, GREEN, BLUE, } colour;
-
+typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
 void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
 void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]);
@@ -24415,9 +24414,6 @@ void make_master_closeness(unsigned int normalised_values[][3], unsigned int mas
 colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 5 "colour_identify.c" 2
 
 
@@ -24440,10 +24436,6 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
-
-void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
-unsigned int read_interrupt_status(void);
 # 7 "colour_identify.c" 2
 
 # 1 "./serial.h" 1
@@ -24475,7 +24467,8 @@ char isDataInTxBuf (void);
 void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 8 "colour_identify.c" 2
-# 25 "colour_identify.c"
+
+
 void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {
 
@@ -24518,30 +24511,32 @@ void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsi
 
 }
 
-void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3])
-{
+void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]){
 
 
 
 
 
 
-    for(colour i = RED; i<= BLUE; i++){
+    for(colour i = RED; i<= BLACK; i++){
 
 
-        normalised_values[i][RED] = (abs(*red_read - expected_values[i][0])) / (expected_values[i][0]);
+        normalised_values[0][0] = (abs(*red_read - expected_values[0][0])) / (expected_values[0][0]);
+
+
 
 
         normalised_values[i][GREEN] = (abs(*green_read - expected_values[i][1])) / (expected_values[i][1]);
 
 
         normalised_values[i][BLUE] = (abs(*blue_read - expected_values[i][2])) / (expected_values[i][2]);
+
     }
 
 }
 
 void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]){
-    for(colour i = RED; i<=BLUE; i++){
+    for(colour i = RED; i<=BLACK; i++){
         master_closeness[i] = (normalised_values[i][0] + normalised_values[i][1] + normalised_values[i][2])/3;
     }
 }
@@ -24549,16 +24544,19 @@ void make_master_closeness(unsigned int normalised_values[][3], unsigned int mas
 colour determine_card(unsigned int master_closeness[]){
     colour predicted_colour = RED;
     unsigned int current_smallest = master_closeness[RED];
-    for(colour i = GREEN; i<=BLUE; i++){
+    for(colour i = GREEN; i<=BLACK; i++){
         if(master_closeness[i] < current_smallest){
             current_smallest = master_closeness[i];
             predicted_colour = i;
         }
     }
+    return predicted_colour;
 }
 
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
+
+
     switch (card){
         case RED:
             reverseFullSpeed(mL,mR);
@@ -24588,7 +24586,56 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
-# 187 "colour_identify.c"
+        case YELLOW:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case PINK:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case ORANGE:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case LIGHT_BLUE:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case WHITE:
+
+            break;
+        case BLACK:
+
+            break;
+        default:
+            break;
     }
 
 }

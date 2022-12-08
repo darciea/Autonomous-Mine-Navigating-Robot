@@ -24523,19 +24523,24 @@ void sendTxBuf(void);
 
 
 
-unsigned int count;
+unsigned int TimerFlag;
 
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILT, char AIHT, char persistence);
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
 void clear_interrupt_flag(void);
+
+unsigned int response_in_progress=0;
+unsigned int card_detected=0;
 # 16 "main.c" 2
 
 
 
 
+
+unsigned int card_seen;
 
 void main(void) {
 
@@ -24588,11 +24593,12 @@ void main(void) {
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
-# 102 "main.c"
-    while(PORTFbits.RF2){
-        LATHbits.LATH1 = 1;
-    }
-# 128 "main.c"
+
+    unsigned int TimerCount = 0;
+    unsigned int CardCount = 0;
+
+    unsigned int ReturnHomeArray[2][30] = {0};
+# 136 "main.c"
     LATHbits.LATH3=0;
     TRISHbits.TRISH3=0;
 
@@ -24601,7 +24607,23 @@ void main(void) {
     LATDbits.LATD7=0;
     TRISDbits.TRISD7=0;
 
+
     while (1) {
-# 173 "main.c"
+        if (TimerFlag == 1){
+            TimerCount += 1;
+            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
+            TimerFlag = 0;
+        }
+# 169 "main.c"
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+        clear_read = color_read_Clear();
+
+
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+        sendStringSerial4(buf);
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+# 203 "main.c"
     }
 }

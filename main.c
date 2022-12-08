@@ -18,9 +18,7 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-unsigned int card_detected;
 unsigned int card_seen;
-unsigned int response_in_progress;
 
 void main(void) {
     
@@ -74,10 +72,10 @@ void main(void) {
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     
-    unsigned int TimerCountms = 0;
+    unsigned int TimerCount = 0;
     unsigned int CardCount = 0;
     
-    unsigned int ReturnHomeArray[2][30] = {0}
+    unsigned int ReturnHomeArray[2][30] = {0};
     
     
     
@@ -108,10 +106,11 @@ void main(void) {
         
     }
     */
+    /*
     while(PORTFbits.RF2){
         HLAMPS = 1;
     }
-    
+    */
     
     /*
     card = 1; //flag to show that a card has been seen
@@ -142,29 +141,31 @@ void main(void) {
     LATDbits.LATD7=0;   //set initial output state of RD7 LED
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
     
-    fullSpeedAhead(DC_motor *mL, DC_motor *mR); //begin moving
+    //fullSpeedAhead(DC_motor *mL, DC_motor *mR); //begin moving
     while (1) {
-        
         if (TimerFlag == 1){ //incrementing the timer counter every ms if the timer overflows. Note this relies on the while loop running more than once every ms - may need to experiment
-            TimerCountms += 1;
+            TimerCount += 1;
+            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
             TimerFlag = 0;
         }
         
-        if (card_detected == 1){ //defined as global variable in main.c
+        
+        /*
+        if (card_detected == 1){ //defined as global variable in interrupts.h
             response_in_progress = 1; //let the interrupt know not to keep triggering while the buggy is responding to the card. Defined as global variable
-            ReturnHomeArray[0][CardCount] = TimerCountms; //put current timer value into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
+            ReturnHomeArray[0][CardCount] = TimerCount; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
             stop(DC_motor *mL, DC_motor *mR);
             //insert function here that reads colours, averages values, normalises them, determines master closeness, uses that to find which card is there, and respond to it
             ReturnHomeArray[1][CardCount] = card_seen; //log in the array which card has been detected
             CardCount += 1; //indicate that next time a card is detected the timer value should be stored in the next column along
             response_in_progress = 0; //let the buggy know that any future interrupt triggers will be the next card
             card_detected = 0; //at this point the buggy should not be facing the card anymore so it shouldn't have the interrupt triggered again
-            TimerCountms = 0; //reset the timer once the buggy is about to move again
+            TimerCount = 0; //reset the timer once the buggy is about to move again
             fullSpeedAhead(DC_motor *mL, DC_motor *mR); //begin moving
             
         }
         
-        /*
+        */
         red_read = color_read_Red();
         blue_read = color_read_Blue();
         green_read = color_read_Green();
@@ -174,8 +175,7 @@ void main(void) {
         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
         sendStringSerial4(buf);
         __delay_ms(100);
-        LATHbits.LATH3=!LATHbits.LATH3;
-         */
+         
         
 /*
         BRAKE = 1;

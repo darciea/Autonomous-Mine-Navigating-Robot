@@ -24431,10 +24431,6 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
-
-void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
-unsigned int read_interrupt_status(void);
 # 11 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24479,8 +24475,7 @@ void LEDSon_init(void);
 
 # 1 "./colour_identify.h" 1
 # 11 "./colour_identify.h"
-typedef enum colour{RED, GREEN, BLUE, } colour;
-
+typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
 void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
 void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]);
@@ -24488,9 +24483,6 @@ void make_master_closeness(unsigned int normalised_values[][3], unsigned int mas
 colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 14 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -24523,9 +24515,32 @@ void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 15 "main.c" 2
 
+# 1 "./interrupts.h" 1
 
 
 
+
+
+
+
+unsigned int TimerFlag;
+
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void enable_color_interrupt(void);
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
+void clear_interrupt_flag(void);
+
+unsigned int response_in_progress=0;
+unsigned int card_detected=0;
+# 16 "main.c" 2
+
+
+
+
+
+unsigned int card_seen;
 
 void main(void) {
 
@@ -24537,6 +24552,7 @@ void main(void) {
     color_click_init();
     initDCmotorsPWM();
     initUSART4();
+    Interrupts_init();
 
 
 
@@ -24569,49 +24585,45 @@ void main(void) {
 
 
     colour card = BLUE;
-    unsigned int expected_values[3][3] = {{14000, 2100, 2800},{8400, 6500, 5000},{4400, 1800, 2800}};
+    unsigned int expected_values[3][3] = {{13000, 2600, 1800},{8400, 6500, 5000},{4400, 1800, 2800}};
     unsigned int normalised_values[3][3];
-    unsigned int master_closeness[3]= {8000, 0 , 8000 };
+    unsigned int master_closeness[3];
 
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-# 99 "main.c"
-    while(PORTFbits.RF2){
-        LATHbits.LATH1 = 1;
-    }
-# 122 "main.c"
-    LATDbits.LATD7=0;
-    TRISDbits.TRISD7=0;
+    unsigned int clear_read = 0;
+
+    unsigned int TimerCount = 0;
+    unsigned int CardCount = 0;
+
+    unsigned int ReturnHomeArray[2][30] = {0};
+# 136 "main.c"
+    LATHbits.LATH3=0;
+    TRISHbits.TRISH3=0;
 
     char buf[20];
 
+    LATDbits.LATD7=0;
+    TRISDbits.TRISD7=0;
+
+
     while (1) {
-# 142 "main.c"
-        sprintf(buf, "red %d \n", master_closeness[0]);
+        if (TimerFlag == 1){
+            TimerCount += 1;
+            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
+            TimerFlag = 0;
+        }
+# 169 "main.c"
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+        clear_read = color_read_Clear();
+
+
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
         sendStringSerial4(buf);
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
-        sprintf(buf, "green %d \n", master_closeness[1]);
-        sendStringSerial4(buf);
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
-        sprintf(buf, "blue %d \n", master_closeness[2]);
-        sendStringSerial4(buf);
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
-
-        card = determine_card(master_closeness);
-
-        sprintf(buf, "CARD %d \n", card);
-        sendStringSerial4(buf);
-
-
-
-
-
-
-        LATFbits.LATF0 = 1;
-
-
-
-
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+# 203 "main.c"
     }
 }
