@@ -15,48 +15,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"35920 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35920: extern volatile unsigned char T2PR __attribute__((address(0xFBC)));
-[v _T2PR `Vuc ~T0 @X0 0 e@4028 ]
-"8 ./dc_motor.h
-[; ;./dc_motor.h: 8: typedef struct DC_motor {
-[s S2017 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
-[n S2017 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
-"34421 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34421: extern volatile unsigned char CCPR1H __attribute__((address(0xFAA)));
-[v _CCPR1H `Vuc ~T0 @X0 0 e@4010 ]
-"34200
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34200: extern volatile unsigned char CCPR2H __attribute__((address(0xFA6)));
-[v _CCPR2H `Vuc ~T0 @X0 0 e@4006 ]
-"21402
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21402: extern volatile unsigned char CCPR3H __attribute__((address(0xF25)));
-[v _CCPR3H `Vuc ~T0 @X0 0 e@3877 ]
-"21099
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21099: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
-[v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
-"19 ./dc_motor.h
-[; ;./dc_motor.h: 19: void setMotorPWM(DC_motor *m);
-[v _setMotorPWM `(v ~T0 @X0 0 ef1`*S2017 ]
-"61 main.c
-[; ;main.c: 61:     colour card = BLUE;
-[c E14575 0 1 2 3 4 5 6 7 8 .. ]
-[n E14575 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
-"28811 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28811:     struct {
-[s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"28821
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28821:     struct {
-[s S1350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1350 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
-"28810
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28810: typedef union {
-[u S1348 `S1349 1 `S1350 1 ]
-[n S1348 . . . ]
-"28832
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28832: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
-[v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
-"29946
+"29946 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29946:     struct {
 [s S1388 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1388 . TRISF0 TRISF1 TRISF2 TRISF3 TRISF4 TRISF5 TRISF6 TRISF7 ]
@@ -78,6 +37,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 "12320
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 12320: extern volatile ANSELFbits_t ANSELFbits __attribute__((address(0xEB4)));
 [v _ANSELFbits `VS567 ~T0 @X0 0 e@3764 ]
+"35920
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35920: extern volatile unsigned char T2PR __attribute__((address(0xFBC)));
+[v _T2PR `Vuc ~T0 @X0 0 e@4028 ]
+"8 ./dc_motor.h
+[; ;./dc_motor.h: 8: typedef struct DC_motor {
+[s S2017 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
+[n S2017 DC_motor power direction brakemode PWMperiod posDutyHighByte negDutyHighByte ]
+"34421 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34421: extern volatile unsigned char CCPR1H __attribute__((address(0xFAA)));
+[v _CCPR1H `Vuc ~T0 @X0 0 e@4010 ]
+"34200
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 34200: extern volatile unsigned char CCPR2H __attribute__((address(0xFA6)));
+[v _CCPR2H `Vuc ~T0 @X0 0 e@4006 ]
+"21402
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21402: extern volatile unsigned char CCPR3H __attribute__((address(0xF25)));
+[v _CCPR3H `Vuc ~T0 @X0 0 e@3877 ]
+"21099
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 21099: extern volatile unsigned char CCPR4H __attribute__((address(0xF21)));
+[v _CCPR4H `Vuc ~T0 @X0 0 e@3873 ]
+"19 ./dc_motor.h
+[; ;./dc_motor.h: 19: void setMotorPWM(DC_motor *m);
+[v _setMotorPWM `(v ~T0 @X0 0 ef1`*S2017 ]
+"65 main.c
+[; ;main.c: 65:     colour card = RED;
+[c E14575 0 1 2 3 4 5 6 7 8 .. ]
+[n E14575 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
+"28811 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28811:     struct {
+[s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1349 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"28821
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28821:     struct {
+[s S1350 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1350 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"28810
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28810: typedef union {
+[u S1348 `S1349 1 `S1350 1 ]
+[n S1348 . . . ]
+"28832
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28832: extern volatile LATDbits_t LATDbits __attribute__((address(0xF7C)));
+[v _LATDbits `VS1348 ~T0 @X0 0 e@3964 ]
 "30586
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30586:     struct {
 [s S1412 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -93,6 +93,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "30602
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30602: extern volatile PORTFbits_t PORTFbits __attribute__((address(0xF8E)));
 [v _PORTFbits `VS1411 ~T0 @X0 0 e@3982 ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
 "13 ./colour_identify.h
 [; ;./colour_identify.h: 13: void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
 [v _collect_avg_readings `(v ~T0 @X0 0 ef3`*ui`*ui`*ui ]
@@ -2161,94 +2165,97 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29
 [; ;main.c: 29:     initUSART4();
 [e ( _initUSART4 ..  ]
-"37
-[; ;main.c: 37:     unsigned char PWMcycle = T2PR;
+"31
+[; ;main.c: 31:     TRISFbits.TRISF2=1;
+[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
+"32
+[; ;main.c: 32:     ANSELFbits.ANSELF2=0;
+[e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
+"40
+[; ;main.c: 40:     unsigned char PWMcycle = T2PR;
 [v _PWMcycle `uc ~T0 @X0 1 a ]
 [e = _PWMcycle _T2PR ]
-"39
-[; ;main.c: 39:     struct DC_motor motorL, motorR;
+"42
+[; ;main.c: 42:     struct DC_motor motorL, motorR;
 [v _motorL `S2017 ~T0 @X0 1 a ]
 [v _motorR `S2017 ~T0 @X0 1 a ]
-"41
-[; ;main.c: 41:     motorL.power=0;
-[e = . _motorL 0 -> -> 0 `i `uc ]
-"42
-[; ;main.c: 42:     motorL.direction=1;
-[e = . _motorL 1 -> -> 1 `i `uc ]
-"43
-[; ;main.c: 43:     motorL.brakemode=1;
-[e = . _motorL 2 -> -> 1 `i `uc ]
 "44
-[; ;main.c: 44:     motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
-[e = . _motorL 4 -> &U _CCPR1H `*uc ]
+[; ;main.c: 44:     motorL.power=0;
+[e = . _motorL 0 -> -> 0 `i `uc ]
 "45
-[; ;main.c: 45:     motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
-[e = . _motorL 5 -> &U _CCPR2H `*uc ]
+[; ;main.c: 45:     motorL.direction=1;
+[e = . _motorL 1 -> -> 1 `i `uc ]
 "46
-[; ;main.c: 46:     motorL.PWMperiod=PWMcycle;
-[e = . _motorL 3 -> _PWMcycle `ui ]
+[; ;main.c: 46:     motorL.brakemode=1;
+[e = . _motorL 2 -> -> 1 `i `uc ]
+"47
+[; ;main.c: 47:     motorL.posDutyHighByte=(unsigned char *)(&CCPR1H);
+[e = . _motorL 4 -> &U _CCPR1H `*uc ]
 "48
-[; ;main.c: 48:     motorR.power=0;
-[e = . _motorR 0 -> -> 0 `i `uc ]
+[; ;main.c: 48:     motorL.negDutyHighByte=(unsigned char *)(&CCPR2H);
+[e = . _motorL 5 -> &U _CCPR2H `*uc ]
 "49
-[; ;main.c: 49:     motorR.direction=1;
-[e = . _motorR 1 -> -> 1 `i `uc ]
-"50
-[; ;main.c: 50:     motorR.brakemode=1;
-[e = . _motorR 2 -> -> 1 `i `uc ]
+[; ;main.c: 49:     motorL.PWMperiod=PWMcycle;
+[e = . _motorL 3 -> _PWMcycle `ui ]
 "51
-[; ;main.c: 51:     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
-[e = . _motorR 4 -> &U _CCPR3H `*uc ]
+[; ;main.c: 51:     motorR.power=0;
+[e = . _motorR 0 -> -> 0 `i `uc ]
 "52
-[; ;main.c: 52:     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
-[e = . _motorR 5 -> &U _CCPR4H `*uc ]
+[; ;main.c: 52:     motorR.direction=1;
+[e = . _motorR 1 -> -> 1 `i `uc ]
 "53
-[; ;main.c: 53:     motorR.PWMperiod=PWMcycle;
-[e = . _motorR 3 -> _PWMcycle `ui ]
+[; ;main.c: 53:     motorR.brakemode=1;
+[e = . _motorR 2 -> -> 1 `i `uc ]
+"54
+[; ;main.c: 54:     motorR.posDutyHighByte=(unsigned char *)(&CCPR3H);
+[e = . _motorR 4 -> &U _CCPR3H `*uc ]
 "55
-[; ;main.c: 55:     setMotorPWM(&motorL);
-[e ( _setMotorPWM (1 &U _motorL ]
+[; ;main.c: 55:     motorR.negDutyHighByte=(unsigned char *)(&CCPR4H);
+[e = . _motorR 5 -> &U _CCPR4H `*uc ]
 "56
-[; ;main.c: 56:     setMotorPWM(&motorR);
+[; ;main.c: 56:     motorR.PWMperiod=PWMcycle;
+[e = . _motorR 3 -> _PWMcycle `ui ]
+"58
+[; ;main.c: 58:     setMotorPWM(&motorL);
+[e ( _setMotorPWM (1 &U _motorL ]
+"59
+[; ;main.c: 59:     setMotorPWM(&motorR);
 [e ( _setMotorPWM (1 &U _motorR ]
-"61
-[; ;main.c: 61:     colour card = BLUE;
-[v _card `E14575 ~T0 @X0 1 a ]
-[e = _card . `E14575 2 ]
-[v F14644 `ui ~T0 @X0 -> 9 `i t ]
-"62
-[; ;main.c: 62:     unsigned int expected_values[3][9];
-[v _expected_values `F14644 ~T0 @X0 -> 3 `i a ]
-[v F14646 `ui ~T0 @X0 -> 9 `i t ]
-"63
-[; ;main.c: 63:     unsigned int normalised_values[3][9];
-[v _normalised_values `F14646 ~T0 @X0 -> 3 `i a ]
 "64
-[; ;main.c: 64:     unsigned int master_closeness[9];
-[v _master_closeness `ui ~T0 @X0 -> 9 `i a ]
+[; ;main.c: 64:     char buf[150];
+[v _buf `uc ~T0 @X0 -> 150 `i a ]
 "65
-[; ;main.c: 65:     unsigned int red_read = 0;
+[; ;main.c: 65:     colour card = RED;
+[v _card `E14575 ~T0 @X0 1 a ]
+[e = _card . `E14575 0 ]
+[v F14645 `ui ~T0 @X0 -> 9 `i t ]
+"66
+[; ;main.c: 66:     unsigned int expected_values[3][9];
+[v _expected_values `F14645 ~T0 @X0 -> 3 `i a ]
+[v F14647 `ui ~T0 @X0 -> 9 `i t ]
+"67
+[; ;main.c: 67:     unsigned int normalised_values[3][9];
+[v _normalised_values `F14647 ~T0 @X0 -> 3 `i a ]
+"68
+[; ;main.c: 68:     unsigned int master_closeness[9];
+[v _master_closeness `ui ~T0 @X0 -> 9 `i a ]
+"69
+[; ;main.c: 69:     unsigned int red_read = 0;
 [v _red_read `ui ~T0 @X0 1 a ]
 [e = _red_read -> -> 0 `i `ui ]
-"66
-[; ;main.c: 66:     unsigned int green_read = 0;
+"70
+[; ;main.c: 70:     unsigned int green_read = 0;
 [v _green_read `ui ~T0 @X0 1 a ]
 [e = _green_read -> -> 0 `i `ui ]
-"67
-[; ;main.c: 67:     unsigned int blue_read = 0;
+"71
+[; ;main.c: 71:     unsigned int blue_read = 0;
 [v _blue_read `ui ~T0 @X0 1 a ]
 [e = _blue_read -> -> 0 `i `ui ]
-"78
-[; ;main.c: 78:     LATDbits.LATD4 = 0;
+"83
+[; ;main.c: 83:     LATDbits.LATD4 = 0;
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-"79
-[; ;main.c: 79:     TRISFbits.TRISF2=1;
-[e = . . _TRISFbits 0 2 -> -> 1 `i `uc ]
-"80
-[; ;main.c: 80:     ANSELFbits.ANSELF2=0;
-[e = . . _ANSELFbits 0 2 -> -> 0 `i `uc ]
-"81
-[; ;main.c: 81:     for(colour i = RED; i<= BLACK; i++){
+"84
+[; ;main.c: 84:     for(colour i = RED; i<= BLACK; i++){
 {
 [v _i `E14575 ~T0 @X0 1 a ]
 [e = _i . `E14575 0 ]
@@ -2256,47 +2263,47 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2020  ]
 [e :U 2019 ]
 {
-"82
-[; ;main.c: 82:         while(PORTFbits.RF2){
+"85
+[; ;main.c: 85:         while(PORTFbits.RF2){
 [e $U 2022  ]
 [e :U 2023 ]
 {
-"83
-[; ;main.c: 83:             LATDbits.LATD4 = 1;
+"86
+[; ;main.c: 86:             LATDbits.LATD4 = 1;
 [e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-"84
-[; ;main.c: 84:         }
+"87
+[; ;main.c: 87:         }
 }
 [e :U 2022 ]
-"82
-[; ;main.c: 82:         while(PORTFbits.RF2){
+"85
+[; ;main.c: 85:         while(PORTFbits.RF2){
 [e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2023  ]
 [e :U 2024 ]
-"85
-[; ;main.c: 85:         LATDbits.LATD4 = 0;
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
-"86
-[; ;main.c: 86:         collect_avg_readings(&red_read, &green_read, &blue_read);
-[e ( _collect_avg_readings (3 , , &U _red_read &U _green_read &U _blue_read ]
-"87
-[; ;main.c: 87:         expected_values[i][RED] = red_read;
-[e = *U + &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> . `E14575 0 `ux -> -> # *U &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _red_read ]
 "88
-[; ;main.c: 88:         expected_values[i][GREEN] = green_read;
-[e = *U + &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> . `E14575 1 `ux -> -> # *U &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _green_read ]
+[; ;main.c: 88:         LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 "89
-[; ;main.c: 89:         expected_values[i][BLUE] = blue_read;
-[e = *U + &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> . `E14575 2 `ux -> -> # *U &U *U + &U _expected_values * -> _i `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _blue_read ]
+[; ;main.c: 89:         _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"90
+[; ;main.c: 90:         collect_avg_readings(&red_read, &green_read, &blue_read);
+[e ( _collect_avg_readings (3 , , &U _red_read &U _green_read &U _blue_read ]
 "91
-[; ;main.c: 91:     }
+[; ;main.c: 91:         expected_values[RED][i] = red_read;
+[e = *U + &U *U + &U _expected_values * -> . `E14575 0 `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> _i `ux -> -> # *U &U *U + &U _expected_values * -> . `E14575 0 `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _red_read ]
+"92
+[; ;main.c: 92:         expected_values[GREEN][i] = green_read;
+[e = *U + &U *U + &U _expected_values * -> . `E14575 1 `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> _i `ux -> -> # *U &U *U + &U _expected_values * -> . `E14575 1 `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _green_read ]
+"93
+[; ;main.c: 93:         expected_values[BLUE][i] = blue_read;
+[e = *U + &U *U + &U _expected_values * -> . `E14575 2 `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux * -> _i `ux -> -> # *U &U *U + &U _expected_values * -> . `E14575 2 `ux -> * -> # *U &U *U &U _expected_values `ui -> -> 9 `i `ui `ux `ui `ux _blue_read ]
+"94
+[; ;main.c: 94:     }
 }
 [e ++ _i -> -> 1 `i `E14575 ]
 [e $ <= -> _i `ui -> . `E14575 8 `ui 2019  ]
 [e :U 2020 ]
 }
-"112
-[; ;main.c: 112:     char buf[150];
-[v _buf `uc ~T0 @X0 -> 150 `i a ]
 "115
 [; ;main.c: 115:     while (1) {
 [e :U 2026 ]
@@ -2323,8 +2330,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "121
 [; ;main.c: 121:         LATFbits.LATF0 = 0;
 [e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-"123
-[; ;main.c: 123:         collect_avg_readings(&red_read, &green_read, &blue_read);
+"124
+[; ;main.c: 124:         collect_avg_readings(&red_read, &green_read, &blue_read);
 [e ( _collect_avg_readings (3 , , &U _red_read &U _green_read &U _blue_read ]
 "125
 [; ;main.c: 125:         sprintf(buf, "\n AVG: R %d, G %d, B %d \n", red_read, green_read, blue_read);

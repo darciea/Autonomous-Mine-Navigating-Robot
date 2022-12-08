@@ -24537,6 +24537,9 @@ void main(void) {
     initDCmotorsPWM();
     initUSART4();
 
+    TRISFbits.TRISF2=1;
+    ANSELFbits.ANSELF2=0;
+
 
 
 
@@ -24567,32 +24570,28 @@ void main(void) {
 
 
 
-    colour card = BLUE;
+    char buf[150];
+    colour card = RED;
     unsigned int expected_values[3][9];
     unsigned int normalised_values[3][9];
     unsigned int master_closeness[9];
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-# 78 "main.c"
+# 83 "main.c"
     LATDbits.LATD4 = 0;
-    TRISFbits.TRISF2=1;
-    ANSELFbits.ANSELF2=0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
         }
         LATDbits.LATD4 = 0;
+        _delay((unsigned long)((500)*(64000000/4000.0)));
         collect_avg_readings(&red_read, &green_read, &blue_read);
-        expected_values[i][RED] = red_read;
-        expected_values[i][GREEN] = green_read;
-        expected_values[i][BLUE] = blue_read;
-
+        expected_values[RED][i] = red_read;
+        expected_values[GREEN][i] = green_read;
+        expected_values[BLUE][i] = blue_read;
     }
-# 112 "main.c"
-    char buf[150];
-
-
+# 115 "main.c"
     while (1) {
 
         while(PORTFbits.RF2){
@@ -24601,8 +24600,8 @@ void main(void) {
         }
         LATFbits.LATF0 = 0;
 
-        collect_avg_readings(&red_read, &green_read, &blue_read);
 
+        collect_avg_readings(&red_read, &green_read, &blue_read);
         sprintf(buf, "\n AVG: R %d, G %d, B %d \n", red_read, green_read, blue_read);
         sendStringSerial4(buf);
 

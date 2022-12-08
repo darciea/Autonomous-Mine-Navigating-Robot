@@ -24524,37 +24524,35 @@ void normalise_readings(char *buf, unsigned int red_read, unsigned int green_rea
     for(colour i = RED; i<= BLACK; i++){
 
 
-        unsigned int difference = abs(red_read - expected_values[i][RED]);
+        unsigned int difference = abs(red_read - expected_values[RED][i]);
 
-        normalised_values[i][RED] = (difference*100) / expected_values[i][RED];
-
-
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        normalised_values[RED][i] = (difference*100) / expected_values[RED][i];
 
 
-        difference = abs(green_read - expected_values[i][GREEN]);
-
-        normalised_values[i][GREEN] = (difference*100) / expected_values[i][GREEN];
 
 
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        difference = abs(green_read - expected_values[GREEN][i]);
+
+        normalised_values[GREEN][i] = (difference*100) / expected_values[GREEN][i];
 
 
-        difference = abs(blue_read - expected_values[i][BLUE]);
-
-        normalised_values[i][BLUE] = (difference*100) / expected_values[i][BLUE];
 
 
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        difference = abs(blue_read - expected_values[BLUE][i]);
+
+        normalised_values[BLUE][i] = (difference*100) / expected_values[BLUE][i];
+
+
+        _delay((unsigned long)((200)*(64000000/4000.0)));
     }
 
 }
 
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
     for(colour i = RED; i<=BLACK; i++){
-        master_closeness[i] = (normalised_values[i][RED] + normalised_values[i][GREEN] + normalised_values[i][BLUE])/3;
+        master_closeness[i] = (normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i])/3;
 
-        _delay((unsigned long)((1000)*(64000000/4000.0)));
+        _delay((unsigned long)((200)*(64000000/4000.0)));
 
     }
 }
@@ -24602,7 +24600,7 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
-# 200 "colour_identify.c"
+# 198 "colour_identify.c"
         default:
             break;
     }

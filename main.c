@@ -28,6 +28,9 @@ void main(void) {
     initDCmotorsPWM();
     initUSART4();
     
+    TRISFbits.TRISF2=1; //set TRIS value for pin (input)
+    ANSELFbits.ANSELF2=0; //turn off analogue input on pin
+    
     
     
     /********************************************//**
@@ -58,7 +61,8 @@ void main(void) {
     /********************************************//**
     *  Setting up arrays and variables for collecting data
     ***********************************************/
-    colour card  = BLUE;
+    char buf[150];
+    colour card  = RED;
     unsigned int expected_values[3][9];// = {{14500, 1950, 2850},{8885, 10350, 5350},{2300, 2600, 2750}};
     unsigned int normalised_values[3][9];
     unsigned int master_closeness[9];//= {80, 990/*3467*/, 8000/*3533*/};// = {17, 2, 12, 12, 10, 11, 12, 14, 16};
@@ -75,21 +79,19 @@ void main(void) {
         3. Store those values in first index of each row of array (assign which colour that index will be)
         4. Press button to increment i and repeat for all 8 colours                                           * 
     ***********************************************/
+    
     BRAKE = 0;
-    TRISFbits.TRISF2=1; //set TRIS value for pin (input)
-    ANSELFbits.ANSELF2=0; //turn off analogue input on pin
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
         BRAKE = 0;
+        __delay_ms(500);
         collect_avg_readings(&red_read, &green_read, &blue_read);
-        expected_values[i][RED] = red_read;
-        expected_values[i][GREEN] = green_read;
-        expected_values[i][BLUE] = blue_read;
-        
+        expected_values[RED][i] = red_read;
+        expected_values[GREEN][i] = green_read;
+        expected_values[BLUE][i] = blue_read;    
     }
-    
     
     /********************************************//**
     *  Ideal main function code
@@ -103,13 +105,11 @@ void main(void) {
     card = determine_card(master_closeness);
     respond_to_card(card);
     */
-    
-    
-    
+        
    /********************************************//**
     *  Trying code
     ***********************************************/
-    char buf[150];
+    
     
     
     while (1) {
@@ -120,8 +120,8 @@ void main(void) {
         }
         LEFT = 0;
         //__delay_ms(1000);
-        collect_avg_readings(&red_read, &green_read, &blue_read);
         
+        collect_avg_readings(&red_read, &green_read, &blue_read);
         sprintf(buf, "\n AVG: R %d, G %d, B %d \n", red_read, green_read, blue_read);
         sendStringSerial4(buf);        
         

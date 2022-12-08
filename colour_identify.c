@@ -71,37 +71,35 @@ void normalise_readings(char *buf, unsigned int red_read, unsigned int green_rea
     for(colour i = RED; i<= BLACK; i++){
         
         //check the red readings against the expected readings and express as a number between 0 and 1
-        unsigned int difference = abs(red_read - expected_values[i][RED]);
+        unsigned int difference = abs(red_read - expected_values[RED][i]);
         //unsigned int normalR = (differenceR*100) / expected_values[i][RED];
-        normalised_values[i][RED] = (difference*100) / expected_values[i][RED];
+        normalised_values[RED][i] = (difference*100) / expected_values[RED][i];
         //sprintf(buf, "RED: Read %d, expected %d, normalised %d \n", red_read, expected_values[i][RED], normalised_values[i][RED]);
         //sendStringSerial4(buf);
-        __delay_ms(1000);
         
         //check the green readings against the expected readings and express as a number between 0 and 1
-        difference = abs(green_read - expected_values[i][GREEN]);
+        difference = abs(green_read - expected_values[GREEN][i]);
         //unsigned int normalG = (differenceG*100) / expected_values[i][GREEN];
-        normalised_values[i][GREEN] = (difference*100) / expected_values[i][GREEN];
+        normalised_values[GREEN][i] = (difference*100) / expected_values[GREEN][i];
         //sprintf(buf, "GREEN: Read %d, expected %d, normalised %d \n", green_read, expected_values[i][GREEN], normalised_values[i][GREEN]);
         //sendStringSerial4(buf);
-        __delay_ms(1000);
         
         //check the blue readings against the expected readings and express as a number between 0 and 1
-        difference = abs(blue_read - expected_values[i][BLUE]);
+        difference = abs(blue_read - expected_values[BLUE][i]);
         //unsigned int normalB = (differenceB*100) / expected_values[i][BLUE];
-        normalised_values[i][BLUE] = (difference*100) / expected_values[i][BLUE];
+        normalised_values[BLUE][i] = (difference*100) / expected_values[BLUE][i];
         //sprintf(buf, "BLUE: Read %d, expected %d, normalised %d \n", blue_read, expected_values[i][BLUE], normalised_values[i][BLUE]);
         //sendStringSerial4(buf);
-        __delay_ms(1000);
+        __delay_ms(200);
     }
         
 }
  
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
     for(colour i = RED; i<=BLACK; i++){
-        master_closeness[i] = (normalised_values[i][RED] + normalised_values[i][GREEN] + normalised_values[i][BLUE])/3;
+        master_closeness[i] = (normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i])/3;
         //sprintf(buf, "MC Avg: normRED %d, normGREEN %d, normBLUE %d, master %d \n", normalised_values[i][RED], normalised_values[i][GREEN],normalised_values[i][BLUE], master_closeness[i]);
-        __delay_ms(1000);
+        __delay_ms(200);
         //sendStringSerial4(buf);
     }
 }
