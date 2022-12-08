@@ -5,6 +5,8 @@
 
 #define _XTAL_FREQ 64000000
 
+unsigned int TimerFlag;
+
 //function prototypes
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();

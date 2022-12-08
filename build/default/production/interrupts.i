@@ -24610,6 +24610,8 @@ double yn(int, double);
 
 
 
+unsigned int count;
+
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24677,49 +24679,38 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 
 void Interrupts_init(void)
 {
-    enable_color_interrupt();
-    set_interrupt_threshold(5, 5000, 0b0100);
-    TRISBbits.TRISB1 = 1;
-    ANSELBbits.ANSELB1 = 0;
-    INT1PPS=0x09;
-    PIE0bits.INT1IE = 1;
-    IPR0bits.INT1IP = 1;
-    INTCONbits.INT1EDG = 0;
-    INTCONbits.IPEN = 1;
+# 21 "interrupts.c"
+    TMR0IE=1;
+    T0CON1bits.T0CS=0b010;
+    T0CON1bits.T0ASYNC=1;
+    T0CON1bits.T0CKPS=0b0110;
+    T0CON0bits.T016BIT=0;
+    TMR0H=0b00000000;
+    TMR0L=0b00000000;
+    T0CON0bits.T0EN=1;
+    count = 0;
+
+
     INTCONbits.GIEL = 1;
     INTCONbits.GIEH=1;}
-
-void __attribute__((picinterrupt(("high_priority")))) HighISR()
+# 73 "interrupts.c"
+void __attribute__((picinterrupt(("low_priority")))) LowISR()
 {
 
-    if(PIR0bits.INT1IF == 1) {
-        LATDbits.LATD7=1;
-        _delay((unsigned long)((50)*(64000000/4000.0)));
-        LATDbits.LATD7=0;
-        _delay((unsigned long)((50)*(64000000/4000.0)));
-        clear_interrupt_flag();
-        PIR0bits.INT1IF = 0;
+    if(TMR0IF){
 
+        TMR0H = 0b00000000;
+        TMR0L = 0b00000111;
+
+
+
+
+
+        count +=1;
+        if (count == 1000){
+            LATHbits.LATH3 = !LATHbits.LATH3;
+            count = 0;}
+
+       TMR0IF=0;
     }
-}
-
-void enable_color_interrupt(void){
-    clear_interrupt_flag();
- color_writetoaddr(0x00, 0b10011);
-}
-
-void set_interrupt_threshold(char AILT, char AIHT, char persistence){
-
-    color_writetoaddr(0x0C, persistence);
-    color_writetoaddr(0x05, AILT && 0b1111111100000000);
-    color_writetoaddr(0x04, AILT && 0b0000000011111111);
-    color_writetoaddr(0x07, AIHT && 0b1111111100000000);
-    color_writetoaddr(0x06, AIHT && 0b0000000011111111);
-}
-
-void clear_interrupt_flag(void){
-    I2C_2_Master_Start();
-    I2C_2_Master_Write(0x52 | 0x00);
-    I2C_2_Master_Write(0b11100110);
-    I2C_2_Master_Stop();
 }

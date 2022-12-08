@@ -15,8 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"9 ./interrupts.h
-[; ;./interrupts.h: 9: void Interrupts_init(void);
+"11 ./interrupts.h
+[; ;./interrupts.h: 11: void Interrupts_init(void);
 [v _Interrupts_init `(v ~T0 @X0 0 ef ]
 "35920 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 35920: extern volatile unsigned char T2PR __attribute__((address(0xFBC)));
@@ -127,28 +127,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29718
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29718: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF84)));
 [v _TRISDbits `VS1379 ~T0 @X0 0 e@3972 ]
-"25 ./color.h
-[; ;./color.h: 25: unsigned int color_read_Red(void);
-[v _color_read_Red `(ui ~T0 @X0 0 ef ]
-"27
-[; ;./color.h: 27: unsigned int color_read_Blue(void);
-[v _color_read_Blue `(ui ~T0 @X0 0 ef ]
-"26
-[; ;./color.h: 26: unsigned int color_read_Green(void);
-[v _color_read_Green `(ui ~T0 @X0 0 ef ]
-"28
-[; ;./color.h: 28: unsigned int color_read_Clear(void);
-[v _color_read_Clear `(ui ~T0 @X0 0 ef ]
-"109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
-[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"26 ./serial.h
-[; ;./serial.h: 26: void sendStringSerial4(char *string);
-[v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2159,6 +2137,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _TxBufReadCnt
 -> -> 0 `i `uc
 ]
+"8 ./interrupts.h
+[; ;./interrupts.h: 8: unsigned int count;
+[v _count `ui ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "21 main.c
 [; ;main.c: 21: void main(void) {
@@ -2238,9 +2219,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 63:     colour card = BLUE;
 [v _card `E14569 ~T0 @X0 1 a ]
 [e = _card . `E14569 2 ]
-[v F14642 `ui ~T0 @X0 -> 3 `i t ]
-[v F14641 `F14642 ~T0 @X0 -> 3 `i s ]
-[i F14641
+[v F14643 `ui ~T0 @X0 -> 3 `i t ]
+[v F14642 `F14643 ~T0 @X0 -> 3 `i s ]
+[i F14642
 :U ..
 :U ..
 "64
@@ -2261,13 +2242,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[v F14644 `ui ~T0 @X0 -> 3 `i t ]
-[v _expected_values `F14644 ~T0 @X0 -> 3 `i a ]
-[e = _expected_values F14641 ]
-[v F14646 `ui ~T0 @X0 -> 3 `i t ]
+[v F14645 `ui ~T0 @X0 -> 3 `i t ]
+[v _expected_values `F14645 ~T0 @X0 -> 3 `i a ]
+[e = _expected_values F14642 ]
+[v F14647 `ui ~T0 @X0 -> 3 `i t ]
 "65
 [; ;main.c: 65:     unsigned int normalised_values[3][3];
-[v _normalised_values `F14646 ~T0 @X0 -> 3 `i a ]
+[v _normalised_values `F14647 ~T0 @X0 -> 3 `i a ]
 "66
 [; ;main.c: 66:     unsigned int master_closeness[3];
 [v _master_closeness `ui ~T0 @X0 -> 3 `i a ]
@@ -2304,7 +2285,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2020  ]
 [e :U 2021 ]
 "128
-[; ;main.c: 128:         LATHbits.LATH3=0;
+[; ;main.c: 128:     LATHbits.LATH3=0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "129
 [; ;main.c: 129:     TRISHbits.TRISH3=0;
@@ -2322,30 +2303,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 136:     while (1) {
 [e :U 2023 ]
 {
-"138
-[; ;main.c: 138:         red_read = color_read_Red();
-[e = _red_read ( _color_read_Red ..  ]
-"139
-[; ;main.c: 139:         blue_read = color_read_Blue();
-[e = _blue_read ( _color_read_Blue ..  ]
-"140
-[; ;main.c: 140:         green_read = color_read_Green();
-[e = _green_read ( _color_read_Green ..  ]
-"141
-[; ;main.c: 141:         clear_read = color_read_Clear();
-[e = _clear_read ( _color_read_Clear ..  ]
-"144
-[; ;main.c: 144:         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 1C _red_read _green_read _blue_read _clear_read ]
-"145
-[; ;main.c: 145:         sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
-"146
-[; ;main.c: 146:         _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"147
-[; ;main.c: 147:         LATHbits.LATH3=!LATHbits.LATH3;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
 "173
 [; ;main.c: 173:     }
 }
@@ -2356,5 +2313,3 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 174: }
 [e :UE 2018 ]
 }
-[p f _sprintf 8388736 ]
-[a 1C 82 97 119 32 37 100 44 32 37 100 44 32 37 100 44 32 37 100 32 10 0 ]

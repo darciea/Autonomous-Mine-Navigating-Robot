@@ -29,9 +29,9 @@ void LEDSon_init(void) {
     TRISFbits.TRISF7 = 0;
     TRISAbits.TRISA4 = 0;
     
-    BLUEL = 1;
-    REDL = 1;
-    GREENL = 1;
+    BLUEL = 0;
+    REDL = 0;
+    GREENL = 0;
     
     
     BRAKE = 0;
