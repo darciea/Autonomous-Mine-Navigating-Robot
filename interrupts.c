@@ -7,13 +7,15 @@
 void Interrupts_init(void)
 {
     enable_color_interrupt(); //enable interrupts from color click board
-    set_interrupt_threshold(5, 5000, 0b0100); //set low and high threshold and persistence filter
-    TRISBbits.TRISB1 = 1; //interrupt pin on the clickerboard
+    set_interrupt_threshold(1, 2000, 0b0100); //set low and high threshold and persistence filter
+    //LATBbits.LATB1 =0; //interrupt pin for clickerboard
+    TRISBbits.TRISB1 = 0; //interrupt pin on the clickerboard
     ANSELBbits.ANSELB1 = 0; //disable analogue input
     INT1PPS=0x09; // which PPS register needs to be open for interrupt
     PIE0bits.INT1IE = 1; //which peripheral interrupt is enabled
     IPR0bits.INT1IP = 1; //high priority (HighISR)
     INTCONbits.INT1EDG = 0; //rising/falling edge
+    INTCONbits.PEIE=1; 
     INTCONbits.IPEN = 1;    // Priority levels enable bit
     INTCONbits.GIEL = 1; // Peripheral Interrupt Enable bit
     INTCONbits.GIEH=1;} 	//turn on interrupts globally (when this is off, all interrupts are deactivated)
@@ -21,7 +23,8 @@ void Interrupts_init(void)
 void __interrupt(high_priority) HighISR()
 {
 	//trigger flag that indicates a card has been identified in front of the sensor
-    if(PIR0bits.INT1IF == 1) {			// interrupt source is clickerboard bit corresponding to the colorclick interrupt pin
+    if(PIR0bits.INT1IF == 1&& response_in_progress == 0) {// interrupt source is clickerboard bit corresponding to the colorclick interrupt pin, and the buggy is not currently responding to an interrupt just triggered
+        card_detected = 1; //defined as global variable in main.c
         LATDbits.LATD7=1;
         __delay_ms(50);
         LATDbits.LATD7=0;

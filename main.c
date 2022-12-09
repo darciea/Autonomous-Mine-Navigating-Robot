@@ -70,7 +70,7 @@ void main(void) {
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     
-    
+    unsigned int ReturnHomeArray[2][30] = {0};
     
     /********************************************//**
     *  Ideal main function code
@@ -102,23 +102,7 @@ void main(void) {
     while(PORTFbits.RF2){
         HLAMPS = 1;
     }
-    
-    
-    /*
-    card = 1; //flag to show that a card has been seen
-    stop(&motorL, &motorR);
-    collect_avg_readings(&red_read, &green_read, &blue_read);
-    normalise_readings(&red_read, &green_read, &blue_read, &expected_values, &normalised_values);
-    make_master_closeness(&normalised_values,&master_closeness);
-    
-    card = determine_card();
-    
-    
-    card = determine_card(master_closeness);
-    */
-    
-    
-    
+
    /********************************************//**
     *  Trying code
     ***********************************************/
@@ -134,6 +118,16 @@ void main(void) {
     TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
     
     while (1) {
+        /*
+        if (card_detected == 1){ //defined as global variable in interrupts.h, used to communicate from interrupt to main.c
+            response_in_progress = 1; //let the interrupt know not to keep triggering while the buggy is responding to the card. Defined as global variable
+            stop(DC_motor *mL, DC_motor *mR);
+            //insert function here that reads colours, averages values, normalises them, determines master closeness, uses that to find which card is there, and respond to it
+            response_in_progress = 0; //let the buggy know that any future interrupt triggers will be the next card
+            card_detected = 0; //at this point the buggy should not be facing the card anymore so it shouldn't have the interrupt triggered again
+            fullSpeedAhead(DC_motor *mL, DC_motor *mR); //begin moving
+            
+        }*/
         
         red_read = color_read_Red();
         blue_read = color_read_Blue();
