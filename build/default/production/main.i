@@ -24431,10 +24431,6 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
-
-void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
-unsigned int read_interrupt_status(void);
 # 11 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24489,9 +24485,6 @@ colour determine_card(unsigned int master_closeness[]);
 void motor_response(colour card, DC_motor *mL, DC_motor *mR);
 
 void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
-
-void Interrupts_init(void);
-void __attribute__((picinterrupt(("high_priority")))) HighISR();
 # 14 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -24524,6 +24517,25 @@ void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 15 "main.c" 2
 
+# 1 "./interrupts.h" 1
+
+
+
+
+
+
+
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("high_priority")))) HighISR();
+void enable_color_interrupt(void);
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
+void clear_interrupt_flag(void);
+
+unsigned int response_in_progress=0;
+unsigned int card_detected=0;
+# 16 "main.c" 2
+
 
 
 
@@ -24538,6 +24550,7 @@ void main(void) {
     color_click_init();
     initDCmotorsPWM();
     initUSART4();
+    Interrupts_init();
 
     TRISFbits.TRISF2=1;
     ANSELFbits.ANSELF2=0;
@@ -24577,15 +24590,17 @@ void main(void) {
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
+    unsigned int clear_read = 0;
+
     unsigned int expected_values[3][9];
-# 80 "main.c"
+    unsigned int ReturnHomeArray[2][30];
+# 84 "main.c"
     LATDbits.LATD4 = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
         }
         LATDbits.LATD4 = 0;
-        _delay((unsigned long)((500)*(64000000/4000.0)));
         collect_avg_readings(&red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
@@ -24593,8 +24608,27 @@ void main(void) {
         sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
         sendStringSerial4(buf);
     }
-# 114 "main.c"
+# 128 "main.c"
+    LATHbits.LATH3=0;
+    TRISHbits.TRISH3=0;
+
+    LATDbits.LATD7=0;
+    TRISDbits.TRISD7=0;
+
     while (1) {
+
+
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+        clear_read = color_read_Clear();
+
+
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+        sendStringSerial4(buf);
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+        LATHbits.LATH3=!LATHbits.LATH3;
+
 
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;

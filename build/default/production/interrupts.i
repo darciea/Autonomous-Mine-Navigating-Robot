@@ -24614,8 +24614,11 @@ double yn(int, double);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILT, char AIHT, char persistence);
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
 void clear_interrupt_flag(void);
+
+unsigned int response_in_progress=0;
+unsigned int card_detected=0;
 # 3 "interrupts.c" 2
 
 # 1 "./color.h" 1
@@ -24678,13 +24681,15 @@ unsigned char I2C_2_Master_Read(unsigned char ack);
 void Interrupts_init(void)
 {
     enable_color_interrupt();
-    set_interrupt_threshold(5, 5000, 0b0100);
-    TRISBbits.TRISB1 = 1;
+    set_interrupt_threshold(1, 2000, 0b0100);
+
+    TRISBbits.TRISB1 = 0;
     ANSELBbits.ANSELB1 = 0;
     INT1PPS=0x09;
     PIE0bits.INT1IE = 1;
     IPR0bits.INT1IP = 1;
     INTCONbits.INT1EDG = 0;
+    INTCONbits.PEIE=1;
     INTCONbits.IPEN = 1;
     INTCONbits.GIEL = 1;
     INTCONbits.GIEH=1;}
@@ -24692,7 +24697,8 @@ void Interrupts_init(void)
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
 
-    if(PIR0bits.INT1IF == 1) {
+    if(PIR0bits.INT1IF == 1&& response_in_progress == 0) {
+        card_detected = 1;
         LATDbits.LATD7=1;
         _delay((unsigned long)((50)*(64000000/4000.0)));
         LATDbits.LATD7=0;
@@ -24708,12 +24714,12 @@ void enable_color_interrupt(void){
  color_writetoaddr(0x00, 0b10011);
 }
 
-void set_interrupt_threshold(char AILT, char AIHT, char persistence){
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence){
 
     color_writetoaddr(0x0C, persistence);
-    color_writetoaddr(0x05, AILT && 0b1111111100000000);
+    color_writetoaddr(0x05, AILT >> 8);
     color_writetoaddr(0x04, AILT && 0b0000000011111111);
-    color_writetoaddr(0x07, AIHT && 0b1111111100000000);
+    color_writetoaddr(0x07, AIHT >> 8);
     color_writetoaddr(0x06, AIHT && 0b0000000011111111);
 }
 
