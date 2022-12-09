@@ -24250,6 +24250,10 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
+
+void enable_color_interrupt(void);
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
+unsigned int read_interrupt_status(void);
 # 2 "color.c" 2
 
 # 1 "./i2c.h" 1
@@ -24366,4 +24370,26 @@ unsigned int color_read_Clear(void)
  tmp=tmp | (I2C_2_Master_Read(0)<<8);
  I2C_2_Master_Stop();
  return tmp;
+}
+
+void enable_color_interrupt(void){
+ color_writetoaddr(0x00, 0x01);
+}
+
+void set_interrupt_threshold(char AILTH, char AIHTH, char persistence){
+    color_writetoaddr(0x0C, persistence);
+    color_writetoaddr(0x05, AILTH);
+    color_writetoaddr(0x07, AILTH);
+}
+
+unsigned int read_interrupt_status(void){
+    unsigned int status;
+    I2C_2_Master_Start();
+ I2C_2_Master_Write(0x52 | 0x00);
+ I2C_2_Master_Write(0xA0 | 0x13);
+ I2C_2_Master_RepStart();
+ I2C_2_Master_Write(0x52 | 0x01);
+ status=I2C_2_Master_Read(1);
+ I2C_2_Master_Stop();
+ return status;
 }

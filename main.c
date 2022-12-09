@@ -13,7 +13,6 @@
 #include "LEDsOn.h"
 #include "colour_identify.h"
 #include "serial.h"
-#include "interrupts.h"
 
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
@@ -28,7 +27,9 @@ void main(void) {
     color_click_init();
     initDCmotorsPWM();
     initUSART4();
-    Interrupts_init();
+    
+    TRISFbits.TRISF2=1; //set TRIS value for pin (input)
+    ANSELFbits.ANSELF2=0; //turn off analogue input on pin
     
     
     
@@ -60,115 +61,66 @@ void main(void) {
     /********************************************//**
     *  Setting up arrays and variables for collecting data
     ***********************************************/
-    colour card  = BLUE;
-    unsigned int expected_values[3][3] = {{13000, 2600, 1800},{8400, 6500, 5000},{4400, 1800, 2800}};
-    unsigned int normalised_values[3][3];
-    unsigned int master_closeness[3];//= {80, 990/*3467*/, 8000/*3533*/};// = {17, 2, 12, 12, 10, 11, 12, 14, 16};
+    char buf[150];
     
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-    unsigned int clear_read = 0;
-    
+    unsigned int expected_values[3][9];// = {{14500, 1950, 2850},{8885, 10350, 5350},{2300, 2600, 2750}};
     
     
     /********************************************//**
-    *  Ideal main function code
+    *  Calibration sequence
+        1. Press button (within for statement(8 iterations) require button push before incrementing)
+        2. Read card using collect avg readings function (decide if want to use new variables for these ones)
+        3. Store those values in first index of each row of array (assign which colour that index will be)
+        4. Press button to increment i and repeat for all 8 colours                                           * 
     ***********************************************/
     
-    /*Calibration sequence
-    1. Press button (within for statement(8 iterations) require button push before incrementing)
-    2. Read card using collect avg readings function (decide if want to use new variables for these ones)
-    3. Store those values in first index of each row of array (assign which colour that index will be)
-    4. Press button to increment i and repeat for all 8 colours
-    */
-    
-    /*
-    TRISFbits.TRISF2=1; //set TRIS value for pin (input)
-    ANSELFbits.ANSELF2=0; //turn off analogue input on pin
-    for(colour i = RED; i<=BLUE; i++){
+    BRAKE = 0;
+    for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        expected_values[i][RED] = red_read;
-        expected_values[i][GREEN] = green_read;
-        expected_values[i][BLUE] = blue_read;
         BRAKE = 0;
-        __delay_ms(1000);
-        
-    }
-    */
-    while(PORTFbits.RF2){
-        HLAMPS = 1;
+        __delay_ms(500);
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        expected_values[RED][i] = red_read;
+        expected_values[GREEN][i] = green_read;
+        expected_values[BLUE][i] = blue_read; 
+        sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
+        sendStringSerial4(buf); 
     }
     
-    
-    /*
+    /********************************************//**
+    *  Ideal main function code
+    ***********************************************/ 
+    /*  
     card = 1; //flag to show that a card has been seen
     stop(&motorL, &motorR);
     collect_avg_readings(&red_read, &green_read, &blue_read);
-    normalise_readings(&red_read, &green_read, &blue_read, &expected_values, &normalised_values);
-    make_master_closeness(&normalised_values,&master_closeness);
-    
-    card = determine_card();
-    
-    
+    normalise_readings(red_read, green_read, blue_read, expected_values, normalised_values);
+    make_master_closeness(normalised_values,master_closeness);
     card = determine_card(master_closeness);
+    motor_response(card);
     */
-    
-    
-    
+        
    /********************************************//**
     *  Trying code
     ***********************************************/
     
     
     
-    LATHbits.LATH3=0;   //set initial output state of RH3 LED
-    TRISHbits.TRISH3=0; //set TRIS value for H3 pin (output)
-    
-    char buf[20];
-        
-    LATDbits.LATD7=0;   //set initial output state of RD7 LED
-    TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
-    
     while (1) {
         
-        red_read = color_read_Red();
-        blue_read = color_read_Blue();
-        green_read = color_read_Green();
-        clear_read = color_read_Clear();
-
-        
-        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
-        sendStringSerial4(buf);
-        __delay_ms(100);
-        LATHbits.LATH3=!LATHbits.LATH3;
-         
-        
-/*
-        BRAKE = 1;
-        respond_to_card(card, &motorL, &motorR);
-        //reverseOneSquare(&motorL, &motorR);
-        //card = PINK;
-
-        
-        //__delay_ms(1000);
-        
-        
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        normalise_readings(&red_read,&green_read, &blue_read, &expected_values, &normalised_values);
-        //make_master_closeness(&normalised_values,&master_closeness);
-      
-
-        //respond_to_card(card, &motorL, &motorR);
-        //card = PINK;
-
-        LEFT = 1;
-
-                */
-        
+        //currently waits for button press before doing the reading for each card - will be replaced once the interrupt is implemented
+        while(PORTFbits.RF2){
+            BRAKE = 1;
+            LEFT = 1;
+        }
+        LEFT = 0;
+           
+        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
         
     }
 }
