@@ -24413,7 +24413,9 @@ void normalise_readings(char *buf, unsigned int red_read, unsigned int green_rea
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
 colour determine_card(unsigned int master_closeness[]);
 
-void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
+void motor_response(colour card, DC_motor *mL, DC_motor *mR);
+
+void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24526,21 +24528,21 @@ void normalise_readings(char *buf, unsigned int red_read, unsigned int green_rea
 
         unsigned int difference = abs(red_read - expected_values[RED][i]);
 
-        normalised_values[RED][i] = (difference*100) / expected_values[RED][i];
+        normalised_values[RED][i] = (difference*100) / red_read;
 
 
 
 
         difference = abs(green_read - expected_values[GREEN][i]);
 
-        normalised_values[GREEN][i] = (difference*100) / expected_values[GREEN][i];
+        normalised_values[GREEN][i] = (difference*100) / green_read;
 
 
 
 
         difference = abs(blue_read - expected_values[BLUE][i]);
 
-        normalised_values[BLUE][i] = (difference*100) / expected_values[BLUE][i];
+        normalised_values[BLUE][i] = (difference*100) / blue_read;
 
 
         _delay((unsigned long)((200)*(64000000/4000.0)));
@@ -24551,8 +24553,9 @@ void normalise_readings(char *buf, unsigned int red_read, unsigned int green_rea
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
     for(colour i = RED; i<=BLACK; i++){
         master_closeness[i] = (normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i])/3;
-
-        _delay((unsigned long)((200)*(64000000/4000.0)));
+        sprintf(buf, "MC Avg: normRED %d, normGREEN %d, normBLUE %d, master %d \n", normalised_values[RED][i], normalised_values[GREEN][i],normalised_values[BLUE][i], master_closeness[i]);
+        sendStringSerial4(buf);
+                _delay((unsigned long)((200)*(64000000/4000.0)));
 
     }
 }
@@ -24570,7 +24573,7 @@ colour determine_card(unsigned int master_closeness[]){
 }
 
 
-void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
+void motor_response(colour card, DC_motor *mL, DC_motor *mR){
     switch (card){
         case RED:
             reverseFullSpeed(mL,mR);
@@ -24600,9 +24603,72 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
-# 198 "colour_identify.c"
+        case YELLOW:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case PINK:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((500)*(64000000/4000.0)));
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case ORANGE:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case LIGHT_BLUE:
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((50)*(64000000/4000.0)));
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case WHITE:
+
+            break;
+        case BLACK:
+
+            break;
         default:
             break;
     }
 
+}
+
+void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR) {
+    colour card = RED;
+    unsigned int normalised_values[3][9];
+    unsigned int master_closeness[9];
+
+    collect_avg_readings(red_read, green_read, blue_read);
+    sprintf(buf, "\n AVG: R %d, G %d, B %d \n", *red_read, *green_read, *blue_read);
+    sendStringSerial4(buf);
+    normalise_readings(buf, *red_read, *green_read, *blue_read, expected_values, normalised_values);
+    make_master_closeness(buf, normalised_values,master_closeness);
+    card = determine_card(master_closeness);
+    sprintf(buf, "CARD %d \n", card);
+    sendStringSerial4(buf);
+    motor_response(card, mL, mR);
 }

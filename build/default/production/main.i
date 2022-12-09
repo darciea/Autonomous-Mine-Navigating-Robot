@@ -24486,7 +24486,9 @@ void normalise_readings(char *buf, unsigned int red_read, unsigned int green_rea
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
 colour determine_card(unsigned int master_closeness[]);
 
-void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
+void motor_response(colour card, DC_motor *mL, DC_motor *mR);
+
+void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24571,14 +24573,12 @@ void main(void) {
 
 
     char buf[150];
-    colour card = RED;
-    unsigned int expected_values[3][9];
-    unsigned int normalised_values[3][9];
-    unsigned int master_closeness[9];
+
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-# 83 "main.c"
+    unsigned int expected_values[3][9];
+# 80 "main.c"
     LATDbits.LATD4 = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
@@ -24590,8 +24590,10 @@ void main(void) {
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read;
+        sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
+        sendStringSerial4(buf);
     }
-# 115 "main.c"
+# 114 "main.c"
     while (1) {
 
         while(PORTFbits.RF2){
@@ -24600,19 +24602,7 @@ void main(void) {
         }
         LATFbits.LATF0 = 0;
 
-
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        sprintf(buf, "\n AVG: R %d, G %d, B %d \n", red_read, green_read, blue_read);
-        sendStringSerial4(buf);
-
-        normalise_readings(buf, red_read, green_read, blue_read, expected_values, normalised_values);
-        make_master_closeness(buf, normalised_values,master_closeness);
-        card = determine_card(master_closeness);
-        sprintf(buf, "CARD %d \n", card);
-        sendStringSerial4(buf);
-
-
-
+        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
 
     }
 }

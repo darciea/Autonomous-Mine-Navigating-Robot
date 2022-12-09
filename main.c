@@ -62,14 +62,11 @@ void main(void) {
     *  Setting up arrays and variables for collecting data
     ***********************************************/
     char buf[150];
-    colour card  = RED;
-    unsigned int expected_values[3][9];// = {{14500, 1950, 2850},{8885, 10350, 5350},{2300, 2600, 2750}};
-    unsigned int normalised_values[3][9];
-    unsigned int master_closeness[9];//= {80, 990/*3467*/, 8000/*3533*/};// = {17, 2, 12, 12, 10, 11, 12, 14, 16};
+    
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-    
+    unsigned int expected_values[3][9];// = {{14500, 1950, 2850},{8885, 10350, 5350},{2300, 2600, 2750}};
     
     
     /********************************************//**
@@ -90,7 +87,9 @@ void main(void) {
         collect_avg_readings(&red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
-        expected_values[BLUE][i] = blue_read;    
+        expected_values[BLUE][i] = blue_read; 
+        sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
+        sendStringSerial4(buf); 
     }
     
     /********************************************//**
@@ -103,7 +102,7 @@ void main(void) {
     normalise_readings(red_read, green_read, blue_read, expected_values, normalised_values);
     make_master_closeness(normalised_values,master_closeness);
     card = determine_card(master_closeness);
-    respond_to_card(card);
+    motor_response(card);
     */
         
    /********************************************//**
@@ -114,25 +113,14 @@ void main(void) {
     
     while (1) {
         
+        //currently waits for button press before doing the reading for each card - will be replaced once the interrupt is implemented
         while(PORTFbits.RF2){
             BRAKE = 1;
             LEFT = 1;
         }
         LEFT = 0;
-        //__delay_ms(1000);
-        
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        sprintf(buf, "\n AVG: R %d, G %d, B %d \n", red_read, green_read, blue_read);
-        sendStringSerial4(buf);        
-        
-        normalise_readings(buf, red_read, green_read, blue_read, expected_values, normalised_values);
-        make_master_closeness(buf, normalised_values,master_closeness);
-        card = determine_card(master_closeness);
-        sprintf(buf, "CARD %d \n", card);
-        sendStringSerial4(buf);
-        
-                
-        
+           
+        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
         
     }
 }
