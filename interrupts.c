@@ -37,12 +37,12 @@ void enable_color_interrupt(void){
 	color_writetoaddr(0x00, 0b10011); //address for ENABLE bit is 0x00 and we want to turn it on, and enable interrupts
 }
 
-void set_interrupt_threshold(char AILT, char AIHT, char persistence){
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence){
     
     color_writetoaddr(0x0C, persistence); // set the persistence filter
-    color_writetoaddr(0x05, AILT && 0b1111111100000000); // set most significant bit of the low threshold register
+    color_writetoaddr(0x05, AILT >> 8); // set most significant bit of the low threshold register
     color_writetoaddr(0x04, AILT && 0b0000000011111111); // set least significant bit of the low threshold register
-    color_writetoaddr(0x07, AIHT && 0b1111111100000000); // set most significant bit of the high threshold register
+    color_writetoaddr(0x07, AIHT >> 8); // set most significant bit of the high threshold register
     color_writetoaddr(0x06, AIHT && 0b0000000011111111); // set least significant bit of the high threshold register
 }
 

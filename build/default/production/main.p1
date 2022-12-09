@@ -2304,7 +2304,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2020  ]
 [e :U 2021 ]
 "128
-[; ;main.c: 128:         LATHbits.LATH3=0;
+[; ;main.c: 128:     LATHbits.LATH3=0;
 [e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "129
 [; ;main.c: 129:     TRISHbits.TRISH3=0;

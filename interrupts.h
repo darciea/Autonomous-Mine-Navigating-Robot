@@ -9,7 +9,7 @@
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();
 void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILT, char AIHT, char persistence);
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
 void clear_interrupt_flag(void);
 
 #endif

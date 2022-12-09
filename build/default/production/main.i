@@ -24527,7 +24527,7 @@ void sendTxBuf(void);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILT, char AIHT, char persistence);
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
 void clear_interrupt_flag(void);
 # 16 "main.c" 2
 
@@ -24591,7 +24591,7 @@ void main(void) {
         LATHbits.LATH1 = 1;
     }
 # 128 "main.c"
-        LATHbits.LATH3=0;
+    LATHbits.LATH3=0;
     TRISHbits.TRISH3=0;
 
     char buf[20];

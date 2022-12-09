@@ -24614,7 +24614,7 @@ double yn(int, double);
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILT, char AIHT, char persistence);
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
 void clear_interrupt_flag(void);
 # 3 "interrupts.c" 2
 
@@ -24708,12 +24708,12 @@ void enable_color_interrupt(void){
  color_writetoaddr(0x00, 0b10011);
 }
 
-void set_interrupt_threshold(char AILT, char AIHT, char persistence){
+void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence){
 
     color_writetoaddr(0x0C, persistence);
-    color_writetoaddr(0x05, AILT && 0b1111111100000000);
+    color_writetoaddr(0x05, AILT >> 8);
     color_writetoaddr(0x04, AILT && 0b0000000011111111);
-    color_writetoaddr(0x07, AIHT && 0b1111111100000000);
+    color_writetoaddr(0x07, AIHT >> 8);
     color_writetoaddr(0x06, AIHT && 0b0000000011111111);
 }
 

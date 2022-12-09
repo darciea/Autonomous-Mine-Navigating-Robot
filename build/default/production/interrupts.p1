@@ -3,8 +3,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./interrupts.h: 11: void enable_color_interrupt(void);
 [v _enable_color_interrupt `(v ~T0 @X0 0 ef ]
 "12
-[; ;./interrupts.h: 12: void set_interrupt_threshold(char AILT, char AIHT, char persistence);
-[v _set_interrupt_threshold `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+[; ;./interrupts.h: 12: void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence);
+[v _set_interrupt_threshold `(v ~T0 @X0 0 ef3`ui`ui`ui ]
 "29463 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29463:     struct {
 [s S1372 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -2105,7 +2105,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _enable_color_interrupt ..  ]
 "10
 [; ;interrupts.c: 10:     set_interrupt_threshold(5, 5000, 0b0100);
-[e ( _set_interrupt_threshold (3 , , -> -> 5 `i `uc -> -> 5000 `i `uc -> -> 4 `i `uc ]
+[e ( _set_interrupt_threshold (3 , , -> -> 5 `i `ui -> -> 5000 `i `ui -> -> 4 `i `ui ]
 "11
 [; ;interrupts.c: 11:     TRISBbits.TRISB1 = 1;
 [e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
@@ -2191,29 +2191,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 2018 ]
 }
 "40
-[; ;interrupts.c: 40: void set_interrupt_threshold(char AILT, char AIHT, char persistence){
-[v _set_interrupt_threshold `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+[; ;interrupts.c: 40: void set_interrupt_threshold(unsigned int AILT, unsigned int AIHT, unsigned int persistence){
+[v _set_interrupt_threshold `(v ~T0 @X0 1 ef3`ui`ui`ui ]
 {
 [e :U _set_interrupt_threshold ]
-[v _AILT `uc ~T0 @X0 1 r1 ]
-[v _AIHT `uc ~T0 @X0 1 r2 ]
-[v _persistence `uc ~T0 @X0 1 r3 ]
+[v _AILT `ui ~T0 @X0 1 r1 ]
+[v _AIHT `ui ~T0 @X0 1 r2 ]
+[v _persistence `ui ~T0 @X0 1 r3 ]
 [f ]
 "42
 [; ;interrupts.c: 42:     color_writetoaddr(0x0C, persistence);
-[e ( _color_writetoaddr (2 , -> -> 12 `i `uc _persistence ]
+[e ( _color_writetoaddr (2 , -> -> 12 `i `uc -> _persistence `uc ]
 "43
-[; ;interrupts.c: 43:     color_writetoaddr(0x05, AILT && 0b1111111100000000);
-[e ( _color_writetoaddr (2 , -> -> 5 `i `uc -> -> && != -> _AILT `i -> 0 `i != -> 65280 `ui -> -> 0 `i `ui `i `uc ]
+[; ;interrupts.c: 43:     color_writetoaddr(0x05, AILT >> 8);
+[e ( _color_writetoaddr (2 , -> -> 5 `i `uc -> >> _AILT -> 8 `i `uc ]
 "44
 [; ;interrupts.c: 44:     color_writetoaddr(0x04, AILT && 0b0000000011111111);
-[e ( _color_writetoaddr (2 , -> -> 4 `i `uc -> -> && != -> _AILT `i -> 0 `i != -> 255 `i -> 0 `i `i `uc ]
+[e ( _color_writetoaddr (2 , -> -> 4 `i `uc -> -> && != _AILT -> -> 0 `i `ui != -> 255 `i -> 0 `i `i `uc ]
 "45
-[; ;interrupts.c: 45:     color_writetoaddr(0x07, AIHT && 0b1111111100000000);
-[e ( _color_writetoaddr (2 , -> -> 7 `i `uc -> -> && != -> _AIHT `i -> 0 `i != -> 65280 `ui -> -> 0 `i `ui `i `uc ]
+[; ;interrupts.c: 45:     color_writetoaddr(0x07, AIHT >> 8);
+[e ( _color_writetoaddr (2 , -> -> 7 `i `uc -> >> _AIHT -> 8 `i `uc ]
 "46
 [; ;interrupts.c: 46:     color_writetoaddr(0x06, AIHT && 0b0000000011111111);
-[e ( _color_writetoaddr (2 , -> -> 6 `i `uc -> -> && != -> _AIHT `i -> 0 `i != -> 255 `i -> 0 `i `i `uc ]
+[e ( _color_writetoaddr (2 , -> -> 6 `i `uc -> -> && != _AIHT -> -> 0 `i `ui != -> 255 `i -> 0 `i `i `uc ]
 "47
 [; ;interrupts.c: 47: }
 [e :UE 2019 ]
