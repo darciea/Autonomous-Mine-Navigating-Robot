@@ -17,6 +17,8 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
+unsigned int card_seen; //the flag that shows there is a card in front of the buggy (probs will be global variable)
+
 void main(void) {
     
     /********************************************//**
@@ -27,12 +29,11 @@ void main(void) {
     color_click_init();
     initDCmotorsPWM();
     initUSART4();
-    
+    Interrupts_init();
+
     TRISFbits.TRISF2=1; //set TRIS value for pin (input)
     ANSELFbits.ANSELF2=0; //turn off analogue input on pin
-    
-    
-    
+
     /********************************************//**
     *  Initialising DC motor variables
     ***********************************************/
@@ -61,24 +62,21 @@ void main(void) {
     /********************************************//**
     *  Setting up arrays and variables for collecting data
     ***********************************************/
-    unsigned int card_detected = 0; //the flag that shows there is a card in front of the buggy (probs will be global variable)
-    unsigned int cards_seen = 0; //count of the cards seen on the route of the buggy
-    
+   
     colour card; // variable that holds the colour of the card that has been seen
-    unsigned int expected_values[3][3] = {{13000, 2600, 1800},{8400, 6500, 5000},{4400, 1800, 2800}}; //the array that contains the values we are comparing against
-    unsigned int normalised_values[3][3]; //array that has processed the significance of the values read
-    unsigned int master_closeness[3]; //array that simplifies the above readings to single values for each card
     char buf[150];
-    
+
+    unsigned int expected_values[3][9];
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     
-      /********************************************//**
-    unsigned int expected_values[3][9];// = {{14500, 1950, 2850},{8885, 10350, 5350},{2300, 2600, 2750}};
+    unsigned int TimerCount = 0;
+    unsigned int CardCount = 0; //count of the cards seen on the route of the buggy
     
-    
+    unsigned int ReturnHomeArray[2][30];
+ 
     /********************************************//**
     *  Calibration sequence
         1. Press button (within for statement(8 iterations) require button push before incrementing)
@@ -86,26 +84,21 @@ void main(void) {
         3. Store those values in first index of each row of array (assign which colour that index will be)
         4. Press button to increment i and repeat for all 8 colours                                           * 
     ***********************************************/
-    /*
-    TRISFbits.TRISF2=1; //set TRIS value for pin (input)
-    ANSELFbits.ANSELF2=0; //turn off analogue input on pin
-    for(colour i = RED; i<=BLUE; i++){
     
-    BRAKE = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
         BRAKE = 0;
-        __delay_ms(1000);  
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        expected_values[RED][i] = red_read;
+        expected_values[GREEN][i] = green_read;
+        expected_values[BLUE][i] = blue_read; 
     }
-    */
-    
-    
+
     /********************************************//**
     *  Ideal main function code (put into while(1))
     ***********************************************/
-    
     
     /*
     
@@ -121,14 +114,7 @@ void main(void) {
         respond_to_card(card);
     
     //SHOULD PUT IN FLAG SO THAT BUGGY DOESN'T GET INTERRUPTED/RESPOND TO CARDS ON ITS WAY HOME
-        __delay_ms(500);
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        expected_values[RED][i] = red_read;
-        expected_values[GREEN][i] = green_read;
-        expected_values[BLUE][i] = blue_read; 
-        sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
-        sendStringSerial4(buf); 
-    }
+    
     
     /********************************************//**
     *  Ideal main function code
@@ -158,7 +144,7 @@ void main(void) {
         }
         LEFT = 0;
            
-        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
+        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR, ReturnHomeArray[2][30]);
         
     }
 }

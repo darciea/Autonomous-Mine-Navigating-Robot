@@ -17,6 +17,12 @@ colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 void home_response(colour card, DC_motor *mL, DC_motor *mR);
+
+typedef struct Return_Home { //definition of our Return_Home structure
+    unsigned int TimerCountArray[30];         //array holding the time counted between values
+    colour CardCountArray[30];     // keeps track of the cards seen
+} Return_Home;
+
 void motor_response(colour card, DC_motor *mL, DC_motor *mR);
 
 void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);

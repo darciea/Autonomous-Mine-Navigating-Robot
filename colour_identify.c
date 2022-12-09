@@ -103,13 +103,11 @@ colour determine_card(unsigned int master_closeness[]){
     return predicted_colour;
 }
 
- 
-void respond_to_card(colour card, DC_motor *mL, DC_motor *mR/*, unsigned int ReturnHomeArray[][2]*/){//HAVE TO USE SPECIFIED LENGTH ARRAY
+void motor_response(colour card, DC_motor *mL, DC_motor *mR/*, unsigned int ReturnHomeArray[][30]*/){
+    //this function takes in the colour of the card we have found and performs the motor function as directed.
     //reverseFullSpeed(mL,mR);
     //        __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
     //stop
-void motor_response(colour card, DC_motor *mL, DC_motor *mR){
-    //this function takes in the colour of the card we have found and performs the motor function as directed.
     switch (card){
         case RED:
             reverseFullSpeed(mL,mR);
