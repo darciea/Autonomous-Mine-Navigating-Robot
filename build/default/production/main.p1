@@ -15,8 +15,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23 ./serial.h
 [; ;./serial.h: 23: void initUSART4(void);
 [v _initUSART4 `(v ~T0 @X0 0 ef ]
-"24 ./colour_identify.h
-[; ;./colour_identify.h: 24: void Interrupts_init(void);
+"30 ./colour_identify.h
+[; ;./colour_identify.h: 30: void Interrupts_init(void);
 [v _Interrupts_init `(v ~T0 @X0 0 ef ]
 "29946 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29946:     struct {
@@ -66,6 +66,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 66:     colour card;
 [c E14569 0 1 2 3 4 5 6 7 8 .. ]
 [n E14569 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
+"21 ./colour_identify.h
+[; ;./colour_identify.h: 21: typedef union HomeStored {
+[u S2018 `ui -> 30 `i `E14569 -> 30 `i ]
+[n S2018 HomeStored TimerCount card ]
 "28811 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 28811:     struct {
 [s S1349 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -114,10 +118,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29056
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29056: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
 [v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
-[v F14616 `ui ~T0 @X0 -> 9 `i t ]
-"22 ./colour_identify.h
-[; ;./colour_identify.h: 22: void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
-[v _card_response `(v ~T0 @X0 0 ef7`*uc`*ui`*ui`*ui`*F14616`*S2017`*S2017 ]
+"20 ./dc_motor.h
+[; ;./dc_motor.h: 20: void stop(DC_motor *mL, DC_motor *mR);
+[v _stop `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
+"109 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h
+[; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdio.h: 109: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"26 ./serial.h
+[; ;./serial.h: 26: void sendStringSerial4(char *string);
+[v _sendStringSerial4 `(v ~T0 @X0 0 ef1`*uc ]
+[v F14621 `ui ~T0 @X0 -> 9 `i t ]
+"28 ./colour_identify.h
+[; ;./colour_identify.h: 28: colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+[v _card_response `(E14569 ~T0 @X0 0 ef9`*uc`*ui`*ui`*ui`*F14621`E14569`*S2017`*S2017`S2018 ]
+"23 ./dc_motor.h
+[; ;./dc_motor.h: 23: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
 "2 main.c
 [p x FEXTOSC  =  HS      ]
 "3
@@ -2129,8 +2145,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "20 main.c
-[; ;main.c: 20: unsigned int card_seen;
-[v _card_seen `ui ~T0 @X0 1 e ]
+[; ;main.c: 20: unsigned int card_detected = 0;
+[v _card_detected `ui ~T0 @X0 1 e ]
+[i _card_detected
+-> -> 0 `i `ui
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "22
 [; ;main.c: 22: void main(void) {
@@ -2218,10 +2237,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "67
 [; ;main.c: 67:     char buf[150];
 [v _buf `uc ~T0 @X0 -> 150 `i a ]
-[v F14658 `ui ~T0 @X0 -> 9 `i t ]
+[v F14665 `ui ~T0 @X0 -> 9 `i t ]
 "69
 [; ;main.c: 69:     unsigned int expected_values[3][9];
-[v _expected_values `F14658 ~T0 @X0 -> 3 `i a ]
+[v _expected_values `F14665 ~T0 @X0 -> 3 `i a ]
 "70
 [; ;main.c: 70:     unsigned int red_read = 0;
 [v _red_read `ui ~T0 @X0 1 a ]
@@ -2246,23 +2265,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 76:     unsigned int CardCount = 0;
 [v _CardCount `ui ~T0 @X0 1 a ]
 [e = _CardCount -> -> 0 `i `ui ]
-[v F14666 `ui ~T0 @X0 -> 30 `i t ]
 "78
-[; ;main.c: 78:     unsigned int ReturnHomeArray[2][30];
-[v _ReturnHomeArray `F14666 ~T0 @X0 -> 2 `i a ]
+[; ;main.c: 78:     HomeStored ReturnHomeArray;
+[v _ReturnHomeArray `S2018 ~T0 @X0 1 a ]
 "88
 [; ;main.c: 88:     for(colour i = RED; i<= BLACK; i++){
 {
 [v _i `E14569 ~T0 @X0 1 a ]
 [e = _i . `E14569 0 ]
-[e $ <= -> _i `ui -> . `E14569 8 `ui 2019  ]
-[e $U 2020  ]
-[e :U 2019 ]
+[e $ <= -> _i `ui -> . `E14569 8 `ui 2020  ]
+[e $U 2021  ]
+[e :U 2020 ]
 {
 "89
 [; ;main.c: 89:         while(PORTFbits.RF2){
-[e $U 2022  ]
-[e :U 2023 ]
+[e $U 2023  ]
+[e :U 2024 ]
 {
 "90
 [; ;main.c: 90:             LATDbits.LATD4 = 1;
@@ -2270,11 +2288,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "91
 [; ;main.c: 91:         }
 }
-[e :U 2022 ]
+[e :U 2023 ]
 "89
 [; ;main.c: 89:         while(PORTFbits.RF2){
-[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2023  ]
-[e :U 2024 ]
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2024  ]
+[e :U 2025 ]
 "92
 [; ;main.c: 92:         LATDbits.LATD4 = 0;
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
@@ -2294,45 +2312,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 97:     }
 }
 [e ++ _i -> -> 1 `i `E14569 ]
-[e $ <= -> _i `ui -> . `E14569 8 `ui 2019  ]
-[e :U 2020 ]
+[e $ <= -> _i `ui -> . `E14569 8 `ui 2020  ]
+[e :U 2021 ]
 }
-"138
-[; ;main.c: 138:     while (1) {
-[e :U 2026 ]
-{
-"141
-[; ;main.c: 141:         while(PORTFbits.RF2){
-[e $U 2028  ]
-[e :U 2029 ]
-{
-"142
-[; ;main.c: 142:             LATDbits.LATD4 = 1;
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-"143
-[; ;main.c: 143:             LATFbits.LATF0 = 1;
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-"144
-[; ;main.c: 144:         }
-}
-[e :U 2028 ]
-"141
-[; ;main.c: 141:         while(PORTFbits.RF2){
-[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2029  ]
-[e :U 2030 ]
-"145
-[; ;main.c: 145:         LATFbits.LATF0 = 0;
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-"147
-[; ;main.c: 147:         card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
-[e ( _card_response (4 , , , , , , &U _buf &U _red_read &U _green_read &U _blue_read &U _expected_values &U _motorL &U _motorR ]
-"149
-[; ;main.c: 149:     }
-}
-[e :U 2025 ]
-[e $U 2026  ]
+"103
+[; ;main.c: 103:     while (1) {
 [e :U 2027 ]
-"150
-[; ;main.c: 150: }
-[e :UE 2018 ]
+{
+"107
+[; ;main.c: 107:         while(PORTFbits.RF2){
+[e $U 2029  ]
+[e :U 2030 ]
+{
+"108
+[; ;main.c: 108:             LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+"109
+[; ;main.c: 109:             LATFbits.LATF0 = 1;
+[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
+"110
+[; ;main.c: 110:         }
 }
+[e :U 2029 ]
+"107
+[; ;main.c: 107:         while(PORTFbits.RF2){
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2030  ]
+[e :U 2031 ]
+"111
+[; ;main.c: 111:         LATFbits.LATF0 = 0;
+[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
+"112
+[; ;main.c: 112:         card_detected = 1;
+[e = _card_detected -> -> 1 `i `ui ]
+"121
+[; ;main.c: 121:         if (card_detected == 1){
+[e $ ! == _card_detected -> -> 1 `i `ui 2032  ]
+{
+"124
+[; ;main.c: 124:             TimerCount = 500;
+[e = _TimerCount -> -> 500 `i `ui ]
+"125
+[; ;main.c: 125:             ReturnHomeArray.TimerCount[CardCount] = TimerCount;
+[e = *U + &U . _ReturnHomeArray 0 * -> _CardCount `ux -> -> # *U &U . _ReturnHomeArray 0 `ui `ux _TimerCount ]
+"126
+[; ;main.c: 126:             stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"128
+[; ;main.c: 128:             sprintf(buf, "Timercount %d \n", ReturnHomeArray.TimerCount[CardCount]);
+[e ( _sprintf (1 , (. , &U _buf :s 1C *U + &U . _ReturnHomeArray 0 * -> _CardCount `ux -> -> # *U &U . _ReturnHomeArray 0 `ui `ux ]
+"129
+[; ;main.c: 129:             sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"132
+[; ;main.c: 132:             card = card_response(buf, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);
+[e = _card ( _card_response (4 , , , , , , , , &U _buf &U _red_read &U _green_read &U _blue_read &U _expected_values _card &U _motorL &U _motorR _ReturnHomeArray ]
+"134
+[; ;main.c: 134:             ReturnHomeArray.card[CardCount] = card;
+[e = *U + &U . _ReturnHomeArray 1 * -> _CardCount `ux -> -> # *U &U . _ReturnHomeArray 1 `ui `ux _card ]
+"136
+[; ;main.c: 136:             CardCount += 1;
+[e =+ _CardCount -> -> 1 `i `ui ]
+"139
+[; ;main.c: 139:             card_detected = 0;
+[e = _card_detected -> -> 0 `i `ui ]
+"140
+[; ;main.c: 140:             TimerCount = 0;
+[e = _TimerCount -> -> 0 `i `ui ]
+"141
+[; ;main.c: 141:             fullSpeedAhead(&motorL, &motorR);
+[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
+"142
+[; ;main.c: 142:         }
+}
+[e :U 2032 ]
+"144
+[; ;main.c: 144:     }
+}
+[e :U 2026 ]
+[e $U 2027  ]
+[e :U 2028 ]
+"145
+[; ;main.c: 145: }
+[e :UE 2019 ]
+}
+[p f _sprintf 8388736 ]
+[a 1C 84 105 109 101 114 99 111 117 110 116 32 37 100 32 10 0 ]

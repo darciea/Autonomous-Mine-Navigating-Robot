@@ -17,7 +17,7 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-unsigned int card_seen; //the flag that shows there is a card in front of the buggy (probs will be global variable)
+unsigned int card_detected = 0;
 
 void main(void) {
     
@@ -75,7 +75,7 @@ void main(void) {
     unsigned int TimerCount = 0;
     unsigned int CardCount = 0; //count of the cards seen on the route of the buggy
     
-    unsigned int ReturnHomeArray[2][30];
+    HomeStored ReturnHomeArray;
  
     /********************************************//**
     *  Calibration sequence
@@ -97,54 +97,49 @@ void main(void) {
     }
 
     /********************************************//**
-    *  Ideal main function code (put into while(1))
-    ***********************************************/
-    
-    /*
-    
-     fullSpeedAhead(&motorL, &motorR);
-      
-    while (card_detected = 1){ //flag to show that a card has been seen //CONCERNED THAT IT WONT STOP IF THE FUNCTION IS SOMEWHERE ELSE
-        cards_seen++;
-        stop(&motorL, &motorR);
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        normalise_readings(red_read, green_read, blue_read, expected_values, normalised_values);
-        make_master_closeness(normalised_values,master_closeness);
-        card = determine_card(master_closeness);
-        respond_to_card(card);
-    
-    //SHOULD PUT IN FLAG SO THAT BUGGY DOESN'T GET INTERRUPTED/RESPOND TO CARDS ON ITS WAY HOME
-    
-    
-    /********************************************//**
-    *  Ideal main function code
-    ***********************************************/ 
-    /*  
-    card = 1; //flag to show that a card has been seen
-    stop(&motorL, &motorR);
-    collect_avg_readings(&red_read, &green_read, &blue_read);
-    normalise_readings(red_read, green_read, blue_read, expected_values, normalised_values);
-    make_master_closeness(normalised_values,master_closeness);
-    card = determine_card(master_closeness);
-    motor_response(card);
-    */
-        
-   /********************************************//**
     *  Trying code
     ***********************************************/
-    
-    
-    
-    while (1) {
         
+    while (1) {
+         
+   
         //currently waits for button press before doing the reading for each card - will be replaced once the interrupt is implemented
         while(PORTFbits.RF2){
             BRAKE = 1;
             LEFT = 1;
         }
         LEFT = 0;
+        card_detected = 1;
            
-        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR, ReturnHomeArray[2][30]);
+        //card = card_response(buf, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);
         
+        
+    /********************************************//**
+    *  Ideal main function code
+    ***********************************************/       
+        
+        if (card_detected == 1){ //defined as global variable in interrupts.h
+            //response_in_progress = 1; //let the interrupt know not to keep triggering while the buggy is responding to the card. Defined as global variable
+            
+            TimerCount = 500;
+            ReturnHomeArray.TimerCount[CardCount] = TimerCount; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
+            stop(&motorL, &motorR);
+            
+            sprintf(buf, "Timercount %d \n", ReturnHomeArray.TimerCount[CardCount]);
+            sendStringSerial4(buf);
+            
+            //function here reads colours, averages values, normalises them, determines master closeness, uses that to find which card is there, and responds to it
+            card = card_response(buf, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);    
+     
+            ReturnHomeArray.card[CardCount] = card; //log in the array which card has been detected
+      
+            CardCount += 1; //indicate that next time a card is detected the timer value should be stored in the next column along
+            
+            //response_in_progress = 0; //let the buggy know that any future interrupt triggers will be the next card
+            card_detected = 0; //at this point the buggy should not be facing the card anymore so it shouldn't have the interrupt triggered again
+            TimerCount = 0; //reset the timer once the buggy is about to move again
+            fullSpeedAhead(&motorL, &motorR); //begin moving  
+        }
+    
     }
 }

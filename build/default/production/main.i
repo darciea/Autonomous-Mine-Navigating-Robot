@@ -24484,9 +24484,15 @@ colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 void home_response(colour card, DC_motor *mL, DC_motor *mR);
-void motor_response(colour card, DC_motor *mL, DC_motor *mR);
 
-void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
+typedef union HomeStored {
+    unsigned int TimerCount[30];
+    colour card[30];
+} HomeStored;
+
+void motor_response(colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+
+colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24526,7 +24532,7 @@ void sendTxBuf(void);
 
 
 
-unsigned int card_seen;
+unsigned int card_detected = 0;
 
 void main(void) {
 
@@ -24584,7 +24590,7 @@ void main(void) {
     unsigned int TimerCount = 0;
     unsigned int CardCount = 0;
 
-    unsigned int ReturnHomeArray[2][30];
+    HomeStored ReturnHomeArray;
 # 88 "main.c"
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
@@ -24596,8 +24602,13 @@ void main(void) {
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read;
     }
-# 138 "main.c"
+
+
+
+
+
     while (1) {
+
 
 
         while(PORTFbits.RF2){
@@ -24605,8 +24616,30 @@ void main(void) {
             LATFbits.LATF0 = 1;
         }
         LATFbits.LATF0 = 0;
+        card_detected = 1;
+# 121 "main.c"
+        if (card_detected == 1){
 
-        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
+
+            TimerCount = 500;
+            ReturnHomeArray.TimerCount[CardCount] = TimerCount;
+            stop(&motorL, &motorR);
+
+            sprintf(buf, "Timercount %d \n", ReturnHomeArray.TimerCount[CardCount]);
+            sendStringSerial4(buf);
+
+
+            card = card_response(buf, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);
+
+            ReturnHomeArray.card[CardCount] = card;
+
+            CardCount += 1;
+
+
+            card_detected = 0;
+            TimerCount = 0;
+            fullSpeedAhead(&motorL, &motorR);
+        }
 
     }
 }

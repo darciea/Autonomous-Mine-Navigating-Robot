@@ -24415,9 +24415,15 @@ colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 void home_response(colour card, DC_motor *mL, DC_motor *mR);
-void motor_response(colour card, DC_motor *mL, DC_motor *mR);
 
-void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
+typedef union HomeStored {
+    unsigned int TimerCount[30];
+    colour card[30];
+} HomeStored;
+
+void motor_response(colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+
+colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24556,12 +24562,10 @@ colour determine_card(unsigned int master_closeness[]){
     return predicted_colour;
 }
 
-
-void respond_to_card(colour card, DC_motor *mL, DC_motor *mR ){
-
+void motor_response(colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray){
 
 
-void motor_response(colour card, DC_motor *mL, DC_motor *mR){
+
 
     switch (card){
         case RED:
@@ -24645,11 +24649,15 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
-            for(i = lengthArray; i >= 0; i--){
-                fullSpeedAhead(mL,mR);
-                _delay((unsigned long)((array[0][i] - (wallspace))*(64000000/4000.0)));
-                stop(mL,mR);
-                home_response(array[1][i]);
+            for(int i = 29; i >= 0; i--){
+                if (ReturnHomeArray.TimerCount[i] != 0){
+                    fullSpeedAhead(mL,mR);
+                    for (int j=0; j<= ReturnHomeArray.TimerCount[i]; i++){
+                        _delay((unsigned long)((100)*(64000000/4000.0)));
+                    }
+                    stop(mL,mR);
+                    home_response(ReturnHomeArray.card[i], mL, mR);
+                }
             }
             break;
         case BLACK:
@@ -24724,10 +24732,11 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR){
     }
 
 }
-void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR) {
+
+colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray) {
 
 
-    colour card = RED;
+    card = RED;
     unsigned int normalised_values[3][9];
     unsigned int master_closeness[9];
 
@@ -24743,5 +24752,7 @@ void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, 
     sprintf(buf, "CARD %d \n", card);
     sendStringSerial4(buf);
 
-    motor_response(card, mL, mR);
+    motor_response(card, mL, mR, ReturnHomeArray);
+
+    return card;
 }

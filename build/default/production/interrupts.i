@@ -24610,12 +24610,17 @@ double yn(int, double);
 
 
 
+unsigned int TimerFlag;
+
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
 void enable_color_interrupt(void);
 void set_interrupt_threshold(char AILT, char AIHT, char persistence);
 void clear_interrupt_flag(void);
+
+unsigned int response_in_progress=0;
+unsigned int card_detected=0;
 # 3 "interrupts.c" 2
 
 # 1 "./color.h" 1

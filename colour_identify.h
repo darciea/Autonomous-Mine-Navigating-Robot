@@ -18,14 +18,14 @@ colour determine_card(unsigned int master_closeness[]);
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 void home_response(colour card, DC_motor *mL, DC_motor *mR);
 
-typedef struct Return_Home { //definition of our Return_Home structure
-    unsigned int TimerCountArray[30];         //array holding the time counted between values
-    colour CardCountArray[30];     // keeps track of the cards seen
-} Return_Home;
+typedef union HomeStored { //union allows both types relating to the Return_Home response to be kept in one array
+    unsigned int TimerCount[30];         
+    colour card[30];     
+} HomeStored;
 
-void motor_response(colour card, DC_motor *mL, DC_motor *mR);
+void motor_response(colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
 
-void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
+colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
 
 void Interrupts_init(void);
 void __interrupt(high_priority) HighISR();
