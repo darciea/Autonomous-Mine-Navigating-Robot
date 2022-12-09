@@ -24406,12 +24406,11 @@ void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
 
 
 
-typedef enum colour{RED, GREEN, BLUE, } colour;
+typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
-
-void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
-void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3]);
-void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]);
+void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
+void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
+void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
 colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
@@ -24476,85 +24475,98 @@ void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 8 "colour_identify.c" 2
 # 25 "colour_identify.c"
-void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
+void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {
 
 
-    for(colour i = RED; i <= BLUE; i++){
+    for (int i = 0; i <= 500; i++){
+        *red_read = color_read_Red();
+        *green_read = color_read_Green();
+        *blue_read = color_read_Blue();
+    }
+
+    for(int i = 0; i <= 2; i++){
         *red_read += color_read_Red();
         _delay((unsigned long)((200)*(64000000/4000.0)));
-
-
-
-
     }
     *red_read = *red_read/3;
 
 
 
-    for(colour i = RED; i <= BLUE; i++){
+
+    for(int i = 0; i <= 2; i++){
         *green_read += color_read_Green();
         _delay((unsigned long)((200)*(64000000/4000.0)));
-
-
-
-
     }
     *green_read = *green_read/3;
 
 
 
-    for(colour i = RED; i <= BLUE; i++){
+
+    for(int i = 0; i <= 2; i++){
         *blue_read += color_read_Blue();
         _delay((unsigned long)((200)*(64000000/4000.0)));
-
-
-
-
     }
     *blue_read = *blue_read/3;
 
 
 
+
 }
 
-void normalise_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][3], unsigned int normalised_values[][3])
-{
+void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]){
 
 
 
 
 
 
-    for(colour i = RED; i<= BLUE; i++){
+    for(colour i = RED; i<= BLACK; i++){
 
 
-        normalised_values[i][RED] = (abs(*red_read - expected_values[i][0])) / (expected_values[i][0]);
+        unsigned int difference = abs(red_read - expected_values[i][RED]);
+
+        normalised_values[i][RED] = (difference*100) / expected_values[i][RED];
 
 
-        normalised_values[i][GREEN] = (abs(*green_read - expected_values[i][1])) / (expected_values[i][1]);
 
 
-        normalised_values[i][BLUE] = (abs(*blue_read - expected_values[i][2])) / (expected_values[i][2]);
+        difference = abs(green_read - expected_values[i][GREEN]);
+
+        normalised_values[i][GREEN] = (difference*100) / expected_values[i][GREEN];
+
+
+
+
+        difference = abs(blue_read - expected_values[i][BLUE]);
+
+        normalised_values[i][BLUE] = (difference*100) / expected_values[i][BLUE];
+
+
+        _delay((unsigned long)((200)*(64000000/4000.0)));
     }
 
 }
 
-void make_master_closeness(unsigned int normalised_values[][3], unsigned int master_closeness[]){
-    for(colour i = RED; i<=BLUE; i++){
-        master_closeness[i] = (normalised_values[i][0] + normalised_values[i][1] + normalised_values[i][2])/3;
+void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
+    for(colour i = RED; i<=BLACK; i++){
+        master_closeness[i] = (normalised_values[i][RED] + normalised_values[i][GREEN] + normalised_values[i][BLUE])/3;
+
+        _delay((unsigned long)((1000)*(64000000/4000.0)));
+
     }
 }
 
 colour determine_card(unsigned int master_closeness[]){
     colour predicted_colour = RED;
     unsigned int current_smallest = master_closeness[RED];
-    for(colour i = GREEN; i<=BLUE; i++){
+    for(colour i = GREEN; i<=BLACK; i++){
         if(master_closeness[i] < current_smallest){
             current_smallest = master_closeness[i];
             predicted_colour = i;
         }
     }
+    return predicted_colour;
 }
 
 
@@ -24588,7 +24600,9 @@ void respond_to_card(colour card, DC_motor *mL, DC_motor *mR){
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
-# 187 "colour_identify.c"
+# 198 "colour_identify.c"
+        default:
+            break;
     }
 
 }
