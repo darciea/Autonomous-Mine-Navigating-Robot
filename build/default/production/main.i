@@ -24477,6 +24477,7 @@ void LEDSon_init(void);
 # 11 "./colour_identify.h"
 typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
+unsigned int clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
 void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
 void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
@@ -24591,10 +24592,11 @@ void main(void) {
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
+    unsigned int clear_read_check = 0;
 
     unsigned int expected_values[3][9];
     unsigned int ReturnHomeArray[2][30];
-# 84 "main.c"
+# 85 "main.c"
     LATDbits.LATD4 = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
@@ -24608,25 +24610,8 @@ void main(void) {
         sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
         sendStringSerial4(buf);
     }
-
-    while(PORTFbits.RF2){
-            LATDbits.LATD4 = 1;
-            LATHbits.LATH0 = 1;
-        }
-    for (int i = 0; i <= 500; i++){
-        clear_read = color_read_Clear();
-    }
-    for(int i = 0; i <= 2; i++){
-        clear_read += color_read_Clear();
-        _delay((unsigned long)((200)*(64000000/4000.0)));
-    }
-    clear_read = clear_read/4;
-
-    sprintf(buf, "\n Expected clear: %d \n", clear_read);
-    sendStringSerial4(buf);
-
-    unsigned int clear_read_check = clear_read + 800;
-# 145 "main.c"
+    clear_read_calibration(buf, &clear_read, &clear_read_check);
+# 131 "main.c"
     LATHbits.LATH3=0;
     TRISHbits.TRISH3=0;
 
@@ -24651,6 +24636,6 @@ void main(void) {
             LATDbits.LATD7=!LATDbits.LATD7;
             LATHbits.LATH1=!LATHbits.LATH1;
         }
-# 179 "main.c"
+# 165 "main.c"
     }
 }

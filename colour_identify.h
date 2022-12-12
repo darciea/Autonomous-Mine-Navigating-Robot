@@ -10,6 +10,7 @@
 
 typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour; 
 
+unsigned int clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
 void collect_avg_readings(/*char *buf, */unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
 void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);

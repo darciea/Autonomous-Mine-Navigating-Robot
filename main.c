@@ -69,6 +69,7 @@ void main(void) {
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
+    unsigned int clear_read_check = 0;
     
     unsigned int expected_values[3][9];    
     unsigned int ReturnHomeArray[2][30];
@@ -94,24 +95,9 @@ void main(void) {
         sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
         sendStringSerial4(buf); 
     }
+    clear_read_calibration(buf, &clear_read, &clear_read_check);
+     
     
-    while(PORTFbits.RF2){
-            BRAKE = 1;
-            RIGHT = 1;
-        }
-    for (int i = 0; i <= 500; i++){
-        clear_read = color_read_Clear();
-    } 
-    for(int i = 0; i <= 2; i++){
-        clear_read += color_read_Clear();
-        __delay_ms(200);   
-    }
-    clear_read = clear_read/4;
-    
-    sprintf(buf, "\n Expected clear: %d \n", clear_read);
-    sendStringSerial4(buf); 
-    
-    unsigned int clear_read_check = clear_read + 800;
         
     /********************************************//**
     *  Ideal main function code

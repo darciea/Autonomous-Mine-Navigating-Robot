@@ -7,6 +7,26 @@
 #include "color.h"
 #include "serial.h"
 
+unsigned int clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check){
+    
+    for (int i = 0; i <= 500; i++){
+        *clear_read = color_read_Clear();
+    } 
+    
+    for(int i = 0; i <= 2; i++){
+        *clear_read += color_read_Clear();
+        __delay_ms(200);   
+    }
+    
+    *clear_read = *clear_read/4;
+    
+    sprintf(buf, "\n Expected clear: %d \n", clear_read);
+    sendStringSerial4(buf);
+    
+    *clear_read_check = *clear_read + 800;
+    
+}
+
 void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {   
     //take ~500 readings to allow colour readings to stabilise before starting to take the average

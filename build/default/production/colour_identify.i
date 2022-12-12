@@ -24408,6 +24408,7 @@ void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
 
 typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
+unsigned int clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
 void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
 void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
@@ -24470,6 +24471,26 @@ void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 8 "colour_identify.c" 2
 
+
+unsigned int clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check){
+
+    for (int i = 0; i <= 500; i++){
+        *clear_read = color_read_Clear();
+    }
+
+    for(int i = 0; i <= 2; i++){
+        *clear_read += color_read_Clear();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+    }
+
+    *clear_read = *clear_read/4;
+
+    sprintf(buf, "\n Expected clear: %d \n", clear_read);
+    sendStringSerial4(buf);
+
+    *clear_read_check = *clear_read + 800;
+
+}
 
 void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {

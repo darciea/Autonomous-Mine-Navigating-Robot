@@ -12,14 +12,14 @@
   0h - 3h		(dist/default/production\final-project-darciea-matti.X.production.hex)
   8h - 79h		(dist/default/production\final-project-darciea-matti.X.production.hex)
   E00h - E7Ah		(dist/default/production\final-project-darciea-matti.X.production.hex)
-  E7Ch - 23DFh		(dist/default/production\final-project-darciea-matti.X.production.hex)
+  E7Ch - 2441h		(dist/default/production\final-project-darciea-matti.X.production.hex)
   200000h - 20000Fh		(dist/default/production\final-project-darciea-matti.X.production.hex)
   300000h - 30000Bh		(dist/default/production\final-project-darciea-matti.X.production.hex)
  Unused ranges:
   4h - 7h
   7Ah - DFFh
   E7Bh - E7Bh
-  23E0h - 1FFFFFh
+  2442h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -388,6 +388,13 @@
 000023B0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000023C0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 000023D0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000023E0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+000023F0 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002400 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002410 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002420 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002430 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00002440 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------
