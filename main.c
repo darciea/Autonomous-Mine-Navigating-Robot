@@ -70,6 +70,7 @@ void main(void) {
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     unsigned int clear_read_check = 0;
+    unsigned int expected_values[4][9];
     
     unsigned int expected_values[3][9];    
     unsigned int ReturnHomeArray[2][30];
@@ -88,17 +89,19 @@ void main(void) {
             BRAKE = 1;
         }
         BRAKE = 0;
-        collect_avg_readings(&red_read, &green_read, &blue_read);
+        __delay_ms(500);
+        collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
+        expected_values[CLEAR][i] = clear_read;
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read; 
-        sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i);
         sendStringSerial4(buf); 
     }
+    BRAKE = 1;
+    while(PORTFbits.RF2){BRAKE = 0;}
     clear_read_calibration(buf, &clear_read, &clear_read_check);
-     
     
-        
     /********************************************//**
     *  Ideal main function code
     ***********************************************/ 
@@ -110,38 +113,24 @@ void main(void) {
     make_master_closeness(normalised_values,master_closeness);
     card = determine_card(master_closeness);
     motor_response(card);
-            if (card_detected == 1){ //defined as global variable in interrupts.h, used to communicate from interrupt to main.c
-            response_in_progress = 1; //let the interrupt know not to keep triggering while the buggy is responding to the card. Defined as global variable
-            stop(DC_motor *mL, DC_motor *mR);
-            //insert function here that reads colours, averages values, normalises them, determines master closeness, uses that to find which card is there, and respond to it
-            response_in_progress = 0; //let the buggy know that any future interrupt triggers will be the next card
-            card_detected = 0; //at this point the buggy should not be facing the card anymore so it shouldn't have the interrupt triggered again
-            fullSpeedAhead(DC_motor *mL, DC_motor *mR); //begin moving
-            
-        }
     */
-       
-    
+        
    /********************************************//**
     *  Trying code
     ***********************************************/
     
     
     
-    LATHbits.LATH3=0;   //set initial output state of RH3 LED
-    TRISHbits.TRISH3=0; //set TRIS value for H3 pin (output)
-            
-    LATDbits.LATD7=0;   //set initial output state of RD7 LED
-    TRISDbits.TRISD7=0; //set TRIS value for D7 pin (output)
-    
     while (1) {
         
-        
-        red_read = color_read_Red();
-        blue_read = color_read_Blue();
-        green_read = color_read_Green();
-        clear_read = color_read_Clear();
-
+        //currently waits for button press before doing the reading for each card - will be replaced once the interrupt is implemented
+        while(PORTFbits.RF2){
+            BRAKE = 1;
+            LEFT = 1;
+        }
+        LEFT = 0;
+           
+        card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
         
         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
         sendStringSerial4(buf);
