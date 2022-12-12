@@ -24540,8 +24540,6 @@ unsigned int card_detected=0;
 
 
 
-unsigned int card_seen;
-
 void main(void) {
 
 
@@ -24598,7 +24596,7 @@ void main(void) {
     unsigned int CardCount = 0;
 
     unsigned int ReturnHomeArray[2][30] = {0};
-# 136 "main.c"
+# 134 "main.c"
     LATHbits.LATH3=0;
     TRISHbits.TRISH3=0;
 
@@ -24609,11 +24607,6 @@ void main(void) {
 
 
     while (1) {
-        if (TimerFlag == 1){
-            TimerCount += 1;
-            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
-            TimerFlag = 0;
-        }
 # 169 "main.c"
         red_read = color_read_Red();
         blue_read = color_read_Blue();
@@ -24623,7 +24616,8 @@ void main(void) {
 
         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
         sendStringSerial4(buf);
-        _delay((unsigned long)((100)*(64000000/4000.0)));
+        _delay((unsigned long)((500)*(64000000/4000.0)));
+         LATHbits.LATH3=!LATHbits.LATH3;
 # 203 "main.c"
     }
 }

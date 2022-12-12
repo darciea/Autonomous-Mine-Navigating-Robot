@@ -24609,12 +24609,7 @@ void main(void) {
 
 
     while (1) {
-        if (TimerFlag == 1){
-            TimerCount += 1;
-            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
-            TimerFlag = 0;
-        }
-# 169 "main.c"
+# 171 "main.c"
         red_read = color_read_Red();
         blue_read = color_read_Blue();
         green_read = color_read_Green();
@@ -24624,6 +24619,7 @@ void main(void) {
         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
         sendStringSerial4(buf);
         _delay((unsigned long)((100)*(64000000/4000.0)));
-# 203 "main.c"
+         LATHbits.LATH3=!LATHbits.LATH3;
+# 205 "main.c"
     }
 }

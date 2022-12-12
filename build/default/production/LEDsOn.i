@@ -24411,9 +24411,9 @@ void LEDSon_init(void) {
     TRISFbits.TRISF7 = 0;
     TRISAbits.TRISA4 = 0;
 
-    LATFbits.LATF7 = 0;
-    LATGbits.LATG1 = 0;
-    LATAbits.LATA4 = 0;
+    LATFbits.LATF7 = 1;
+    LATGbits.LATG1 = 1;
+    LATAbits.LATA4 = 1;
 
 
     LATDbits.LATD4 = 0;

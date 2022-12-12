@@ -18,8 +18,6 @@
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
 
-unsigned int card_seen;
-
 void main(void) {
     
     /********************************************//**
@@ -74,6 +72,7 @@ void main(void) {
     
     unsigned int TimerCount = 0;
     unsigned int CardCount = 0;
+    unsigned int card_detected = 0;
     
     unsigned int ReturnHomeArray[2][30] = {0};
     
@@ -106,26 +105,6 @@ void main(void) {
         
     }
     */
-    /*
-    while(PORTFbits.RF2){
-        HLAMPS = 1;
-    }
-    */
-    
-    /*
-    card = 1; //flag to show that a card has been seen
-    stop(&motorL, &motorR);
-    collect_avg_readings(&red_read, &green_read, &blue_read);
-    normalise_readings(&red_read, &green_read, &blue_read, &expected_values, &normalised_values);
-    make_master_closeness(&normalised_values,&master_closeness);
-    
-    card = determine_card();
-    
-    
-    card = determine_card(master_closeness);
-    */
-    
-    
     
    /********************************************//**
     *  Trying code
@@ -143,15 +122,16 @@ void main(void) {
     
     //fullSpeedAhead(DC_motor *mL, DC_motor *mR); //begin moving
     while (1) {
+        /*
         if (TimerFlag == 1){ //incrementing the timer counter every ms if the timer overflows. Note this relies on the while loop running more than once every ms - may need to experiment
             TimerCount += 1;
             if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
             TimerFlag = 0;
         }
-        
+        */
         
         /*
-        if (card_detected == 1){ //defined as global variable in interrupts.h
+        if (card_detected == 1){ //defined as global variable in main.c
             response_in_progress = 1; //let the interrupt know not to keep triggering while the buggy is responding to the card. Defined as global variable
             ReturnHomeArray[0][CardCount] = TimerCount; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
             stop(DC_motor *mL, DC_motor *mR);
@@ -166,6 +146,7 @@ void main(void) {
         }
         
         */
+        
         red_read = color_read_Red();
         blue_read = color_read_Blue();
         green_read = color_read_Green();
@@ -174,8 +155,8 @@ void main(void) {
         
         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
         sendStringSerial4(buf);
-        __delay_ms(100);
-         
+        __delay_ms(500);
+         LATHbits.LATH3=!LATHbits.LATH3;
         
 /*
         BRAKE = 1;

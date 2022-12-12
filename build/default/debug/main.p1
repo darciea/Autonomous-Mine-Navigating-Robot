@@ -2331,57 +2331,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 145:     while (1) {
 [e :U 2020 ]
 {
-"146
-[; ;main.c: 146:         if (TimerFlag == 1){
-[e $ ! == _TimerFlag -> -> 1 `i `ui 2022  ]
-{
-"147
-[; ;main.c: 147:             TimerCount += 1;
-[e =+ _TimerCount -> -> 1 `i `ui ]
-"148
-[; ;main.c: 148:             if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
-[e $ ! == _TimerCount -> -> 10 `i `ui 2023  ]
-{
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-[e = _TimerCount -> -> 0 `i `ui ]
-}
-[e :U 2023 ]
-"149
-[; ;main.c: 149:             TimerFlag = 0;
-[e = _TimerFlag -> -> 0 `i `ui ]
-"150
-[; ;main.c: 150:         }
-}
-[e :U 2022 ]
-"169
-[; ;main.c: 169:         red_read = color_read_Red();
-[e = _red_read ( _color_read_Red ..  ]
-"170
-[; ;main.c: 170:         blue_read = color_read_Blue();
-[e = _blue_read ( _color_read_Blue ..  ]
 "171
-[; ;main.c: 171:         green_read = color_read_Green();
-[e = _green_read ( _color_read_Green ..  ]
+[; ;main.c: 171:         red_read = color_read_Red();
+[e = _red_read ( _color_read_Red ..  ]
 "172
-[; ;main.c: 172:         clear_read = color_read_Clear();
+[; ;main.c: 172:         blue_read = color_read_Blue();
+[e = _blue_read ( _color_read_Blue ..  ]
+"173
+[; ;main.c: 173:         green_read = color_read_Green();
+[e = _green_read ( _color_read_Green ..  ]
+"174
+[; ;main.c: 174:         clear_read = color_read_Clear();
 [e = _clear_read ( _color_read_Clear ..  ]
-"175
-[; ;main.c: 175:         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 1C _red_read _green_read _blue_read _clear_read ]
-"176
-[; ;main.c: 176:         sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
 "177
-[; ;main.c: 177:         _delay((unsigned long)((100)*(64000000/4000.0)));
+[; ;main.c: 177:         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+[e ( _sprintf (1 , , , , (. , &U _buf :s 1C _red_read _green_read _blue_read _clear_read ]
+"178
+[; ;main.c: 178:         sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"179
+[; ;main.c: 179:         _delay((unsigned long)((100)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"203
-[; ;main.c: 203:     }
+"180
+[; ;main.c: 180:          LATHbits.LATH3=!LATHbits.LATH3;
+[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
+"205
+[; ;main.c: 205:     }
 }
 [e :U 2019 ]
 [e $U 2020  ]
 [e :U 2021 ]
-"204
-[; ;main.c: 204: }
+"206
+[; ;main.c: 206: }
 [e :UE 2018 ]
 }
 [p f _sprintf 8388736 ]

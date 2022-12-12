@@ -24694,7 +24694,8 @@ void Interrupts_init(void)
     INTCONbits.INT1EDG = 0;
     INTCONbits.PEIE=1;
     INTCONbits.IPEN = 1;
-# 34 "interrupts.c"
+    PIR0bits.INT1IF = 0;
+# 35 "interrupts.c"
     INTCONbits.GIEL = 1;
     INTCONbits.GIEH=1;}
 
@@ -24703,12 +24704,12 @@ void Interrupts_init(void)
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
 
-    if(PIR0bits.INT1IF == 1 ) {
+    if(PIR0bits.INT1IF == 1 && response_in_progress == 0) {
         card_detected = 1;
         LATDbits.LATD7=1;
-        _delay((unsigned long)((500)*(64000000/4000.0)));
+        _delay((unsigned long)((50)*(64000000/4000.0)));
         LATDbits.LATD7=0;
-        _delay((unsigned long)((500)*(64000000/4000.0)));
+        _delay((unsigned long)((50)*(64000000/4000.0)));
         clear_interrupt_flag();
         PIR0bits.INT1IF = 0;
     }
@@ -24733,21 +24734,4 @@ void clear_interrupt_flag(void){
     I2C_2_Master_Write(0x52 | 0x00);
     I2C_2_Master_Write(0b11100110);
     I2C_2_Master_Stop();
-}
-
-
-void __attribute__((picinterrupt(("low_priority")))) LowISR()
-{
-
-    if(TMR0IF){
-    TMR0H=0b00111100;
-    TMR0L=0b10101111;
-
-
-
-
-        TimerFlag=1;
-
-       TMR0IF=0;
-    }
 }
