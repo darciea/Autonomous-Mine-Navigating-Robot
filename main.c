@@ -111,12 +111,7 @@ void main(void) {
     sprintf(buf, "\n Expected clear: %d \n", clear_read);
     sendStringSerial4(buf); 
     
-    unsigned int clear_read_check = clear_read + 200;
-    
-    while(PORTFbits.RF2){
-            BRAKE = 1;
-            LEFT = 1;
-        }
+    unsigned int clear_read_check = clear_read + 800;
         
     /********************************************//**
     *  Ideal main function code
@@ -155,7 +150,7 @@ void main(void) {
     
     while (1) {
         
-        /*
+        
         red_read = color_read_Red();
         blue_read = color_read_Blue();
         green_read = color_read_Green();
@@ -166,7 +161,12 @@ void main(void) {
         sendStringSerial4(buf);
         __delay_ms(100);
         LATHbits.LATH3=!LATHbits.LATH3;
-        */
+        
+        if (clear_read > clear_read_check) {
+            LATDbits.LATD7=!LATDbits.LATD7;
+            HLAMPS=!HLAMPS;
+        }
+        /*
         //currently waits for button press before doing the reading for each card - will be replaced once the interrupt is implemented
         while(PORTFbits.RF2){
             BRAKE = 1;
@@ -175,6 +175,6 @@ void main(void) {
         LEFT = 0;
            
         card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
-        
+        */
     }
 }

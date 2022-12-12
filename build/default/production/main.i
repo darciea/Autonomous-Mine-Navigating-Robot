@@ -24625,13 +24625,8 @@ void main(void) {
     sprintf(buf, "\n Expected clear: %d \n", clear_read);
     sendStringSerial4(buf);
 
-    unsigned int clear_read_check = clear_read + 200;
-
-    while(PORTFbits.RF2){
-            LATDbits.LATD4 = 1;
-            LATFbits.LATF0 = 1;
-        }
-# 150 "main.c"
+    unsigned int clear_read_check = clear_read + 800;
+# 145 "main.c"
     LATHbits.LATH3=0;
     TRISHbits.TRISH3=0;
 
@@ -24639,14 +24634,23 @@ void main(void) {
     TRISDbits.TRISD7=0;
 
     while (1) {
-# 171 "main.c"
-        while(PORTFbits.RF2){
-            LATDbits.LATD4 = 1;
-            LATFbits.LATF0 = 1;
+
+
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+        clear_read = color_read_Clear();
+
+
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+        sendStringSerial4(buf);
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+        LATHbits.LATH3=!LATHbits.LATH3;
+
+        if (clear_read > clear_read_check) {
+            LATDbits.LATD7=!LATDbits.LATD7;
+            LATHbits.LATH1=!LATHbits.LATH1;
         }
-        LATFbits.LATF0 = 0;
-
-        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
-
+# 179 "main.c"
     }
 }
