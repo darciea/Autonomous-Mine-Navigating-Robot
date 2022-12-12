@@ -24475,17 +24475,17 @@ void LEDSon_init(void);
 
 # 1 "./colour_identify.h" 1
 # 11 "./colour_identify.h"
-typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
+typedef enum colour{CLEAR, RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
-unsigned int clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
-void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
-void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
+void clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
+void collect_avg_readings(unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
+void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
 colour determine_card(unsigned int master_closeness[]);
 
 void motor_response(colour card, DC_motor *mL, DC_motor *mR);
 
-void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
+void card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
 # 14 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -24593,49 +24593,45 @@ void main(void) {
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     unsigned int clear_read_check = 0;
-
-    unsigned int expected_values[3][9];
+    unsigned int expected_values[4][9];
     unsigned int ReturnHomeArray[2][30];
-# 85 "main.c"
+# 84 "main.c"
     LATDbits.LATD4 = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
         }
         LATDbits.LATD4 = 0;
-        collect_avg_readings(&red_read, &green_read, &blue_read);
+        _delay((unsigned long)((500)*(64000000/4000.0)));
+        collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
+        expected_values[CLEAR][i] = clear_read;
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read;
-        sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i);
         sendStringSerial4(buf);
     }
+    LATDbits.LATD4 = 1;
+    while(PORTFbits.RF2){LATDbits.LATD4 = 0;}
     clear_read_calibration(buf, &clear_read, &clear_read_check);
-# 131 "main.c"
-    LATHbits.LATH3=0;
-    TRISHbits.TRISH3=0;
-
-    LATDbits.LATD7=0;
-    TRISDbits.TRISD7=0;
-
+# 120 "main.c"
+    while(PORTFbits.RF2){}
+    fullSpeedAhead(&motorL, &motorR);
     while (1) {
 
-
-        red_read = color_read_Red();
-        blue_read = color_read_Blue();
-        green_read = color_read_Green();
         clear_read = color_read_Clear();
+        if (clear_read > clear_read_check){
+            stop(&motorL, &motorR);
+            _delay((unsigned long)((20)*(64000000/4000.0)));
+            reverseFullSpeed(&motorL, &motorR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
+            stop(&motorL, &motorR);
+            _delay((unsigned long)((2)*(64000000/4000.0)));
+            card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
+            _delay((unsigned long)((2)*(64000000/4000.0)));
 
-
-        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
-        sendStringSerial4(buf);
-        _delay((unsigned long)((100)*(64000000/4000.0)));
-        LATHbits.LATH3=!LATHbits.LATH3;
-
-        if (clear_read > clear_read_check) {
-            LATDbits.LATD7=!LATDbits.LATD7;
-            LATHbits.LATH1=!LATHbits.LATH1;
+            fullSpeedAhead(&motorL, &motorR);
         }
-# 165 "main.c"
+# 147 "main.c"
     }
 }

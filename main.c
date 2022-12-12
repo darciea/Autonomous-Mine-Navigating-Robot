@@ -70,9 +70,7 @@ void main(void) {
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     unsigned int clear_read_check = 0;
-    unsigned int expected_values[4][9];
-    
-    unsigned int expected_values[3][9];    
+    unsigned int expected_values[4][9];   
     unsigned int ReturnHomeArray[2][30];
     
     /********************************************//**
@@ -119,27 +117,22 @@ void main(void) {
     *  Trying code
     ***********************************************/
     
-    
-    
+    while(PORTFbits.RF2){}
+    fullSpeedAhead(&motorL, &motorR); //begin moving  
     while (1) {
         
-        //currently waits for button press before doing the reading for each card - will be replaced once the interrupt is implemented
-        while(PORTFbits.RF2){
-            BRAKE = 1;
-            LEFT = 1;
-        }
-        LEFT = 0;
-           
-        card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
-        
-        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
-        sendStringSerial4(buf);
-        __delay_ms(100);
-        LATHbits.LATH3=!LATHbits.LATH3;
-        
-        if (clear_read > clear_read_check) {
-            LATDbits.LATD7=!LATDbits.LATD7;
-            HLAMPS=!HLAMPS;
+        clear_read = color_read_Clear();
+        if (clear_read > clear_read_check){
+            stop(&motorL, &motorR);
+            __delay_ms(20);
+            reverseFullSpeed(&motorL, &motorR);
+            __delay_ms(100);
+            stop(&motorL, &motorR);
+            __delay_ms(2);
+            card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);    
+            __delay_ms(2);
+
+            fullSpeedAhead(&motorL, &motorR); //begin moving  
         }
         /*
         //currently waits for button press before doing the reading for each card - will be replaced once the interrupt is implemented

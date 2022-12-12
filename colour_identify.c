@@ -6,8 +6,9 @@
 #include "dc_motor.h"
 #include "color.h"
 #include "serial.h"
+#include "LEDsOn.h"
 
-unsigned int clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check){
+void clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check){
     
     for (int i = 0; i <= 500; i++){
         *clear_read = color_read_Clear();
@@ -125,7 +126,7 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
     switch (card){
         case RED:
             reverseFullSpeed(mL,mR);
-            __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
             turnRight45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
@@ -133,7 +134,7 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case GREEN:
             reverseFullSpeed(mL,mR);
-            __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
             turnLeft45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
@@ -141,7 +142,7 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case BLUE:
             reverseFullSpeed(mL,mR);
-            __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
             turnRight45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
@@ -153,7 +154,9 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case YELLOW:
             reverseFullSpeed(mL,mR);
-            __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            stop(mL,mR); 
+            __delay_ms(200)
             reverseFullSpeed(mL,mR);
             __delay_ms(500); //adjust according to what 'one square' means
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
@@ -164,7 +167,7 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case PINK:
             reverseFullSpeed(mL,mR);
-            __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
             reverseFullSpeed(mL,mR);
             __delay_ms(500); //adjust according to what 'one square' means
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
@@ -175,7 +178,7 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case ORANGE:
             reverseFullSpeed(mL,mR);
-            __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
             turnRight45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
@@ -185,7 +188,7 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case LIGHT_BLUE:
             reverseFullSpeed(mL,mR);
-            __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
             turnLeft45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
@@ -195,11 +198,20 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case WHITE:
             //CODE FOR CHANGING A FLAG TO START THE RETURN HOME SEQUENCE
+            LATDbits.LATD7=1;
+            __delay_ms(200);
+            LATDbits.LATD7=0;
             break;
         case BLACK:
             //CODE FOR THE EVENTUALITY IT RUNS INTO A WALL?
+            LATHbits.LATH3=1;
+            __delay_ms(200);
+            LATHbits.LATH3=0;
             break;    
         default:
+            HLAMPS = 1;
+            __delay_ms(500);
+            HLAMPS = 0;
             break;
     }
     
