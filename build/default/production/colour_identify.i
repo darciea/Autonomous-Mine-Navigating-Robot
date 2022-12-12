@@ -24480,7 +24480,8 @@ char isDataInTxBuf (void);
 void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 8 "colour_identify.c" 2
-# 25 "colour_identify.c"
+
+
 void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {
 

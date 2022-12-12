@@ -24528,11 +24528,24 @@ void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 15 "main.c" 2
 
+# 1 "./interrupts.h" 1
 
 
 
 
-unsigned int card_detected = 0;
+
+
+
+unsigned int TimerFlag;
+
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("low_priority")))) LowISR();
+# 16 "main.c" 2
+
+
+
+
 
 void main(void) {
 
@@ -24591,7 +24604,7 @@ void main(void) {
     unsigned int CardCount = 0;
 
     HomeStored ReturnHomeArray;
-# 88 "main.c"
+# 87 "main.c"
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
@@ -24602,24 +24615,35 @@ void main(void) {
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read;
     }
+        for (int i = 0; i <= 500; i++){
+        clear_read = color_read_Clear();
+    }
+
+    for(int i = 0; i <= 2; i++){
+        clear_read += color_read_Clear();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+    }
+
+    clear_read = clear_read/4;
+
+    sprintf(buf, "\n Expected clear: %d \n", clear_read);
+    sendStringSerial4(buf);
+
+    unsigned int clear_read_check = clear_read + 800;
 
 
 
 
-
+    fullSpeedAhead(&motorL, &motorR);
     while (1) {
 
-
-
-        while(PORTFbits.RF2){
-            LATDbits.LATD4 = 1;
-            LATFbits.LATF0 = 1;
+        if (TimerFlag == 1){
+            TimerCount += 1;
+            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
+            TimerFlag = 0;
         }
-        LATFbits.LATF0 = 0;
-        card_detected = 1;
-# 121 "main.c"
-        if (card_detected == 1){
-
+        clear_read = color_read_Clear();
+        if (clear_read > clear_read_check){
 
             TimerCount = 500;
             ReturnHomeArray.TimerCount[CardCount] = TimerCount;
@@ -24635,11 +24659,20 @@ void main(void) {
 
             CardCount += 1;
 
-
-            card_detected = 0;
             TimerCount = 0;
             fullSpeedAhead(&motorL, &motorR);
         }
+
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+        clear_read = color_read_Clear();
+
+
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+        sendStringSerial4(buf);
+        _delay((unsigned long)((500)*(64000000/4000.0)));
+         LATHbits.LATH3=!LATHbits.LATH3;
 
     }
 }

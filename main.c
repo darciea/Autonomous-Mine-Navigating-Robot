@@ -13,11 +13,10 @@
 #include "LEDsOn.h"
 #include "colour_identify.h"
 #include "serial.h"
+#include "interrupts.h"
 
 
 #define _XTAL_FREQ 64000000 //note intrinsic _delay function is 62.5ns at 64,000,000Hz  
-
-unsigned int card_detected = 0;
 
 void main(void) {
     
@@ -95,51 +94,64 @@ void main(void) {
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read; 
     }
+        for (int i = 0; i <= 500; i++){
+        clear_read = color_read_Clear();
+    } 
+    
+    for(int i = 0; i <= 2; i++){
+        clear_read += color_read_Clear();
+        __delay_ms(200);   
+    }
+    
+    clear_read = clear_read/4;
+    
+    sprintf(buf, "\n Expected clear: %d \n", clear_read);
+    sendStringSerial4(buf);
+    
+    unsigned int clear_read_check = clear_read + 800;
 
     /********************************************//**
     *  Trying code
     ***********************************************/
-        
+    fullSpeedAhead(&motorL, &motorR); //begin moving  
     while (1) {
-         
-   
-        //currently waits for button press before doing the reading for each card - will be replaced once the interrupt is implemented
-        while(PORTFbits.RF2){
-            BRAKE = 1;
-            LEFT = 1;
+        
+        if (TimerFlag == 1){ //incrementing the timer counter every ms if the timer overflows. Note this relies on the while loop running more than once every ms - may need to experiment
+            TimerCount += 1;
+            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
+            TimerFlag = 0;
         }
-        LEFT = 0;
-        card_detected = 1;
-           
-        //card = card_response(buf, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);
-        
-        
-    /********************************************//**
-    *  Ideal main function code
-    ***********************************************/       
-        
-        if (card_detected == 1){ //defined as global variable in interrupts.h
-            //response_in_progress = 1; //let the interrupt know not to keep triggering while the buggy is responding to the card. Defined as global variable
-            
-            TimerCount = 500;
+        clear_read = color_read_Clear();
+        if (clear_read > clear_read_check){
+
             ReturnHomeArray.TimerCount[CardCount] = TimerCount; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
             stop(&motorL, &motorR);
-            
+            __delay_ms(2);
+                    
             sprintf(buf, "Timercount %d \n", ReturnHomeArray.TimerCount[CardCount]);
             sendStringSerial4(buf);
-            
-            //function here reads colours, averages values, normalises them, determines master closeness, uses that to find which card is there, and responds to it
+            __delay_ms(2);
+                    
             card = card_response(buf, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);    
-     
+            __delay_ms(2);
             ReturnHomeArray.card[CardCount] = card; //log in the array which card has been detected
       
             CardCount += 1; //indicate that next time a card is detected the timer value should be stored in the next column along
             
-            //response_in_progress = 0; //let the buggy know that any future interrupt triggers will be the next card
-            card_detected = 0; //at this point the buggy should not be facing the card anymore so it shouldn't have the interrupt triggered again
             TimerCount = 0; //reset the timer once the buggy is about to move again
             fullSpeedAhead(&motorL, &motorR); //begin moving  
         }
-    
+        
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+        clear_read = color_read_Clear();
+
+        
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
+        sendStringSerial4(buf);
+        __delay_ms(500);
+         LATHbits.LATH3=!LATHbits.LATH3;
+        
     }
 }

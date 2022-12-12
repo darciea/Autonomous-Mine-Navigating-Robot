@@ -6,22 +6,7 @@
 #include "dc_motor.h"
 #include "color.h"
 #include "serial.h"
-/*
-void Interrupts_init(void)
-{
-    enable_color_interrupt(); //enable interrupts from color click board
-    set_interrupt_threshold(0b00000010,0b00000100,0b0011); //set low threshold to 1024 and high to 2048 (most significant bits only) and persistence filter to 3 consecutive values out of range (may need adjusting)
-    INTCONbits.GIEH=1; 	//turn on interrupts globally (when this is off, all interrupts are deactivated)
-    INTCONbits.GIEL = 1;} // Peripheral Interrupt Enable bit
 
-void __interrupt(high_priority) HighISR()
-{
-	//trigger flag that indicates a card has been identified in front of the sensor
-    if(read_interrupt_status()) {LATDbits.LATD7 = 1; color_writetoaddr(0x13, 0x01);		//check the interrupt source (color click board status bit)
-    //undecided on how to define flag that indicates card has been detected
-    }
-}
- */
 void collect_avg_readings(/*char *buf, */unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {   
     //take ~500 readings to allow colour readings to stabilise before starting to take the average

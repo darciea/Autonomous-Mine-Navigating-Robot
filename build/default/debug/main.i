@@ -24431,10 +24431,6 @@ unsigned int color_read_Red(void);
 unsigned int color_read_Green(void);
 unsigned int color_read_Blue(void);
 unsigned int color_read_Clear(void);
-
-void enable_color_interrupt(void);
-void set_interrupt_threshold(char AILTH, char AIHTH, char persistence);
-unsigned int read_interrupt_status(void);
 # 11 "main.c" 2
 
 # 1 "./i2c.h" 1
@@ -24487,6 +24483,16 @@ void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsig
 colour determine_card(unsigned int master_closeness[]);
 
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
+void home_response(colour card, DC_motor *mL, DC_motor *mR);
+
+typedef union HomeStored {
+    unsigned int TimerCount[30];
+    colour card[30];
+} HomeStored;
+
+void motor_response(colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+
+colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24522,6 +24528,21 @@ void TxBufferedString(char *string);
 void sendTxBuf(void);
 # 15 "main.c" 2
 
+# 1 "./interrupts.h" 1
+
+
+
+
+
+
+
+unsigned int TimerFlag;
+
+
+void Interrupts_init(void);
+void __attribute__((picinterrupt(("low_priority")))) LowISR();
+# 16 "main.c" 2
+
 
 
 
@@ -24536,11 +24557,10 @@ void main(void) {
     color_click_init();
     initDCmotorsPWM();
     initUSART4();
+    Interrupts_init();
 
     TRISFbits.TRISF2=1;
     ANSELFbits.ANSELF2=0;
-
-
 
 
 
@@ -24570,50 +24590,89 @@ void main(void) {
 
 
 
+
+    colour card;
     char buf[150];
-    colour card = RED;
+
     unsigned int expected_values[3][9];
-    unsigned int normalised_values[3][9];
-    unsigned int master_closeness[9];
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-# 83 "main.c"
-    LATDbits.LATD4 = 0;
-    for(int i = 0; i<= 7; i++){
+    unsigned int clear_read = 0;
+
+    unsigned int TimerCount = 0;
+    unsigned int CardCount = 0;
+
+    HomeStored ReturnHomeArray;
+# 87 "main.c"
+    for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
-            _delay((unsigned long)((500)*(64000000/4000.0)));
         }
         LATDbits.LATD4 = 0;
-        _delay((unsigned long)((500)*(64000000/4000.0)));
-
-
-
-
+        collect_avg_readings(&red_read, &green_read, &blue_read);
+        expected_values[RED][i] = red_read;
+        expected_values[GREEN][i] = green_read;
+        expected_values[BLUE][i] = blue_read;
     }
-# 117 "main.c"
+        for (int i = 0; i <= 500; i++){
+        clear_read = color_read_Clear();
+    }
+
+    for(int i = 0; i <= 2; i++){
+        clear_read += color_read_Clear();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+    }
+
+    clear_read = clear_read/4;
+
+    sprintf(buf, "\n Expected clear: %d \n", clear_read);
+    sendStringSerial4(buf);
+
+    unsigned int clear_read_check = clear_read + 800;
+
+
+
+
+    fullSpeedAhead(&motorL, &motorR);
     while (1) {
 
-        while(PORTFbits.RF2){
-            LATDbits.LATD4 = 1;
-            LATFbits.LATF0 = 1;
+        if (TimerFlag == 1){
+            TimerCount += 1;
+            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
+            TimerFlag = 0;
         }
-        LATFbits.LATF0 = 0;
+        clear_read = color_read_Clear();
+        if (clear_read > clear_read_check){
+
+            ReturnHomeArray.TimerCount[CardCount] = TimerCount;
+            stop(&motorL, &motorR);
+            _delay((unsigned long)((2)*(64000000/4000.0)));
+
+            sprintf(buf, "Timercount %d \n", ReturnHomeArray.TimerCount[CardCount]);
+            sendStringSerial4(buf);
+            _delay((unsigned long)((2)*(64000000/4000.0)));
+
+            card = card_response(buf, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);
+            _delay((unsigned long)((2)*(64000000/4000.0)));
+            ReturnHomeArray.card[CardCount] = card;
+
+            CardCount += 1;
+
+            TimerCount = 0;
+            fullSpeedAhead(&motorL, &motorR);
+        }
+
+        red_read = color_read_Red();
+        blue_read = color_read_Blue();
+        green_read = color_read_Green();
+        clear_read = color_read_Clear();
 
 
-        collect_avg_readings(&red_read, &green_read, &blue_read);
-        sprintf(buf, "\n AVG: R %d, G %d, B %d \n", red_read, green_read, blue_read);
+        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
         sendStringSerial4(buf);
-
-        normalise_readings(buf, red_read, green_read, blue_read, expected_values, normalised_values);
-        make_master_closeness(buf, normalised_values,master_closeness);
-        card = determine_card(master_closeness);
-        sprintf(buf, "CARD %d \n", card);
-        sendStringSerial4(buf);
-
-
-
+        _delay((unsigned long)((500)*(64000000/4000.0)));
+         LATHbits.LATH3=!LATHbits.LATH3;
 
     }
 }

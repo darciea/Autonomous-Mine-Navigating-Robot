@@ -2156,14 +2156,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LEDsOn.c: 30:     TRISAbits.TRISA4 = 0;
 [e = . . _TRISAbits 0 4 -> -> 0 `i `uc ]
 "32
-[; ;LEDsOn.c: 32:     LATFbits.LATF7 = 0;
-[e = . . _LATFbits 0 7 -> -> 0 `i `uc ]
+[; ;LEDsOn.c: 32:     LATFbits.LATF7 = 1;
+[e = . . _LATFbits 0 7 -> -> 1 `i `uc ]
 "33
-[; ;LEDsOn.c: 33:     LATGbits.LATG1 = 0;
-[e = . . _LATGbits 0 1 -> -> 0 `i `uc ]
+[; ;LEDsOn.c: 33:     LATGbits.LATG1 = 1;
+[e = . . _LATGbits 0 1 -> -> 1 `i `uc ]
 "34
-[; ;LEDsOn.c: 34:     LATAbits.LATA4 = 0;
-[e = . . _LATAbits 0 4 -> -> 0 `i `uc ]
+[; ;LEDsOn.c: 34:     LATAbits.LATA4 = 1;
+[e = . . _LATAbits 0 4 -> -> 1 `i `uc ]
 "37
 [; ;LEDsOn.c: 37:     LATDbits.LATD4 = 0;
 [e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
@@ -2180,6 +2180,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LEDsOn.c: 41:     LATDbits.LATD3 = 0;
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "44
-[; ;LEDsOn.c: 44: }
+[; ;LEDsOn.c: 44:     TRISHbits.TRISH3 = 0;
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+"45
+[; ;LEDsOn.c: 45:     LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"46
+[; ;LEDsOn.c: 46:     TRISDbits.TRISD7 = 0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"47
+[; ;LEDsOn.c: 47:     LATDbits.LATD7=0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"48
+[; ;LEDsOn.c: 48: }
 [e :UE 2017 ]
 }
