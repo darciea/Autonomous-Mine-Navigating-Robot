@@ -3,29 +3,31 @@
 [d edition pro ]
 [d chip 18F67K40 ]
 [d frameptr 4065 ]
-"81 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+"83 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
 [e E14575 colour `uc
-RED 0
-GREEN 1
-BLUE 2
-YELLOW 3
-PINK 4
-ORANGE 5
-LIGHT_BLUE 6
-WHITE 7
-BLACK 8
+CLEAR 0
+RED 1
+GREEN 2
+BLUE 3
+YELLOW 4
+PINK 5
+ORANGE 6
+LIGHT_BLUE 7
+WHITE 8
+BLACK 9
 ]
-"71 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+"92 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
 [e E14551 colour `uc
-RED 0
-GREEN 1
-BLUE 2
-YELLOW 3
-PINK 4
-ORANGE 5
-LIGHT_BLUE 6
-WHITE 7
-BLACK 8
+CLEAR 0
+RED 1
+GREEN 2
+BLUE 3
+YELLOW 4
+PINK 5
+ORANGE 6
+LIGHT_BLUE 7
+WHITE 8
+BLACK 9
 ]
 "1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
 [v _abs abs `(i  1 e 2 0 ]
@@ -87,17 +89,21 @@ BLACK 8
 [v _color_read_Green color_read_Green `(ui  1 e 2 0 ]
 "57
 [v _color_read_Blue color_read_Blue `(ui  1 e 2 0 ]
-"25 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+"71
+[v _color_read_Clear color_read_Clear `(ui  1 e 2 0 ]
+"26 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+[v _clear_read_calibration clear_read_calibration `(v  1 e 1 0 ]
+"46
 [v _collect_avg_readings collect_avg_readings `(v  1 e 1 0 ]
-"64
+"85
 [v _normalise_readings normalise_readings `(v  1 e 1 0 ]
-"98
+"114
 [v _make_master_closeness make_master_closeness `(v  1 e 1 0 ]
-"108
+"125
 [v _determine_card determine_card `(E14551  1 e 1 0 ]
-"121
+"139
 [v _motor_response motor_response `(v  1 e 1 0 ]
-"205
+"224
 [v _card_response card_response `(v  1 e 1 0 ]
 "6 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
 [v _initDCmotorsPWM initDCmotorsPWM `(v  1 e 1 0 ]
@@ -157,7 +163,7 @@ BLACK 8
 [v _SSP2CLKPPS SSP2CLKPPS `VEuc  1 e 1 @3612 ]
 "3863
 [v _SSP2DATPPS SSP2DATPPS `VEuc  1 e 1 @3613 ]
-[s S1689 . 1 `uc 1 TX3IE 1 0 :1:0 
+[s S1714 . 1 `uc 1 TX3IE 1 0 :1:0 
 `uc 1 RC3IE 1 0 :1:1 
 `uc 1 TX4IE 1 0 :1:2 
 `uc 1 RC4IE 1 0 :1:3 
@@ -165,9 +171,9 @@ BLACK 8
 `uc 1 RC5IE 1 0 :1:5 
 ]
 "4820
-[u S1696 . 1 `S1689 1 . 1 0 ]
-[v _PIE4bits PIE4bits `VES1696  1 e 1 @3629 ]
-[s S1670 . 1 `uc 1 TX3IF 1 0 :1:0 
+[u S1721 . 1 `S1714 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES1721  1 e 1 @3629 ]
+[s S1695 . 1 `uc 1 TX3IF 1 0 :1:0 
 `uc 1 RC3IF 1 0 :1:1 
 `uc 1 TX4IF 1 0 :1:2 
 `uc 1 RC4IF 1 0 :1:3 
@@ -175,8 +181,8 @@ BLACK 8
 `uc 1 RC5IF 1 0 :1:5 
 ]
 "5333
-[u S1677 . 1 `S1670 1 . 1 0 ]
-[v _PIR4bits PIR4bits `VES1677  1 e 1 @3639 ]
+[u S1702 . 1 `S1695 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES1702  1 e 1 @3639 ]
 "7859
 [v _RC0PPS RC0PPS `VEuc  1 e 1 @3682 ]
 "8209
@@ -292,7 +298,7 @@ BLACK 8
 [v _SP4BRGL SP4BRGL `VEuc  1 e 1 @3813 ]
 "15904
 [v _SP4BRGH SP4BRGH `VEuc  1 e 1 @3814 ]
-[s S1649 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1674 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -302,9 +308,9 @@ BLACK 8
 `uc 1 SPEN 1 0 :1:7 
 ]
 "15964
-[u S1658 . 1 `S1649 1 . 1 0 ]
-[v _RC4STAbits RC4STAbits `VES1658  1 e 1 @3815 ]
-[s S1626 . 1 `uc 1 TX9D 1 0 :1:0 
+[u S1683 . 1 `S1674 1 . 1 0 ]
+[v _RC4STAbits RC4STAbits `VES1683  1 e 1 @3815 ]
+[s S1651 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -314,9 +320,9 @@ BLACK 8
 `uc 1 CSRC 1 0 :1:7 
 ]
 "16086
-[u S1635 . 1 `S1626 1 . 1 0 ]
-[v _TX4STAbits TX4STAbits `VES1635  1 e 1 @3816 ]
-[s S1605 . 1 `uc 1 ABDEN 1 0 :1:0 
+[u S1660 . 1 `S1651 1 . 1 0 ]
+[v _TX4STAbits TX4STAbits `VES1660  1 e 1 @3816 ]
+[s S1630 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -326,8 +332,8 @@ BLACK 8
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "16212
-[u S1614 . 1 `S1605 1 . 1 0 ]
-[v _BAUD4CONbits BAUD4CONbits `VES1614  1 e 1 @3817 ]
+[u S1639 . 1 `S1630 1 . 1 0 ]
+[v _BAUD4CONbits BAUD4CONbits `VES1639  1 e 1 @3817 ]
 "21099
 [v _CCPR4H CCPR4H `VEuc  1 e 1 @3873 ]
 [s S432 . 1 `uc 1 MODE 1 0 :4:0 
@@ -371,7 +377,7 @@ BLACK 8
 ]
 [u S454 . 1 `S432 1 . 1 0 `S331 1 . 1 0 `S443 1 . 1 0 `S449 1 . 1 0 ]
 [v _CCP3CONbits CCP3CONbits `VES454  1 e 1 @3878 ]
-[s S1340 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S1352 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -381,7 +387,7 @@ BLACK 8
 `uc 1 LATA7 1 0 :1:7 
 ]
 "28496
-[s S1349 . 1 `uc 1 LA0 1 0 :1:0 
+[s S1361 . 1 `uc 1 LA0 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 `uc 1 LA2 1 0 :1:2 
 `uc 1 LA3 1 0 :1:3 
@@ -390,8 +396,8 @@ BLACK 8
 `uc 1 LA6 1 0 :1:6 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S1358 . 1 `S1340 1 . 1 0 `S1349 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1358  1 e 1 @3961 ]
+[u S1370 . 1 `S1352 1 . 1 0 `S1361 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1370  1 e 1 @3961 ]
 [s S986 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
@@ -413,7 +419,7 @@ BLACK 8
 ]
 [u S1004 . 1 `S986 1 . 1 0 `S995 1 . 1 0 ]
 [v _LATDbits LATDbits `VES1004  1 e 1 @3964 ]
-[s S1086 . 1 `uc 1 LATF0 1 0 :1:0 
+[s S1095 . 1 `uc 1 LATF0 1 0 :1:0 
 `uc 1 LATF1 1 0 :1:1 
 `uc 1 LATF2 1 0 :1:2 
 `uc 1 LATF3 1 0 :1:3 
@@ -423,7 +429,7 @@ BLACK 8
 `uc 1 LATF7 1 0 :1:7 
 ]
 "29056
-[s S1095 . 1 `uc 1 LF0 1 0 :1:0 
+[s S1104 . 1 `uc 1 LF0 1 0 :1:0 
 `uc 1 LF1 1 0 :1:1 
 `uc 1 LF2 1 0 :1:2 
 `uc 1 LF3 1 0 :1:3 
@@ -432,9 +438,9 @@ BLACK 8
 `uc 1 LF6 1 0 :1:6 
 `uc 1 LF7 1 0 :1:7 
 ]
-[u S1104 . 1 `S1086 1 . 1 0 `S1095 1 . 1 0 ]
-[v _LATFbits LATFbits `VES1104  1 e 1 @3966 ]
-[s S1306 . 1 `uc 1 LATG0 1 0 :1:0 
+[u S1113 . 1 `S1095 1 . 1 0 `S1104 1 . 1 0 ]
+[v _LATFbits LATFbits `VES1113  1 e 1 @3966 ]
+[s S1318 . 1 `uc 1 LATG0 1 0 :1:0 
 `uc 1 LATG1 1 0 :1:1 
 `uc 1 LATG2 1 0 :1:2 
 `uc 1 LATG3 1 0 :1:3 
@@ -444,40 +450,40 @@ BLACK 8
 `uc 1 LATG7 1 0 :1:7 
 ]
 "29165
-[s S1315 . 1 `uc 1 LG0 1 0 :1:0 
+[s S1327 . 1 `uc 1 LG0 1 0 :1:0 
 `uc 1 LG1 1 0 :1:1 
 `uc 1 LG2 1 0 :1:2 
 `uc 1 LG3 1 0 :1:3 
 `uc 1 LG4 1 0 :1:4 
 ]
-[u S1321 . 1 `S1306 1 . 1 0 `S1315 1 . 1 0 ]
-[v _LATGbits LATGbits `VES1321  1 e 1 @3967 ]
-[s S1402 . 1 `uc 1 LATH0 1 0 :1:0 
+[u S1333 . 1 `S1318 1 . 1 0 `S1327 1 . 1 0 ]
+[v _LATGbits LATGbits `VES1333  1 e 1 @3967 ]
+[s S1414 . 1 `uc 1 LATH0 1 0 :1:0 
 `uc 1 LATH1 1 0 :1:1 
 `uc 1 LATH2 1 0 :1:2 
 `uc 1 LATH3 1 0 :1:3 
 ]
 "29265
-[s S1407 . 1 `uc 1 LH0 1 0 :1:0 
+[s S1419 . 1 `uc 1 LH0 1 0 :1:0 
 `uc 1 LH1 1 0 :1:1 
 `uc 1 LH2 1 0 :1:2 
 `uc 1 LH3 1 0 :1:3 
 ]
-[s S1412 . 1 `uc 1 . 1 0 :4:0 
+[s S1424 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LH4 1 0 :1:4 
 ]
-[s S1415 . 1 `uc 1 . 1 0 :5:0 
+[s S1427 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LH5 1 0 :1:5 
 ]
-[s S1418 . 1 `uc 1 . 1 0 :6:0 
+[s S1430 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LH6 1 0 :1:6 
 ]
-[s S1421 . 1 `uc 1 . 1 0 :7:0 
+[s S1433 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LH7 1 0 :1:7 
 ]
-[u S1424 . 1 `S1402 1 . 1 0 `S1407 1 . 1 0 `S1412 1 . 1 0 `S1415 1 . 1 0 `S1418 1 . 1 0 `S1421 1 . 1 0 ]
-[v _LATHbits LATHbits `VES1424  1 e 1 @3968 ]
-[s S1263 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S1436 . 1 `S1414 1 . 1 0 `S1419 1 . 1 0 `S1424 1 . 1 0 `S1427 1 . 1 0 `S1430 1 . 1 0 `S1433 1 . 1 0 ]
+[v _LATHbits LATHbits `VES1436  1 e 1 @3968 ]
+[s S1275 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -487,8 +493,8 @@ BLACK 8
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "29352
-[u S1272 . 1 `S1263 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES1272  1 e 1 @3969 ]
+[u S1284 . 1 `S1275 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES1284  1 e 1 @3969 ]
 [s S102 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
@@ -549,15 +555,15 @@ BLACK 8
 "30019
 [u S132 . 1 `S123 1 . 1 0 ]
 [v _TRISGbits TRISGbits `VES132  1 e 1 @3975 ]
-[s S1214 . 1 `uc 1 TRISH0 1 0 :1:0 
+[s S1226 . 1 `uc 1 TRISH0 1 0 :1:0 
 `uc 1 TRISH1 1 0 :1:1 
 `uc 1 TRISH2 1 0 :1:2 
 `uc 1 TRISH3 1 0 :1:3 
 ]
 "30072
-[u S1219 . 1 `S1214 1 . 1 0 ]
-[v _TRISHbits TRISHbits `VES1219  1 e 1 @3976 ]
-[s S1036 . 1 `uc 1 RF0 1 0 :1:0 
+[u S1231 . 1 `S1226 1 . 1 0 ]
+[v _TRISHbits TRISHbits `VES1231  1 e 1 @3976 ]
+[s S1037 . 1 `uc 1 RF0 1 0 :1:0 
 `uc 1 RF1 1 0 :1:1 
 `uc 1 RF2 1 0 :1:2 
 `uc 1 RF3 1 0 :1:3 
@@ -567,12 +573,12 @@ BLACK 8
 `uc 1 RF7 1 0 :1:7 
 ]
 "30602
-[s S1045 . 1 `uc 1 . 1 0 :1:0 
+[s S1046 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 C2OUTF 1 0 :1:1 
 `uc 1 C1OUTF 1 0 :1:2 
 ]
-[u S1049 . 1 `S1036 1 . 1 0 `S1045 1 . 1 0 ]
-[v _PORTFbits PORTFbits `VES1049  1 e 1 @3982 ]
+[u S1050 . 1 `S1037 1 . 1 0 `S1046 1 . 1 0 ]
+[v _PORTFbits PORTFbits `VES1050  1 e 1 @3982 ]
 "34200
 [v _CCPR2H CCPR2H `VEuc  1 e 1 @4006 ]
 [s S325 . 1 `uc 1 MODE 1 0 :4:0 
@@ -742,25 +748,29 @@ BLACK 8
 "20 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"81
-[v main@i i `E14575  1 a 1 211 ]
+"83
+[v main@i i `E14575  1 a 1 231 ]
 "64
 [v main@buf buf `[150]uc  1 a 150 0 ]
-"69
-[v main@expected_values expected_values `[3][9]ui  1 a 54 150 ]
+"71
+[v main@expected_values expected_values `[4][9]ui  1 a 72 150 ]
 [s S532 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
 "42
-[v main@motorR motorR `S532  1 a 9 221 ]
-[v main@motorL motorL `S532  1 a 9 212 ]
+[v main@motorR motorR `S532  1 a 9 243 ]
+[v main@motorL motorL `S532  1 a 9 234 ]
+"69
+[v main@clear_read clear_read `ui  1 a 2 232 ]
 "68
-[v main@blue_read blue_read `ui  1 a 2 209 ]
+[v main@blue_read blue_read `ui  1 a 2 229 ]
 "67
-[v main@green_read green_read `ui  1 a 2 207 ]
+[v main@green_read green_read `ui  1 a 2 227 ]
 "66
-[v main@red_read red_read `ui  1 a 2 205 ]
+[v main@red_read red_read `ui  1 a 2 225 ]
+"70
+[v main@clear_read_check clear_read_check `ui  1 a 2 222 ]
 "40
-[v main@PWMcycle PWMcycle `uc  1 a 1 204 ]
-"125
+[v main@PWMcycle PWMcycle `uc  1 a 1 224 ]
+"130
 } 0
 "6 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
 [v _initUSART4 initUSART4 `(v  1 e 1 0 ]
@@ -791,43 +801,201 @@ BLACK 8
 {
 "20
 } 0
-"205 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+"26 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+[v _clear_read_calibration clear_read_calibration `(v  1 e 1 0 ]
+{
+"32
+[v clear_read_calibration@i_1550 i `i  1 a 2 35 ]
+"28
+[v clear_read_calibration@i i `i  1 a 2 33 ]
+"26
+[v clear_read_calibration@buf buf `*.39uc  1 p 2 27 ]
+[v clear_read_calibration@clear_read clear_read `*.39ui  1 p 2 29 ]
+[v clear_read_calibration@clear_read_check clear_read_check `*.39ui  1 p 2 31 ]
+"44
+} 0
+"224
 [v _card_response card_response `(v  1 e 1 0 ]
 {
-"207
-[v card_response@normalised_values normalised_values `[3][9]ui  1 a 54 59 ]
-"208
-[v card_response@master_closeness master_closeness `[9]ui  1 a 18 113 ]
-"206
-[v card_response@card card `E14551  1 a 1 131 ]
-"205
-[v card_response@buf buf `*.39uc  1 p 2 45 ]
-[v card_response@red_read red_read `*.39ui  1 p 2 47 ]
-[v card_response@green_read green_read `*.39ui  1 p 2 49 ]
-[v card_response@blue_read blue_read `*.39ui  1 p 2 51 ]
-[v card_response@expected_values expected_values `*.39[9]ui  1 p 2 53 ]
+"228
+[v card_response@normalised_values normalised_values `[4][9]ui  1 a 72 43 ]
+"229
+[v card_response@master_closeness master_closeness `[9]ui  1 a 18 115 ]
+"227
+[v card_response@card card `E14551  1 a 1 133 ]
+"224
+[v card_response@buf buf `*.39uc  1 p 2 27 ]
+[v card_response@clear_read clear_read `*.39ui  1 p 2 29 ]
+[v card_response@red_read red_read `*.39ui  1 p 2 31 ]
+[v card_response@green_read green_read `*.39ui  1 p 2 33 ]
+[v card_response@blue_read blue_read `*.39ui  1 p 2 35 ]
+[v card_response@expected_values expected_values `*.39[9]ui  1 p 2 37 ]
 [s S532 DC_motor 9 `uc 1 power 1 0 `uc 1 direction 1 1 `uc 1 brakemode 1 2 `ui 1 PWMperiod 2 3 `*.39uc 1 posDutyHighByte 2 5 `*.39uc 1 negDutyHighByte 2 7 ]
-[v card_response@mL mL `*.39S532  1 p 2 55 ]
-[v card_response@mR mR `*.39S532  1 p 2 57 ]
-"219
+[v card_response@mL mL `*.39S532  1 p 2 39 ]
+[v card_response@mR mR `*.39S532  1 p 2 41 ]
+"244
 } 0
-"64
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+[v _sprintf sprintf `(i  1 e 2 0 ]
+{
+[u S2232 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+"13
+[s S2235 _IO_FILE 11 `S2232 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S2235  1 a 11 16 ]
+"12
+[v sprintf@ap ap `[1]*.39v  1 a 2 14 ]
+"9
+[v sprintf@s s `*.39uc  1 p 2 0 ]
+[v sprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
+"23
+} 0
+"1520 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+[v _vfprintf vfprintf `(i  1 e 2 0 ]
+{
+"1523
+[v vfprintf@cfmt cfmt `*.32uc  1 a 2 86 ]
+[s S2267 _IO_FILE 0 ]
+"1520
+[v vfprintf@fp fp `*.39S2267  1 p 2 80 ]
+[v vfprintf@fmt fmt `*.32Cuc  1 p 2 82 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 84 ]
+"1543
+} 0
+"1007
+[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
+{
+[u S2281 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
+"1016
+[v vfpfcnvrt@convarg convarg `S2281  1 a 8 70 ]
+"1009
+[v vfpfcnvrt@cp cp `*.32uc  1 a 2 78 ]
+[s S2267 _IO_FILE 0 ]
+"1007
+[v vfpfcnvrt@fp fp `*.39S2267  1 p 2 62 ]
+[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 64 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 66 ]
+"1517
+} 0
+"443
+[v _dtoa dtoa `(v  1 s 1 dtoa ]
+{
+"447
+[v dtoa@n n `o  1 a 8 51 ]
+"446
+[v dtoa@i i `i  1 a 2 59 ]
+[v dtoa@w w `i  1 a 2 49 ]
+[v dtoa@p p `i  1 a 2 47 ]
+"445
+[v dtoa@s s `uc  1 a 1 61 ]
+[s S2267 _IO_FILE 0 ]
+"443
+[v dtoa@fp fp `*.39S2267  1 p 2 27 ]
+[v dtoa@d d `o  1 p 8 29 ]
+"502
+} 0
+"133
+[v _pad pad `(v  1 s 1 pad ]
+{
+"135
+[v pad@w w `i  1 a 2 25 ]
+[v pad@i i `i  1 a 2 23 ]
+[s S2267 _IO_FILE 0 ]
+"133
+[v pad@fp fp `*.39S2267  1 p 2 16 ]
+[v pad@buf buf `*.39uc  1 p 2 18 ]
+[v pad@p p `i  1 p 2 20 ]
+"164
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+[v _fputs fputs `(i  1 e 2 0 ]
+{
+"11
+[v fputs@i i `i  1 a 2 14 ]
+"10
+[v fputs@c c `uc  1 a 1 13 ]
+"8
+[v fputs@s s `*.39Cuc  1 p 2 9 ]
+[u S2232 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2235 _IO_FILE 11 `S2232 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputs@fp fp `*.39S2235  1 p 2 11 ]
+"19
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+[v _fputc fputc `(i  1 e 2 0 ]
+{
+[v fputc@c c `i  1 p 2 0 ]
+[u S2232 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
+[s S2235 _IO_FILE 11 `S2232 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.39S2235  1 p 2 2 ]
+"24
+} 0
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
+[v _putch putch `(v  1 e 1 0 ]
+{
+"9
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+[v ___aomod __aomod `(o  1 e 8 0 ]
+{
+"12
+[v ___aomod@sign sign `uc  1 a 1 17 ]
+[v ___aomod@counter counter `uc  1 a 1 16 ]
+"9
+[v ___aomod@dividend dividend `o  1 p 8 0 ]
+[v ___aomod@divisor divisor `o  1 p 8 8 ]
+"36
+} 0
+"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+[v ___aodiv __aodiv `(o  1 e 8 0 ]
+{
+"12
+[v ___aodiv@quotient quotient `o  1 a 8 18 ]
+"13
+[v ___aodiv@sign sign `uc  1 a 1 17 ]
+[v ___aodiv@counter counter `uc  1 a 1 16 ]
+"9
+[v ___aodiv@dividend dividend `o  1 p 8 0 ]
+[v ___aodiv@divisor divisor `o  1 p 8 8 ]
+"43
+} 0
+"39 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+[v _sendStringSerial4 sendStringSerial4 `(v  1 e 1 0 ]
+{
+[v sendStringSerial4@string string `*.39uc  1 p 2 1 ]
+"43
+} 0
+"32
+[v _sendCharSerial4 sendCharSerial4 `(v  1 e 1 0 ]
+{
+[v sendCharSerial4@charToSend charToSend `uc  1 a 1 wreg ]
+[v sendCharSerial4@charToSend charToSend `uc  1 a 1 wreg ]
+[v sendCharSerial4@charToSend charToSend `uc  1 a 1 0 ]
+"35
+} 0
+"85 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
 [v _normalise_readings normalise_readings `(v  1 e 1 0 ]
 {
-"74
-[v normalise_readings@difference difference `ui  1 a 2 40 ]
-"71
-[v normalise_readings@i i `E14551  1 a 1 42 ]
-"64
-[v normalise_readings@buf buf `*.39uc  1 p 2 22 ]
-[v normalise_readings@red_read red_read `ui  1 p 2 24 ]
-[v normalise_readings@green_read green_read `ui  1 p 2 26 ]
-[v normalise_readings@blue_read blue_read `ui  1 p 2 28 ]
-[v normalise_readings@expected_values expected_values `*.39[9]ui  1 p 2 30 ]
-[v normalise_readings@normalised_values normalised_values `*.39[9]ui  1 p 2 32 ]
 "96
+[v normalise_readings@difference difference `ui  1 a 2 44 ]
+"92
+[v normalise_readings@i i `E14551  1 a 1 46 ]
+"85
+[v normalise_readings@buf buf `*.39uc  1 p 2 22 ]
+[v normalise_readings@clear_read clear_read `ui  1 p 2 24 ]
+[v normalise_readings@red_read red_read `ui  1 p 2 26 ]
+[v normalise_readings@green_read green_read `ui  1 p 2 28 ]
+[v normalise_readings@blue_read blue_read `ui  1 p 2 30 ]
+[v normalise_readings@expected_values expected_values `*.39[9]ui  1 p 2 32 ]
+[v normalise_readings@normalised_values normalised_values `*.39[9]ui  1 p 2 34 ]
+"112
 } 0
-"121
+"1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
+[v _abs abs `(i  1 e 2 0 ]
+{
+[v abs@a a `i  1 p 2 18 ]
+"4
+} 0
+"139 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
 [v _motor_response motor_response `(v  1 e 1 0 ]
 {
 [v motor_response@card card `E14551  1 a 1 wreg ]
@@ -836,7 +1004,7 @@ BLACK 8
 [v motor_response@mL mL `*.39S532  1 p 2 27 ]
 [v motor_response@mR mR `*.39S532  1 p 2 29 ]
 [v motor_response@card card `E14551  1 a 1 33 ]
-"203
+"222
 } 0
 "116 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
 [v _turnRight45 turnRight45 `(v  1 e 1 0 ]
@@ -900,189 +1068,61 @@ BLACK 8
 [v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"98 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwdiv@quotient quotient `ui  1 a 2 10 ]
+"11
+[v ___lwdiv@counter counter `uc  1 a 1 12 ]
+"7
+[v ___lwdiv@dividend dividend `ui  1 p 2 6 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 8 ]
+"30
+} 0
+"114 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
 [v _make_master_closeness make_master_closeness `(v  1 e 1 0 ]
 {
-"99
-[v make_master_closeness@i i `E14551  1 a 1 94 ]
-"98
-[v make_master_closeness@buf buf `*.39uc  1 p 2 88 ]
-[v make_master_closeness@normalised_values normalised_values `*.39[9]ui  1 p 2 90 ]
-[v make_master_closeness@master_closeness master_closeness `*.39ui  1 p 2 92 ]
-"106
+"115
+[v make_master_closeness@i i `E14551  1 a 1 36 ]
+"114
+[v make_master_closeness@buf buf `*.39uc  1 p 2 0 ]
+[v make_master_closeness@normalised_values normalised_values `*.39[9]ui  1 p 2 2 ]
+[v make_master_closeness@master_closeness master_closeness `*.39ui  1 p 2 4 ]
+"123
 } 0
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-[v _sprintf sprintf `(i  1 e 2 0 ]
-{
-[u S2207 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-"13
-[s S2210 _IO_FILE 11 `S2207 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S2210  1 a 11 14 ]
-"12
-[v sprintf@ap ap `[1]*.39v  1 a 2 12 ]
-"9
-[v sprintf@s s `*.39uc  1 p 2 0 ]
-[v sprintf@fmt fmt `*.32Cuc  1 p 2 2 ]
-"23
-} 0
-"1520 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-[v _vfprintf vfprintf `(i  1 e 2 0 ]
-{
-"1523
-[v vfprintf@cfmt cfmt `*.32uc  1 a 2 86 ]
-[s S2242 _IO_FILE 0 ]
-"1520
-[v vfprintf@fp fp `*.39S2242  1 p 2 80 ]
-[v vfprintf@fmt fmt `*.32Cuc  1 p 2 82 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 84 ]
-"1543
-} 0
-"1007
-[v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
-{
-[u S2256 . 8 `o 1 ll 8 0 `uo 1 llu 8 0 `*.2v 1 vp 3 0 `d 1 f 4 0 ]
-"1016
-[v vfpfcnvrt@convarg convarg `S2256  1 a 8 70 ]
-"1009
-[v vfpfcnvrt@cp cp `*.32uc  1 a 2 78 ]
-[s S2242 _IO_FILE 0 ]
-"1007
-[v vfpfcnvrt@fp fp `*.39S2242  1 p 2 62 ]
-[v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 64 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 66 ]
-"1517
-} 0
-"443
-[v _dtoa dtoa `(v  1 s 1 dtoa ]
-{
-"447
-[v dtoa@n n `o  1 a 8 51 ]
-"446
-[v dtoa@i i `i  1 a 2 59 ]
-[v dtoa@w w `i  1 a 2 49 ]
-[v dtoa@p p `i  1 a 2 47 ]
-"445
-[v dtoa@s s `uc  1 a 1 61 ]
-[s S2242 _IO_FILE 0 ]
-"443
-[v dtoa@fp fp `*.39S2242  1 p 2 27 ]
-[v dtoa@d d `o  1 p 8 29 ]
-"502
-} 0
-"133
-[v _pad pad `(v  1 s 1 pad ]
-{
-"135
-[v pad@w w `i  1 a 2 25 ]
-[v pad@i i `i  1 a 2 23 ]
-[s S2242 _IO_FILE 0 ]
-"133
-[v pad@fp fp `*.39S2242  1 p 2 16 ]
-[v pad@buf buf `*.39uc  1 p 2 18 ]
-[v pad@p p `i  1 p 2 20 ]
-"164
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-[v _fputs fputs `(i  1 e 2 0 ]
-{
-"11
-[v fputs@i i `i  1 a 2 14 ]
-"10
-[v fputs@c c `uc  1 a 1 13 ]
-"8
-[v fputs@s s `*.39Cuc  1 p 2 9 ]
-[u S2207 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2210 _IO_FILE 11 `S2207 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputs@fp fp `*.39S2210  1 p 2 11 ]
-"19
-} 0
-"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-[v _fputc fputc `(i  1 e 2 0 ]
-{
-[v fputc@c c `i  1 p 2 0 ]
-[u S2207 . 3 `*.2uc 1 buffer 3 0 `*.2Cuc 1 source 3 0 ]
-[s S2210 _IO_FILE 11 `S2207 1 . 3 0 `i 1 count 2 3 `[2]uc 1 ungetbuf 2 5 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.39S2210  1 p 2 2 ]
-"24
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
-[v _putch putch `(v  1 e 1 0 ]
-{
-"9
-} 0
-"1 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
-[v _abs abs `(i  1 e 2 0 ]
-{
-[v abs@a a `i  1 p 2 18 ]
-"4
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-[v ___aomod __aomod `(o  1 e 8 0 ]
-{
-"12
-[v ___aomod@sign sign `uc  1 a 1 17 ]
-[v ___aomod@counter counter `uc  1 a 1 16 ]
-"9
-[v ___aomod@dividend dividend `o  1 p 8 0 ]
-[v ___aomod@divisor divisor `o  1 p 8 8 ]
-"36
-} 0
-"9 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-[v ___aodiv __aodiv `(o  1 e 8 0 ]
-{
-"12
-[v ___aodiv@quotient quotient `o  1 a 8 18 ]
-"13
-[v ___aodiv@sign sign `uc  1 a 1 17 ]
-[v ___aodiv@counter counter `uc  1 a 1 16 ]
-"9
-[v ___aodiv@dividend dividend `o  1 p 8 0 ]
-[v ___aodiv@divisor divisor `o  1 p 8 8 ]
-"43
-} 0
-"39 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-[v _sendStringSerial4 sendStringSerial4 `(v  1 e 1 0 ]
-{
-[v sendStringSerial4@string string `*.39uc  1 p 2 1 ]
-"43
-} 0
-"32
-[v _sendCharSerial4 sendCharSerial4 `(v  1 e 1 0 ]
-{
-[v sendCharSerial4@charToSend charToSend `uc  1 a 1 wreg ]
-[v sendCharSerial4@charToSend charToSend `uc  1 a 1 wreg ]
-[v sendCharSerial4@charToSend charToSend `uc  1 a 1 0 ]
-"35
-} 0
-"108 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+"125
 [v _determine_card determine_card `(E14551  1 e 1 0 ]
 {
-"111
+"129
 [v determine_card@i i `E14551  1 a 1 9 ]
-"110
+"128
 [v determine_card@current_smallest current_smallest `ui  1 a 2 6 ]
-"109
+"127
 [v determine_card@predicted_colour predicted_colour `E14551  1 a 1 8 ]
-"108
+"125
 [v determine_card@master_closeness master_closeness `*.39ui  1 p 2 0 ]
-"118
+"136
 } 0
-"25
+"46
 [v _collect_avg_readings collect_avg_readings `(v  1 e 1 0 ]
 {
-"53
-[v collect_avg_readings@i_1540 i `i  1 a 2 27 ]
-"44
-[v collect_avg_readings@i_1539 i `i  1 a 2 25 ]
-"35
-[v collect_avg_readings@i_1538 i `i  1 a 2 23 ]
-"29
+"77
+[v collect_avg_readings@i_1564 i `i  1 a 2 29 ]
+"71
+[v collect_avg_readings@i_1563 i `i  1 a 2 27 ]
+"65
+[v collect_avg_readings@i_1562 i `i  1 a 2 25 ]
+"59
+[v collect_avg_readings@i_1561 i `i  1 a 2 23 ]
+"50
 [v collect_avg_readings@i i `i  1 a 2 21 ]
-"25
+"46
+[v collect_avg_readings@clear_read clear_read `*.39ui  1 p 2 11 ]
 [v collect_avg_readings@red_read red_read `*.39ui  1 p 2 13 ]
 [v collect_avg_readings@green_read green_read `*.39ui  1 p 2 15 ]
 [v collect_avg_readings@blue_read blue_read `*.39ui  1 p 2 17 ]
-"62
+"83
 } 0
 "29 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
 [v _color_read_Red color_read_Red `(ui  1 e 2 0 ]
@@ -1097,6 +1137,13 @@ BLACK 8
 "45
 [v color_read_Green@tmp tmp `ui  1 a 2 9 ]
 "55
+} 0
+"71
+[v _color_read_Clear color_read_Clear `(ui  1 e 2 0 ]
+{
+"73
+[v color_read_Clear@tmp tmp `ui  1 a 2 9 ]
+"83
 } 0
 "57
 [v _color_read_Blue color_read_Blue `(ui  1 e 2 0 ]
@@ -1145,18 +1192,6 @@ BLACK 8
 [v _I2C_2_Master_Idle I2C_2_Master_Idle `(v  1 e 1 0 ]
 {
 "25
-} 0
-"7 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwdiv@quotient quotient `ui  1 a 2 10 ]
-"11
-[v ___lwdiv@counter counter `uc  1 a 1 12 ]
-"7
-[v ___lwdiv@dividend dividend `ui  1 p 2 6 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 8 ]
-"30
 } 0
 "18 C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
 [v _LEDSon_init LEDSon_init `(v  1 e 1 0 ]

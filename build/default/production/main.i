@@ -24479,16 +24479,17 @@ void LEDSon_init(void);
 
 # 1 "./colour_identify.h" 1
 # 11 "./colour_identify.h"
-typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
+typedef enum colour{CLEAR, RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
-void collect_avg_readings( unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
-void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
+void clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
+void collect_avg_readings(unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
+void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]);
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]);
 colour determine_card(unsigned int master_closeness[]);
 
 void motor_response(colour card, DC_motor *mL, DC_motor *mR);
 
-void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
+void card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
 
 void Interrupts_init(void);
 void __attribute__((picinterrupt(("high_priority")))) HighISR();
@@ -24577,8 +24578,10 @@ void main(void) {
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-    unsigned int expected_values[3][9];
-# 80 "main.c"
+    unsigned int clear_read = 0;
+    unsigned int clear_read_check = 0;
+    unsigned int expected_values[4][9];
+# 82 "main.c"
     LATDbits.LATD4 = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
@@ -24586,15 +24589,18 @@ void main(void) {
         }
         LATDbits.LATD4 = 0;
         _delay((unsigned long)((500)*(64000000/4000.0)));
-        collect_avg_readings(&red_read, &green_read, &blue_read);
+        collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
+        expected_values[CLEAR][i] = clear_read;
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read;
-        sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i);
         sendStringSerial4(buf);
     }
-# 114 "main.c"
+    clear_read_calibration(buf, &clear_read, &clear_read_check);
+# 118 "main.c"
     while (1) {
+
 
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
@@ -24602,7 +24608,7 @@ void main(void) {
         }
         LATFbits.LATF0 = 0;
 
-        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
+        card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
 
     }
 }

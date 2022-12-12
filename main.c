@@ -66,7 +66,9 @@ void main(void) {
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
-    unsigned int expected_values[3][9];// = {{14500, 1950, 2850},{8885, 10350, 5350},{2300, 2600, 2750}};
+    unsigned int clear_read = 0;
+    unsigned int clear_read_check = 0;
+    unsigned int expected_values[4][9];
     
     
     /********************************************//**
@@ -84,13 +86,15 @@ void main(void) {
         }
         BRAKE = 0;
         __delay_ms(500);
-        collect_avg_readings(&red_read, &green_read, &blue_read);
+        collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
+        expected_values[CLEAR][i] = clear_read;
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read; 
-        sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i);
         sendStringSerial4(buf); 
     }
+    clear_read_calibration(buf, &clear_read, &clear_read_check);
     
     /********************************************//**
     *  Ideal main function code
@@ -120,7 +124,7 @@ void main(void) {
         }
         LEFT = 0;
            
-        card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
+        card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
         
     }
 }

@@ -22,39 +22,67 @@ void __interrupt(high_priority) HighISR()
     }
 }
  */
-void collect_avg_readings(/*char *buf, */unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
+
+void clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check){
+    
+    for (int i = 0; i <= 500; i++){
+        *clear_read = color_read_Clear();
+    } 
+    
+    for(int i = 0; i <= 2; i++){
+        *clear_read += color_read_Clear();
+        __delay_ms(200);   
+    }
+    
+    *clear_read = *clear_read/4;
+    
+    sprintf(buf, "\n Expected clear: %d \n", clear_read);
+    sendStringSerial4(buf);
+    
+    *clear_read_check = *clear_read + 800;
+    
+}
+
+void collect_avg_readings(unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read)
 {   
     //take ~500 readings to allow colour readings to stabilise before starting to take the average
     
     for (int i = 0; i <= 500; i++){
+        *clear_read = color_read_Clear();
         *red_read = color_read_Red();
         *green_read = color_read_Green();
         *blue_read = color_read_Blue();
     } 
 
-    //for each measured colour (Red Green Blue) take three readings and average them, and store them in the appropriate location
+    //for each color sensor take three readings and average them, and store them in the appropriate location
+    
+    for(int i = 0; i <= 2; i++){
+        *clear_read += color_read_Clear();
+        __delay_ms(200);   
+    }
+    *clear_read = *clear_read/4;
 
     for(int i = 0; i <= 2; i++){
         *red_read += color_read_Red();
         __delay_ms(200);   
     }
-    *red_read = *red_read/3;
+    *red_read = *red_read/4;
     
     for(int i = 0; i <= 2; i++){
         *green_read += color_read_Green();
         __delay_ms(200);
     }
-    *green_read = *green_read/3;
+    *green_read = *green_read/4;
 
     for(int i = 0; i <= 2; i++){
         *blue_read += color_read_Blue();
         __delay_ms(200);
     }
-    *blue_read = *blue_read/3;
+    *blue_read = *blue_read/4;
         
 }
 
-void normalise_readings(char *buf, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]){   
+void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]){   
     //for each colourcard: (comparing our collected values against each expected reading for each colour)
         //for each reading (Red, Green, Blue):
             //calculation done is (absolute value of the difference between measured and expected value)/expected value
@@ -64,8 +92,12 @@ void normalise_readings(char *buf, unsigned int red_read, unsigned int green_rea
     for(colour i = RED; i<= BLACK; i++){
         //difference is just a temporary variable for performing the calculations
         
+        //check the clear readings against the expected readings and express as a percentage
+        unsigned int difference = abs(clear_read - expected_values[CLEAR][i]);
+        normalised_values[CLEAR][i] = (difference*100) / expected_values[CLEAR][i];
+        
         //check the red readings against the expected readings and express as a percentage
-        unsigned int difference = abs(red_read - expected_values[RED][i]);
+        difference = abs(red_read - expected_values[RED][i]);
         normalised_values[RED][i] = (difference*100) / expected_values[RED][i];
         
         //check the green readings against the expected readings and express as a percentage
@@ -82,7 +114,7 @@ void normalise_readings(char *buf, unsigned int red_read, unsigned int green_rea
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
     for(colour i = RED; i<=BLACK; i++){
         //for each colour card, find the average difference per colourcard and store it in the array master_closeness
-        master_closeness[i] = (normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i])/3;
+        master_closeness[i] = (normalised_values[CLEAR][i] + normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i])/4;
         //sprintf(buf, "MC Avg: normRED %d, normGREEN %d, normBLUE %d, master %d \n", normalised_values[RED][i], normalised_values[GREEN][i],normalised_values[BLUE][i], master_closeness[i]);
         //sendStringSerial4(buf);
         //__delay_ms(200);
@@ -189,20 +221,20 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
     
 } 
 
-void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR) {
+void card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR) {
     //this function combines the workflow of the functions needed to determine and respond to the different coloured cards
     
     colour card  = RED;
-    unsigned int normalised_values[3][9];
+    unsigned int normalised_values[4][9];
     unsigned int master_closeness[9];
         
-    collect_avg_readings(red_read, green_read, blue_read);
-    sprintf(buf, "\n AVG: R %d, G %d, B %d \n", *red_read, *green_read, *blue_read);
+    collect_avg_readings(clear_read, red_read, green_read, blue_read);
+    sprintf(buf, "\n AVG: Clear %d, R %d, G %d, B %d \n", *clear_read, *red_read, *green_read, *blue_read);
     sendStringSerial4(buf);  
     
-    normalise_readings(buf, *red_read, *green_read, *blue_read, expected_values, normalised_values);
+    normalise_readings(buf, *clear_read, *red_read, *green_read, *blue_read, expected_values, normalised_values);
     
-    make_master_closeness(buf, normalised_values,master_closeness);
+    make_master_closeness(buf, normalised_values, master_closeness);
     
     card = determine_card(master_closeness);
     sprintf(buf, "CARD %d \n", card);
