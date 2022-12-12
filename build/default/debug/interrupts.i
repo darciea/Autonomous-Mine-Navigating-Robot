@@ -24694,6 +24694,7 @@ void Interrupts_init(void)
     INTCONbits.INT1EDG = 0;
     INTCONbits.PEIE=1;
     INTCONbits.IPEN = 1;
+    PIR0bits.INT1IF = 0;
 # 35 "interrupts.c"
     INTCONbits.GIEL = 1;
     INTCONbits.GIEH=1;}
@@ -24703,7 +24704,7 @@ void Interrupts_init(void)
 void __attribute__((picinterrupt(("high_priority")))) HighISR()
 {
 
-    if(PIR0bits.INT1IF == 1&& response_in_progress == 0) {
+    if(PIR0bits.INT1IF == 1 && response_in_progress == 0) {
         card_detected = 1;
         LATDbits.LATD7=1;
         _delay((unsigned long)((50)*(64000000/4000.0)));
