@@ -23,19 +23,19 @@ void collect_avg_readings(unsigned int *red_read, unsigned int *green_read, unsi
         *red_read += color_read_Red();
         __delay_ms(200);   
     }
-    *red_read = *red_read/3;
+    *red_read = *red_read/4;
     
     for(int i = 0; i <= 2; i++){
         *green_read += color_read_Green();
         __delay_ms(200);
     }
-    *green_read = *green_read/3;
+    *green_read = *green_read/4;
 
     for(int i = 0; i <= 2; i++){
         *blue_read += color_read_Blue();
         __delay_ms(200);
     }
-    *blue_read = *blue_read/3;
+    *blue_read = *blue_read/4;
         
 }
 

@@ -24608,7 +24608,30 @@ void main(void) {
         sprintf(buf, "\n EXPECTED: R %d, G %d, B %d  CARD: %d \n", red_read, green_read, blue_read, i);
         sendStringSerial4(buf);
     }
-# 128 "main.c"
+
+    while(PORTFbits.RF2){
+            LATDbits.LATD4 = 1;
+            LATHbits.LATH0 = 1;
+        }
+    for (int i = 0; i <= 500; i++){
+        clear_read = color_read_Clear();
+    }
+    for(int i = 0; i <= 2; i++){
+        clear_read += color_read_Clear();
+        _delay((unsigned long)((200)*(64000000/4000.0)));
+    }
+    clear_read = clear_read/4;
+
+    sprintf(buf, "\n Expected clear: %d \n", clear_read);
+    sendStringSerial4(buf);
+
+    unsigned int clear_read_check = clear_read + 200;
+
+    while(PORTFbits.RF2){
+            LATDbits.LATD4 = 1;
+            LATFbits.LATF0 = 1;
+        }
+# 150 "main.c"
     LATHbits.LATH3=0;
     TRISHbits.TRISH3=0;
 
@@ -24616,20 +24639,7 @@ void main(void) {
     TRISDbits.TRISD7=0;
 
     while (1) {
-
-
-        red_read = color_read_Red();
-        blue_read = color_read_Blue();
-        green_read = color_read_Green();
-        clear_read = color_read_Clear();
-
-
-        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
-        sendStringSerial4(buf);
-        _delay((unsigned long)((100)*(64000000/4000.0)));
-        LATHbits.LATH3=!LATHbits.LATH3;
-
-
+# 171 "main.c"
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
             LATFbits.LATF0 = 1;

@@ -136,6 +136,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29265
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29265: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
 [v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
+"28 ./color.h
+[; ;./color.h: 28: unsigned int color_read_Clear(void);
+[v _color_read_Clear `(ui ~T0 @X0 0 ef ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"29035 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29035:     struct {
+[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
+"29045
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29045:     struct {
+[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
+"29034
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29034: typedef union {
+[u S1354 `S1355 1 `S1356 1 ]
+[n S1354 . . . ]
+"29056
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29056: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
+[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
 "30065
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 30065:     struct {
 [s S1392 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -158,37 +180,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29718
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29718: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF84)));
 [v _TRISDbits `VS1379 ~T0 @X0 0 e@3972 ]
-"25 ./color.h
-[; ;./color.h: 25: unsigned int color_read_Red(void);
-[v _color_read_Red `(ui ~T0 @X0 0 ef ]
-"27
-[; ;./color.h: 27: unsigned int color_read_Blue(void);
-[v _color_read_Blue `(ui ~T0 @X0 0 ef ]
-"26
-[; ;./color.h: 26: unsigned int color_read_Green(void);
-[v _color_read_Green `(ui ~T0 @X0 0 ef ]
-"28
-[; ;./color.h: 28: unsigned int color_read_Clear(void);
-[v _color_read_Clear `(ui ~T0 @X0 0 ef ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
-"29035 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29035:     struct {
-[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
-"29045
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29045:     struct {
-[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
-"29034
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29034: typedef union {
-[u S1354 `S1355 1 `S1356 1 ]
-[n S1354 . . . ]
-"29056
-[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29056: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
-[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
 [v F14608 `ui ~T0 @X0 -> 9 `i t ]
 "20 ./colour_identify.h
 [; ;./colour_identify.h: 20: void card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
@@ -2379,81 +2370,149 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ <= -> _i `ui -> . `E14569 8 `ui 2019  ]
 [e :U 2020 ]
 }
-"128
-[; ;main.c: 128:     LATHbits.LATH3=0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
-"129
-[; ;main.c: 129:     TRISHbits.TRISH3=0;
-[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
-"131
-[; ;main.c: 131:     LATDbits.LATD7=0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
-"132
-[; ;main.c: 132:     TRISDbits.TRISD7=0;
-[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
-"134
-[; ;main.c: 134:     while (1) {
+"98
+[; ;main.c: 98:     while(PORTFbits.RF2){
+[e $U 2025  ]
 [e :U 2026 ]
 {
-"137
-[; ;main.c: 137:         red_read = color_read_Red();
-[e = _red_read ( _color_read_Red ..  ]
-"138
-[; ;main.c: 138:         blue_read = color_read_Blue();
-[e = _blue_read ( _color_read_Blue ..  ]
-"139
-[; ;main.c: 139:         green_read = color_read_Green();
-[e = _green_read ( _color_read_Green ..  ]
-"140
-[; ;main.c: 140:         clear_read = color_read_Clear();
-[e = _clear_read ( _color_read_Clear ..  ]
-"143
-[; ;main.c: 143:         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
-[e ( _sprintf (1 , , , , (. , &U _buf :s 2C _red_read _green_read _blue_read _clear_read ]
-"144
-[; ;main.c: 144:         sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 &U _buf ]
-"145
-[; ;main.c: 145:         _delay((unsigned long)((100)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"146
-[; ;main.c: 146:         LATHbits.LATH3=!LATHbits.LATH3;
-[e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
-"149
-[; ;main.c: 149:         while(PORTFbits.RF2){
-[e $U 2028  ]
-[e :U 2029 ]
-{
-"150
-[; ;main.c: 150:             LATDbits.LATD4 = 1;
+"99
+[; ;main.c: 99:             LATDbits.LATD4 = 1;
 [e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-"151
-[; ;main.c: 151:             LATFbits.LATF0 = 1;
-[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
-"152
-[; ;main.c: 152:         }
-}
-[e :U 2028 ]
-"149
-[; ;main.c: 149:         while(PORTFbits.RF2){
-[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2029  ]
-[e :U 2030 ]
-"153
-[; ;main.c: 153:         LATFbits.LATF0 = 0;
-[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
-"155
-[; ;main.c: 155:         card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
-[e ( _card_response (4 , , , , , , &U _buf &U _red_read &U _green_read &U _blue_read &U _expected_values &U _motorL &U _motorR ]
-"157
-[; ;main.c: 157:     }
+"100
+[; ;main.c: 100:             LATHbits.LATH0 = 1;
+[e = . . _LATHbits 0 0 -> -> 1 `i `uc ]
+"101
+[; ;main.c: 101:         }
 }
 [e :U 2025 ]
-[e $U 2026  ]
+"98
+[; ;main.c: 98:     while(PORTFbits.RF2){
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2026  ]
 [e :U 2027 ]
-"158
-[; ;main.c: 158: }
+"102
+[; ;main.c: 102:     for (int i = 0; i <= 500; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ <= _i -> 500 `i 2028  ]
+[e $U 2029  ]
+[e :U 2028 ]
+{
+"103
+[; ;main.c: 103:         clear_read = color_read_Clear();
+[e = _clear_read ( _color_read_Clear ..  ]
+"104
+[; ;main.c: 104:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 500 `i 2028  ]
+[e :U 2029 ]
+}
+"105
+[; ;main.c: 105:     for(int i = 0; i <= 2; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ <= _i -> 2 `i 2031  ]
+[e $U 2032  ]
+[e :U 2031 ]
+{
+"106
+[; ;main.c: 106:         clear_read += color_read_Clear();
+[e =+ _clear_read ( _color_read_Clear ..  ]
+"107
+[; ;main.c: 107:         _delay((unsigned long)((200)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"108
+[; ;main.c: 108:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ <= _i -> 2 `i 2031  ]
+[e :U 2032 ]
+}
+"109
+[; ;main.c: 109:     clear_read = clear_read/4;
+[e = _clear_read / _clear_read -> -> 4 `i `ui ]
+"111
+[; ;main.c: 111:     sprintf(buf, "\n Expected clear: %d \n", clear_read);
+[e ( _sprintf (1 , (. , &U _buf :s 2C _clear_read ]
+"112
+[; ;main.c: 112:     sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 &U _buf ]
+"114
+[; ;main.c: 114:     unsigned int clear_read_check = clear_read + 200;
+[v _clear_read_check `ui ~T0 @X0 1 a ]
+[e = _clear_read_check + _clear_read -> -> 200 `i `ui ]
+"116
+[; ;main.c: 116:     while(PORTFbits.RF2){
+[e $U 2034  ]
+[e :U 2035 ]
+{
+"117
+[; ;main.c: 117:             LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+"118
+[; ;main.c: 118:             LATFbits.LATF0 = 1;
+[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
+"119
+[; ;main.c: 119:         }
+}
+[e :U 2034 ]
+"116
+[; ;main.c: 116:     while(PORTFbits.RF2){
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2035  ]
+[e :U 2036 ]
+"150
+[; ;main.c: 150:     LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"151
+[; ;main.c: 151:     TRISHbits.TRISH3=0;
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+"153
+[; ;main.c: 153:     LATDbits.LATD7=0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"154
+[; ;main.c: 154:     TRISDbits.TRISD7=0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"156
+[; ;main.c: 156:     while (1) {
+[e :U 2038 ]
+{
+"171
+[; ;main.c: 171:         while(PORTFbits.RF2){
+[e $U 2040  ]
+[e :U 2041 ]
+{
+"172
+[; ;main.c: 172:             LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+"173
+[; ;main.c: 173:             LATFbits.LATF0 = 1;
+[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
+"174
+[; ;main.c: 174:         }
+}
+[e :U 2040 ]
+"171
+[; ;main.c: 171:         while(PORTFbits.RF2){
+[e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2041  ]
+[e :U 2042 ]
+"175
+[; ;main.c: 175:         LATFbits.LATF0 = 0;
+[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
+"177
+[; ;main.c: 177:         card_response(buf, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
+[e ( _card_response (4 , , , , , , &U _buf &U _red_read &U _green_read &U _blue_read &U _expected_values &U _motorL &U _motorR ]
+"179
+[; ;main.c: 179:     }
+}
+[e :U 2037 ]
+[e $U 2038  ]
+[e :U 2039 ]
+"180
+[; ;main.c: 180: }
 [e :UE 2018 ]
 }
 [p f _sprintf 8388736 ]
+[a 2C 10 32 69 120 112 101 99 116 101 100 32 99 108 101 97 114 58 32 37 100 32 10 0 ]
 [a 1C 10 32 69 88 80 69 67 84 69 68 58 32 82 32 37 100 44 32 71 32 37 100 44 32 66 32 37 100 32 32 67 65 82 68 58 32 37 100 32 10 0 ]
-[a 2C 82 97 119 32 37 100 44 32 37 100 44 32 37 100 44 32 37 100 32 10 0 ]

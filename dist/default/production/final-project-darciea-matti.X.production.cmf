@@ -12,71 +12,71 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production\final-project-darciea-matti.X.production.o
-cinit CODE 0 2B34 2B34 2A 1 2
+cinit CODE 0 2B7C 2B7C 2A 1 2
 idloc IDLOC 5 200000 200000 10 1 1
-text0 CODE 0 117A 117A 29A 1 2
-text1 CODE 0 2C20 2C20 20 1 2
-text2 CODE 0 2502 2502 88 1 2
-text3 CODE 0 288C 288C 50 1 2
-text4 CODE 0 2AD0 2AD0 34 1 2
-text5 CODE 0 2B5E 2B5E 2A 1 2
-text6 CODE 0 2056 2056 126 1 2
-text7 CODE 0 283A 283A 52 1 2
-text8 CODE 0 27E6 27E6 54 1 2
-text9 CODE 0 1EF8 1EF8 15E 1 2
-text10 CODE 0 1414 1414 27E 1 2
-text11 CODE 0 2690 2690 7A 1 2
-text12 CODE 0 29CC 29CC 44 1 2
-text13 CODE 0 2250 2250 CA 1 2
-text14 CODE 0 2CFE 2CFE 2 1 2
-text15 CODE 0 1D94 1D94 164 1 2
-text16 CODE 0 1AA0 1AA0 188 1 2
-text17 CODE 0 2B04 2B04 30 1 2
-text18 CODE 0 2C60 2C60 18 1 2
-text19 CODE 0 1692 1692 228 1 2
-text20 CODE 0 2A52 2A52 40 1 2
-text21 CODE 0 E64 E64 316 1 2
-text22 CODE 0 231A 231A AE 1 2
-text23 CODE 0 23C8 23C8 AE 1 2
-text24 CODE 0 258A 258A 86 1 2
-text25 CODE 0 2476 2476 8C 1 2
-text26 CODE 0 1C28 1C28 16C 1 2
-text27 CODE 0 2BD8 2BD8 26 1 2
-text28 CODE 0 217C 217C D4 1 2
-text29 CODE 0 2610 2610 80 1 2
-text30 CODE 0 18BA 18BA 1E6 1 2
-text31 CODE 0 28DC 28DC 50 1 2
-text32 CODE 0 292C 292C 50 1 2
-text33 CODE 0 297C 297C 50 1 2
-text34 CODE 0 2CCC 2CCC A 1 2
-text35 CODE 0 2A10 2A10 42 1 2
-text36 CODE 0 270A 270A 74 1 2
-text37 CODE 0 2BFE 2BFE 22 1 2
-text38 CODE 0 2A92 2A92 3E 1 2
-text39 CODE 0 277E 277E 68 1 2
-text40 CODE 0 2CA4 2CA4 10 1 2
-text41 CODE 0 2C40 2C40 20 1 2
-text42 CODE 0 2C78 2C78 16 1 2
-text43 CODE 0 2CB4 2CB4 C 1 2
-text44 CODE 0 2CD6 2CD6 A 1 2
-text45 CODE 0 2CE0 2CE0 A 1 2
-text46 CODE 0 2B88 2B88 28 1 2
-text48 CODE 0 2C8E 2C8E 16 1 2
-text49 CODE 0 2CC0 2CC0 C 1 2
-text50 CODE 0 2CEA 2CEA A 1 2
-text51 CODE 0 2CF4 2CF4 A 1 2
-text52 CODE 0 2BB0 2BB0 28 1 2
+text0 CODE 0 117C 117C 2E0 1 2
+text1 CODE 0 2C68 2C68 20 1 2
+text2 CODE 0 254A 254A 88 1 2
+text3 CODE 0 28D4 28D4 50 1 2
+text4 CODE 0 2B18 2B18 34 1 2
+text5 CODE 0 2BA6 2BA6 2A 1 2
+text6 CODE 0 209E 209E 126 1 2
+text7 CODE 0 2882 2882 52 1 2
+text8 CODE 0 282E 282E 54 1 2
+text9 CODE 0 1F40 1F40 15E 1 2
+text10 CODE 0 145C 145C 27E 1 2
+text11 CODE 0 26D8 26D8 7A 1 2
+text12 CODE 0 2A14 2A14 44 1 2
+text13 CODE 0 2298 2298 CA 1 2
+text14 CODE 0 2D46 2D46 2 1 2
+text15 CODE 0 1DDC 1DDC 164 1 2
+text16 CODE 0 1AE8 1AE8 188 1 2
+text17 CODE 0 2B4C 2B4C 30 1 2
+text18 CODE 0 2CA8 2CA8 18 1 2
+text19 CODE 0 16DA 16DA 228 1 2
+text20 CODE 0 2A9A 2A9A 40 1 2
+text21 CODE 0 E66 E66 316 1 2
+text22 CODE 0 2362 2362 AE 1 2
+text23 CODE 0 2410 2410 AE 1 2
+text24 CODE 0 25D2 25D2 86 1 2
+text25 CODE 0 24BE 24BE 8C 1 2
+text26 CODE 0 1C70 1C70 16C 1 2
+text27 CODE 0 2C20 2C20 26 1 2
+text28 CODE 0 21C4 21C4 D4 1 2
+text29 CODE 0 2752 2752 74 1 2
+text30 CODE 0 2658 2658 80 1 2
+text31 CODE 0 1902 1902 1E6 1 2
+text32 CODE 0 2924 2924 50 1 2
+text33 CODE 0 2974 2974 50 1 2
+text34 CODE 0 29C4 29C4 50 1 2
+text35 CODE 0 2D14 2D14 A 1 2
+text36 CODE 0 2A58 2A58 42 1 2
+text37 CODE 0 2C46 2C46 22 1 2
+text38 CODE 0 2ADA 2ADA 3E 1 2
+text39 CODE 0 27C6 27C6 68 1 2
+text40 CODE 0 2CEC 2CEC 10 1 2
+text41 CODE 0 2C88 2C88 20 1 2
+text42 CODE 0 2CC0 2CC0 16 1 2
+text43 CODE 0 2CFC 2CFC C 1 2
+text44 CODE 0 2D1E 2D1E A 1 2
+text45 CODE 0 2D28 2D28 A 1 2
+text46 CODE 0 2BD0 2BD0 28 1 2
+text48 CODE 0 2CD6 2CD6 16 1 2
+text49 CODE 0 2D08 2D08 C 1 2
+text50 CODE 0 2D32 2D32 A 1 2
+text51 CODE 0 2D3C 2D3C A 1 2
+text52 CODE 0 2BF8 2BF8 28 1 2
 cstackCOMRAM COMRAM 1 1 1 56 1 1
 cstackBANK0 BANK0 1 60 60 78 1 1
-cstackBANK1 BANK1 1 100 100 E8 1 1
+cstackBANK1 BANK1 1 100 100 EC 1 1
 temp COMRAM 1 5B 5B 1 1 1
 bssBANK0 BANK0 1 D8 D8 1D 1 1
 bssBANK2 BANK2 1 200 200 5C 1 1
 intcode CODE 0 8 8 6E 1 2
-smallconst SMALLCONST 0 E00 E00 64 1 2
+smallconst SMALLCONST 0 E00 E00 66 1 2
 bssCOMRAM COMRAM 1 57 57 4 1 1
 config CONFIG 4 300000 300000 C 1 1
-$C:\Users\darci\AppData\Local\Temp\xcAsig4.o
+$C:\Users\darci\AppData\Local\Temp\xcAso7k.o
 idloc IDLOC 5 200000 200000 10 1 1
 init CODE 0 76 76 4 1 2
 reset_vec CODE 0 0 0 4 1 2
@@ -88,11 +88,11 @@ config CONFIG 4 300000 300000 C 1 1
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
 RAM F5-FF 1
-RAM 1E8-1FF 1
+RAM 1EC-1FF 1
 RAM 25C-DE9 1
 SFR DEF-FFF 1
 BANK0 F5-FF 1
-BANK1 1E8-1FF 1
+BANK1 1EC-1FF 1
 BANK2 25C-2FF 1
 BANK3 300-3FF 1
 BANK4 400-4FF 1
@@ -103,23 +103,23 @@ BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
 CONST 7A-DFF 1
-CONST 2D00-1FFFF 1
-SMALLCONST 2D00-1FFFF 1
+CONST 2D48-1FFFF 1
+SMALLCONST 2D48-1FFFF 1
 CODE 4-7 1
 CODE 7A-DFF 1
-CODE 2D00-1FFFF 1
+CODE 2D48-1FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
 BANK13 D00-DE9 1
 BIGRAM 5C-5F 1
 BIGRAM F5-FF 1
-BIGRAM 1E8-1FF 1
+BIGRAM 1EC-1FF 1
 BIGRAM 25C-DE9 1
 BIGSFR DEF-FFF 1
 COMRAM 5C-5F 1
 EEDATA 310000-3103FF 1
-MEDIUMCONST 2D00-FFFF 1
+MEDIUMCONST 2D48-FFFF 1
 MEDIUMCONST 10E00-1FFFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -135,7 +135,7 @@ MEDIUMCONST 10E00-1FFFF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\final-project-darciea-matti.X.production.o
-8 intcode CODE >20105:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
+8 intcode CODE >20196:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
 8 intcode CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
 A intcode CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
 2E intcode CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
@@ -146,645 +146,658 @@ A intcode CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\in
 6A intcode CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
 6E intcode CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
 72 intcode CODE >36:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2BB0 text52 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2BB0 text52 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2BD6 text52 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CF4 text51 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CF4 text51 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CF8 text51 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CFC text51 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CEA text50 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CEA text50 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CEE text50 CODE >42:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CF2 text50 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CC0 text49 CODE >45:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CC2 text49 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CC6 text49 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CCA text49 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2C8E text48 CODE >52:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C8E text48 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C92 text48 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C98 text48 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C9E text48 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2CA2 text48 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2B88 text46 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B88 text46 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2BAE text46 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CE0 text45 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CE0 text45 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CE4 text45 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CE8 text45 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CD6 text44 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CD6 text44 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CDA text44 CODE >42:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CDE text44 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CB4 text43 CODE >45:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CB6 text43 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CBA text43 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CBE text43 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2C78 text42 CODE >52:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C78 text42 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C7C text42 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C82 text42 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C88 text42 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C8C text42 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2C40 text41 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2C42 text41 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2C46 text41 CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2C4C text41 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2C54 text41 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2C5A text41 CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2C5E text41 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2CA4 text40 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2CA4 text40 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2CA8 text40 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2CB2 text40 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-277E text39 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-277E text39 CODE >45:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2788 text39 CODE >46:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2792 text39 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-27B6 text39 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-27C0 text39 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-27E4 text39 CODE >50:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2A92 text38 CODE >7:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2A92 text38 CODE >9:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2A96 text38 CODE >10:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2AB2 text38 CODE >12:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2AB4 text38 CODE >13:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2AB8 text38 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2ABE text38 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2AC2 text38 CODE >16:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2AC4 text38 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2AC6 text38 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2AC8 text38 CODE >19:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2ACA text38 CODE >20:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2ACC text38 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
-2BFE text37 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2BFE text37 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C00 text37 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C02 text37 CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C04 text37 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C06 text37 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C08 text37 CODE >28:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C0A text37 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C0C text37 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C0E text37 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C10 text37 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C12 text37 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C14 text37 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C16 text37 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C18 text37 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C1A text37 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C1C text37 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-2C1E text37 CODE >44:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
-270A text36 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-270A text36 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2712 text36 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2724 text36 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2728 text36 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-272C text36 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2732 text36 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2734 text36 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2742 text36 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2748 text36 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-275E text36 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2766 text36 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2768 text36 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-276E text36 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2774 text36 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2774 text36 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-277C text36 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
-2A10 text35 CODE >51:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A12 text35 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A16 text35 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A1A text35 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A1E text35 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A22 text35 CODE >58:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A26 text35 CODE >59:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A4C text35 CODE >60:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A4E text35 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2A50 text35 CODE >62:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CCC text34 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CCC text34 CODE >35:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CD0 text34 CODE >36:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2CD4 text34 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-297C text33 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-297C text33 CODE >60:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2980 text33 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2986 text33 CODE >62:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-298C text33 CODE >63:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2990 text33 CODE >64:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2996 text33 CODE >65:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-29A4 text33 CODE >66:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-29BE text33 CODE >67:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-29C2 text33 CODE >68:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-29CA text33 CODE >69:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-292C text32 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-292C text32 CODE >46:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2930 text32 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2936 text32 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-293C text32 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2940 text32 CODE >50:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2946 text32 CODE >51:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2954 text32 CODE >52:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-296E text32 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2972 text32 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-297A text32 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28DC text31 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28DC text31 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28E0 text31 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28E6 text31 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28EC text31 CODE >35:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28F0 text31 CODE >36:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28F6 text31 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2904 text31 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-291E text31 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2922 text31 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-292A text31 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-18BA text30 CODE >10:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-18BA text30 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-18C2 text30 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-18D6 text30 CODE >16:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-18EA text30 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-18FE text30 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-191E text30 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1926 text30 CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-193A text30 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1952 text30 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1972 text30 CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-199E text30 CODE >28:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-19A6 text30 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-19BA text30 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-19D2 text30 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-19F2 text30 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1A1E text30 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1A26 text30 CODE >35:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1A3A text30 CODE >36:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1A52 text30 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1A72 text30 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1A9E text30 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2610 text29 CODE >78:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2610 text29 CODE >80:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2614 text29 CODE >81:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2624 text29 CODE >82:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2628 text29 CODE >83:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2656 text29 CODE >84:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2676 text29 CODE >85:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-267A text29 CODE >87:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-268C text29 CODE >88:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-268E text29 CODE >89:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-217C text28 CODE >67:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-217C text28 CODE >68:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2180 text28 CODE >70:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-223C text28 CODE >75:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-224E text28 CODE >76:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2BD8 text27 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-2BD8 text27 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-2BE4 text27 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-2BEC text27 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-2BF4 text27 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-2BFC text27 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
-1C28 text26 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1C28 text26 CODE >65:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1C44 text26 CODE >66:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1C98 text26 CODE >67:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1CA8 text26 CODE >68:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1CAC text26 CODE >70:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1CB0 text26 CODE >71:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1CF2 text26 CODE >74:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1D0E text26 CODE >75:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1D2E text26 CODE >76:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1D4E text26 CODE >77:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1D52 text26 CODE >78:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1D72 text26 CODE >79:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-1D92 text26 CODE >81:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2476 text25 CODE >145:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2476 text25 CODE >147:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2486 text25 CODE >148:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2496 text25 CODE >149:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-249E text25 CODE >150:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-24AA text25 CODE >151:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-24B6 text25 CODE >152:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-24C2 text25 CODE >153:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-24CE text25 CODE >154:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-24DC text25 CODE >155:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2500 text25 CODE >156:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-258A text24 CODE >84:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-258A text24 CODE >86:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-258E text24 CODE >87:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-259A text24 CODE >88:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-25A8 text24 CODE >89:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-25B4 text24 CODE >86:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-25D0 text24 CODE >92:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-25DC text24 CODE >93:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-25EA text24 CODE >94:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-25F6 text24 CODE >91:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-260E text24 CODE >98:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-23C8 text23 CODE >101:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-23C8 text23 CODE >103:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-23D8 text23 CODE >104:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-23E8 text23 CODE >105:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-23F0 text23 CODE >107:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-23FC text23 CODE >108:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2408 text23 CODE >109:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2420 text23 CODE >110:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-242C text23 CODE >111:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-245C text23 CODE >112:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2474 text23 CODE >113:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-231A text22 CODE >116:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-231A text22 CODE >118:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-232A text22 CODE >119:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-233A text22 CODE >120:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2342 text22 CODE >122:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-234E text22 CODE >123:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-235A text22 CODE >124:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2372 text22 CODE >125:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-237E text22 CODE >126:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-23AE text22 CODE >127:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-23C6 text22 CODE >128:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-E64 text21 CODE >92:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-E66 text21 CODE >94:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-E6A text21 CODE >96:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-E7E text21 CODE >97:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-E96 text21 CODE >98:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-EAA text21 CODE >99:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-EBE text21 CODE >100:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-ED2 text21 CODE >101:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-EE6 text21 CODE >102:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-EEA text21 CODE >104:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-EFE text21 CODE >105:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-F16 text21 CODE >106:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-F2A text21 CODE >107:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-F3E text21 CODE >108:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-F56 text21 CODE >112:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-F6A text21 CODE >113:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-F82 text21 CODE >114:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-F96 text21 CODE >115:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-FAA text21 CODE >116:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-FBE text21 CODE >117:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-FD6 text21 CODE >124:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-FEA text21 CODE >125:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1002 text21 CODE >126:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1016 text21 CODE >127:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1032 text21 CODE >135:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1046 text21 CODE >136:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-105E text21 CODE >137:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1072 text21 CODE >138:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-108A text21 CODE >139:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-10A2 text21 CODE >146:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-10B6 text21 CODE >147:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-10D2 text21 CODE >156:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-10E6 text21 CODE >157:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-10FE text21 CODE >158:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1116 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1120 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-112E text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1136 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-113E text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1146 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-114E text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1156 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-115E text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1166 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-116E text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1178 text21 CODE >175:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2A52 text20 CODE >1:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
-2A52 text20 CODE >3:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
-2A90 text20 CODE >4:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
-1692 text19 CODE >42:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1692 text19 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1696 text19 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-16CE text19 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-172E text19 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-1772 text19 CODE >58:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-17EA text19 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-182E text19 CODE >62:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-18A6 text19 CODE >63:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-18B8 text19 CODE >65:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2C60 text18 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C62 text18 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C72 text18 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C76 text18 CODE >35:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2B04 text17 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2B04 text17 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2B08 text17 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2B1A text17 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2B32 text17 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-1AA0 text16 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1AA0 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1AA4 text16 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1AB2 text16 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1AD2 text16 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1AD6 text16 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1AE4 text16 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B04 text16 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B08 text16 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B14 text16 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B32 text16 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B36 text16 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B3A text16 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B4C text16 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B4E text16 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B5C text16 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B6E text16 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1B9C text16 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1BBC text16 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1BBE text16 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1BD0 text16 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1BD6 text16 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1BE6 text16 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1C06 text16 CODE >42:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1C26 text16 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
-1D94 text15 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1D94 text15 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1D98 text15 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1DA6 text15 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1DC6 text15 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1DCA text15 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1DD8 text15 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1DF8 text15 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1E16 text15 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1E1A text15 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1E1E text15 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1E30 text15 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1E32 text15 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1E40 text15 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1E6E text15 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1E8E text15 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1EA0 text15 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1EA6 text15 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1EB6 text15 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1ED6 text15 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-1EF6 text15 CODE >36:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
-2CFE text14 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
-2CFE text14 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
-2250 text13 CODE >8:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-2250 text13 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-2274 text13 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-227A text13 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-227E text13 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-22D2 text13 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-2306 text13 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-2318 text13 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
-29CC text12 CODE >8:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-29CC text12 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-29D4 text12 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-29D8 text12 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-29EA text12 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-29EE text12 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-2A0E text12 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
-2690 text11 CODE >133:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-2690 text11 CODE >145:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-26B2 text11 CODE >146:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-26BA text11 CODE >147:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-26BE text11 CODE >148:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-26D2 text11 CODE >149:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-26D6 text11 CODE >147:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-26F4 text11 CODE >156:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-2708 text11 CODE >164:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1414 text10 CODE >443:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1414 text10 CODE >450:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1434 text10 CODE >451:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1448 text10 CODE >452:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1458 text10 CODE >453:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1478 text10 CODE >462:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-14A8 text10 CODE >463:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-14B0 text10 CODE >464:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-14C0 text10 CODE >469:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-14C6 text10 CODE >470:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-14EE text10 CODE >471:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-14EE text10 CODE >480:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-14F6 text10 CODE >481:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-14FC text10 CODE >482:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1500 text10 CODE >487:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1506 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1532 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1536 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-153A text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-153E text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1542 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1546 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-154A text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2BF8 text52 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BF8 text52 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2C1E text52 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D3C text51 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D3C text51 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D40 text51 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D44 text51 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D32 text50 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D32 text50 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D36 text50 CODE >42:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D3A text50 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D08 text49 CODE >45:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D0A text49 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D0E text49 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D12 text49 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2CD6 text48 CODE >52:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CD6 text48 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CDA text48 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CE0 text48 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CE6 text48 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CEA text48 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2BD0 text46 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BD0 text46 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BF6 text46 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D28 text45 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D28 text45 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D2C text45 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D30 text45 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D1E text44 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D1E text44 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D22 text44 CODE >42:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D26 text44 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2CFC text43 CODE >45:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2CFE text43 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D02 text43 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D06 text43 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2CC0 text42 CODE >52:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CC0 text42 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CC4 text42 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CCA text42 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CD0 text42 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CD4 text42 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2C88 text41 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2C8A text41 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2C8E text41 CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2C94 text41 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2C9C text41 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2CA2 text41 CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2CA6 text41 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2CEC text40 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CEC text40 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CF0 text40 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2CFA text40 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+27C6 text39 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+27C6 text39 CODE >45:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+27D0 text39 CODE >46:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+27DA text39 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+27FE text39 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2808 text39 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+282C text39 CODE >50:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2ADA text38 CODE >7:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2ADA text38 CODE >9:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2ADE text38 CODE >10:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2AFA text38 CODE >12:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2AFC text38 CODE >13:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2B00 text38 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2B06 text38 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2B0A text38 CODE >16:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2B0C text38 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2B0E text38 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2B10 text38 CODE >19:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2B12 text38 CODE >20:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2B14 text38 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\interrupts.c
+2C46 text37 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C46 text37 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C48 text37 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C4A text37 CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C4C text37 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C4E text37 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C50 text37 CODE >28:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C52 text37 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C54 text37 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C56 text37 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C58 text37 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C5A text37 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C5C text37 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C5E text37 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C60 text37 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C62 text37 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C64 text37 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2C66 text37 CODE >44:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\LEDsOn.c
+2A58 text36 CODE >51:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A5A text36 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A5E text36 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A62 text36 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A66 text36 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A6A text36 CODE >58:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A6E text36 CODE >59:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A94 text36 CODE >60:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A96 text36 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2A98 text36 CODE >62:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D14 text35 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D14 text35 CODE >35:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D18 text35 CODE >36:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2D1C text35 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+29C4 text34 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29C4 text34 CODE >60:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29C8 text34 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29CE text34 CODE >62:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29D4 text34 CODE >63:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29D8 text34 CODE >64:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29DE text34 CODE >65:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29EC text34 CODE >66:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2A06 text34 CODE >67:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2A0A text34 CODE >68:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2A12 text34 CODE >69:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2974 text33 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2974 text33 CODE >46:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2978 text33 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+297E text33 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2984 text33 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2988 text33 CODE >50:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+298E text33 CODE >51:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+299C text33 CODE >52:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29B6 text33 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29BA text33 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+29C2 text33 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2924 text32 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2924 text32 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2928 text32 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+292E text32 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2934 text32 CODE >35:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2938 text32 CODE >36:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+293E text32 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+294C text32 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2966 text32 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+296A text32 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2972 text32 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+1902 text31 CODE >10:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1902 text31 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+190A text31 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+191E text31 CODE >16:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1932 text31 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1946 text31 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1966 text31 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+196E text31 CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1982 text31 CODE >24:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+199A text31 CODE >25:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+19BA text31 CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+19E6 text31 CODE >28:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+19EE text31 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1A02 text31 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1A1A text31 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1A3A text31 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1A66 text31 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1A6E text31 CODE >35:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1A82 text31 CODE >36:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1A9A text31 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1ABA text31 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1AE6 text31 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2658 text30 CODE >78:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2658 text30 CODE >80:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+265C text30 CODE >81:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+266C text30 CODE >82:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2670 text30 CODE >83:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+269E text30 CODE >84:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+26BE text30 CODE >85:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+26C2 text30 CODE >87:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+26D4 text30 CODE >88:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+26D6 text30 CODE >89:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2752 text29 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+2752 text29 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+275A text29 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+276C text29 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+2770 text29 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+2774 text29 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+277A text29 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+277C text29 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+278A text29 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+2790 text29 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+27A6 text29 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+27AE text29 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+27B0 text29 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+27B6 text29 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+27BC text29 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+27BC text29 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+27C4 text29 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwdiv.c
+21C4 text28 CODE >67:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+21C4 text28 CODE >68:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+21C8 text28 CODE >70:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2284 text28 CODE >75:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2296 text28 CODE >76:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2C20 text27 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+2C20 text27 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+2C2C text27 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+2C34 text27 CODE >39:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+2C3C text27 CODE >52:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+2C44 text27 CODE >53:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul16.c
+1C70 text26 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1C70 text26 CODE >65:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1C8C text26 CODE >66:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1CE0 text26 CODE >67:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1CF0 text26 CODE >68:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1CF4 text26 CODE >70:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1CF8 text26 CODE >71:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1D3A text26 CODE >74:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1D56 text26 CODE >75:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1D76 text26 CODE >76:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1D96 text26 CODE >77:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1D9A text26 CODE >78:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1DBA text26 CODE >79:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+1DDA text26 CODE >81:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24BE text25 CODE >145:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24BE text25 CODE >147:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24CE text25 CODE >148:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24DE text25 CODE >149:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24E6 text25 CODE >150:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24F2 text25 CODE >151:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24FE text25 CODE >152:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+250A text25 CODE >153:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2516 text25 CODE >154:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2524 text25 CODE >155:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2548 text25 CODE >156:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25D2 text24 CODE >84:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25D2 text24 CODE >86:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25D6 text24 CODE >87:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25E2 text24 CODE >88:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25F0 text24 CODE >89:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25FC text24 CODE >86:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2618 text24 CODE >92:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2624 text24 CODE >93:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2632 text24 CODE >94:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+263E text24 CODE >91:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2656 text24 CODE >98:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2410 text23 CODE >101:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2410 text23 CODE >103:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2420 text23 CODE >104:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2430 text23 CODE >105:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2438 text23 CODE >107:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2444 text23 CODE >108:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2450 text23 CODE >109:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2468 text23 CODE >110:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2474 text23 CODE >111:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24A4 text23 CODE >112:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+24BC text23 CODE >113:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2362 text22 CODE >116:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2362 text22 CODE >118:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2372 text22 CODE >119:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2382 text22 CODE >120:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+238A text22 CODE >122:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2396 text22 CODE >123:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+23A2 text22 CODE >124:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+23BA text22 CODE >125:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+23C6 text22 CODE >126:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+23F6 text22 CODE >127:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+240E text22 CODE >128:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+E66 text21 CODE >92:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+E68 text21 CODE >94:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+E6C text21 CODE >96:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+E80 text21 CODE >97:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+E98 text21 CODE >98:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+EAC text21 CODE >99:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+EC0 text21 CODE >100:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+ED4 text21 CODE >101:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+EE8 text21 CODE >102:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+EEC text21 CODE >104:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+F00 text21 CODE >105:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+F18 text21 CODE >106:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+F2C text21 CODE >107:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+F40 text21 CODE >108:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+F58 text21 CODE >112:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+F6C text21 CODE >113:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+F84 text21 CODE >114:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+F98 text21 CODE >115:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+FAC text21 CODE >116:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+FC0 text21 CODE >117:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+FD8 text21 CODE >124:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+FEC text21 CODE >125:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1004 text21 CODE >126:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1018 text21 CODE >127:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1034 text21 CODE >135:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1048 text21 CODE >136:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1060 text21 CODE >137:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1074 text21 CODE >138:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+108C text21 CODE >139:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+10A4 text21 CODE >146:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+10B8 text21 CODE >147:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+10D4 text21 CODE >156:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+10E8 text21 CODE >157:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1100 text21 CODE >158:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1118 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1122 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1130 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1138 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1140 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1148 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1150 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1158 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1160 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1168 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1170 text21 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+117A text21 CODE >175:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2A9A text20 CODE >1:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
+2A9A text20 CODE >3:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
+2AD8 text20 CODE >4:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\abs.c
+16DA text19 CODE >42:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+16DA text19 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+16DE text19 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1716 text19 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1776 text19 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+17BA text19 CODE >58:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1832 text19 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1876 text19 CODE >62:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+18EE text19 CODE >63:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+1900 text19 CODE >65:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2CA8 text18 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2CAA text18 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2CBA text18 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2CBE text18 CODE >35:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2B4C text17 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2B4C text17 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2B50 text17 CODE >41:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2B62 text17 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2B7A text17 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+1AE8 text16 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1AE8 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1AEC text16 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1AFA text16 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B1A text16 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B1E text16 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B2C text16 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B4C text16 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B50 text16 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B5C text16 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B7A text16 CODE >26:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B7E text16 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B82 text16 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B94 text16 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1B96 text16 CODE >27:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1BA4 text16 CODE >32:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1BB6 text16 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1BE4 text16 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1C04 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1C06 text16 CODE >37:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1C18 text16 CODE >38:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1C1E text16 CODE >40:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1C2E text16 CODE >41:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1C4E text16 CODE >42:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1C6E text16 CODE >43:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aodiv.c
+1DDC text15 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1DDC text15 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1DE0 text15 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1DEE text15 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E0E text15 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E12 text15 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E20 text15 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E40 text15 CODE >21:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E5E text15 CODE >22:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E62 text15 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E66 text15 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E78 text15 CODE >25:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E7A text15 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1E88 text15 CODE >28:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1EB6 text15 CODE >29:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1ED6 text15 CODE >30:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1EE8 text15 CODE >31:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1EEE text15 CODE >33:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1EFE text15 CODE >34:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1F1E text15 CODE >35:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+1F3E text15 CODE >36:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\aomod.c
+2D46 text14 CODE >7:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
+2D46 text14 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\putch.c
+2298 text13 CODE >8:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+2298 text13 CODE >12:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+22BC text13 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+22C2 text13 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+22C6 text13 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+231A text13 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+234E text13 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+2360 text13 CODE >24:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputc.c
+2A14 text12 CODE >8:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+2A14 text12 CODE >13:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+2A1C text12 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+2A20 text12 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+2A32 text12 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+2A36 text12 CODE >14:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+2A56 text12 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_fputs.c
+26D8 text11 CODE >133:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+26D8 text11 CODE >145:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+26FA text11 CODE >146:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2702 text11 CODE >147:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2706 text11 CODE >148:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+271A text11 CODE >149:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+271E text11 CODE >147:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+273C text11 CODE >156:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2750 text11 CODE >164:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+145C text10 CODE >443:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+145C text10 CODE >450:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+147C text10 CODE >451:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1490 text10 CODE >452:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+14A0 text10 CODE >453:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+14C0 text10 CODE >462:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+14F0 text10 CODE >463:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+14F8 text10 CODE >464:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1508 text10 CODE >469:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+150E text10 CODE >470:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1536 text10 CODE >471:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1536 text10 CODE >480:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+153E text10 CODE >481:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1544 text10 CODE >482:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1548 text10 CODE >487:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
 154E text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1588 text10 CODE >489:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-158E text10 CODE >490:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1594 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15B4 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15B8 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15BC text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15C0 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15C4 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15C8 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15CC text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15D0 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-15F8 text10 CODE >482:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-164A text10 CODE >495:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-165A text10 CODE >496:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1660 text10 CODE >497:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1670 text10 CODE >501:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1690 text10 CODE >502:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1EF8 text9 CODE >1007:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1EF8 text9 CODE >1019:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1F20 text9 CODE >1020:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1F2E text9 CODE >1022:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1F3C text9 CODE >1023:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1F40 text9 CODE >1117:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1F50 text9 CODE >1187:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1F90 text9 CODE >1230:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1FCA text9 CODE >1232:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-1FE6 text9 CODE >1233:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-2016 text9 CODE >1509:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-2028 text9 CODE >1514:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-2054 text9 CODE >1517:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-27E6 text8 CODE >1520:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-27E6 text8 CODE >1525:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-27EE text8 CODE >1529:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-27F2 text8 CODE >1533:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-280E text8 CODE >1529:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-282E text8 CODE >1538:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-2838 text8 CODE >1543:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
-283A text7 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-283A text7 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-2844 text7 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-284C text7 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-2854 text7 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-285C text7 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-2878 text7 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-288A text7 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
-2056 text6 CODE >177:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2056 text6 CODE >180:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2056 text6 CODE >184:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2072 text6 CODE >185:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-20B8 text6 CODE >186:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-20C4 text6 CODE >188:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2110 text6 CODE >190:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-212C text6 CODE >192:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-213C text6 CODE >193:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2156 text6 CODE >194:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2162 text6 CODE >196:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-217A text6 CODE >197:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
-2B5E text5 CODE >4:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B5E text5 CODE >7:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B68 text5 CODE >8:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B6A text5 CODE >9:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B6E text5 CODE >12:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B70 text5 CODE >13:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B72 text5 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B74 text5 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B76 text5 CODE >16:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B7A text5 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B7E text5 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B82 text5 CODE >19:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2B86 text5 CODE >20:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
-2AD0 text4 CODE >5:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2AD0 text4 CODE >8:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2AD4 text4 CODE >11:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2ADE text4 CODE >12:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2AEE text4 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2AF8 text4 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2B02 text4 CODE >19:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-288C text3 CODE >71:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-288C text3 CODE >74:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2890 text3 CODE >75:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2896 text3 CODE >76:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-289C text3 CODE >77:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28A0 text3 CODE >78:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28A6 text3 CODE >79:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28B4 text3 CODE >80:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28CE text3 CODE >81:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28D2 text3 CODE >82:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-28DA text3 CODE >83:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
-2502 text2 CODE >6:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2502 text2 CODE >8:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2504 text2 CODE >9:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2506 text2 CODE >10:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2508 text2 CODE >11:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-250A text2 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2510 text2 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2514 text2 CODE >16:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2518 text2 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-251C text2 CODE >20:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2524 text2 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2528 text2 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2530 text2 CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2534 text2 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2536 text2 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-253A text2 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-253E text2 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2544 text2 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2548 text2 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-254C text2 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2550 text2 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2554 text2 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2558 text2 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-255A text2 CODE >44:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2562 text2 CODE >45:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2564 text2 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2566 text2 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-256E text2 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2570 text2 CODE >51:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2572 text2 CODE >52:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-257A text2 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-257C text2 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-257E text2 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2586 text2 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2588 text2 CODE >58:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
-2C20 text1 CODE >6:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C20 text1 CODE >10:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C26 text1 CODE >11:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C2A text1 CODE >12:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C2C text1 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C2E text1 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C30 text1 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C34 text1 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C38 text1 CODE >20:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C3A text1 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C3C text1 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-2C3E text1 CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
-117A text0 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-117A text0 CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-117E text0 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1182 text0 CODE >28:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1186 text0 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-118A text0 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-118E text0 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1192 text0 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1194 text0 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1198 text0 CODE >42:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-119C text0 CODE >46:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11A2 text0 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11A6 text0 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11AA text0 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11B2 text0 CODE >50:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11BA text0 CODE >51:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11C0 text0 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11C4 text0 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11C8 text0 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11CC text0 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11D4 text0 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11DC text0 CODE >58:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11E2 text0 CODE >60:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11EE text0 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-11FA text0 CODE >68:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1204 text0 CODE >69:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-120C text0 CODE >70:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1214 text0 CODE >84:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1216 text0 CODE >85:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-121E text0 CODE >86:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-121E text0 CODE >87:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+157A text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+157E text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1582 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1586 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+158A text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+158E text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1592 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1596 text10 CODE >488:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+15D0 text10 CODE >489:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+15D6 text10 CODE >490:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+15DC text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+15FC text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1600 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1604 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1608 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+160C text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1610 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1614 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1618 text10 CODE >491:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1640 text10 CODE >482:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1692 text10 CODE >495:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+16A2 text10 CODE >496:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+16A8 text10 CODE >497:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+16B8 text10 CODE >501:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+16D8 text10 CODE >502:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1F40 text9 CODE >1007:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1F40 text9 CODE >1019:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1F68 text9 CODE >1020:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1F76 text9 CODE >1022:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1F84 text9 CODE >1023:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1F88 text9 CODE >1117:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1F98 text9 CODE >1187:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+1FD8 text9 CODE >1230:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2012 text9 CODE >1232:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+202E text9 CODE >1233:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+205E text9 CODE >1509:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2070 text9 CODE >1514:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+209C text9 CODE >1517:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+282E text8 CODE >1520:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+282E text8 CODE >1525:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2836 text8 CODE >1529:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+283A text8 CODE >1533:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2856 text8 CODE >1529:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2876 text8 CODE >1538:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2880 text8 CODE >1543:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\doprnt.c
+2882 text7 CODE >9:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+2882 text7 CODE >15:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+288C text7 CODE >16:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+2894 text7 CODE >17:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+289C text7 CODE >18:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+28A4 text7 CODE >19:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+28C0 text7 CODE >20:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+28D2 text7 CODE >23:C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\nf_sprintf.c
+209E text6 CODE >177:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+209E text6 CODE >180:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+209E text6 CODE >184:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+20BA text6 CODE >185:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2100 text6 CODE >186:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+210C text6 CODE >188:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2158 text6 CODE >190:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2174 text6 CODE >192:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2184 text6 CODE >193:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+219E text6 CODE >194:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+21AA text6 CODE >196:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+21C2 text6 CODE >197:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\colour_identify.c
+2BA6 text5 CODE >4:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BA6 text5 CODE >7:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BB0 text5 CODE >8:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BB2 text5 CODE >9:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BB6 text5 CODE >12:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BB8 text5 CODE >13:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BBA text5 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BBC text5 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BBE text5 CODE >16:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BC2 text5 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BC6 text5 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BCA text5 CODE >19:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2BCE text5 CODE >20:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\i2c.c
+2B18 text4 CODE >5:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2B18 text4 CODE >8:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2B1C text4 CODE >11:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2B26 text4 CODE >12:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2B36 text4 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2B40 text4 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2B4A text4 CODE >19:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+28D4 text3 CODE >71:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+28D4 text3 CODE >74:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+28D8 text3 CODE >75:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+28DE text3 CODE >76:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+28E4 text3 CODE >77:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+28E8 text3 CODE >78:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+28EE text3 CODE >79:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+28FC text3 CODE >80:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2916 text3 CODE >81:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+291A text3 CODE >82:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+2922 text3 CODE >83:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\color.c
+254A text2 CODE >6:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+254A text2 CODE >8:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+254C text2 CODE >9:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+254E text2 CODE >10:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2550 text2 CODE >11:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2552 text2 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2558 text2 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+255C text2 CODE >16:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2560 text2 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2564 text2 CODE >20:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+256C text2 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2570 text2 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2578 text2 CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+257C text2 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+257E text2 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2582 text2 CODE >32:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2586 text2 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+258C text2 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2590 text2 CODE >37:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2594 text2 CODE >38:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2598 text2 CODE >39:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+259C text2 CODE >40:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25A0 text2 CODE >43:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25A2 text2 CODE >44:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25AA text2 CODE >45:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25AC text2 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25AE text2 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25B6 text2 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25B8 text2 CODE >51:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25BA text2 CODE >52:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25C2 text2 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25C4 text2 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25C6 text2 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25CE text2 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+25D0 text2 CODE >58:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\dc_motor.c
+2C68 text1 CODE >6:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C68 text1 CODE >10:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C6E text1 CODE >11:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C72 text1 CODE >12:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C74 text1 CODE >14:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C76 text1 CODE >15:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C78 text1 CODE >17:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C7C text1 CODE >18:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C80 text1 CODE >20:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C82 text1 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C84 text1 CODE >22:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+2C86 text1 CODE >23:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\serial.c
+117C text0 CODE >21:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+117C text0 CODE >26:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1180 text0 CODE >27:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1184 text0 CODE >28:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1188 text0 CODE >29:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+118C text0 CODE >30:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1190 text0 CODE >31:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1194 text0 CODE >33:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1196 text0 CODE >34:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+119A text0 CODE >42:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+119E text0 CODE >46:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11A4 text0 CODE >47:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11A8 text0 CODE >48:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11AC text0 CODE >49:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11B4 text0 CODE >50:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11BC text0 CODE >51:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11C2 text0 CODE >53:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11C6 text0 CODE >54:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11CA text0 CODE >55:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11CE text0 CODE >56:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11D6 text0 CODE >57:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11DE text0 CODE >58:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11E4 text0 CODE >60:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11F0 text0 CODE >61:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+11FC text0 CODE >68:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1206 text0 CODE >69:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+120E text0 CODE >70:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1216 text0 CODE >84:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1218 text0 CODE >85:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
 1220 text0 CODE >86:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1220 text0 CODE >88:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-122E text0 CODE >89:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1230 text0 CODE >90:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-124C text0 CODE >91:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1266 text0 CODE >92:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1286 text0 CODE >93:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-12A6 text0 CODE >94:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-12DA text0 CODE >95:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-12E6 text0 CODE >96:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-12FA text0 CODE >128:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-12FC text0 CODE >129:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-12FE text0 CODE >131:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1300 text0 CODE >132:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1302 text0 CODE >137:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-130E text0 CODE >138:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-131A text0 CODE >139:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1326 text0 CODE >140:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1332 text0 CODE >143:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1368 text0 CODE >144:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-1374 text0 CODE >145:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-138E text0 CODE >146:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-13B6 text0 CODE >149:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-13BA text0 CODE >150:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-13BC text0 CODE >151:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-13BE text0 CODE >149:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-13BE text0 CODE >152:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-13CC text0 CODE >153:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-13CE text0 CODE >155:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
-2B34 cinit CODE >10998:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B34 cinit CODE >11000:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B34 cinit CODE >11003:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B34 cinit CODE >11050:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B38 cinit CODE >11051:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B3A cinit CODE >11052:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B3A cinit CODE >11053:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B3C cinit CODE >11054:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B3E cinit CODE >11055:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B40 cinit CODE >11058:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B44 cinit CODE >11059:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B46 cinit CODE >11060:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B46 cinit CODE >11061:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B48 cinit CODE >11062:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B4A cinit CODE >11063:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B4C cinit CODE >11066:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B4E cinit CODE >11067:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B50 cinit CODE >11068:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B52 cinit CODE >11069:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B54 cinit CODE >11075:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B54 cinit CODE >11077:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B56 cinit CODE >11078:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B58 cinit CODE >11079:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
-2B5A cinit CODE >11080:C:\Users\darci\AppData\Local\Temp\xcAsig4.s
+1220 text0 CODE >87:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1222 text0 CODE >86:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1222 text0 CODE >88:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1230 text0 CODE >89:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1232 text0 CODE >90:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+124E text0 CODE >91:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1268 text0 CODE >92:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1288 text0 CODE >93:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+12A8 text0 CODE >94:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+12DC text0 CODE >95:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+12E8 text0 CODE >96:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1300 text0 CODE >98:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1300 text0 CODE >99:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1302 text0 CODE >100:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1304 text0 CODE >98:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1304 text0 CODE >101:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1312 text0 CODE >102:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+131C text0 CODE >103:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1328 text0 CODE >104:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+134A text0 CODE >105:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1352 text0 CODE >106:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1360 text0 CODE >107:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1378 text0 CODE >108:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+139A text0 CODE >109:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13B8 text0 CODE >111:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13D4 text0 CODE >112:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13E0 text0 CODE >114:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13E0 text0 CODE >116:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13E4 text0 CODE >117:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13E6 text0 CODE >118:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13E8 text0 CODE >116:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13E8 text0 CODE >119:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13F6 text0 CODE >150:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13F8 text0 CODE >151:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13FA text0 CODE >153:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+13FC text0 CODE >154:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1402 text0 CODE >171:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1402 text0 CODE >172:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1404 text0 CODE >173:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1406 text0 CODE >171:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1406 text0 CODE >174:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1414 text0 CODE >175:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+1416 text0 CODE >177:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\main.c
+2B7C cinit CODE >10996:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B7C cinit CODE >10998:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B7C cinit CODE >11001:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B7C cinit CODE >11048:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B80 cinit CODE >11049:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B82 cinit CODE >11050:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B82 cinit CODE >11051:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B84 cinit CODE >11052:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B86 cinit CODE >11053:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B88 cinit CODE >11056:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B8C cinit CODE >11057:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B8E cinit CODE >11058:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B8E cinit CODE >11059:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B90 cinit CODE >11060:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B92 cinit CODE >11061:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B94 cinit CODE >11064:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B96 cinit CODE >11065:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B98 cinit CODE >11066:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B9A cinit CODE >11067:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B9C cinit CODE >11073:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B9C cinit CODE >11075:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2B9E cinit CODE >11076:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2BA0 cinit CODE >11077:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
+2BA2 cinit CODE >11078:C:\Users\darci\AppData\Local\Temp\xcAso7k.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -799,76 +812,76 @@ FEA text21 CODE >125:C:\Users\darci\Documents\ECM\final-project-darciea-matti.X\
 %SYMTAB
 make_master_closeness@master_closeness 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\final-project-darciea-matti.X.production.o
-__Hspace_0 2D00 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
+__Hspace_0 2D48 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Hspace_1 25C 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Hspace_4 60000C 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 color_writetoaddr@address 8 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_sendCharSerial4 2C60 0 CODE 0 text18 dist/default/production\final-project-darciea-matti.X.production.o
+_sendCharSerial4 2CA8 0 CODE 0 text18 dist/default/production\final-project-darciea-matti.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-darciea-matti.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\darci\AppData\Local\Temp\xcAsig4.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\darci\AppData\Local\Temp\xcAso7k.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-darciea-matti.X.production.o
 setMotorPWM@m 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_make_master_closeness 2250 0 CODE 0 text28 dist/default/production\final-project-darciea-matti.X.production.o
-main@PWMcycle 1CE 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_make_master_closeness 2298 0 CODE 0 text28 dist/default/production\final-project-darciea-matti.X.production.o
+main@PWMcycle 1CC 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 ?_abs 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-main@i 1CF 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+main@i 1D9 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 turnRight45@i 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_reverseFullSpeed 2476 0 CODE 0 text25 dist/default/production\final-project-darciea-matti.X.production.o
+_reverseFullSpeed 24BE 0 CODE 0 text25 dist/default/production\final-project-darciea-matti.X.production.o
 ?_vfprintf 60 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __Lsmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-darciea-matti.X.production.o
 _T2PR FBC 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\darci\AppData\Local\Temp\xcAsig4.o
+___sp 0 0 STACK 2 stack C:\Users\darci\AppData\Local\Temp\xcAso7k.o
 _dbuf 23C 0 BANK2 1 bssBANK2 dist/default/production\final-project-darciea-matti.X.production.o
-_dtoa 1414 0 CODE 0 text10 dist/default/production\final-project-darciea-matti.X.production.o
-_main 117A 0 CODE 0 text0 dist/default/production\final-project-darciea-matti.X.production.o
+_dtoa 145C 0 CODE 0 text10 dist/default/production\final-project-darciea-matti.X.production.o
+_main 117C 0 CODE 0 text0 dist/default/production\final-project-darciea-matti.X.production.o
 _prec EE 0 BANK0 1 bssBANK0 dist/default/production\final-project-darciea-matti.X.production.o
-_stop 258A 0 CODE 0 text24 dist/default/production\final-project-darciea-matti.X.production.o
+_stop 25D2 0 CODE 0 text24 dist/default/production\final-project-darciea-matti.X.production.o
 abs@a 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 btemp 5B 0 COMRAM 1 temp dist/default/production\final-project-darciea-matti.X.production.o
 pad@i 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 pad@p 19 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 pad@w 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-start 76 0 CODE 0 init C:\Users\darci\AppData\Local\Temp\xcAsig4.o
+start 76 0 CODE 0 init C:\Users\darci\AppData\Local\Temp\xcAso7k.o
 ___aomod@counter 15 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 pad@fp 15 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_enable_color_interrupt 2CA4 0 CODE 0 text40 dist/default/production\final-project-darciea-matti.X.production.o
+_enable_color_interrupt 2CEC 0 CODE 0 text40 dist/default/production\final-project-darciea-matti.X.production.o
 ?___wmul 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 determine_card@i E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 _RxBufReadCnt 59 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_make_master_closeness 217C 0 CODE 0 text28 dist/default/production\final-project-darciea-matti.X.production.o
+_make_master_closeness 21C4 0 CODE 0 text28 dist/default/production\final-project-darciea-matti.X.production.o
 color_read_Green@tmp E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_collect_avg_readings 18BA 0 CODE 0 text30 dist/default/production\final-project-darciea-matti.X.production.o
+_collect_avg_readings 1902 0 CODE 0 text31 dist/default/production\final-project-darciea-matti.X.production.o
 __Hpowerup 76 0 CODE 0 powerup dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_vfpfcnvrt 2056 0 CODE 0 text9 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_vfpfcnvrt 209E 0 CODE 0 text9 dist/default/production\final-project-darciea-matti.X.production.o
 ttemp5 5C 0 COMRAM 1 temp dist/default/production\final-project-darciea-matti.X.production.o
 ttemp6 5F 0 COMRAM 1 temp dist/default/production\final-project-darciea-matti.X.production.o
 ttemp7 63 0 COMRAM 1 temp dist/default/production\final-project-darciea-matti.X.production.o
 normalise_readings@red_read 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_card_response 2056 0 CODE 0 text6 dist/default/production\final-project-darciea-matti.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-intlevel0 0 0 CODE 0 text C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-intlevel1 0 0 CODE 0 text C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-intlevel2 0 0 CODE 0 text C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-intlevel3 0 0 CODE 0 text C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-main@blue_read 1D4 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+_card_response 209E 0 CODE 0 text6 dist/default/production\final-project-darciea-matti.X.production.o
+__accesstop 60 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+intlevel0 0 0 CODE 0 text C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+intlevel1 0 0 CODE 0 text C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+intlevel2 0 0 CODE 0 text C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+intlevel3 0 0 CODE 0 text C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+main@blue_read 1D7 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_LEDSon_init 2BFE 0 CODE 0 text37 dist/default/production\final-project-darciea-matti.X.production.o
+_LEDSon_init 2C46 0 CODE 0 text37 dist/default/production\final-project-darciea-matti.X.production.o
 motor_response@card 26 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-darciea-matti.X.production.o
 wtemp8 5C 0 COMRAM 1 temp dist/default/production\final-project-darciea-matti.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production\final-project-darciea-matti.X.production.o
 card_response@card D5 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production\final-project-darciea-matti.X.production.o
-_vfpfcnvrt 1EF8 0 CODE 0 text9 dist/default/production\final-project-darciea-matti.X.production.o
+_vfpfcnvrt 1F40 0 CODE 0 text9 dist/default/production\final-project-darciea-matti.X.production.o
 dtoa@fp 20 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ___wmul@multiplicand 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_Interrupts_init 2AD0 0 CODE 0 text38 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_Interrupts_init 2B18 0 CODE 0 text38 dist/default/production\final-project-darciea-matti.X.production.o
 card_response@normalised_values 8D 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 normalise_readings@normalised_values 25 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\darci\AppData\Local\Temp\xcAsig4.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\darci\AppData\Local\Temp\xcAso7k.o
 normalise_readings@i 31 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 I2C_2_Master_Read@ack 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 I2C_2_Master_Read@tmp 8 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
@@ -880,23 +893,23 @@ color_writetoaddr@value 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-
 _card_detected F0 0 BANK0 1 bssBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\final-project-darciea-matti.X.production.o
 card_response@blue_read 85 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_turnRight45 23C8 0 CODE 0 text22 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_turnRight45 2410 0 CODE 0 text22 dist/default/production\final-project-darciea-matti.X.production.o
 set_interrupt_threshold@AIHT B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 set_interrupt_threshold@AILT 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of___wmul 2BFE 0 CODE 0 text27 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of___wmul 2C46 0 CODE 0 text27 dist/default/production\final-project-darciea-matti.X.production.o
 _TxBufWriteCnt 58 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_clear_interrupt_flag 2C78 0 CODE 0 text42 dist/default/production\final-project-darciea-matti.X.production.o
+_clear_interrupt_flag 2CC0 0 CODE 0 text42 dist/default/production\final-project-darciea-matti.X.production.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\final-project-darciea-matti.X.production.o
 _response_in_progress F2 0 BANK0 1 bssBANK0 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_reverseFullSpeed 2502 0 CODE 0 text25 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_reverseFullSpeed 254A 0 CODE 0 text25 dist/default/production\final-project-darciea-matti.X.production.o
 main@buf 100 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\final-project-darciea-matti.X.production.o
 color_read_Blue@tmp E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Hintcodelo 76 0 CODE 0 intcodelo dist/default/production\final-project-darciea-matti.X.production.o
-__end_of___aodiv 1C28 0 CODE 0 text16 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of___aomod 1EF8 0 CODE 0 text15 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of___lwdiv 277E 0 CODE 0 text36 dist/default/production\final-project-darciea-matti.X.production.o
-collect_avg_readings@blue_read 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
+__end_of___aodiv 1C70 0 CODE 0 text16 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of___aomod 1F40 0 CODE 0 text15 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of___lwdiv 27C6 0 CODE 0 text29 dist/default/production\final-project-darciea-matti.X.production.o
+collect_avg_readings@blue_read 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ___aodiv@quotient 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ___aomod@dividend 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 card_response@master_closeness C3 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
@@ -904,13 +917,13 @@ ___lwdiv@quotient F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-projec
 make_master_closeness@buf 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Lintcodelo 76 0 CODE 0 intcodelo dist/default/production\final-project-darciea-matti.X.production.o
 ___aomod@divisor D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_Interrupts_init 2A92 0 CODE 0 text38 dist/default/production\final-project-darciea-matti.X.production.o
-__end_ofi2_I2C_2_Master_Start 2CFE 0 CODE 0 text51 dist/default/production\final-project-darciea-matti.X.production.o
-__end_ofi2_I2C_2_Master_Write 2CCC 0 CODE 0 text49 dist/default/production\final-project-darciea-matti.X.production.o
+_Interrupts_init 2ADA 0 CODE 0 text38 dist/default/production\final-project-darciea-matti.X.production.o
+__end_ofi2_I2C_2_Master_Start 2D46 0 CODE 0 text51 dist/default/production\final-project-darciea-matti.X.production.o
+__end_ofi2_I2C_2_Master_Write 2D14 0 CODE 0 text49 dist/default/production\final-project-darciea-matti.X.production.o
 _SSP2CON1bits ED9 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-start_initialization 2B34 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
+start_initialization 2B7C 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
 _SSP2CON2bits EDA 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-_setMotorPWM 1C28 0 CODE 0 text26 dist/default/production\final-project-darciea-matti.X.production.o
+_setMotorPWM 1C70 0 CODE 0 text26 dist/default/production\final-project-darciea-matti.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\final-project-darciea-matti.X.production.o
 _TRISAbits F81 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _TRISBbits F82 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
@@ -920,9 +933,9 @@ _TRISEbits F85 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.p
 _TRISFbits F86 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _TRISGbits F87 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _TRISHbits F88 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-collect_avg_readings@i_1596 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-collect_avg_readings@i_1597 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-collect_avg_readings@i_1598 20 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
+collect_avg_readings@i_1596 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
+collect_avg_readings@i_1597 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
+collect_avg_readings@i_1598 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _RC0PPS E62 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _RC4REG EE3 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
@@ -936,18 +949,18 @@ _RX4PPS E15 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.prod
 __pcstackBANK0 60 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __pcstackBANK1 100 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 _IPR0bits E1F 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_I2C_2_Master_Start 2CEA 0 CODE 0 text45 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_I2C_2_Master_Write 2CC0 0 CODE 0 text43 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_I2C_2_Master_Start 2D32 0 CODE 0 text45 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_I2C_2_Master_Write 2D08 0 CODE 0 text43 dist/default/production\final-project-darciea-matti.X.production.o
 _TX4REG EE4 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 I2C_2_Master_Write@data_byte 6 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-isa$xinst 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-i2_I2C_2_Master_Idle 2BB0 0 CODE 0 text52 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_enable_color_interrupt 2CB4 0 CODE 0 text40 dist/default/production\final-project-darciea-matti.X.production.o
-i2_I2C_2_Master_Stop 2CEA 0 CODE 0 text50 dist/default/production\final-project-darciea-matti.X.production.o
+isa$xinst 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+i2_I2C_2_Master_Idle 2BF8 0 CODE 0 text52 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_enable_color_interrupt 2CFC 0 CODE 0 text40 dist/default/production\final-project-darciea-matti.X.production.o
+i2_I2C_2_Master_Stop 2D32 0 CODE 0 text50 dist/default/production\final-project-darciea-matti.X.production.o
 card_response@green_read 83 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 fputc@fp 7 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 fputs@fp 10 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_card_response 217C 0 CODE 0 text6 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_card_response 21C4 0 CODE 0 text6 dist/default/production\final-project-darciea-matti.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production\final-project-darciea-matti.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production\final-project-darciea-matti.X.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production\final-project-darciea-matti.X.production.o
@@ -963,9 +976,9 @@ __Hconst 0 0 CONST 0 const dist/default/production\final-project-darciea-matti.X
 determine_card@current_smallest B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Hidata 0 0 CODE 0 idata dist/default/production\final-project-darciea-matti.X.production.o
 __Hidloc 200010 0 IDLOC 5 idloc dist/default/production\final-project-darciea-matti.X.production.o
-_color_read_Clear 288C 0 CODE 0 text3 dist/default/production\final-project-darciea-matti.X.production.o
+_color_read_Clear 28D4 0 CODE 0 text3 dist/default/production\final-project-darciea-matti.X.production.o
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\final-project-darciea-matti.X.production.o
-_color_read_Green 292C 0 CODE 0 text32 dist/default/production\final-project-darciea-matti.X.production.o
+_color_read_Green 2974 0 CODE 0 text33 dist/default/production\final-project-darciea-matti.X.production.o
 __Hparam 0 0 COMRAM 1 rparam dist/default/production\final-project-darciea-matti.X.production.o
 __Hrdata 0 0 COMRAM 1 rdata dist/default/production\final-project-darciea-matti.X.production.o
 __Hstack 0 0 STACK 2 stack dist/default/production\final-project-darciea-matti.X.production.o
@@ -987,10 +1000,10 @@ __Hbank13 0 0 ABS 0 bank13 dist/default/production\final-project-darciea-matti.X
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\final-project-darciea-matti.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\final-project-darciea-matti.X.production.o
 __Hbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-darciea-matti.X.production.o
-__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\darci\AppData\Local\Temp\xcAsig4.o
+__smallconst E00 0 SMALLCONST 0 smallconst C:\Users\darci\AppData\Local\Temp\xcAso7k.o
 turnLeft45@mL 18 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 turnLeft45@mR 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_sprintf 288C 0 CODE 0 text7 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_sprintf 28D4 0 CODE 0 text7 dist/default/production\final-project-darciea-matti.X.production.o
 __end_of_HighISR 76 0 CODE 0 intcode dist/default/production\final-project-darciea-matti.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\final-project-darciea-matti.X.production.o
 __Hconfig 30000C 0 CONFIG 4 config dist/default/production\final-project-darciea-matti.X.production.o
@@ -1026,8 +1039,8 @@ __Ltext6 0 0 ABS 0 text6 dist/default/production\final-project-darciea-matti.X.p
 __Ltext7 0 0 ABS 0 text7 dist/default/production\final-project-darciea-matti.X.production.o
 __Ltext8 0 0 ABS 0 text8 dist/default/production\final-project-darciea-matti.X.production.o
 __Ltext9 0 0 ABS 0 text9 dist/default/production\final-project-darciea-matti.X.production.o
-_I2C_2_Master_Start 2CE0 0 CODE 0 text45 dist/default/production\final-project-darciea-matti.X.production.o
-_I2C_2_Master_Write 2CB4 0 CODE 0 text43 dist/default/production\final-project-darciea-matti.X.production.o
+_I2C_2_Master_Start 2D28 0 CODE 0 text45 dist/default/production\final-project-darciea-matti.X.production.o
+_I2C_2_Master_Write 2CFC 0 CODE 0 text43 dist/default/production\final-project-darciea-matti.X.production.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-darciea-matti.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\final-project-darciea-matti.X.production.o
 _PORTFbits F8E 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
@@ -1051,42 +1064,42 @@ __Ltext 0 0 ABS 0 text dist/default/production\final-project-darciea-matti.X.pro
 ___aodiv@counter 15 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 _SSP2CON2 EDA 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _SSP2STAT ED8 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-___wmul 2BD8 0 CODE 0 text27 dist/default/production\final-project-darciea-matti.X.production.o
+___wmul 2C20 0 CODE 0 text27 dist/default/production\final-project-darciea-matti.X.production.o
 _TxBufReadCnt 57 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ___aomod@sign 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 int$flags 5B 0 COMRAM 1 temp dist/default/production\final-project-darciea-matti.X.production.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_turnLeft45 23C8 0 CODE 0 text23 dist/default/production\final-project-darciea-matti.X.production.o
+_turnLeft45 2410 0 CODE 0 text23 dist/default/production\final-project-darciea-matti.X.production.o
 __Hintret 0 0 ABS 0 intret dist/default/production\final-project-darciea-matti.X.production.o
 __Hirdata 0 0 CODE 0 irdata dist/default/production\final-project-darciea-matti.X.production.o
-__S0 2D00 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
+__S0 2D48 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __S1 25C 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __S4 0 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __S5 0 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-_abs 2A52 0 CODE 0 text20 dist/default/production\final-project-darciea-matti.X.production.o
-_pad 2690 0 CODE 0 text11 dist/default/production\final-project-darciea-matti.X.production.o
+_abs 2A9A 0 CODE 0 text20 dist/default/production\final-project-darciea-matti.X.production.o
+_pad 26D8 0 CODE 0 text11 dist/default/production\final-project-darciea-matti.X.production.o
 determine_card@predicted_colour D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 _TX4STAbits EE8 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-_color_read_Red 28DC 0 CODE 0 text31 dist/default/production\final-project-darciea-matti.X.production.o
+_color_read_Red 2924 0 CODE 0 text32 dist/default/production\final-project-darciea-matti.X.production.o
 setMotorPWM@posDuty 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 _BAUD4CONbits EE9 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-_motor_response E64 0 CODE 0 text21 dist/default/production\final-project-darciea-matti.X.production.o
+_motor_response E66 0 CODE 0 text21 dist/default/production\final-project-darciea-matti.X.production.o
 ___aodiv@sign 16 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-darciea-matti.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-darciea-matti.X.production.o
 sprintf@fmt 68 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 _dtoa$2581 32 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_LEDSon_init 2C20 0 CODE 0 text37 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_abs 2A92 0 CODE 0 text20 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_pad 270A 0 CODE 0 text11 dist/default/production\final-project-darciea-matti.X.production.o
-collect_avg_readings@red_read 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_LEDSon_init 2C68 0 CODE 0 text37 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_abs 2ADA 0 CODE 0 text20 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_pad 2752 0 CODE 0 text11 dist/default/production\final-project-darciea-matti.X.production.o
+collect_avg_readings@red_read 10 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production\final-project-darciea-matti.X.production.o
 motor_response@mL 20 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 motor_response@mR 22 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_color_click_init 2AD0 0 CODE 0 text4 dist/default/production\final-project-darciea-matti.X.production.o
-i2_clear_interrupt_flag 2C8E 0 CODE 0 text48 dist/default/production\final-project-darciea-matti.X.production.o
+_color_click_init 2B18 0 CODE 0 text4 dist/default/production\final-project-darciea-matti.X.production.o
+i2_clear_interrupt_flag 2CD6 0 CODE 0 text48 dist/default/production\final-project-darciea-matti.X.production.o
 normalise_readings@blue_read 21 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Hramtop E00 0 RAM 0 ramtop dist/default/production\final-project-darciea-matti.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production\final-project-darciea-matti.X.production.o
@@ -1137,63 +1150,63 @@ __Htext49 0 0 ABS 0 text49 dist/default/production\final-project-darciea-matti.X
 __Htext50 0 0 ABS 0 text50 dist/default/production\final-project-darciea-matti.X.production.o
 __Htext51 0 0 ABS 0 text51 dist/default/production\final-project-darciea-matti.X.production.o
 __Htext52 0 0 ABS 0 text52 dist/default/production\final-project-darciea-matti.X.production.o
-__end_ofi2_I2C_2_Master_Idle 2BD8 0 CODE 0 text52 dist/default/production\final-project-darciea-matti.X.production.o
-__end_ofi2_I2C_2_Master_Stop 2CF4 0 CODE 0 text50 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_color_read_Clear 28DC 0 CODE 0 text3 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_color_read_Green 297C 0 CODE 0 text32 dist/default/production\final-project-darciea-matti.X.production.o
+__end_ofi2_I2C_2_Master_Idle 2C20 0 CODE 0 text52 dist/default/production\final-project-darciea-matti.X.production.o
+__end_ofi2_I2C_2_Master_Stop 2D3C 0 CODE 0 text50 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_color_read_Clear 2924 0 CODE 0 text3 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_color_read_Green 29C4 0 CODE 0 text33 dist/default/production\final-project-darciea-matti.X.production.o
 vfpfcnvrt@fmt 45 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 _PIE0bits E29 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _PIE4bits E2D 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 pad@buf 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_sendStringSerial4 2B34 0 CODE 0 text17 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_sendStringSerial4 2B7C 0 CODE 0 text17 dist/default/production\final-project-darciea-matti.X.production.o
 _RxBufWriteCnt 5A 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-main@green_read 1D2 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext10 1414 0 CODE 0 text10 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext11 2690 0 CODE 0 text11 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext12 29CC 0 CODE 0 text12 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext13 2250 0 CODE 0 text13 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext14 2CFE 0 CODE 0 text14 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext15 1D94 0 CODE 0 text15 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext16 1AA0 0 CODE 0 text16 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext17 2B04 0 CODE 0 text17 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext18 2C60 0 CODE 0 text18 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext19 1692 0 CODE 0 text19 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext20 2A52 0 CODE 0 text20 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext21 E64 0 CODE 0 text21 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext22 231A 0 CODE 0 text22 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext23 23C8 0 CODE 0 text23 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext24 258A 0 CODE 0 text24 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext25 2476 0 CODE 0 text25 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext26 1C28 0 CODE 0 text26 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext27 2BD8 0 CODE 0 text27 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext28 217C 0 CODE 0 text28 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext29 2610 0 CODE 0 text29 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext30 18BA 0 CODE 0 text30 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext31 28DC 0 CODE 0 text31 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext32 292C 0 CODE 0 text32 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext33 297C 0 CODE 0 text33 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext34 2CCC 0 CODE 0 text34 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext35 2A10 0 CODE 0 text35 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext36 270A 0 CODE 0 text36 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext37 2BFE 0 CODE 0 text37 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext38 2A92 0 CODE 0 text38 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext39 277E 0 CODE 0 text39 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext40 2CA4 0 CODE 0 text40 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext41 2C40 0 CODE 0 text41 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext42 2C78 0 CODE 0 text42 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext43 2CB4 0 CODE 0 text43 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext44 2CD6 0 CODE 0 text44 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext45 2CE0 0 CODE 0 text45 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext46 2B88 0 CODE 0 text46 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext48 2C8E 0 CODE 0 text48 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext49 2CC0 0 CODE 0 text49 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext50 2CEA 0 CODE 0 text50 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext51 2CF4 0 CODE 0 text51 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext52 2BB0 0 CODE 0 text52 dist/default/production\final-project-darciea-matti.X.production.o
-___aodiv 1AA0 0 CODE 0 text16 dist/default/production\final-project-darciea-matti.X.production.o
-___aomod 1D94 0 CODE 0 text15 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_turnLeft45 2476 0 CODE 0 text23 dist/default/production\final-project-darciea-matti.X.production.o
-___lwdiv 270A 0 CODE 0 text36 dist/default/production\final-project-darciea-matti.X.production.o
+main@green_read 1D5 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext10 145C 0 CODE 0 text10 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext11 26D8 0 CODE 0 text11 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext12 2A14 0 CODE 0 text12 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext13 2298 0 CODE 0 text13 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext14 2D46 0 CODE 0 text14 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext15 1DDC 0 CODE 0 text15 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext16 1AE8 0 CODE 0 text16 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext17 2B4C 0 CODE 0 text17 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext18 2CA8 0 CODE 0 text18 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext19 16DA 0 CODE 0 text19 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext20 2A9A 0 CODE 0 text20 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext21 E66 0 CODE 0 text21 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext22 2362 0 CODE 0 text22 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext23 2410 0 CODE 0 text23 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext24 25D2 0 CODE 0 text24 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext25 24BE 0 CODE 0 text25 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext26 1C70 0 CODE 0 text26 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext27 2C20 0 CODE 0 text27 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext28 21C4 0 CODE 0 text28 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext29 2752 0 CODE 0 text29 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext30 2658 0 CODE 0 text30 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext31 1902 0 CODE 0 text31 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext32 2924 0 CODE 0 text32 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext33 2974 0 CODE 0 text33 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext34 29C4 0 CODE 0 text34 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext35 2D14 0 CODE 0 text35 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext36 2A58 0 CODE 0 text36 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext37 2C46 0 CODE 0 text37 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext38 2ADA 0 CODE 0 text38 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext39 27C6 0 CODE 0 text39 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext40 2CEC 0 CODE 0 text40 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext41 2C88 0 CODE 0 text41 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext42 2CC0 0 CODE 0 text42 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext43 2CFC 0 CODE 0 text43 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext44 2D1E 0 CODE 0 text44 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext45 2D28 0 CODE 0 text45 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext46 2BD0 0 CODE 0 text46 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext48 2CD6 0 CODE 0 text48 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext49 2D08 0 CODE 0 text49 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext50 2D32 0 CODE 0 text50 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext51 2D3C 0 CODE 0 text51 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext52 2BF8 0 CODE 0 text52 dist/default/production\final-project-darciea-matti.X.production.o
+___aodiv 1AE8 0 CODE 0 text16 dist/default/production\final-project-darciea-matti.X.production.o
+___aomod 1DDC 0 CODE 0 text15 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_turnLeft45 24BE 0 CODE 0 text23 dist/default/production\final-project-darciea-matti.X.production.o
+___lwdiv 2752 0 CODE 0 text29 dist/default/production\final-project-darciea-matti.X.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production\final-project-darciea-matti.X.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production\final-project-darciea-matti.X.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production\final-project-darciea-matti.X.production.o
@@ -1203,39 +1216,39 @@ __Lbigram 0 0 ABS 0 bigram dist/default/production\final-project-darciea-matti.X
 __Lbigsfr 0 0 ABS 0 bigsfr dist/default/production\final-project-darciea-matti.X.production.o
 color_read_Red@tmp E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 make_master_closeness@i 2C 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_color_read_Red 292C 0 CODE 0 text31 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_color_read_Red 2974 0 CODE 0 text32 dist/default/production\final-project-darciea-matti.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production\final-project-darciea-matti.X.production.o
 __Lconfig 0 0 CONFIG 4 config dist/default/production\final-project-darciea-matti.X.production.o
-collect_avg_readings@green_read 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
+collect_avg_readings@green_read 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ___wmul@multiplier 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 _LATAbits F79 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_motor_response 117A 0 CODE 0 text21 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_motor_response 117C 0 CODE 0 text21 dist/default/production\final-project-darciea-matti.X.production.o
 _LATDbits F7C 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _LATFbits F7E 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _LATGbits F7F 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _LATHbits F80 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_I2C_2_Master_Idle 2BB0 0 CODE 0 text46 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_I2C_2_Master_Init 2B88 0 CODE 0 text5 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_I2C_2_Master_Read 2A52 0 CODE 0 text35 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_I2C_2_Master_Stop 2CE0 0 CODE 0 text44 dist/default/production\final-project-darciea-matti.X.production.o
-main@clear_read 1CC 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_I2C_2_Master_Idle 2BF8 0 CODE 0 text46 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_I2C_2_Master_Init 2BD0 0 CODE 0 text5 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_I2C_2_Master_Read 2A9A 0 CODE 0 text36 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_I2C_2_Master_Stop 2D28 0 CODE 0 text44 dist/default/production\final-project-darciea-matti.X.production.o
+main@clear_read 1D1 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\final-project-darciea-matti.X.production.o
 ___lwdiv@divisor D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ?_color_read_Red 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-darciea-matti.X.production.o
-isa$std 1 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAsig4.o
+isa$std 1 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAso7k.o
 _EUSART4RXbuf D8 0 BANK0 1 bssBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 _EUSART4TXbuf 200 0 BANK2 1 bssBANK2 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_collect_avg_readings 1AA0 0 CODE 0 text30 dist/default/production\final-project-darciea-matti.X.production.o
-stackhi 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-stacklo 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAsig4.o
+__end_of_collect_avg_readings 1AE8 0 CODE 0 text31 dist/default/production\final-project-darciea-matti.X.production.o
+stackhi 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+stacklo 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAso7k.o
 stop@mL 18 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 stop@mR 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\final-project-darciea-matti.X.production.o
 normalise_readings@buf 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\final-project-darciea-matti.X.production.o
 __Lirdata 0 0 CODE 0 irdata dist/default/production\final-project-darciea-matti.X.production.o
-_initUSART4 2C20 0 CODE 0 text1 dist/default/production\final-project-darciea-matti.X.production.o
+_initUSART4 2C68 0 CODE 0 text1 dist/default/production\final-project-darciea-matti.X.production.o
 __Lspace_0 0 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Lspace_1 0 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Lspace_2 0 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
@@ -1244,7 +1257,7 @@ __pbssCOMRAM 57 0 COMRAM 1 bssCOMRAM dist/default/production\final-project-darci
 color_read_Clear@tmp E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
-_set_interrupt_threshold 277E 0 CODE 0 text39 dist/default/production\final-project-darciea-matti.X.production.o
+_set_interrupt_threshold 27C6 0 CODE 0 text39 dist/default/production\final-project-darciea-matti.X.production.o
 _PIR0bits E33 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _PIR4bits E37 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 ___aodiv@divisor D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
@@ -1252,20 +1265,20 @@ vfpfcnvrt@convarg 4B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-proje
 ___aodiv@dividend 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 normalise_readings@green_read 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_setMotorPWM 1D94 0 CODE 0 text26 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_setMotorPWM 1DDC 0 CODE 0 text26 dist/default/production\final-project-darciea-matti.X.production.o
 normalise_readings@difference 2F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_set_interrupt_threshold 27E6 0 CODE 0 text39 dist/default/production\final-project-darciea-matti.X.production.o
-end_of_initialization 2B54 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_color_click_init 2B04 0 CODE 0 text4 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_set_interrupt_threshold 282E 0 CODE 0 text39 dist/default/production\final-project-darciea-matti.X.production.o
+end_of_initialization 2B9C 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_color_click_init 2B4C 0 CODE 0 text4 dist/default/production\final-project-darciea-matti.X.production.o
 _T2CLKCONbits FBF 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\final-project-darciea-matti.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production\final-project-darciea-matti.X.production.o
-i2_I2C_2_Master_Start 2CF4 0 CODE 0 text51 dist/default/production\final-project-darciea-matti.X.production.o
+i2_I2C_2_Master_Start 2D3C 0 CODE 0 text51 dist/default/production\final-project-darciea-matti.X.production.o
 fputc@c 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 fputs@c 12 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 fputs@i 13 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 fputs@s E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-i2_I2C_2_Master_Write 2CC0 0 CODE 0 text49 dist/default/production\final-project-darciea-matti.X.production.o
+i2_I2C_2_Master_Write 2D08 0 CODE 0 text49 dist/default/production\final-project-darciea-matti.X.production.o
 ?___aodiv 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ?___aomod 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ___lwdiv@dividend B 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
@@ -1276,31 +1289,33 @@ vfprintf@fmt 62 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darc
 _CCP4CONbits F22 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\final-project-darciea-matti.X.production.o
 ?_color_read_Blue 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
+main@i_1290 1CD 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+main@i_1292 1CF 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __HbssBANK2 0 0 ABS 0 bssBANK2 dist/default/production\final-project-darciea-matti.X.production.o
 sendStringSerial4@string 6 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_initDCmotorsPWM 258A 0 CODE 0 text2 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_initDCmotorsPWM 25D2 0 CODE 0 text2 dist/default/production\final-project-darciea-matti.X.production.o
 __Lramtop E00 0 RAM 0 ramtop dist/default/production\final-project-darciea-matti.X.production.o
-_determine_card 2610 0 CODE 0 text29 dist/default/production\final-project-darciea-matti.X.production.o
+_determine_card 2658 0 CODE 0 text30 dist/default/production\final-project-darciea-matti.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production\final-project-darciea-matti.X.production.o
-__pcinit 2B34 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
+__pcinit 2B7C 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
 _set_interrupt_threshold$2062 F 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 _set_interrupt_threshold$2063 10 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_color_read_Blue 29CC 0 CODE 0 text33 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_color_read_Blue 2A14 0 CODE 0 text34 dist/default/production\final-project-darciea-matti.X.production.o
 vfpfcnvrt@ap 47 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 vfpfcnvrt@cp 53 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 vfpfcnvrt@fp 43 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__ptext0 117A 0 CODE 0 text0 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext1 2C20 0 CODE 0 text1 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext2 2502 0 CODE 0 text2 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext3 288C 0 CODE 0 text3 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext4 2AD0 0 CODE 0 text4 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext5 2B5E 0 CODE 0 text5 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext6 2056 0 CODE 0 text6 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext7 283A 0 CODE 0 text7 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext8 27E6 0 CODE 0 text8 dist/default/production\final-project-darciea-matti.X.production.o
-__ptext9 1EF8 0 CODE 0 text9 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_I2C_2_Master_RepStart 2CD6 0 CODE 0 text34 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext0 117C 0 CODE 0 text0 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext1 2C68 0 CODE 0 text1 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext2 254A 0 CODE 0 text2 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext3 28D4 0 CODE 0 text3 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext4 2B18 0 CODE 0 text4 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext5 2BA6 0 CODE 0 text5 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext6 209E 0 CODE 0 text6 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext7 2882 0 CODE 0 text7 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext8 282E 0 CODE 0 text8 dist/default/production\final-project-darciea-matti.X.production.o
+__ptext9 1F40 0 CODE 0 text9 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_I2C_2_Master_RepStart 2D1E 0 CODE 0 text35 dist/default/production\final-project-darciea-matti.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\final-project-darciea-matti.X.production.o
 vfprintf@ap 64 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 vfprintf@fp 60 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
@@ -1349,69 +1364,69 @@ __Ltext49 0 0 ABS 0 text49 dist/default/production\final-project-darciea-matti.X
 __Ltext50 0 0 ABS 0 text50 dist/default/production\final-project-darciea-matti.X.production.o
 __Ltext51 0 0 ABS 0 text51 dist/default/production\final-project-darciea-matti.X.production.o
 __Ltext52 0 0 ABS 0 text52 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_color_writetoaddr 2C60 0 CODE 0 text41 dist/default/production\final-project-darciea-matti.X.production.o
-__ramtop E00 0 RAM 0 ramtop C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-_sprintf 283A 0 CODE 0 text7 dist/default/production\final-project-darciea-matti.X.production.o
-_sendStringSerial4 2B04 0 CODE 0 text17 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_color_writetoaddr 2CA8 0 CODE 0 text41 dist/default/production\final-project-darciea-matti.X.production.o
+__ramtop E00 0 RAM 0 ramtop C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+_sprintf 2882 0 CODE 0 text7 dist/default/production\final-project-darciea-matti.X.production.o
+_sendStringSerial4 2B4C 0 CODE 0 text17 dist/default/production\final-project-darciea-matti.X.production.o
 _HighISR 8 0 CODE 0 intcode dist/default/production\final-project-darciea-matti.X.production.o
-_vfprintf 27E6 0 CODE 0 text8 dist/default/production\final-project-darciea-matti.X.production.o
-main@motorL 1D6 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
-main@motorR 1DF 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+_vfprintf 282E 0 CODE 0 text8 dist/default/production\final-project-darciea-matti.X.production.o
+main@motorL 1DA 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+main@motorR 1E3 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 __Lpowerup 76 0 CODE 0 powerup dist/default/production\final-project-darciea-matti.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\final-project-darciea-matti.X.production.o
 turnLeft45@i 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_clear_interrupt_flag 2C8E 0 CODE 0 text42 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_clear_interrupt_flag 2CD6 0 CODE 0 text42 dist/default/production\final-project-darciea-matti.X.production.o
 sprintf@ap 72 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __psmallconst E00 0 SMALLCONST 0 smallconst dist/default/production\final-project-darciea-matti.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\final-project-darciea-matti.X.production.o
-_turnRight45 231A 0 CODE 0 text22 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_vfprintf 283A 0 CODE 0 text8 dist/default/production\final-project-darciea-matti.X.production.o
+_turnRight45 2362 0 CODE 0 text22 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_vfprintf 2882 0 CODE 0 text8 dist/default/production\final-project-darciea-matti.X.production.o
 setMotorPWM@negDuty 17 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_I2C_2_Master_RepStart 2CCC 0 CODE 0 text34 dist/default/production\final-project-darciea-matti.X.production.o
+_I2C_2_Master_RepStart 2D14 0 CODE 0 text35 dist/default/production\final-project-darciea-matti.X.production.o
 _CCP3CONbits F26 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-___heap_hi 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-___heap_lo 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAsig4.o
-_I2C_2_Master_Idle 2B88 0 CODE 0 text46 dist/default/production\final-project-darciea-matti.X.production.o
-_I2C_2_Master_Init 2B5E 0 CODE 0 text5 dist/default/production\final-project-darciea-matti.X.production.o
-_I2C_2_Master_Read 2A10 0 CODE 0 text35 dist/default/production\final-project-darciea-matti.X.production.o
-_I2C_2_Master_Stop 2CD6 0 CODE 0 text44 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_initUSART4 2C40 0 CODE 0 text1 dist/default/production\final-project-darciea-matti.X.production.o
+___heap_hi 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+___heap_lo 0 0 ABS 0 - C:\Users\darci\AppData\Local\Temp\xcAso7k.o
+_I2C_2_Master_Idle 2BD0 0 CODE 0 text46 dist/default/production\final-project-darciea-matti.X.production.o
+_I2C_2_Master_Init 2BA6 0 CODE 0 text5 dist/default/production\final-project-darciea-matti.X.production.o
+_I2C_2_Master_Read 2A58 0 CODE 0 text36 dist/default/production\final-project-darciea-matti.X.production.o
+_I2C_2_Master_Stop 2D1E 0 CODE 0 text44 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_initUSART4 2C88 0 CODE 0 text1 dist/default/production\final-project-darciea-matti.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\final-project-darciea-matti.X.production.o
-__end_of__initialization 2B54 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
+__end_of__initialization 2B9C 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
 _INT1PPS DF1 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-main@red_read 1D0 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
+main@red_read 1D3 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production\final-project-darciea-matti.X.production.o
 determine_card@master_closeness 5 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 _SP4BRGH EE6 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _SP4BRGL EE5 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production\final-project-darciea-matti.X.production.o
 reverseFullSpeed@i 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_ofi2_clear_interrupt_flag 2CA4 0 CODE 0 text48 dist/default/production\final-project-darciea-matti.X.production.o
+__end_ofi2_clear_interrupt_flag 2CEC 0 CODE 0 text48 dist/default/production\final-project-darciea-matti.X.production.o
 i2I2C_2_Master_Write@data_byte 2 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_initDCmotorsPWM 2502 0 CODE 0 text2 dist/default/production\final-project-darciea-matti.X.production.o
+_initDCmotorsPWM 254A 0 CODE 0 text2 dist/default/production\final-project-darciea-matti.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_determine_card 2690 0 CODE 0 text29 dist/default/production\final-project-darciea-matti.X.production.o
-_color_read_Blue 297C 0 CODE 0 text33 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_determine_card 26D8 0 CODE 0 text30 dist/default/production\final-project-darciea-matti.X.production.o
+_color_read_Blue 29C4 0 CODE 0 text34 dist/default/production\final-project-darciea-matti.X.production.o
 _SSP2ADD ED6 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 _SSP2BUF ED5 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 sprintf@f 74 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 sprintf@s 66 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 ?_color_read_Clear 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 ?_color_read_Green 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_dtoa 1692 0 CODE 0 text10 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_main 1414 0 CODE 0 text0 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_stop 2610 0 CODE 0 text24 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_dtoa 16DA 0 CODE 0 text10 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_main 145C 0 CODE 0 text0 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_stop 2658 0 CODE 0 text24 dist/default/production\final-project-darciea-matti.X.production.o
 _CCP2CONbits FA7 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_sendCharSerial4 2C78 0 CODE 0 text18 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_sendCharSerial4 2CC0 0 CODE 0 text18 dist/default/production\final-project-darciea-matti.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\final-project-darciea-matti.X.production.o
 set_interrupt_threshold@persistence D 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_normalise_readings 18BA 0 CODE 0 text19 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_fputc 231A 0 CODE 0 text13 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_fputs 2A10 0 CODE 0 text12 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_normalise_readings 1902 0 CODE 0 text19 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_fputc 2362 0 CODE 0 text13 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_fputs 2A58 0 CODE 0 text12 dist/default/production\final-project-darciea-matti.X.production.o
 ?_sprintf 66 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 card_response@expected_values 87 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
-__end_of_putch 2D00 0 CODE 0 text14 dist/default/production\final-project-darciea-matti.X.production.o
+__end_of_putch 2D48 0 CODE 0 text14 dist/default/production\final-project-darciea-matti.X.production.o
 _RC4STAbits EE7 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __HRAM 0 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Hbss 0 0 RAM 1 bss dist/default/production\final-project-darciea-matti.X.production.o
@@ -1422,13 +1437,13 @@ __Lbss 0 0 RAM 1 bss dist/default/production\final-project-darciea-matti.X.produ
 __Lram 0 0 ABS 0 ram dist/default/production\final-project-darciea-matti.X.production.o
 __Lsfr 0 0 ABS 0 sfr dist/default/production\final-project-darciea-matti.X.production.o
 _flags F4 0 BANK0 1 bssBANK0 dist/default/production\final-project-darciea-matti.X.production.o
-_fputc 2250 0 CODE 0 text13 dist/default/production\final-project-darciea-matti.X.production.o
-_fputs 29CC 0 CODE 0 text12 dist/default/production\final-project-darciea-matti.X.production.o
-_putch 2CFE 0 CODE 0 text14 dist/default/production\final-project-darciea-matti.X.production.o
+_fputc 2298 0 CODE 0 text13 dist/default/production\final-project-darciea-matti.X.production.o
+_fputs 2A14 0 CODE 0 text12 dist/default/production\final-project-darciea-matti.X.production.o
+_putch 2D46 0 CODE 0 text14 dist/default/production\final-project-darciea-matti.X.production.o
 _width EC 0 BANK0 1 bssBANK0 dist/default/production\final-project-darciea-matti.X.production.o
-collect_avg_readings@i 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
+collect_avg_readings@i 18 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 main@expected_values 196 0 BANK1 1 cstackBANK1 dist/default/production\final-project-darciea-matti.X.production.o
-__initialization 2B34 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
+__initialization 2B7C 0 CODE 0 cinit dist/default/production\final-project-darciea-matti.X.production.o
 __pbssBANK0 D8 0 BANK0 1 bssBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __pbssBANK2 200 0 BANK2 1 bssBANK2 dist/default/production\final-project-darciea-matti.X.production.o
 _T2CONbits FBD 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
@@ -1436,9 +1451,9 @@ card_response@mL 89 0 BANK0 1 cstackBANK0 dist/default/production\final-project-
 card_response@mR 8B 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/production\final-project-darciea-matti.X.production.o
 ___wmul@product 9 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-_color_writetoaddr 2C40 0 CODE 0 text41 dist/default/production\final-project-darciea-matti.X.production.o
+_color_writetoaddr 2C88 0 CODE 0 text41 dist/default/production\final-project-darciea-matti.X.production.o
 make_master_closeness@normalised_values 14 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
-__Hsmallconst E64 0 SMALLCONST 0 smallconst dist/default/production\final-project-darciea-matti.X.production.o
+__Hsmallconst E66 0 SMALLCONST 0 smallconst dist/default/production\final-project-darciea-matti.X.production.o
 card_response@buf 7F 0 BANK0 1 cstackBANK0 dist/default/production\final-project-darciea-matti.X.production.o
 dtoa@d 22 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
 dtoa@i 41 0 COMRAM 1 cstackCOMRAM dist/default/production\final-project-darciea-matti.X.production.o
@@ -1455,7 +1470,7 @@ _ANSELFbits EB4 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\final-project-darciea-matti.X.production.o
 _SSP2DATPPS E1D 0 ABS 0 - dist/default/production\final-project-darciea-matti.X.production.o
 __Hintcode 76 0 CODE 0 intcode dist/default/production\final-project-darciea-matti.X.production.o
-_normalise_readings 1692 0 CODE 0 text19 dist/default/production\final-project-darciea-matti.X.production.o
+_normalise_readings 16DA 0 CODE 0 text19 dist/default/production\final-project-darciea-matti.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1480,14 +1495,14 @@ _normalise_readings 1692 0 CODE 0 text19 dist/default/production\final-project-d
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text21 0 E64 E64 1E9C 1
+text21 0 E66 E66 1EE2 1
 cstackCOMRAM 1 1 1 5B 1
 cstackBANK0 1 60 60 95 1
-cstackBANK1 1 100 100 E8 1
+cstackBANK1 1 100 100 EC 1
 reset_vec 0 0 0 4 1
 bssBANK2 1 200 200 5C 1
 intcode 0 8 8 72 1
-smallconst 0 E00 E00 64 1
+smallconst 0 E00 E00 66 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

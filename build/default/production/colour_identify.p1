@@ -2112,8 +2112,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2023 ]
 }
 "26
-[; ;colour_identify.c: 26:     *red_read = *red_read/3;
-[e = *U _red_read / *U _red_read -> -> 3 `i `ui ]
+[; ;colour_identify.c: 26:     *red_read = *red_read/4;
+[e = *U _red_read / *U _red_read -> -> 4 `i `ui ]
 "28
 [; ;colour_identify.c: 28:     for(int i = 0; i <= 2; i++){
 {
@@ -2137,8 +2137,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2026 ]
 }
 "32
-[; ;colour_identify.c: 32:     *green_read = *green_read/3;
-[e = *U _green_read / *U _green_read -> -> 3 `i `ui ]
+[; ;colour_identify.c: 32:     *green_read = *green_read/4;
+[e = *U _green_read / *U _green_read -> -> 4 `i `ui ]
 "34
 [; ;colour_identify.c: 34:     for(int i = 0; i <= 2; i++){
 {
@@ -2162,8 +2162,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2029 ]
 }
 "38
-[; ;colour_identify.c: 38:     *blue_read = *blue_read/3;
-[e = *U _blue_read / *U _blue_read -> -> 3 `i `ui ]
+[; ;colour_identify.c: 38:     *blue_read = *blue_read/4;
+[e = *U _blue_read / *U _blue_read -> -> 4 `i `ui ]
 "40
 [; ;colour_identify.c: 40: }
 [e :UE 2018 ]
