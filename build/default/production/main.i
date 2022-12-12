@@ -24597,8 +24597,10 @@ void main(void) {
         sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i);
         sendStringSerial4(buf);
     }
+    LATDbits.LATD4 = 1;
+    while(PORTFbits.RF2){LATDbits.LATD4 = 0;}
     clear_read_calibration(buf, &clear_read, &clear_read_check);
-# 118 "main.c"
+# 120 "main.c"
     while (1) {
 
 

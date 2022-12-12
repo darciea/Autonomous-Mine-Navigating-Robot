@@ -2106,8 +2106,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 37:     *clear_read = *clear_read/4;
 [e = *U _clear_read / *U _clear_read -> -> 4 `i `ui ]
 "39
-[; ;colour_identify.c: 39:     sprintf(buf, "\n Expected clear: %d \n", clear_read);
-[e ( _sprintf (1 , (. , _buf :s 1C _clear_read ]
+[; ;colour_identify.c: 39:     sprintf(buf, "\n Expected clear: %d \n", *clear_read);
+[e ( _sprintf (1 , (. , _buf :s 1C *U _clear_read ]
 "40
 [; ;colour_identify.c: 40:     sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 _buf ]

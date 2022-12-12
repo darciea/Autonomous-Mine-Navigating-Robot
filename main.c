@@ -94,6 +94,8 @@ void main(void) {
         sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i);
         sendStringSerial4(buf); 
     }
+    BRAKE = 1;
+    while(PORTFbits.RF2){BRAKE = 0;}
     clear_read_calibration(buf, &clear_read, &clear_read_check);
     
     /********************************************//**
