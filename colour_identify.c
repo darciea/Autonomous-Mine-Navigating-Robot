@@ -156,7 +156,7 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR){
             reverseFullSpeed(mL,mR);
             __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
             stop(mL,mR); 
-            __delay_ms(200)
+            __delay_ms(200);
             reverseFullSpeed(mL,mR);
             __delay_ms(500); //adjust according to what 'one square' means
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
@@ -223,6 +223,78 @@ void card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, 
     colour card  = RED;
     unsigned int normalised_values[4][9];
     unsigned int master_closeness[9];
+        
+    collect_avg_readings(clear_read, red_read, green_read, blue_read);
+    sprintf(buf, "\n AVG: Clear %d, R %d, G %d, B %d \n", *clear_read, *red_read, *green_read, *blue_read);
+    sendStringSerial4(buf);  
+    
+    normalise_readings(buf, *clear_read, *red_read, *green_read, *blue_read, expected_values, normalised_values);
+    
+    make_master_closeness(buf, normalised_values, master_closeness);
+    
+    card = determine_card(master_closeness);
+    sprintf(buf, "CARD %d \n", card);
+    sendStringSerial4(buf);
+    
+    motor_response(card, mL, mR);
+}
+
+void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR){
+    //this function takes in the colour of the card we have found and performs the motor function as directed.
+    switch (card){
+        case RED:
+            reverseFullSpeed(mL,mR);
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case GREEN:
+            reverseFullSpeed(mL,mR);
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            turnLeft45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            break;
+        case BLUE:
+            reverseFullSpeed(mL,mR);
+            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case WHITE:
+            //CODE FOR CHANGING A FLAG TO START THE RETURN HOME SEQUENCE
+            LATDbits.LATD7=1;
+            __delay_ms(200);
+            LATDbits.LATD7=0;
+            break;
+        case BLACK:
+            //CODE FOR THE EVENTUALITY IT RUNS INTO A WALL?
+            LATHbits.LATH3=1;
+            __delay_ms(200);
+            LATHbits.LATH3=0;
+            break;    
+        default:
+            HLAMPS = 1;
+            __delay_ms(500);
+            HLAMPS = 0;
+            break;
+    }
+    
+}
+
+void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR){
+    colour card  = RED;
+    unsigned int normalised_values[4][5];
+    unsigned int master_closeness[5];
         
     collect_avg_readings(clear_read, red_read, green_read, blue_read);
     sprintf(buf, "\n AVG: Clear %d, R %d, G %d, B %d \n", *clear_read, *red_read, *green_read, *blue_read);

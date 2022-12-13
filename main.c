@@ -70,7 +70,8 @@ void main(void) {
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     unsigned int clear_read_check = 0;
-    unsigned int expected_values[4][9];   
+    unsigned int expected_values[4][9];
+    unsigned int expected_values_easy[4][5];
     unsigned int ReturnHomeArray[2][30];
     
     /********************************************//**
@@ -82,7 +83,7 @@ void main(void) {
     ***********************************************/
     
     BRAKE = 0;
-    for(colour i = RED; i<= BLACK; i++){
+    for(colour i = RED; i<= PINK; i++){ //i <= PINK for easy mode, BLACK for hard mode
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
@@ -129,7 +130,7 @@ void main(void) {
             __delay_ms(100);
             stop(&motorL, &motorR);
             __delay_ms(2);
-            card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);    
+            card_response/*_easy*/(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values/*_easy*/, &motorL, &motorR);    
             __delay_ms(2);
 
             fullSpeedAhead(&motorL, &motorR); //begin moving  

@@ -24486,6 +24486,9 @@ colour determine_card(unsigned int master_closeness[]);
 void motor_response(colour card, DC_motor *mL, DC_motor *mR);
 
 void card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR);
+
+void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR);
+void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR);
 # 14 "main.c" 2
 
 # 1 "./serial.h" 1
@@ -24594,10 +24597,11 @@ void main(void) {
     unsigned int clear_read = 0;
     unsigned int clear_read_check = 0;
     unsigned int expected_values[4][9];
+    unsigned int expected_values_easy[4][5];
     unsigned int ReturnHomeArray[2][30];
-# 84 "main.c"
+# 85 "main.c"
     LATDbits.LATD4 = 0;
-    for(colour i = RED; i<= BLACK; i++){
+    for(colour i = RED; i<= PINK; i++){
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
         }
@@ -24614,7 +24618,7 @@ void main(void) {
     LATDbits.LATD4 = 1;
     while(PORTFbits.RF2){LATDbits.LATD4 = 0;}
     clear_read_calibration(buf, &clear_read, &clear_read_check);
-# 120 "main.c"
+# 121 "main.c"
     while(PORTFbits.RF2){}
     fullSpeedAhead(&motorL, &motorR);
     while (1) {
@@ -24627,11 +24631,11 @@ void main(void) {
             _delay((unsigned long)((100)*(64000000/4000.0)));
             stop(&motorL, &motorR);
             _delay((unsigned long)((2)*(64000000/4000.0)));
-            card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
+            card_response (buf, &clear_read, &red_read, &green_read, &blue_read, expected_values , &motorL, &motorR);
             _delay((unsigned long)((2)*(64000000/4000.0)));
 
             fullSpeedAhead(&motorL, &motorR);
         }
-# 147 "main.c"
+# 148 "main.c"
     }
 }
