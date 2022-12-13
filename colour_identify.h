@@ -8,7 +8,7 @@
 
 
 
-typedef enum colour{CLEAR, RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour; 
+typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour; 
 
 void clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
 void collect_avg_readings(unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);

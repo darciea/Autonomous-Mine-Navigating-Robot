@@ -24475,7 +24475,7 @@ void LEDSon_init(void);
 
 # 1 "./colour_identify.h" 1
 # 11 "./colour_identify.h"
-typedef enum colour{CLEAR, RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
+typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
 void clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
 void collect_avg_readings(unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
@@ -24596,10 +24596,11 @@ void main(void) {
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     unsigned int clear_read_check = 0;
+
     unsigned int expected_values[4][9];
     unsigned int expected_values_easy[4][5];
     unsigned int ReturnHomeArray[2][30];
-# 85 "main.c"
+# 86 "main.c"
     LATDbits.LATD4 = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
@@ -24613,17 +24614,17 @@ void main(void) {
         _delay((unsigned long)((150)*(64000000/4000.0)));
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
-        expected_values[CLEAR][i] = clear_read;
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read;
-        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i);
+        expected_values[3][i] = clear_read;
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read);
         sendStringSerial4(buf);
     }
     LATDbits.LATD4 = 1;
     while(PORTFbits.RF2){LATDbits.LATD4 = 0;}
     clear_read_calibration(buf, &clear_read, &clear_read_check);
-# 126 "main.c"
+# 127 "main.c"
     while(PORTFbits.RF2){}
     fullSpeedAhead(&motorL, &motorR);
     while (1) {
@@ -24641,6 +24642,6 @@ void main(void) {
 
             fullSpeedAhead(&motorL, &motorR);
         }
-# 153 "main.c"
+# 154 "main.c"
     }
 }

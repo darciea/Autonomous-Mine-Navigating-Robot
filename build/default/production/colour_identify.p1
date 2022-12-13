@@ -21,16 +21,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "27
 [; ;./color.h: 27: unsigned int color_read_Blue(void);
 [v _color_read_Blue `(ui ~T0 @X0 0 ef ]
+[v F14670 `ui ~T0 @X0 -> 9 `i t ]
 [v F14671 `ui ~T0 @X0 -> 9 `i t ]
-[v F14672 `ui ~T0 @X0 -> 9 `i t ]
 "77 colour_identify.c
 [; ;colour_identify.c: 77:     for(colour i = RED; i<= BLACK; i++){
-[c E14551 0 1 2 3 4 5 6 7 8 9 .. ]
-[n E14551 colour CLEAR RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
+[c E14551 0 1 2 3 4 5 6 7 8 .. ]
+[n E14551 colour RED GREEN BLUE YELLOW PINK ORANGE LIGHT_BLUE WHITE BLACK  ]
 "62 C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdlib.h
 [; ;C:\Program Files\Microchip\xc8\v2.40\pic\include\c99\stdlib.h: 62: int abs (int);
 [v _abs `(i ~T0 @X0 0 ef1`i ]
-[v F14685 `ui ~T0 @X0 -> 9 `i t ]
+[v F14684 `ui ~T0 @X0 -> 9 `i t ]
 "8 ./dc_motor.h
 [; ;./dc_motor.h: 8: typedef struct DC_motor {
 [s S2017 `uc 1 `uc 1 `uc 1 `ui 1 `*uc 1 `*uc 1 ]
@@ -93,8 +93,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29265
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29265: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
 [v _LATHbits `VS1362 ~T0 @X0 0 e@3968 ]
-[v F14701 `ui ~T0 @X0 -> 9 `i t ]
-[v F14722 `ui ~T0 @X0 -> 5 `i t ]
+[v F14700 `ui ~T0 @X0 -> 9 `i t ]
+[v F14721 `ui ~T0 @X0 -> 5 `i t ]
 "55 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 55: __asm("PPSLOCK equ 0DEFh");
 [; <" PPSLOCK equ 0DEFh ;# ">
@@ -2315,7 +2315,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "70
 [; ;colour_identify.c: 70: void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]){
-[v _normalise_readings `(v ~T0 @X0 1 ef7`*uc`ui`ui`ui`ui`*F14671`*F14672 ]
+[v _normalise_readings `(v ~T0 @X0 1 ef7`*uc`ui`ui`ui`ui`*F14670`*F14671 ]
 {
 [e :U _normalise_readings ]
 [v _buf `*uc ~T0 @X0 1 r1 ]
@@ -2323,144 +2323,144 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _red_read `ui ~T0 @X0 1 r3 ]
 [v _green_read `ui ~T0 @X0 1 r4 ]
 [v _blue_read `ui ~T0 @X0 1 r5 ]
-[v F14679 `ui ~T0 @X0 -> 9 `i t ]
-[v _expected_values `*F14679 ~T0 @X0 1 r6 ]
-[v F14681 `ui ~T0 @X0 -> 9 `i t ]
-[v _normalised_values `*F14681 ~T0 @X0 1 r7 ]
+[v F14678 `ui ~T0 @X0 -> 9 `i t ]
+[v _expected_values `*F14678 ~T0 @X0 1 r6 ]
+[v F14680 `ui ~T0 @X0 -> 9 `i t ]
+[v _normalised_values `*F14680 ~T0 @X0 1 r7 ]
 [f ]
 "77
 [; ;colour_identify.c: 77:     for(colour i = RED; i<= BLACK; i++){
 {
 [v _i `E14551 ~T0 @X0 1 a ]
-[e = _i . `E14551 1 ]
-[e $ <= -> _i `ui -> . `E14551 9 `ui 2042  ]
+[e = _i . `E14551 0 ]
+[e $ <= -> _i `ui -> . `E14551 8 `ui 2042  ]
 [e $U 2043  ]
 [e :U 2042 ]
 {
-"81
-[; ;colour_identify.c: 81:         unsigned int difference = abs(clear_read - expected_values[CLEAR][i]);
-[v _difference `ui ~T0 @X0 1 a ]
-[e = _difference -> ( _abs (1 -> - _clear_read *U + &U *U + _expected_values * -> . `E14551 0 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 0 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x `i `ui ]
 "82
-[; ;colour_identify.c: 82:         normalised_values[CLEAR][i] = (difference*100) / expected_values[CLEAR][i];
+[; ;colour_identify.c: 82:         unsigned int difference = abs(red_read - expected_values[RED][i]);
+[v _difference `ui ~T0 @X0 1 a ]
+[e = _difference -> ( _abs (1 -> - _red_read *U + &U *U + _expected_values * -> . `E14551 0 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 0 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x `i `ui ]
+"83
+[; ;colour_identify.c: 83:         normalised_values[RED][i] = (difference*100) / expected_values[RED][i];
 [e = *U + &U *U + _normalised_values * -> . `E14551 0 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 0 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x / * _difference -> -> 100 `i `ui *U + &U *U + _expected_values * -> . `E14551 0 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 0 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x ]
-"85
-[; ;colour_identify.c: 85:         difference = abs(red_read - expected_values[RED][i]);
-[e = _difference -> ( _abs (1 -> - _red_read *U + &U *U + _expected_values * -> . `E14551 1 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 1 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x `i `ui ]
 "86
-[; ;colour_identify.c: 86:         normalised_values[RED][i] = (difference*100) / expected_values[RED][i];
+[; ;colour_identify.c: 86:         difference = abs(green_read - expected_values[GREEN][i]);
+[e = _difference -> ( _abs (1 -> - _green_read *U + &U *U + _expected_values * -> . `E14551 1 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 1 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x `i `ui ]
+"87
+[; ;colour_identify.c: 87:         normalised_values[GREEN][i] = (difference*100) / expected_values[GREEN][i];
 [e = *U + &U *U + _normalised_values * -> . `E14551 1 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 1 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x / * _difference -> -> 100 `i `ui *U + &U *U + _expected_values * -> . `E14551 1 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 1 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x ]
-"89
-[; ;colour_identify.c: 89:         difference = abs(green_read - expected_values[GREEN][i]);
-[e = _difference -> ( _abs (1 -> - _green_read *U + &U *U + _expected_values * -> . `E14551 2 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 2 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x `i `ui ]
 "90
-[; ;colour_identify.c: 90:         normalised_values[GREEN][i] = (difference*100) / expected_values[GREEN][i];
+[; ;colour_identify.c: 90:         difference = abs(blue_read - expected_values[BLUE][i]);
+[e = _difference -> ( _abs (1 -> - _blue_read *U + &U *U + _expected_values * -> . `E14551 2 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 2 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x `i `ui ]
+"91
+[; ;colour_identify.c: 91:         normalised_values[BLUE][i] = (difference*100) / expected_values[BLUE][i];
 [e = *U + &U *U + _normalised_values * -> . `E14551 2 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 2 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x / * _difference -> -> 100 `i `ui *U + &U *U + _expected_values * -> . `E14551 2 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 2 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x ]
-"93
-[; ;colour_identify.c: 93:         difference = abs(blue_read - expected_values[BLUE][i]);
-[e = _difference -> ( _abs (1 -> - _blue_read *U + &U *U + _expected_values * -> . `E14551 3 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 3 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x `i `ui ]
 "94
-[; ;colour_identify.c: 94:         normalised_values[BLUE][i] = (difference*100) / expected_values[BLUE][i];
-[e = *U + &U *U + _normalised_values * -> . `E14551 3 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 3 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x / * _difference -> -> 100 `i `ui *U + &U *U + _expected_values * -> . `E14551 3 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> . `E14551 3 `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x ]
+[; ;colour_identify.c: 94:         difference = abs(clear_read - expected_values[3][i]);
+[e = _difference -> ( _abs (1 -> - _clear_read *U + &U *U + _expected_values * -> -> 3 `i `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> -> 3 `i `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x `i `ui ]
 "95
-[; ;colour_identify.c: 95:     }
+[; ;colour_identify.c: 95:         normalised_values[3][i] = (difference*100) / expected_values[3][i];
+[e = *U + &U *U + _normalised_values * -> -> 3 `i `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> -> 3 `i `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x / * _difference -> -> 100 `i `ui *U + &U *U + _expected_values * -> -> 3 `i `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _expected_values * -> -> 3 `i `x -> * -> # *U &U *U _expected_values `ui -> 9 `i `x `i `x ]
+"97
+[; ;colour_identify.c: 97:     }
 }
 [e ++ _i -> -> 1 `i `E14551 ]
-[e $ <= -> _i `ui -> . `E14551 9 `ui 2042  ]
+[e $ <= -> _i `ui -> . `E14551 8 `ui 2042  ]
 [e :U 2043 ]
 }
-"97
-[; ;colour_identify.c: 97: }
+"99
+[; ;colour_identify.c: 99: }
 [e :UE 2041 ]
 }
-"99
-[; ;colour_identify.c: 99: void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
-[v _make_master_closeness `(v ~T0 @X0 1 ef3`*uc`*F14685`*ui ]
+"101
+[; ;colour_identify.c: 101: void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
+[v _make_master_closeness `(v ~T0 @X0 1 ef3`*uc`*F14684`*ui ]
 {
 [e :U _make_master_closeness ]
 [v _buf `*uc ~T0 @X0 1 r1 ]
-[v F14688 `ui ~T0 @X0 -> 9 `i t ]
-[v _normalised_values `*F14688 ~T0 @X0 1 r2 ]
+[v F14687 `ui ~T0 @X0 -> 9 `i t ]
+[v _normalised_values `*F14687 ~T0 @X0 1 r2 ]
 [v _master_closeness `*ui ~T0 @X0 1 r3 ]
 [f ]
-"100
-[; ;colour_identify.c: 100:     for(colour i = RED; i<=BLACK; i++){
+"102
+[; ;colour_identify.c: 102:     for(colour i = RED; i<=BLACK; i++){
 {
 [v _i `E14551 ~T0 @X0 1 a ]
-[e = _i . `E14551 1 ]
-[e $ <= -> _i `ui -> . `E14551 9 `ui 2046  ]
+[e = _i . `E14551 0 ]
+[e $ <= -> _i `ui -> . `E14551 8 `ui 2046  ]
 [e $U 2047  ]
 [e :U 2046 ]
 {
-"102
-[; ;colour_identify.c: 102:         master_closeness[i] = (normalised_values[CLEAR][i] + normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i])/4;
-[e = *U + _master_closeness * -> _i `x -> -> # *U _master_closeness `i `x / + + + *U + &U *U + _normalised_values * -> . `E14551 0 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 0 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x *U + &U *U + _normalised_values * -> . `E14551 1 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 1 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x *U + &U *U + _normalised_values * -> . `E14551 2 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 2 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x *U + &U *U + _normalised_values * -> . `E14551 3 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 3 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x -> -> 4 `i `ui ]
-"107
-[; ;colour_identify.c: 107:     }
+"104
+[; ;colour_identify.c: 104:         master_closeness[i] = (normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i] + normalised_values[3][i])/4;
+[e = *U + _master_closeness * -> _i `x -> -> # *U _master_closeness `i `x / + + + *U + &U *U + _normalised_values * -> . `E14551 0 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 0 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x *U + &U *U + _normalised_values * -> . `E14551 1 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 1 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x *U + &U *U + _normalised_values * -> . `E14551 2 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> . `E14551 2 `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x *U + &U *U + _normalised_values * -> -> 3 `i `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x * -> _i `x -> -> # *U &U *U + _normalised_values * -> -> 3 `i `x -> * -> # *U &U *U _normalised_values `ui -> 9 `i `x `i `x -> -> 4 `i `ui ]
+"109
+[; ;colour_identify.c: 109:     }
 }
 [e ++ _i -> -> 1 `i `E14551 ]
-[e $ <= -> _i `ui -> . `E14551 9 `ui 2046  ]
+[e $ <= -> _i `ui -> . `E14551 8 `ui 2046  ]
 [e :U 2047 ]
 }
-"108
-[; ;colour_identify.c: 108: }
+"110
+[; ;colour_identify.c: 110: }
 [e :UE 2045 ]
 }
-"110
-[; ;colour_identify.c: 110: colour determine_card(unsigned int master_closeness[]){
+"112
+[; ;colour_identify.c: 112: colour determine_card(unsigned int master_closeness[]){
 [v _determine_card `(E14551 ~T0 @X0 1 ef1`*ui ]
 {
 [e :U _determine_card ]
 [v _master_closeness `*ui ~T0 @X0 1 r1 ]
 [f ]
-"112
-[; ;colour_identify.c: 112:     colour predicted_colour = RED;
-[v _predicted_colour `E14551 ~T0 @X0 1 a ]
-[e = _predicted_colour . `E14551 1 ]
-"113
-[; ;colour_identify.c: 113:     unsigned int current_smallest = master_closeness[RED];
-[v _current_smallest `ui ~T0 @X0 1 a ]
-[e = _current_smallest *U + _master_closeness * -> . `E14551 1 `x -> -> # *U _master_closeness `i `x ]
 "114
-[; ;colour_identify.c: 114:     for(colour i = GREEN; i<=BLACK; i++){
+[; ;colour_identify.c: 114:     colour predicted_colour = RED;
+[v _predicted_colour `E14551 ~T0 @X0 1 a ]
+[e = _predicted_colour . `E14551 0 ]
+"115
+[; ;colour_identify.c: 115:     unsigned int current_smallest = master_closeness[RED];
+[v _current_smallest `ui ~T0 @X0 1 a ]
+[e = _current_smallest *U + _master_closeness * -> . `E14551 0 `x -> -> # *U _master_closeness `i `x ]
+"116
+[; ;colour_identify.c: 116:     for(colour i = GREEN; i<=BLACK; i++){
 {
 [v _i `E14551 ~T0 @X0 1 a ]
-[e = _i . `E14551 2 ]
-[e $ <= -> _i `ui -> . `E14551 9 `ui 2050  ]
+[e = _i . `E14551 1 ]
+[e $ <= -> _i `ui -> . `E14551 8 `ui 2050  ]
 [e $U 2051  ]
 [e :U 2050 ]
 {
-"115
-[; ;colour_identify.c: 115:         if(master_closeness[i] < current_smallest){
+"117
+[; ;colour_identify.c: 117:         if(master_closeness[i] < current_smallest){
 [e $ ! < *U + _master_closeness * -> _i `x -> -> # *U _master_closeness `i `x _current_smallest 2053  ]
 {
-"116
-[; ;colour_identify.c: 116:             current_smallest = master_closeness[i];
-[e = _current_smallest *U + _master_closeness * -> _i `x -> -> # *U _master_closeness `i `x ]
-"117
-[; ;colour_identify.c: 117:             predicted_colour = i;
-[e = _predicted_colour _i ]
 "118
-[; ;colour_identify.c: 118:         }
+[; ;colour_identify.c: 118:             current_smallest = master_closeness[i];
+[e = _current_smallest *U + _master_closeness * -> _i `x -> -> # *U _master_closeness `i `x ]
+"119
+[; ;colour_identify.c: 119:             predicted_colour = i;
+[e = _predicted_colour _i ]
+"120
+[; ;colour_identify.c: 120:         }
 }
 [e :U 2053 ]
-"119
-[; ;colour_identify.c: 119:     }
+"121
+[; ;colour_identify.c: 121:     }
 }
 [e ++ _i -> -> 1 `i `E14551 ]
-[e $ <= -> _i `ui -> . `E14551 9 `ui 2050  ]
+[e $ <= -> _i `ui -> . `E14551 8 `ui 2050  ]
 [e :U 2051 ]
 }
-"120
-[; ;colour_identify.c: 120:     return predicted_colour;
+"122
+[; ;colour_identify.c: 122:     return predicted_colour;
 [e ) _predicted_colour ]
 [e $UE 2049  ]
-"121
-[; ;colour_identify.c: 121: }
+"123
+[; ;colour_identify.c: 123: }
 [e :UE 2049 ]
 }
-"124
-[; ;colour_identify.c: 124: void motor_response(colour card, DC_motor *mL, DC_motor *mR){
+"126
+[; ;colour_identify.c: 126: void motor_response(colour card, DC_motor *mL, DC_motor *mR){
 [v _motor_response `(v ~T0 @X0 1 ef3`E14551`*S2017`*S2017 ]
 {
 [e :U _motor_response ]
@@ -2468,25 +2468,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mL `*S2017 ~T0 @X0 1 r2 ]
 [v _mR `*S2017 ~T0 @X0 1 r3 ]
 [f ]
-"126
-[; ;colour_identify.c: 126:     switch (card){
+"128
+[; ;colour_identify.c: 128:     switch (card){
 [e $U 2056  ]
 {
-"127
-[; ;colour_identify.c: 127:         case RED:
-[e :U 2057 ]
-"128
-[; ;colour_identify.c: 128:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
 "129
-[; ;colour_identify.c: 129:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;colour_identify.c: 129:         case RED:
+[e :U 2057 ]
 "130
-[; ;colour_identify.c: 130:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
+[; ;colour_identify.c: 130:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
 "131
-[; ;colour_identify.c: 131:             stop(mL,mR);
-[e ( _stop (2 , _mL _mR ]
+[; ;colour_identify.c: 131:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "132
 [; ;colour_identify.c: 132:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
@@ -2494,23 +2488,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 133:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "134
-[; ;colour_identify.c: 134:             break;
-[e $U 2055  ]
+[; ;colour_identify.c: 134:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "135
-[; ;colour_identify.c: 135:         case GREEN:
-[e :U 2058 ]
-"136
-[; ;colour_identify.c: 136:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
-"137
-[; ;colour_identify.c: 137:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"138
-[; ;colour_identify.c: 138:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
-"139
-[; ;colour_identify.c: 139:             stop(mL,mR);
+[; ;colour_identify.c: 135:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
+"136
+[; ;colour_identify.c: 136:             break;
+[e $U 2055  ]
+"137
+[; ;colour_identify.c: 137:         case GREEN:
+[e :U 2058 ]
+"138
+[; ;colour_identify.c: 138:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"139
+[; ;colour_identify.c: 139:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "140
 [; ;colour_identify.c: 140:             turnLeft45(mL,mR);
 [e ( _turnLeft45 (2 , _mL _mR ]
@@ -2518,23 +2512,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 141:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "142
-[; ;colour_identify.c: 142:             break;
-[e $U 2055  ]
+[; ;colour_identify.c: 142:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
 "143
-[; ;colour_identify.c: 143:         case BLUE:
-[e :U 2059 ]
-"144
-[; ;colour_identify.c: 144:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
-"145
-[; ;colour_identify.c: 145:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"146
-[; ;colour_identify.c: 146:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
-"147
-[; ;colour_identify.c: 147:             stop(mL,mR);
+[; ;colour_identify.c: 143:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
+"144
+[; ;colour_identify.c: 144:             break;
+[e $U 2055  ]
+"145
+[; ;colour_identify.c: 145:         case BLUE:
+[e :U 2059 ]
+"146
+[; ;colour_identify.c: 146:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"147
+[; ;colour_identify.c: 147:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "148
 [; ;colour_identify.c: 148:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
@@ -2554,35 +2548,35 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 153:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "154
-[; ;colour_identify.c: 154:             break;
-[e $U 2055  ]
-"155
-[; ;colour_identify.c: 155:         case YELLOW:
-[e :U 2060 ]
-"156
-[; ;colour_identify.c: 156:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
-"157
-[; ;colour_identify.c: 157:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"158
-[; ;colour_identify.c: 158:             stop(mL,mR);
-[e ( _stop (2 , _mL _mR ]
-"159
-[; ;colour_identify.c: 159:             _delay((unsigned long)((200)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"160
-[; ;colour_identify.c: 160:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
-"161
-[; ;colour_identify.c: 161:             _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"162
-[; ;colour_identify.c: 162:             stop(mL,mR);
-[e ( _stop (2 , _mL _mR ]
-"163
-[; ;colour_identify.c: 163:             turnRight45(mL,mR);
+[; ;colour_identify.c: 154:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
+"155
+[; ;colour_identify.c: 155:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"156
+[; ;colour_identify.c: 156:             break;
+[e $U 2055  ]
+"157
+[; ;colour_identify.c: 157:         case YELLOW:
+[e :U 2060 ]
+"158
+[; ;colour_identify.c: 158:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"159
+[; ;colour_identify.c: 159:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"160
+[; ;colour_identify.c: 160:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"161
+[; ;colour_identify.c: 161:             _delay((unsigned long)((200)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"162
+[; ;colour_identify.c: 162:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"163
+[; ;colour_identify.c: 163:             _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "164
 [; ;colour_identify.c: 164:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
@@ -2593,29 +2587,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 166:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "167
-[; ;colour_identify.c: 167:             break;
-[e $U 2055  ]
+[; ;colour_identify.c: 167:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "168
-[; ;colour_identify.c: 168:         case PINK:
-[e :U 2061 ]
+[; ;colour_identify.c: 168:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
 "169
-[; ;colour_identify.c: 169:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
+[; ;colour_identify.c: 169:             break;
+[e $U 2055  ]
 "170
-[; ;colour_identify.c: 170:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;colour_identify.c: 170:         case PINK:
+[e :U 2061 ]
 "171
 [; ;colour_identify.c: 171:             reverseFullSpeed(mL,mR);
 [e ( _reverseFullSpeed (2 , _mL _mR ]
 "172
-[; ;colour_identify.c: 172:             _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;colour_identify.c: 172:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "173
-[; ;colour_identify.c: 173:             stop(mL,mR);
-[e ( _stop (2 , _mL _mR ]
+[; ;colour_identify.c: 173:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
 "174
-[; ;colour_identify.c: 174:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
+[; ;colour_identify.c: 174:             _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "175
 [; ;colour_identify.c: 175:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
@@ -2626,23 +2620,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 177:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "178
-[; ;colour_identify.c: 178:             break;
-[e $U 2055  ]
+[; ;colour_identify.c: 178:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
 "179
-[; ;colour_identify.c: 179:         case ORANGE:
-[e :U 2062 ]
-"180
-[; ;colour_identify.c: 180:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
-"181
-[; ;colour_identify.c: 181:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"182
-[; ;colour_identify.c: 182:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
-"183
-[; ;colour_identify.c: 183:             stop(mL,mR);
+[; ;colour_identify.c: 179:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
+"180
+[; ;colour_identify.c: 180:             break;
+[e $U 2055  ]
+"181
+[; ;colour_identify.c: 181:         case ORANGE:
+[e :U 2062 ]
+"182
+[; ;colour_identify.c: 182:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"183
+[; ;colour_identify.c: 183:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "184
 [; ;colour_identify.c: 184:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
@@ -2656,23 +2650,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 187:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "188
-[; ;colour_identify.c: 188:             break;
-[e $U 2055  ]
+[; ;colour_identify.c: 188:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "189
-[; ;colour_identify.c: 189:         case LIGHT_BLUE:
-[e :U 2063 ]
-"190
-[; ;colour_identify.c: 190:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
-"191
-[; ;colour_identify.c: 191:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"192
-[; ;colour_identify.c: 192:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
-"193
-[; ;colour_identify.c: 193:             stop(mL,mR);
+[; ;colour_identify.c: 189:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
+"190
+[; ;colour_identify.c: 190:             break;
+[e $U 2055  ]
+"191
+[; ;colour_identify.c: 191:         case LIGHT_BLUE:
+[e :U 2063 ]
+"192
+[; ;colour_identify.c: 192:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"193
+[; ;colour_identify.c: 193:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "194
 [; ;colour_identify.c: 194:             turnLeft45(mL,mR);
 [e ( _turnLeft45 (2 , _mL _mR ]
@@ -2686,76 +2680,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 197:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "198
-[; ;colour_identify.c: 198:             break;
-[e $U 2055  ]
+[; ;colour_identify.c: 198:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
 "199
-[; ;colour_identify.c: 199:         case WHITE:
-[e :U 2064 ]
+[; ;colour_identify.c: 199:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"200
+[; ;colour_identify.c: 200:             break;
+[e $U 2055  ]
 "201
-[; ;colour_identify.c: 201:             LATDbits.LATD7=1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"202
-[; ;colour_identify.c: 202:             _delay((unsigned long)((200)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;colour_identify.c: 201:         case WHITE:
+[e :U 2064 ]
 "203
-[; ;colour_identify.c: 203:             LATDbits.LATD7=0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;colour_identify.c: 203:             LATDbits.LATD7=1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "204
-[; ;colour_identify.c: 204:             break;
-[e $U 2055  ]
-"205
-[; ;colour_identify.c: 205:         case BLACK:
-[e :U 2065 ]
-"207
-[; ;colour_identify.c: 207:             LATHbits.LATH3=1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"208
-[; ;colour_identify.c: 208:             _delay((unsigned long)((200)*(64000000/4000.0)));
+[; ;colour_identify.c: 204:             _delay((unsigned long)((200)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"205
+[; ;colour_identify.c: 205:             LATDbits.LATD7=0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"206
+[; ;colour_identify.c: 206:             break;
+[e $U 2055  ]
+"207
+[; ;colour_identify.c: 207:         case BLACK:
+[e :U 2065 ]
 "209
-[; ;colour_identify.c: 209:             LATHbits.LATH3=0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;colour_identify.c: 209:             LATHbits.LATH3=1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "210
-[; ;colour_identify.c: 210:             break;
-[e $U 2055  ]
+[; ;colour_identify.c: 210:             _delay((unsigned long)((200)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "211
-[; ;colour_identify.c: 211:         default:
-[e :U 2066 ]
+[; ;colour_identify.c: 211:             LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "212
-[; ;colour_identify.c: 212:             LATHbits.LATH1 = 1;
-[e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
-"213
-[; ;colour_identify.c: 213:             _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"214
-[; ;colour_identify.c: 214:             LATHbits.LATH1 = 0;
-[e = . . _LATHbits 0 1 -> -> 0 `i `uc ]
-"215
-[; ;colour_identify.c: 215:             break;
+[; ;colour_identify.c: 212:             break;
 [e $U 2055  ]
+"213
+[; ;colour_identify.c: 213:         default:
+[e :U 2066 ]
+"214
+[; ;colour_identify.c: 214:             LATHbits.LATH1 = 1;
+[e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
+"215
+[; ;colour_identify.c: 215:             _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "216
-[; ;colour_identify.c: 216:     }
+[; ;colour_identify.c: 216:             LATHbits.LATH1 = 0;
+[e = . . _LATHbits 0 1 -> -> 0 `i `uc ]
+"217
+[; ;colour_identify.c: 217:             break;
+[e $U 2055  ]
+"218
+[; ;colour_identify.c: 218:     }
 }
 [e $U 2055  ]
 [e :U 2056 ]
-[e [\ -> _card `ui , $ -> . `E14551 1 `ui 2057
- , $ -> . `E14551 2 `ui 2058
- , $ -> . `E14551 3 `ui 2059
- , $ -> . `E14551 4 `ui 2060
- , $ -> . `E14551 5 `ui 2061
- , $ -> . `E14551 6 `ui 2062
- , $ -> . `E14551 7 `ui 2063
- , $ -> . `E14551 8 `ui 2064
- , $ -> . `E14551 9 `ui 2065
+[e [\ -> _card `ui , $ -> . `E14551 0 `ui 2057
+ , $ -> . `E14551 1 `ui 2058
+ , $ -> . `E14551 2 `ui 2059
+ , $ -> . `E14551 3 `ui 2060
+ , $ -> . `E14551 4 `ui 2061
+ , $ -> . `E14551 5 `ui 2062
+ , $ -> . `E14551 6 `ui 2063
+ , $ -> . `E14551 7 `ui 2064
+ , $ -> . `E14551 8 `ui 2065
  2066 ]
 [e :U 2055 ]
-"218
-[; ;colour_identify.c: 218: }
+"220
+[; ;colour_identify.c: 220: }
 [e :UE 2054 ]
 }
-"220
-[; ;colour_identify.c: 220: void card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR) {
-[v _card_response `(v ~T0 @X0 1 ef8`*uc`*ui`*ui`*ui`*ui`*F14701`*S2017`*S2017 ]
+"222
+[; ;colour_identify.c: 222: void card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], DC_motor *mL, DC_motor *mR) {
+[v _card_response `(v ~T0 @X0 1 ef8`*uc`*ui`*ui`*ui`*ui`*F14700`*S2017`*S2017 ]
 {
 [e :U _card_response ]
 [v _buf `*uc ~T0 @X0 1 r1 ]
@@ -2763,55 +2763,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _red_read `*ui ~T0 @X0 1 r3 ]
 [v _green_read `*ui ~T0 @X0 1 r4 ]
 [v _blue_read `*ui ~T0 @X0 1 r5 ]
-[v F14708 `ui ~T0 @X0 -> 9 `i t ]
-[v _expected_values `*F14708 ~T0 @X0 1 r6 ]
+[v F14707 `ui ~T0 @X0 -> 9 `i t ]
+[v _expected_values `*F14707 ~T0 @X0 1 r6 ]
 [v _mL `*S2017 ~T0 @X0 1 r7 ]
 [v _mR `*S2017 ~T0 @X0 1 r8 ]
 [f ]
-"223
-[; ;colour_identify.c: 223:     colour card = RED;
-[v _card `E14551 ~T0 @X0 1 a ]
-[e = _card . `E14551 1 ]
-[v F14713 `ui ~T0 @X0 -> 9 `i t ]
-"224
-[; ;colour_identify.c: 224:     unsigned int normalised_values[4][9];
-[v _normalised_values `F14713 ~T0 @X0 -> 4 `i a ]
 "225
-[; ;colour_identify.c: 225:     unsigned int master_closeness[9];
-[v _master_closeness `ui ~T0 @X0 -> 9 `i a ]
+[; ;colour_identify.c: 225:     colour card = RED;
+[v _card `E14551 ~T0 @X0 1 a ]
+[e = _card . `E14551 0 ]
+[v F14712 `ui ~T0 @X0 -> 9 `i t ]
+"226
+[; ;colour_identify.c: 226:     unsigned int normalised_values[4][9];
+[v _normalised_values `F14712 ~T0 @X0 -> 4 `i a ]
 "227
-[; ;colour_identify.c: 227:     collect_avg_readings(clear_read, red_read, green_read, blue_read);
-[e ( _collect_avg_readings (4 , , , _clear_read _red_read _green_read _blue_read ]
-"228
-[; ;colour_identify.c: 228:     sprintf(buf, "\n AVG: Clear %d, R %d, G %d, B %d \n", *clear_read, *red_read, *green_read, *blue_read);
-[e ( _sprintf (1 , , , , (. , _buf :s 2C *U _clear_read *U _red_read *U _green_read *U _blue_read ]
+[; ;colour_identify.c: 227:     unsigned int master_closeness[9];
+[v _master_closeness `ui ~T0 @X0 -> 9 `i a ]
 "229
-[; ;colour_identify.c: 229:     sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 _buf ]
+[; ;colour_identify.c: 229:     collect_avg_readings(clear_read, red_read, green_read, blue_read);
+[e ( _collect_avg_readings (4 , , , _clear_read _red_read _green_read _blue_read ]
+"230
+[; ;colour_identify.c: 230:     sprintf(buf, "\n AVG: Clear %d, R %d, G %d, B %d \n", *clear_read, *red_read, *green_read, *blue_read);
+[e ( _sprintf (1 , , , , (. , _buf :s 2C *U _clear_read *U _red_read *U _green_read *U _blue_read ]
 "231
-[; ;colour_identify.c: 231:     normalise_readings(buf, *clear_read, *red_read, *green_read, *blue_read, expected_values, normalised_values);
-[e ( _normalise_readings (4 , , , , , , _buf *U _clear_read *U _red_read *U _green_read *U _blue_read _expected_values &U _normalised_values ]
-"233
-[; ;colour_identify.c: 233:     make_master_closeness(buf, normalised_values, master_closeness);
-[e ( _make_master_closeness (3 , , _buf &U _normalised_values &U _master_closeness ]
-"235
-[; ;colour_identify.c: 235:     card = determine_card(master_closeness);
-[e = _card ( _determine_card (1 &U _master_closeness ]
-"236
-[; ;colour_identify.c: 236:     sprintf(buf, "CARD %d \n", card);
-[e ( _sprintf (1 , (. , _buf :s 3C -> _card `ui ]
-"237
-[; ;colour_identify.c: 237:     sendStringSerial4(buf);
+[; ;colour_identify.c: 231:     sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 _buf ]
+"233
+[; ;colour_identify.c: 233:     normalise_readings(buf, *clear_read, *red_read, *green_read, *blue_read, expected_values, normalised_values);
+[e ( _normalise_readings (4 , , , , , , _buf *U _clear_read *U _red_read *U _green_read *U _blue_read _expected_values &U _normalised_values ]
+"235
+[; ;colour_identify.c: 235:     make_master_closeness(buf, normalised_values, master_closeness);
+[e ( _make_master_closeness (3 , , _buf &U _normalised_values &U _master_closeness ]
+"237
+[; ;colour_identify.c: 237:     card = determine_card(master_closeness);
+[e = _card ( _determine_card (1 &U _master_closeness ]
+"238
+[; ;colour_identify.c: 238:     sprintf(buf, "CARD %d \n", card);
+[e ( _sprintf (1 , (. , _buf :s 3C -> _card `ui ]
 "239
-[; ;colour_identify.c: 239:     motor_response(card, mL, mR);
+[; ;colour_identify.c: 239:     sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 _buf ]
+"241
+[; ;colour_identify.c: 241:     motor_response(card, mL, mR);
 [e ( _motor_response (3 , , _card _mL _mR ]
-"240
-[; ;colour_identify.c: 240: }
+"242
+[; ;colour_identify.c: 242: }
 [e :UE 2067 ]
 }
-"242
-[; ;colour_identify.c: 242: void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR){
+"244
+[; ;colour_identify.c: 244: void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR){
 [v _motor_response_easy `(v ~T0 @X0 1 ef3`E14551`*S2017`*S2017 ]
 {
 [e :U _motor_response_easy ]
@@ -2819,25 +2819,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _mL `*S2017 ~T0 @X0 1 r2 ]
 [v _mR `*S2017 ~T0 @X0 1 r3 ]
 [f ]
-"244
-[; ;colour_identify.c: 244:     switch (card){
+"246
+[; ;colour_identify.c: 246:     switch (card){
 [e $U 2070  ]
 {
-"245
-[; ;colour_identify.c: 245:         case RED:
-[e :U 2071 ]
-"246
-[; ;colour_identify.c: 246:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
 "247
-[; ;colour_identify.c: 247:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;colour_identify.c: 247:         case RED:
+[e :U 2071 ]
 "248
-[; ;colour_identify.c: 248:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
+[; ;colour_identify.c: 248:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
 "249
-[; ;colour_identify.c: 249:             stop(mL,mR);
-[e ( _stop (2 , _mL _mR ]
+[; ;colour_identify.c: 249:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "250
 [; ;colour_identify.c: 250:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
@@ -2845,23 +2839,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 251:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "252
-[; ;colour_identify.c: 252:             break;
-[e $U 2069  ]
+[; ;colour_identify.c: 252:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "253
-[; ;colour_identify.c: 253:         case GREEN:
-[e :U 2072 ]
-"254
-[; ;colour_identify.c: 254:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
-"255
-[; ;colour_identify.c: 255:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"256
-[; ;colour_identify.c: 256:             turnLeft45(mL,mR);
-[e ( _turnLeft45 (2 , _mL _mR ]
-"257
-[; ;colour_identify.c: 257:             stop(mL,mR);
+[; ;colour_identify.c: 253:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
+"254
+[; ;colour_identify.c: 254:             break;
+[e $U 2069  ]
+"255
+[; ;colour_identify.c: 255:         case GREEN:
+[e :U 2072 ]
+"256
+[; ;colour_identify.c: 256:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"257
+[; ;colour_identify.c: 257:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "258
 [; ;colour_identify.c: 258:             turnLeft45(mL,mR);
 [e ( _turnLeft45 (2 , _mL _mR ]
@@ -2869,23 +2863,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 259:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "260
-[; ;colour_identify.c: 260:             break;
-[e $U 2069  ]
+[; ;colour_identify.c: 260:             turnLeft45(mL,mR);
+[e ( _turnLeft45 (2 , _mL _mR ]
 "261
-[; ;colour_identify.c: 261:         case BLUE:
-[e :U 2073 ]
-"262
-[; ;colour_identify.c: 262:             reverseFullSpeed(mL,mR);
-[e ( _reverseFullSpeed (2 , _mL _mR ]
-"263
-[; ;colour_identify.c: 263:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"264
-[; ;colour_identify.c: 264:             turnRight45(mL,mR);
-[e ( _turnRight45 (2 , _mL _mR ]
-"265
-[; ;colour_identify.c: 265:             stop(mL,mR);
+[; ;colour_identify.c: 261:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
+"262
+[; ;colour_identify.c: 262:             break;
+[e $U 2069  ]
+"263
+[; ;colour_identify.c: 263:         case BLUE:
+[e :U 2073 ]
+"264
+[; ;colour_identify.c: 264:             reverseFullSpeed(mL,mR);
+[e ( _reverseFullSpeed (2 , _mL _mR ]
+"265
+[; ;colour_identify.c: 265:             _delay((unsigned long)((150)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "266
 [; ;colour_identify.c: 266:             turnRight45(mL,mR);
 [e ( _turnRight45 (2 , _mL _mR ]
@@ -2905,72 +2899,78 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 271:             stop(mL,mR);
 [e ( _stop (2 , _mL _mR ]
 "272
-[; ;colour_identify.c: 272:             break;
-[e $U 2069  ]
+[; ;colour_identify.c: 272:             turnRight45(mL,mR);
+[e ( _turnRight45 (2 , _mL _mR ]
 "273
-[; ;colour_identify.c: 273:         case WHITE:
-[e :U 2074 ]
+[; ;colour_identify.c: 273:             stop(mL,mR);
+[e ( _stop (2 , _mL _mR ]
+"274
+[; ;colour_identify.c: 274:             break;
+[e $U 2069  ]
 "275
-[; ;colour_identify.c: 275:             LATDbits.LATD7=1;
-[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
-"276
-[; ;colour_identify.c: 276:             _delay((unsigned long)((200)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;colour_identify.c: 275:         case WHITE:
+[e :U 2074 ]
 "277
-[; ;colour_identify.c: 277:             LATDbits.LATD7=0;
-[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+[; ;colour_identify.c: 277:             LATDbits.LATD7=1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
 "278
-[; ;colour_identify.c: 278:             break;
-[e $U 2069  ]
-"279
-[; ;colour_identify.c: 279:         case BLACK:
-[e :U 2075 ]
-"281
-[; ;colour_identify.c: 281:             LATHbits.LATH3=1;
-[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
-"282
-[; ;colour_identify.c: 282:             _delay((unsigned long)((200)*(64000000/4000.0)));
+[; ;colour_identify.c: 278:             _delay((unsigned long)((200)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"279
+[; ;colour_identify.c: 279:             LATDbits.LATD7=0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"280
+[; ;colour_identify.c: 280:             break;
+[e $U 2069  ]
+"281
+[; ;colour_identify.c: 281:         case BLACK:
+[e :U 2075 ]
 "283
-[; ;colour_identify.c: 283:             LATHbits.LATH3=0;
-[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+[; ;colour_identify.c: 283:             LATHbits.LATH3=1;
+[e = . . _LATHbits 0 3 -> -> 1 `i `uc ]
 "284
-[; ;colour_identify.c: 284:             break;
-[e $U 2069  ]
+[; ;colour_identify.c: 284:             _delay((unsigned long)((200)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "285
-[; ;colour_identify.c: 285:         default:
-[e :U 2076 ]
+[; ;colour_identify.c: 285:             LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
 "286
-[; ;colour_identify.c: 286:             LATHbits.LATH1 = 1;
-[e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
-"287
-[; ;colour_identify.c: 287:             _delay((unsigned long)((500)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"288
-[; ;colour_identify.c: 288:             LATHbits.LATH1 = 0;
-[e = . . _LATHbits 0 1 -> -> 0 `i `uc ]
-"289
-[; ;colour_identify.c: 289:             break;
+[; ;colour_identify.c: 286:             break;
 [e $U 2069  ]
+"287
+[; ;colour_identify.c: 287:         default:
+[e :U 2076 ]
+"288
+[; ;colour_identify.c: 288:             LATHbits.LATH1 = 1;
+[e = . . _LATHbits 0 1 -> -> 1 `i `uc ]
+"289
+[; ;colour_identify.c: 289:             _delay((unsigned long)((500)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 500 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "290
-[; ;colour_identify.c: 290:     }
+[; ;colour_identify.c: 290:             LATHbits.LATH1 = 0;
+[e = . . _LATHbits 0 1 -> -> 0 `i `uc ]
+"291
+[; ;colour_identify.c: 291:             break;
+[e $U 2069  ]
+"292
+[; ;colour_identify.c: 292:     }
 }
 [e $U 2069  ]
 [e :U 2070 ]
-[e [\ -> _card `ui , $ -> . `E14551 1 `ui 2071
- , $ -> . `E14551 2 `ui 2072
- , $ -> . `E14551 3 `ui 2073
- , $ -> . `E14551 8 `ui 2074
- , $ -> . `E14551 9 `ui 2075
+[e [\ -> _card `ui , $ -> . `E14551 0 `ui 2071
+ , $ -> . `E14551 1 `ui 2072
+ , $ -> . `E14551 2 `ui 2073
+ , $ -> . `E14551 7 `ui 2074
+ , $ -> . `E14551 8 `ui 2075
  2076 ]
 [e :U 2069 ]
-"292
-[; ;colour_identify.c: 292: }
+"294
+[; ;colour_identify.c: 294: }
 [e :UE 2068 ]
 }
-"294
-[; ;colour_identify.c: 294: void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR){
-[v _card_response_easy `(v ~T0 @X0 1 ef8`*uc`*ui`*ui`*ui`*ui`*F14722`*S2017`*S2017 ]
+"296
+[; ;colour_identify.c: 296: void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR){
+[v _card_response_easy `(v ~T0 @X0 1 ef8`*uc`*ui`*ui`*ui`*ui`*F14721`*S2017`*S2017 ]
 {
 [e :U _card_response_easy ]
 [v _buf `*uc ~T0 @X0 1 r1 ]
@@ -2978,54 +2978,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _red_read `*ui ~T0 @X0 1 r3 ]
 [v _green_read `*ui ~T0 @X0 1 r4 ]
 [v _blue_read `*ui ~T0 @X0 1 r5 ]
-[v F14729 `ui ~T0 @X0 -> 5 `i t ]
-[v _expected_values `*F14729 ~T0 @X0 1 r6 ]
+[v F14728 `ui ~T0 @X0 -> 5 `i t ]
+[v _expected_values `*F14728 ~T0 @X0 1 r6 ]
 [v _mL `*S2017 ~T0 @X0 1 r7 ]
 [v _mR `*S2017 ~T0 @X0 1 r8 ]
 [f ]
-"295
-[; ;colour_identify.c: 295:     colour card = RED;
-[v _card `E14551 ~T0 @X0 1 a ]
-[e = _card . `E14551 1 ]
-[v F14734 `ui ~T0 @X0 -> 5 `i t ]
-"296
-[; ;colour_identify.c: 296:     unsigned int normalised_values[4][5];
-[v _normalised_values `F14734 ~T0 @X0 -> 4 `i a ]
 "297
-[; ;colour_identify.c: 297:     unsigned int master_closeness[5];
-[v _master_closeness `ui ~T0 @X0 -> 5 `i a ]
+[; ;colour_identify.c: 297:     colour card = RED;
+[v _card `E14551 ~T0 @X0 1 a ]
+[e = _card . `E14551 0 ]
+[v F14733 `ui ~T0 @X0 -> 5 `i t ]
+"298
+[; ;colour_identify.c: 298:     unsigned int normalised_values[4][5];
+[v _normalised_values `F14733 ~T0 @X0 -> 4 `i a ]
 "299
-[; ;colour_identify.c: 299:     collect_avg_readings(clear_read, red_read, green_read, blue_read);
-[e ( _collect_avg_readings (4 , , , _clear_read _red_read _green_read _blue_read ]
-"300
-[; ;colour_identify.c: 300:     sprintf(buf, "\n AVG: Clear %d, R %d, G %d, B %d \n", *clear_read, *red_read, *green_read, *blue_read);
-[e ( _sprintf (1 , , , , (. , _buf :s 4C *U _clear_read *U _red_read *U _green_read *U _blue_read ]
+[; ;colour_identify.c: 299:     unsigned int master_closeness[5];
+[v _master_closeness `ui ~T0 @X0 -> 5 `i a ]
 "301
-[; ;colour_identify.c: 301:     sendStringSerial4(buf);
-[e ( _sendStringSerial4 (1 _buf ]
-[v F14736 `ui ~T0 @X0 -> 9 `i t ]
-[v F14737 `ui ~T0 @X0 -> 9 `i t ]
+[; ;colour_identify.c: 301:     collect_avg_readings(clear_read, red_read, green_read, blue_read);
+[e ( _collect_avg_readings (4 , , , _clear_read _red_read _green_read _blue_read ]
+"302
+[; ;colour_identify.c: 302:     sprintf(buf, "\n AVG: Clear %d, R %d, G %d, B %d \n", *clear_read, *red_read, *green_read, *blue_read);
+[e ( _sprintf (1 , , , , (. , _buf :s 4C *U _clear_read *U _red_read *U _green_read *U _blue_read ]
 "303
-[; ;colour_identify.c: 303:     normalise_readings(buf, *clear_read, *red_read, *green_read, *blue_read, expected_values, normalised_values);
-[e ( _normalise_readings (4 , , , , , , _buf *U _clear_read *U _red_read *U _green_read *U _blue_read -> _expected_values `*F14736 -> &U _normalised_values `*F14737 ]
-[v F14739 `ui ~T0 @X0 -> 9 `i t ]
-"305
-[; ;colour_identify.c: 305:     make_master_closeness(buf, normalised_values, master_closeness);
-[e ( _make_master_closeness (3 , , _buf -> &U _normalised_values `*F14739 &U _master_closeness ]
-"307
-[; ;colour_identify.c: 307:     card = determine_card(master_closeness);
-[e = _card ( _determine_card (1 &U _master_closeness ]
-"308
-[; ;colour_identify.c: 308:     sprintf(buf, "CARD %d \n", card);
-[e ( _sprintf (1 , (. , _buf :s 5C -> _card `ui ]
-"309
-[; ;colour_identify.c: 309:     sendStringSerial4(buf);
+[; ;colour_identify.c: 303:     sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 _buf ]
+[v F14735 `ui ~T0 @X0 -> 9 `i t ]
+[v F14736 `ui ~T0 @X0 -> 9 `i t ]
+"305
+[; ;colour_identify.c: 305:     normalise_readings(buf, *clear_read, *red_read, *green_read, *blue_read, expected_values, normalised_values);
+[e ( _normalise_readings (4 , , , , , , _buf *U _clear_read *U _red_read *U _green_read *U _blue_read -> _expected_values `*F14735 -> &U _normalised_values `*F14736 ]
+[v F14738 `ui ~T0 @X0 -> 9 `i t ]
+"307
+[; ;colour_identify.c: 307:     make_master_closeness(buf, normalised_values, master_closeness);
+[e ( _make_master_closeness (3 , , _buf -> &U _normalised_values `*F14738 &U _master_closeness ]
+"309
+[; ;colour_identify.c: 309:     card = determine_card(master_closeness);
+[e = _card ( _determine_card (1 &U _master_closeness ]
+"310
+[; ;colour_identify.c: 310:     sprintf(buf, "CARD %d \n", card);
+[e ( _sprintf (1 , (. , _buf :s 5C -> _card `ui ]
 "311
-[; ;colour_identify.c: 311:     motor_response_easy(card, mL, mR);
+[; ;colour_identify.c: 311:     sendStringSerial4(buf);
+[e ( _sendStringSerial4 (1 _buf ]
+"313
+[; ;colour_identify.c: 313:     motor_response_easy(card, mL, mR);
 [e ( _motor_response_easy (3 , , _card _mL _mR ]
-"312
-[; ;colour_identify.c: 312: }
+"314
+[; ;colour_identify.c: 314: }
 [e :UE 2077 ]
 }
 [p f _sprintf 8388736 ]

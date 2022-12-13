@@ -70,6 +70,7 @@ void main(void) {
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     unsigned int clear_read_check = 0;
+    
     unsigned int expected_values[4][9];
     unsigned int expected_values_easy[4][5];
     unsigned int ReturnHomeArray[2][30];
@@ -83,7 +84,7 @@ void main(void) {
     ***********************************************/
     
     BRAKE = 0;
-    for(colour i = RED; i<= BLACK; i++){ //i <= PINK for easy mode, BLACK for hard mode
+    for(colour i = RED; i<= BLACK; i++){ //i <=  for easy mode, BLACK for hard mode
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
@@ -95,11 +96,11 @@ void main(void) {
         __delay_ms(150);
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
-        expected_values[CLEAR][i-1] = clear_read;
-        expected_values[RED][i-1] = red_read;
-        expected_values[GREEN][i-1] = green_read;
-        expected_values[BLUE][i-1] = blue_read; 
-        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i-1);
+        expected_values[RED][i] = red_read;
+        expected_values[GREEN][i] = green_read;
+        expected_values[BLUE][i] = blue_read;
+        expected_values[3][i] = clear_read;
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read);
         sendStringSerial4(buf); 
     }
     BRAKE = 1;

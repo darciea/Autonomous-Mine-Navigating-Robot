@@ -24406,7 +24406,7 @@ void reverseFullSpeed(DC_motor *mL, DC_motor *mR);
 
 
 
-typedef enum colour{CLEAR, RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
+typedef enum colour{RED, GREEN, BLUE, YELLOW, PINK, ORANGE, LIGHT_BLUE, WHITE, BLACK} colour;
 
 void clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
 void collect_avg_readings(unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read);
@@ -24550,11 +24550,8 @@ void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_rea
 
 
 
-        unsigned int difference = abs(clear_read - expected_values[CLEAR][i]);
-        normalised_values[CLEAR][i] = (difference*100) / expected_values[CLEAR][i];
 
-
-        difference = abs(red_read - expected_values[RED][i]);
+        unsigned int difference = abs(red_read - expected_values[RED][i]);
         normalised_values[RED][i] = (difference*100) / expected_values[RED][i];
 
 
@@ -24564,6 +24561,11 @@ void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_rea
 
         difference = abs(blue_read - expected_values[BLUE][i]);
         normalised_values[BLUE][i] = (difference*100) / expected_values[BLUE][i];
+
+
+        difference = abs(clear_read - expected_values[3][i]);
+        normalised_values[3][i] = (difference*100) / expected_values[3][i];
+
     }
 
 }
@@ -24571,7 +24573,7 @@ void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_rea
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
     for(colour i = RED; i<=BLACK; i++){
 
-        master_closeness[i] = (normalised_values[CLEAR][i] + normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i])/4;
+        master_closeness[i] = (normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i] + normalised_values[3][i])/4;
 
 
 
