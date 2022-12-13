@@ -95,11 +95,11 @@ void main(void) {
         __delay_ms(150);
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
-        expected_values[CLEAR][i] = clear_read;
-        expected_values[RED][i] = red_read;
-        expected_values[GREEN][i] = green_read;
-        expected_values[BLUE][i] = blue_read; 
-        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i);
+        expected_values[CLEAR][i-1] = clear_read;
+        expected_values[RED][i-1] = red_read;
+        expected_values[GREEN][i-1] = green_read;
+        expected_values[BLUE][i-1] = blue_read; 
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i-1);
         sendStringSerial4(buf); 
     }
     BRAKE = 1;

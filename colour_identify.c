@@ -78,20 +78,20 @@ void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_rea
         //difference is just a temporary variable for performing the calculations
         
         //check the clear readings against the expected readings and express as a percentage
-        unsigned int difference = abs(clear_read - expected_values[CLEAR][i]);
-        normalised_values[CLEAR][i] = (difference*100) / expected_values[CLEAR][i];
+        unsigned int difference = abs(clear_read - expected_values[CLEAR][i-1]);
+        normalised_values[CLEAR][i-1] = (difference*100) / expected_values[CLEAR][i-1];
         
         //check the red readings against the expected readings and express as a percentage
-        difference = abs(red_read - expected_values[RED][i]);
-        normalised_values[RED][i] = (difference*100) / expected_values[RED][i];
+        difference = abs(red_read - expected_values[RED][i-1]);
+        normalised_values[RED][i-1] = (difference*100) / expected_values[RED][i-1];
         
         //check the green readings against the expected readings and express as a percentage
-        difference = abs(green_read - expected_values[GREEN][i]);
-        normalised_values[GREEN][i] = (difference*100) / expected_values[GREEN][i];
+        difference = abs(green_read - expected_values[GREEN][i-1]);
+        normalised_values[GREEN][i-1] = (difference*100) / expected_values[GREEN][i-1];
         
         //check the blue readings against the expected readings and express as a percentage
-        difference = abs(blue_read - expected_values[BLUE][i]);
-        normalised_values[BLUE][i] = (difference*100) / expected_values[BLUE][i];
+        difference = abs(blue_read - expected_values[BLUE][i-1]);
+        normalised_values[BLUE][i-1] = (difference*100) / expected_values[BLUE][i-1];
     }
         
 }
@@ -99,7 +99,7 @@ void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_rea
 void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsigned int master_closeness[]){
     for(colour i = RED; i<=BLACK; i++){
         //for each colour card, find the average difference per colourcard and store it in the array master_closeness
-        master_closeness[i] = (normalised_values[CLEAR][i] + normalised_values[RED][i] + normalised_values[GREEN][i] + normalised_values[BLUE][i])/4;
+        master_closeness[i-1] = (normalised_values[CLEAR][i-1] + normalised_values[RED][i-1] + normalised_values[GREEN][i-1] + normalised_values[BLUE][i-1])/4;
         //sprintf(buf, "MC Avg: normRED %d, normGREEN %d, normBLUE %d, master %d \n", normalised_values[RED][i], normalised_values[GREEN][i],normalised_values[BLUE][i], master_closeness[i]);
         //sendStringSerial4(buf);
         //__delay_ms(200);
@@ -110,11 +110,11 @@ void make_master_closeness(char *buf, unsigned int normalised_values[][9], unsig
 colour determine_card(unsigned int master_closeness[]){
     //this function will iterate through the master_closeness array to find the smallest difference, and hence the colour card that we think it is
     colour predicted_colour = RED; //assume the colour is red at first
-    unsigned int current_smallest = master_closeness[RED]; //taking this value as the first comparison
-    for(colour i = GREEN; i<=BLACK; i++){
+    unsigned int current_smallest = master_closeness[0]; //taking this value as the first comparison
+    for(colour i = RED; i<=WHITE; i++){
         if(master_closeness[i] < current_smallest){
             current_smallest = master_closeness[i];
-            predicted_colour = i;
+            predicted_colour = i-1;
         }
     }
     return predicted_colour;
