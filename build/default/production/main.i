@@ -24601,12 +24601,17 @@ void main(void) {
     unsigned int ReturnHomeArray[2][30];
 # 85 "main.c"
     LATDbits.LATD4 = 0;
-    for(colour i = RED; i<= PINK; i++){
+    for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
             LATDbits.LATD4 = 1;
         }
         LATDbits.LATD4 = 0;
         _delay((unsigned long)((500)*(64000000/4000.0)));
+        stop(&motorL, &motorR);
+        _delay((unsigned long)((20)*(64000000/4000.0)));
+        reverseFullSpeed(&motorL, &motorR);
+        _delay((unsigned long)((150)*(64000000/4000.0)));
+        stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[CLEAR][i] = clear_read;
         expected_values[RED][i] = red_read;
@@ -24618,7 +24623,7 @@ void main(void) {
     LATDbits.LATD4 = 1;
     while(PORTFbits.RF2){LATDbits.LATD4 = 0;}
     clear_read_calibration(buf, &clear_read, &clear_read_check);
-# 121 "main.c"
+# 126 "main.c"
     while(PORTFbits.RF2){}
     fullSpeedAhead(&motorL, &motorR);
     while (1) {
@@ -24628,14 +24633,14 @@ void main(void) {
             stop(&motorL, &motorR);
             _delay((unsigned long)((20)*(64000000/4000.0)));
             reverseFullSpeed(&motorL, &motorR);
-            _delay((unsigned long)((100)*(64000000/4000.0)));
+            _delay((unsigned long)((150)*(64000000/4000.0)));
             stop(&motorL, &motorR);
             _delay((unsigned long)((2)*(64000000/4000.0)));
-            card_response (buf, &clear_read, &red_read, &green_read, &blue_read, expected_values , &motorL, &motorR);
+            card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);
             _delay((unsigned long)((2)*(64000000/4000.0)));
 
             fullSpeedAhead(&motorL, &motorR);
         }
-# 148 "main.c"
+# 153 "main.c"
     }
 }

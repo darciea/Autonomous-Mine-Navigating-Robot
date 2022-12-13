@@ -24780,5 +24780,5 @@ void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_r
     sprintf(buf, "CARD %d \n", card);
     sendStringSerial4(buf);
 
-    motor_response(card, mL, mR);
+    motor_response_easy(card, mL, mR);
 }

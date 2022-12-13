@@ -3022,8 +3022,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;colour_identify.c: 309:     sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 _buf ]
 "311
-[; ;colour_identify.c: 311:     motor_response(card, mL, mR);
-[e ( _motor_response (3 , , _card _mL _mR ]
+[; ;colour_identify.c: 311:     motor_response_easy(card, mL, mR);
+[e ( _motor_response_easy (3 , , _card _mL _mR ]
 "312
 [; ;colour_identify.c: 312: }
 [e :UE 2077 ]

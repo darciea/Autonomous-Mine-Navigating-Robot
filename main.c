@@ -83,12 +83,17 @@ void main(void) {
     ***********************************************/
     
     BRAKE = 0;
-    for(colour i = RED; i<= PINK; i++){ //i <= PINK for easy mode, BLACK for hard mode
+    for(colour i = RED; i<= BLACK; i++){ //i <= PINK for easy mode, BLACK for hard mode
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
         BRAKE = 0;
         __delay_ms(500);
+        stop(&motorL, &motorR);
+        __delay_ms(20);
+        reverseFullSpeed(&motorL, &motorR); //this will replicate the distance at which the buggy does the readings in the maze
+        __delay_ms(150);
+        stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[CLEAR][i] = clear_read;
         expected_values[RED][i] = red_read;
@@ -127,10 +132,10 @@ void main(void) {
             stop(&motorL, &motorR);
             __delay_ms(20);
             reverseFullSpeed(&motorL, &motorR);
-            __delay_ms(100);
+            __delay_ms(150);
             stop(&motorL, &motorR);
             __delay_ms(2);
-            card_response/*_easy*/(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values/*_easy*/, &motorL, &motorR);    
+            card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, &motorL, &motorR);    
             __delay_ms(2);
 
             fullSpeedAhead(&motorL, &motorR); //begin moving  
