@@ -11,4 +11,7 @@ unsigned int TimerFlag;
 void Interrupts_init(void);
 void __interrupt(low_priority) LowISR();
 
+unsigned int response_in_progress=0;
+unsigned int card_detected=0;
+
 #endif

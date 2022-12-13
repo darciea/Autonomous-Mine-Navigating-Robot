@@ -29,7 +29,7 @@ void main(void) {
     initDCmotorsPWM();
     initUSART4();
     Interrupts_init();
-
+    
     TRISFbits.TRISF2=1; //set TRIS value for pin (input)
     ANSELFbits.ANSELF2=0; //turn off analogue input on pin
 
@@ -73,6 +73,11 @@ void main(void) {
     
     unsigned int TimerCount = 0;
     unsigned int CardCount = 0; //count of the cards seen on the route of the buggy
+    unsigned int clear_read_check = 0;
+    
+    unsigned int expected_values[4][9];
+    unsigned int expected_values_easy[4][5];
+    unsigned int ReturnHomeArray[2][30];
     
     HomeStored ReturnHomeArray;
  
@@ -84,24 +89,29 @@ void main(void) {
         4. Press button to increment i and repeat for all 8 colours                                           * 
     ***********************************************/
     
-    for(colour i = RED; i<= BLACK; i++){
+    BRAKE = 0;
+    for(colour i = RED; i<= BLACK; i++){ //i <=  for easy mode, BLACK for hard mode
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
         BRAKE = 0;
-        collect_avg_readings(&red_read, &green_read, &blue_read);
+        __delay_ms(500);
+        stop(&motorL, &motorR);
+        __delay_ms(20);
+        reverseFullSpeed(&motorL, &motorR); //this will replicate the distance at which the buggy does the readings in the maze
+        __delay_ms(150);
+        stop(&motorL, &motorR);
+        collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
         expected_values[GREEN][i] = green_read;
-        expected_values[BLUE][i] = blue_read; 
+        expected_values[BLUE][i] = blue_read;
+        expected_values[3][i] = clear_read;
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read);
+        sendStringSerial4(buf); 
     }
-        for (int i = 0; i <= 500; i++){
-        clear_read = color_read_Clear();
-    } 
-    
-    for(int i = 0; i <= 2; i++){
-        clear_read += color_read_Clear();
-        __delay_ms(200);   
-    }
+    BRAKE = 1;
+    while(PORTFbits.RF2){BRAKE = 0;}
+    clear_read_calibration(buf, &clear_read, &clear_read_check);
     
     clear_read = clear_read/4;
     

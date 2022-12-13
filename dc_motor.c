@@ -109,7 +109,7 @@ void turnLeft45(DC_motor *mL, DC_motor *mR)
         __delay_ms(15);//delay ensures current has time to adjust
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    __delay_ms(65);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
+    __delay_ms(90);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
 }
 
 //function to make the robot turn right 
@@ -124,7 +124,7 @@ void turnRight45(DC_motor *mL, DC_motor *mR)
         __delay_ms(15);//delay ensures current has time to adjust
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    __delay_ms(65);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
+    __delay_ms(90);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
 }
 
 //function to make the robot go straight forward

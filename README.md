@@ -1,3 +1,67 @@
+# Darciea + Matti's Final Project
+
+## Explanation of our work
+
+Our program contains a calibration routine where it fills an 3 by 9 array with the expected readings for each colour sensor (RGB) for each colour card. Prompted by a button press, the buggy reads ~500 times before collecting 3 data values and calculating the average for each colour sensor. The colour card should follow the sequence: red, green, blue, yellow, pink, orange, light blue, white and black, and the button should be pressed before changing each card. 
+
+To start the program within the maze, a button should be pressed when the buggy is in the appropriate position and is ready to start the program. Once the button is pressed, the buggy will continue forward, recording the time taken, until the clear sensor receives light above a certain threshold as light is reflected by a surface nearby (the card), and triggers an interrupt. This then triggers the buggy to stop moving and to initiate the colour detection and response.
+
+### Colour detection and response methodology
+
+To start, variables are created for each of the colour sensors, named red_read, green_read and blue_read, and they are often used to temporarily store the readings of the colour click before they are stored elsewhere. An array called expected_values is also created, and this is filled up with the expected values for each colour sensor for each colour card. For example, the first column of the array contains the expected red, green and blue readings for a red card. Another variable (a union variable) contains two arrays to track the movements so that if the white card is seen, it can return home - this will be explained in the next section.
+
+The colour detection and response is all contained within the function card_response. This function contains multiple functions that carries out each step of the colour detection process. 
+1. collect_avg_readings(red_read, green_read, blue_read)
+
+	This function reads ~500 times, then it retains 3 readings and calculates the average for each colour sensor and returns it back to the main. 
+
+2. normalise_readings(red_read, green_read, blue_read, expected_values, normalised_values)
+
+	This function takes the collected readings, finds the difference between these readings and the expected for each colour, divides by the expected and stores it in the array normalised_values. This allows us to find the difference between the current unknown card and what we know for all of the colour cards, for each colour sensor.
+
+3. make_master_closeness(normalised_values, master_closeness)
+
+	This function takes the normalised_values for each colour card and finds the average difference across all the colour sensors for each colour card and puts in into the array master_closeness. This allows us to see the average difference from our current unknown card to each colourcard.
+
+4. card = determine_card(master_closeness)
+
+	This function checks through the master_closeness array to find which colourcard has the smallest difference from our collected values and returns that colour, which is the predicted colour of the card.
+
+5. motor_response(card, mL, mR)
+
+	This function takes the predicted colour and carries out the appropriate response as stated in the project brief. 
+
+
+### Returning home methodology
+
+The main function introduces a union variable HomeStored, that contains two arrays, one that holds the time counted by the timer interrupt between cards, and the other that holds the cards seen on the journey of the buggy. 
+A timer is written that overflows every 1/10 second, and the number of times it overflows is counted in the main (where the while loop iterates constantly and therefore is incrementing the timercount every time it detects an overflow), until the buggy detects a card in front of it, therefore counting the time that the buggy moved forward. The buggy then responds to the colour of the card and records the card in the array. As the buggy moves through the maze, both arrays are filled with the time taken to get to each card, and what card it saw. 
+Once the buggy detects a white card, this initiates the return home sequence. The buggy turns around 180 degrees and iterates through the array backwards (skipping past any empty elements). The buggy starts moving forward for the time dictated in the last filled element of the array, and when it stops it carries out the appropriate home response function (i.e. the inverse of the original commands). It then moves to the penultimate element, moves forward for that time and repeats this process until the buggy returns to the start.
+
+## Key Program Files
+
+### Main.c
+In the main, the initiation functions are called, the DC motor is initialised, and key variables are created and it contains the calibration sequence that stores the expected values for each colour card. The main also takes in the flags from the timer interrupt and the colour click interrupt, and these flags determine whether the card_response function is called.
+
+### i2c.c/h
+Here are the key functions required for the I2C communication.
+
+### Color.c/h
+This file contains the I2C communication necessary to receive values from the RGBC sensors. 
+
+### LEDsOn.c/h
+This file initiates all the lights on the buggy, namely the car lights(e.g. brake lights and headlamps), and the colour click tri-color illumination.
+
+### dc_motor.c/h
+Here the DC motor functions for basic movements (forward, backwards, left and right) are defined, with the turns done in 45 degree increments.
+
+### colour_identify.c/h
+This file contains all the functions detailed in the colour detection and response methodology section, i.e. collect_avg_readings, normalise_readings, make_master_closeness, determine_card, motor_response, and the overarching function, card_response. It also contains the function home_response which contains the appropriate actions to return home.
+
+### serial.c/h
+This file contains the necessary functions to utilise the serial communication to view the colour sensor readings and for debugging purposes.
+
+
 # Course project - Mine navigation search and rescue
 
 ## Challenge brief
