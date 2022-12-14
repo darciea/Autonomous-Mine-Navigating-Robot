@@ -24610,7 +24610,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
     switch (card){
         case RED:
             reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
+            _delay((unsigned long)((300)*(64000000/4000.0)));
             turnRight45(mL,mR);
             stop(mL,mR);
             turnRight45(mL,mR);
@@ -24618,7 +24618,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case GREEN:
             reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
+            _delay((unsigned long)((300)*(64000000/4000.0)));
             turnLeft45(mL,mR);
             stop(mL,mR);
             turnLeft45(mL,mR);
@@ -24626,7 +24626,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case BLUE:
             reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
+            _delay((unsigned long)((300)*(64000000/4000.0)));
             turnRight45(mL,mR);
             stop(mL,mR);
             turnRight45(mL,mR);
@@ -24638,8 +24638,8 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case YELLOW:
             reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
-            _delay((unsigned long)((600)*(64000000/4000.0)));
+
+            _delay((unsigned long)((1700)*(64000000/4000.0)));
             stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
@@ -24648,8 +24648,8 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case PINK:
             reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
-            _delay((unsigned long)((600)*(64000000/4000.0)));
+
+            _delay((unsigned long)((1700)*(64000000/4000.0)));
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
@@ -24658,7 +24658,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case ORANGE:
             reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
+            _delay((unsigned long)((300)*(64000000/4000.0)));
             turnRight45(mL,mR);
             stop(mL,mR);
             turnRight45(mL,mR);
@@ -24668,7 +24668,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case LIGHT_BLUE:
             reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
+            _delay((unsigned long)((300)*(64000000/4000.0)));
             turnLeft45(mL,mR);
             stop(mL,mR);
             turnLeft45(mL,mR);
@@ -24678,11 +24678,14 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case WHITE:
 
+            reverseFullSpeed(mL,mR);
+            _delay((unsigned long)((300)*(64000000/4000.0)));
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
+            _delay((unsigned long)((100)*(64000000/4000.0)));
             turnLeft45(mL,mR);
             stop(mL,mR);
             turnLeft45(mL,mR);
@@ -24692,7 +24695,8 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
                 sendStringSerial4(buf);
                 sprintf(buf, "Cardcount %d, card %d  \n", k, ReturnHomeCards[k]);
                 sendStringSerial4(buf);
-                _delay((unsigned long)((1000)*(64000000/4000.0)));}
+
+            }
             for(int i = 28; i >= 0; i--){
                 if (ReturnHomeTimes[i+1] != 0){
                     fullSpeedAhead(mL,mR);
@@ -24762,21 +24766,37 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case YELLOW:
             stop(mL,mR);
-            turnLeft45(mL,mR);
+            turnRight45(mL,mR);
             stop(mL,mR);
-            turnLeft45(mL,mR);
+            turnRight45(mL,mR);
             stop(mL,mR);
             fullSpeedAhead(mL,mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
+            _delay((unsigned long)((1700)*(64000000/4000.0)));
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
             break;
         case PINK:
             stop(mL,mR);
-            turnRight45(mL,mR);
+            turnLeft45(mL,mR);
             stop(mL,mR);
-            turnRight45(mL,mR);
+            turnLeft45(mL,mR);
             stop(mL,mR);
             fullSpeedAhead(mL,mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
+            _delay((unsigned long)((1700)*(64000000/4000.0)));
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
             break;
         case ORANGE:
             turnLeft45(mL,mR);
@@ -24824,76 +24844,4 @@ colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read
     motor_response(buf, card, mL, mR, ReturnHomeTimes, ReturnHomeCards, stop_all);
 
     return card;
-}
-
-void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR){
-
-    switch (card){
-        case RED:
-            reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
-            turnRight45(mL,mR);
-            stop(mL,mR);
-            turnRight45(mL,mR);
-            stop(mL,mR);
-            break;
-        case GREEN:
-            reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
-            turnLeft45(mL,mR);
-            stop(mL,mR);
-            turnLeft45(mL,mR);
-            stop(mL,mR);
-            break;
-        case BLUE:
-            reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
-            turnRight45(mL,mR);
-            stop(mL,mR);
-            turnRight45(mL,mR);
-            stop(mL,mR);
-            turnRight45(mL,mR);
-            stop(mL,mR);
-            turnRight45(mL,mR);
-            stop(mL,mR);
-            break;
-        case WHITE:
-
-            LATDbits.LATD7=1;
-            _delay((unsigned long)((200)*(64000000/4000.0)));
-            LATDbits.LATD7=0;
-            break;
-        case BLACK:
-
-            LATHbits.LATH3=1;
-            _delay((unsigned long)((200)*(64000000/4000.0)));
-            LATHbits.LATH3=0;
-            break;
-        default:
-            LATHbits.LATH1 = 1;
-            _delay((unsigned long)((500)*(64000000/4000.0)));
-            LATHbits.LATH1 = 0;
-            break;
-    }
-
-}
-
-void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR){
-    colour card = RED;
-    unsigned int normalised_values[4][5];
-    unsigned int master_closeness[5];
-
-    collect_avg_readings(clear_read, red_read, green_read, blue_read);
-    sprintf(buf, "\n AVG: Clear %d, R %d, G %d, B %d \n", *clear_read, *red_read, *green_read, *blue_read);
-    sendStringSerial4(buf);
-
-    normalise_readings(buf, *clear_read, *red_read, *green_read, *blue_read, expected_values, normalised_values);
-
-    make_master_closeness(buf, normalised_values, master_closeness);
-
-    card = determine_card(master_closeness);
-    sprintf(buf, "CARD %d \n", card);
-    sendStringSerial4(buf);
-
-    motor_response_easy(card, mL, mR);
 }

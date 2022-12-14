@@ -24566,6 +24566,9 @@ void main(void) {
     TRISFbits.TRISF2=1;
     ANSELFbits.ANSELF2=0;
 
+    TRISFbits.TRISF3=1;
+    ANSELFbits.ANSELF3=0;
+
 
 
 
@@ -24615,7 +24618,7 @@ void main(void) {
     colour ReturnHomeCards[30] = {BLACK};
 
     unsigned int stop_all = 0;
-# 95 "main.c"
+# 98 "main.c"
     LATDbits.LATD4 = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
@@ -24626,7 +24629,7 @@ void main(void) {
         stop(&motorL, &motorR);
         _delay((unsigned long)((20)*(64000000/4000.0)));
         reverseFullSpeed(&motorL, &motorR);
-        _delay((unsigned long)((175)*(64000000/4000.0)));
+        _delay((unsigned long)((150)*(64000000/4000.0)));
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
@@ -24662,7 +24665,7 @@ void main(void) {
             sprintf(buf, "Cardcount %d \n", CardCount);
             sendStringSerial4(buf);
 
-            ReturnHomeTimes[CardCount] = TimerCount - 3;
+            ReturnHomeTimes[CardCount] = TimerCount - 6;
 
             sprintf(buf, "Timercount array reading %d \n", ReturnHomeTimes[CardCount]);
             sendStringSerial4(buf);
@@ -24671,7 +24674,7 @@ void main(void) {
             stop(&motorL, &motorR);
             _delay((unsigned long)((20)*(64000000/4000.0)));
             reverseFullSpeed(&motorL, &motorR);
-            _delay((unsigned long)((175)*(64000000/4000.0)));
+            _delay((unsigned long)((150)*(64000000/4000.0)));
             stop(&motorL, &motorR);
             _delay((unsigned long)((2)*(64000000/4000.0)));
 
@@ -24687,6 +24690,8 @@ void main(void) {
             TimerCount = 0;
             if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);}
         }
-# 178 "main.c"
+
+        if(!PORTFbits.RF3){stop_all = 0;}
+# 183 "main.c"
     }
 }

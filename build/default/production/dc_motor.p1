@@ -2487,8 +2487,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 110:         mL->power=i;
 [e = . *U _mL 0 -> _i `uc ]
 "111
-[; ;dc_motor.c: 111:         _delay((unsigned long)((20)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 111:         _delay((unsigned long)((15)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "112
 [; ;dc_motor.c: 112:         setMotorPWM(mL);
 [e ( _setMotorPWM (1 _mL ]
@@ -2501,8 +2501,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2028 ]
 }
 "114
-[; ;dc_motor.c: 114:     _delay((unsigned long)((50)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 114:     _delay((unsigned long)((68)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 68 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "115
 [; ;dc_motor.c: 115: }
 [e :UE 2026 ]
@@ -2543,8 +2543,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;dc_motor.c: 125:         mL->power=i;
 [e = . *U _mL 0 -> _i `uc ]
 "126
-[; ;dc_motor.c: 126:         _delay((unsigned long)((20)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 126:         _delay((unsigned long)((15)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 15 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "127
 [; ;dc_motor.c: 127:         setMotorPWM(mL);
 [e ( _setMotorPWM (1 _mL ]
@@ -2557,8 +2557,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2032 ]
 }
 "129
-[; ;dc_motor.c: 129:     _delay((unsigned long)((50)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 129:     _delay((unsigned long)((68)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 68 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "130
 [; ;dc_motor.c: 130: }
 [e :UE 2030 ]
@@ -2615,31 +2615,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2036 ]
 }
 "144
-[; ;dc_motor.c: 144: }
+[; ;dc_motor.c: 144:     _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"145
+[; ;dc_motor.c: 145: }
 [e :UE 2034 ]
 }
-"147
-[; ;dc_motor.c: 147: void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
-[v _reverseFullSpeed `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
 "148
-[; ;dc_motor.c: 148: {
+[; ;dc_motor.c: 148: void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
+[v _reverseFullSpeed `(v ~T0 @X0 1 ef2`*S2015`*S2015 ]
+"149
+[; ;dc_motor.c: 149: {
 {
 [e :U _reverseFullSpeed ]
-"147
-[; ;dc_motor.c: 147: void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
+"148
+[; ;dc_motor.c: 148: void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
 [v _mL `*S2015 ~T0 @X0 1 r1 ]
 [v _mR `*S2015 ~T0 @X0 1 r2 ]
-"148
-[; ;dc_motor.c: 148: {
-[f ]
 "149
-[; ;dc_motor.c: 149:     mL->direction=0;
-[e = . *U _mL 1 -> -> 0 `i `uc ]
+[; ;dc_motor.c: 149: {
+[f ]
 "150
-[; ;dc_motor.c: 150:     mR->direction=0;
-[e = . *U _mR 1 -> -> 0 `i `uc ]
+[; ;dc_motor.c: 150:     mL->direction=0;
+[e = . *U _mL 1 -> -> 0 `i `uc ]
 "151
-[; ;dc_motor.c: 151:     for(int i=0;i<40;i+=10){
+[; ;dc_motor.c: 151:     mR->direction=0;
+[e = . *U _mR 1 -> -> 0 `i `uc ]
+"152
+[; ;dc_motor.c: 152:     for(int i=0;i<40;i+=10){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -2647,29 +2650,29 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 2040  ]
 [e :U 2039 ]
 {
-"152
-[; ;dc_motor.c: 152:         mL->power=i;
-[e = . *U _mL 0 -> _i `uc ]
 "153
-[; ;dc_motor.c: 153:         mR->power=i;
-[e = . *U _mR 0 -> _i `uc ]
+[; ;dc_motor.c: 153:         mL->power=i;
+[e = . *U _mL 0 -> _i `uc ]
 "154
-[; ;dc_motor.c: 154:         setMotorPWM(mL);
-[e ( _setMotorPWM (1 _mL ]
+[; ;dc_motor.c: 154:         mR->power=i;
+[e = . *U _mR 0 -> _i `uc ]
 "155
-[; ;dc_motor.c: 155:         setMotorPWM(mR);
-[e ( _setMotorPWM (1 _mR ]
+[; ;dc_motor.c: 155:         setMotorPWM(mL);
+[e ( _setMotorPWM (1 _mL ]
 "156
-[; ;dc_motor.c: 156:         _delay((unsigned long)((10)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 156:         setMotorPWM(mR);
+[e ( _setMotorPWM (1 _mR ]
 "157
-[; ;dc_motor.c: 157:     }
+[; ;dc_motor.c: 157:         _delay((unsigned long)((10)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"158
+[; ;dc_motor.c: 158:     }
 }
 [e =+ _i -> 10 `i ]
 [e $ < _i -> 40 `i 2039  ]
 [e :U 2040 ]
 }
-"158
-[; ;dc_motor.c: 158: }
+"160
+[; ;dc_motor.c: 160: }
 [e :UE 2038 ]
 }

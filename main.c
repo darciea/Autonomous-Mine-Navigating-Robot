@@ -32,6 +32,9 @@ void main(void) {
     
     TRISFbits.TRISF2=1; //set TRIS value for pin (input)
     ANSELFbits.ANSELF2=0; //turn off analogue input on pin
+    
+    TRISFbits.TRISF3=1; //set TRIS value for pin (input)
+    ANSELFbits.ANSELF3=0; //turn off analogue input on pin
 
     /********************************************//**
     *  Initialising DC motor variables
@@ -102,7 +105,7 @@ void main(void) {
         stop(&motorL, &motorR);
         __delay_ms(20);
         reverseFullSpeed(&motorL, &motorR); //this will replicate the distance at which the buggy does the readings in the maze
-        __delay_ms(175);
+        __delay_ms(150);
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
@@ -138,7 +141,7 @@ void main(void) {
             sprintf(buf, "Cardcount %d \n", CardCount);
             sendStringSerial4(buf);
 
-            ReturnHomeTimes[CardCount] = TimerCount - 3; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
+            ReturnHomeTimes[CardCount] = TimerCount - 6; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
 
             sprintf(buf, "Timercount array reading %d \n", ReturnHomeTimes[CardCount]);
             sendStringSerial4(buf);
@@ -147,7 +150,7 @@ void main(void) {
             stop(&motorL, &motorR);
             __delay_ms(20);
             reverseFullSpeed(&motorL, &motorR);
-            __delay_ms(175);
+            __delay_ms(150);
             stop(&motorL, &motorR);
             __delay_ms(2);
                        
@@ -163,6 +166,8 @@ void main(void) {
             TimerCount = 0; //reset the timer once the buggy is about to move again
             if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);} //begin moving unless after the final return home command is executed
         }
+        
+        if(!PORTFbits.RF3){stop_all = 0;}
         /*
         red_read = color_read_Red();
         blue_read = color_read_Blue();

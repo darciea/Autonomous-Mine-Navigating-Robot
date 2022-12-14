@@ -130,7 +130,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
     switch (card){
         case RED:
             reverseFullSpeed(mL,mR);
-            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(300); //adjust to give car enough clearance from the wall to turn freely
             turnRight45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
@@ -138,7 +138,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case GREEN:
             reverseFullSpeed(mL,mR);
-            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(300); //adjust to give car enough clearance from the wall to turn freely
             turnLeft45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
@@ -146,7 +146,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case BLUE:
             reverseFullSpeed(mL,mR);
-            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(300); //adjust to give car enough clearance from the wall to turn freely
             turnRight45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
@@ -158,8 +158,8 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case YELLOW:
             reverseFullSpeed(mL,mR);
-            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
-            __delay_ms(600); //adjust according to what 'one square' means
+            //__delay_ms(400); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(1700); //adjust according to what 'one square' means
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
             stop(mL,mR);
@@ -168,8 +168,8 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case PINK:
             reverseFullSpeed(mL,mR);
-            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
-            __delay_ms(600); //adjust according to what 'one square' means
+            //__delay_ms(400); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(1700); //adjust according to what 'one square' means
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
             stop(mL,mR);
@@ -178,7 +178,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case ORANGE:
             reverseFullSpeed(mL,mR);
-            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(300); //adjust to give car enough clearance from the wall to turn freely
             turnRight45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
@@ -188,7 +188,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             break;
         case LIGHT_BLUE:
             reverseFullSpeed(mL,mR);
-            __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
+            __delay_ms(300); //adjust to give car enough clearance from the wall to turn freely
             turnLeft45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
@@ -197,12 +197,15 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             stop(mL,mR);
             break;
         case WHITE:
-            //CODE FOR STARTING HOME SEQUENCE   
+            //CODE FOR STARTING HOME SEQUENCE
+            reverseFullSpeed(mL,mR);
+            __delay_ms(300);
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
             stop(mL,mR);
+            __delay_ms(100);
             turnLeft45(mL,mR);
             stop(mL,mR);
             turnLeft45(mL,mR);
@@ -212,7 +215,8 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
                 sendStringSerial4(buf);
                 sprintf(buf, "Cardcount %d, card %d  \n", k, ReturnHomeCards[k]);
                 sendStringSerial4(buf); 
-                __delay_ms(1000);}
+                //__delay_ms(1000);
+            }
             for(int i = 28; i >= 0; i--){
                 if (ReturnHomeTimes[i+1] != 0){
                     fullSpeedAhead(mL,mR);
@@ -282,21 +286,37 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR){
             break;
         case YELLOW:
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
-            turnLeft45(mL,mR);
+            turnRight45(mL,mR);
             stop(mL,mR);
-            turnLeft45(mL,mR);
+            turnRight45(mL,mR);
             stop(mL,mR);
             fullSpeedAhead(mL,mR);
-            __delay_ms(500); //adjust according to what 'one square' means
-            break;
-        case PINK:
+            __delay_ms(1700); //adjust according to what 'one square' means
+            turnRight45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
             stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            break;
+        case PINK:
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnLeft45(mL,mR);
+            stop(mL,mR);
+            turnLeft45(mL,mR);
+            stop(mL,mR);
             fullSpeedAhead(mL,mR);
-            __delay_ms(500); //adjust according to what 'one square' means
+            __delay_ms(1700); //adjust according to what 'one square' means
+            turnRight45(mL,mR);
+            stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
+            turnRight45(mL,mR);
+            stop(mL,mR);
             break;
         case ORANGE:
             turnLeft45(mL,mR);
@@ -345,7 +365,7 @@ colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read
     
     return card;
 }
-
+/*
 void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR){
     //this function takes in the colour of the card we have found and performs the motor function as directed.
     switch (card){
@@ -417,4 +437,5 @@ void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_r
     
     motor_response_easy(card, mL, mR);
 }
- 
+*/ 
+
