@@ -81,6 +81,8 @@ void main(void) {
     unsigned int ReturnHomeTimes[30] = {0};
     colour ReturnHomeCards[30] = {BLACK};
     
+    unsigned int stop_all = 0; //indicates the end of the return home function
+    
  
     /********************************************//**
     *  Calibration sequence
@@ -91,7 +93,7 @@ void main(void) {
     ***********************************************/
     
     BRAKE = 0;
-    for(colour i = RED; i<= BLACK; i++){ //i <=  for easy mode, BLACK for hard mode
+    for(colour i = RED; i<= BLACK; i++){ //i <= PINK for easy mode, BLACK for hard mode
         while(PORTFbits.RF2){
             BRAKE = 1;
         }
@@ -100,7 +102,7 @@ void main(void) {
         stop(&motorL, &motorR);
         __delay_ms(20);
         reverseFullSpeed(&motorL, &motorR); //this will replicate the distance at which the buggy does the readings in the maze
-        __delay_ms(150);
+        __delay_ms(175);
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
@@ -131,12 +133,12 @@ void main(void) {
             TimerFlag = 0;
         }
         clear_read = color_read_Clear();
-        if (clear_read > clear_read_check){
+        if (clear_read > clear_read_check && stop_all == 0){
             
             sprintf(buf, "Cardcount %d \n", CardCount);
             sendStringSerial4(buf);
 
-            ReturnHomeTimes[CardCount] = TimerCount; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
+            ReturnHomeTimes[CardCount] = TimerCount - 3; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
 
             sprintf(buf, "Timercount array reading %d \n", ReturnHomeTimes[CardCount]);
             sendStringSerial4(buf);
@@ -145,21 +147,21 @@ void main(void) {
             stop(&motorL, &motorR);
             __delay_ms(20);
             reverseFullSpeed(&motorL, &motorR);
-            __delay_ms(150);
+            __delay_ms(175);
             stop(&motorL, &motorR);
             __delay_ms(2);
                        
                     
-            card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeTimes, ReturnHomeCards);    
+            card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeTimes, ReturnHomeCards, &stop_all);    
             __delay_ms(2);
             ReturnHomeCards[CardCount] = card; //log in the array which card has been detected
-            sprintf(buf, "Card %d \n", ReturnHomeCards[CardCount]);
-            sendStringSerial4(buf);
+            /*sprintf(buf, "Card %d \n", ReturnHomeCards[CardCount]);
+            sendStringSerial4(buf);*/
       
             CardCount += 1; //indicate that next time a card is detected the timer value should be stored in the next column along
             
             TimerCount = 0; //reset the timer once the buggy is about to move again
-            fullSpeedAhead(&motorL, &motorR); //begin moving  
+            if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);} //begin moving unless after the final return home command is executed
         }
         /*
         red_read = color_read_Red();

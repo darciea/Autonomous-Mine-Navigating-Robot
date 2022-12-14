@@ -85,14 +85,16 @@ void stop(DC_motor *mL, DC_motor *mR)
 {
     while(mL->power !=0){
         mL->power -=10;
-        __delay_ms(2); //delay ensures the current decreases gradually without noticeably affecting direction
-        setMotorPWM(mL);
-    }
-    while(mR -> power !=0){
         mR->power -=10;
         __delay_ms(2); //delay ensures the current decreases gradually without noticeably affecting direction
+        setMotorPWM(mL);
         setMotorPWM(mR);
     }
+//    while(mR -> power !=0){
+//        mR->power -=10;
+//        __delay_ms(2); //delay ensures the current decreases gradually without noticeably affecting direction
+//        setMotorPWM(mR);
+//    }
 
 
 }
@@ -106,10 +108,10 @@ void turnLeft45(DC_motor *mL, DC_motor *mR)
         //This method relies on both wheels turning using the same power, just in different directions. Varying power is possible, but more complicated.
         mR->power=i; 
         mL->power=i; 
-        __delay_ms(15);//delay ensures current has time to adjust
+        __delay_ms(20);//delay ensures current has time to adjust
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    __delay_ms(90);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
+    __delay_ms(50);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
 }
 
 //function to make the robot turn right 
@@ -121,10 +123,10 @@ void turnRight45(DC_motor *mL, DC_motor *mR)
         //This method relies on both wheels turning using the same power, just in different directions. Varying power is possible, but more complicated.
         mR->power=i; 
         mL->power=i; 
-        __delay_ms(15);//delay ensures current has time to adjust
+        __delay_ms(20);//delay ensures current has time to adjust
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    __delay_ms(90);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
+    __delay_ms(50);// this delay is used to adjust angle of turn. May also adjust previous delay if required.
 }
 
 //function to make the robot go straight forward
@@ -132,7 +134,7 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=1; //set direction of motors to make it move forwards
     mR->direction=1;
-    for(int i=0;i<60;i+=10){  
+    for(int i=0;i<40;i+=10){  
         mL->power=i;
         mR->power=i;
         setMotorPWM(mL);
@@ -146,7 +148,7 @@ void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=0; //set direction of motors to make it move backwards
     mR->direction=0;
-    for(int i=0;i<60;i+=10){  
+    for(int i=0;i<40;i+=10){  
         mL->power=i;
         mR->power=i;
         setMotorPWM(mL);

@@ -122,7 +122,7 @@ colour determine_card(unsigned int master_closeness[]){
     return predicted_colour;
 }
 
-void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]){
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[], unsigned int *stop_all){
     //this function takes in the colour of the card we have found and performs the motor function as directed.
     //reverseFullSpeed(mL,mR);
     //        __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
@@ -159,10 +159,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
         case YELLOW:
             reverseFullSpeed(mL,mR);
             __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
-            stop(mL,mR); 
-            __delay_ms(200);
-            reverseFullSpeed(mL,mR);
-            __delay_ms(500); //adjust according to what 'one square' means
+            __delay_ms(600); //adjust according to what 'one square' means
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnRight45(mL,mR);
             stop(mL,mR);
@@ -172,8 +169,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
         case PINK:
             reverseFullSpeed(mL,mR);
             __delay_ms(150); //adjust to give car enough clearance from the wall to turn freely
-            reverseFullSpeed(mL,mR);
-            __delay_ms(500); //adjust according to what 'one square' means
+            __delay_ms(600); //adjust according to what 'one square' means
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
             turnLeft45(mL,mR);
             stop(mL,mR);
@@ -201,7 +197,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             stop(mL,mR);
             break;
         case WHITE:
-            //CODE FOR CHANGING A FLAG TO START THE RETURN HOME SEQUENCE
+            //CODE FOR STARTING HOME SEQUENCE   
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR); //not strictly necessary but may help with consistency to stop drifting further than intended
@@ -211,25 +207,33 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
-            for(int i = 29; i >= 0; i--){
-                if (ReturnHomeTimes[i] != 0){
+            for(int k = 0; k<= 5; k++){
+                sprintf(buf, "Timercount %d, time %d  \n", k, ReturnHomeTimes[k]);
+                sendStringSerial4(buf);
+                sprintf(buf, "Cardcount %d, card %d  \n", k, ReturnHomeCards[k]);
+                sendStringSerial4(buf); 
+                __delay_ms(1000);}
+            for(int i = 28; i >= 0; i--){
+                if (ReturnHomeTimes[i+1] != 0){
                     fullSpeedAhead(mL,mR);
-                    sprintf(buf, "Time gonna move for %d \n", ReturnHomeTimes[i]);
+                    sprintf(buf, "Time gonna move for %d \n", ReturnHomeTimes[i+1]);
                     sendStringSerial4(buf);
-                    for (int j=0; j<= ReturnHomeTimes[i]; j++){
+                    for (int j=0; j<= ReturnHomeTimes[i+1]; j++){
                         __delay_ms(100);
                     }
                     stop(mL,mR);
-                    for(int k = 0; k<= 5; k++){
-                        sprintf(buf, "Cardcount %d, card %d  \n", k, ReturnHomeCards[k]);
-                        sendStringSerial4(buf);    
-                    }
                     sprintf(buf, "Card gonna respond to %d \n", ReturnHomeCards[i]);
                     sendStringSerial4(buf);
                     home_response(ReturnHomeCards[i], mL, mR);
                 }
             }
+            sprintf(buf, "Time gonna move for %d \n", ReturnHomeTimes[0]);
+            sendStringSerial4(buf);
+            fullSpeedAhead(mL,mR);
+            for (int j=0; j<= ReturnHomeTimes[0]; j++){
+                __delay_ms(100);}
             stop(mL,mR);
+            *stop_all = 1;
             break;
         case BLACK:
             //CODE FOR THE EVENTUALITY IT RUNS INTO A WALL?
@@ -247,6 +251,12 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
 } 
 
 void home_response(colour card, DC_motor *mL, DC_motor *mR){
+    for(colour i = RED; i<= card; i++){
+        LATDbits.LATD7 = 1;
+        __delay_ms(100);
+        LATDbits.LATD7 = 0;
+        __delay_ms(100);
+    }
     switch(card){
         case RED:
             turnLeft45(mL,mR);
@@ -312,7 +322,7 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR){
     
 }
 
-colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]) {
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[], unsigned int *stop_all) {
     //this function combines the workflow of the functions needed to determine and respond to the different coloured cards
     
     card  = RED;
@@ -331,7 +341,7 @@ colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read
     sprintf(buf, "CARD %d \n", card);
     sendStringSerial4(buf);
     
-    motor_response(buf, card, mL, mR, ReturnHomeTimes, ReturnHomeCards);
+    motor_response(buf, card, mL, mR, ReturnHomeTimes, ReturnHomeCards, stop_all);
     
     return card;
 }

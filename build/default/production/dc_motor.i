@@ -24713,14 +24713,16 @@ void stop(DC_motor *mL, DC_motor *mR)
 {
     while(mL->power !=0){
         mL->power -=10;
-        _delay((unsigned long)((2)*(64000000/4000.0)));
-        setMotorPWM(mL);
-    }
-    while(mR -> power !=0){
         mR->power -=10;
         _delay((unsigned long)((2)*(64000000/4000.0)));
+        setMotorPWM(mL);
         setMotorPWM(mR);
     }
+
+
+
+
+
 
 
 }
@@ -24734,10 +24736,10 @@ void turnLeft45(DC_motor *mL, DC_motor *mR)
 
         mR->power=i;
         mL->power=i;
-        _delay((unsigned long)((15)*(64000000/4000.0)));
+        _delay((unsigned long)((20)*(64000000/4000.0)));
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    _delay((unsigned long)((90)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 
 
@@ -24749,10 +24751,10 @@ void turnRight45(DC_motor *mL, DC_motor *mR)
 
         mR->power=i;
         mL->power=i;
-        _delay((unsigned long)((15)*(64000000/4000.0)));
+        _delay((unsigned long)((20)*(64000000/4000.0)));
         setMotorPWM(mL);
         setMotorPWM(mR);}
-    _delay((unsigned long)((90)*(64000000/4000.0)));
+    _delay((unsigned long)((50)*(64000000/4000.0)));
 }
 
 
@@ -24760,7 +24762,7 @@ void fullSpeedAhead(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=1;
     mR->direction=1;
-    for(int i=0;i<60;i+=10){
+    for(int i=0;i<40;i+=10){
         mL->power=i;
         mR->power=i;
         setMotorPWM(mL);
@@ -24774,7 +24776,7 @@ void reverseFullSpeed(DC_motor *mL, DC_motor *mR)
 {
     mL->direction=0;
     mR->direction=0;
-    for(int i=0;i<60;i+=10){
+    for(int i=0;i<40;i+=10){
         mL->power=i;
         mR->power=i;
         setMotorPWM(mL);

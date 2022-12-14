@@ -24422,9 +24422,9 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR);
 
 
 
-void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]);
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[], unsigned int *stop_all);
 
-colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]);
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[], unsigned int *stop_all);
 
 void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR);
 void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR);
@@ -24602,7 +24602,7 @@ colour determine_card(unsigned int master_closeness[]){
     return predicted_colour;
 }
 
-void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]){
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[], unsigned int *stop_all){
 
 
 
@@ -24639,10 +24639,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
         case YELLOW:
             reverseFullSpeed(mL,mR);
             _delay((unsigned long)((150)*(64000000/4000.0)));
-            stop(mL,mR);
-            _delay((unsigned long)((200)*(64000000/4000.0)));
-            reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
+            _delay((unsigned long)((600)*(64000000/4000.0)));
             stop(mL,mR);
             turnRight45(mL,mR);
             stop(mL,mR);
@@ -24652,8 +24649,7 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
         case PINK:
             reverseFullSpeed(mL,mR);
             _delay((unsigned long)((150)*(64000000/4000.0)));
-            reverseFullSpeed(mL,mR);
-            _delay((unsigned long)((500)*(64000000/4000.0)));
+            _delay((unsigned long)((600)*(64000000/4000.0)));
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
@@ -24691,25 +24687,33 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
             stop(mL,mR);
             turnLeft45(mL,mR);
             stop(mL,mR);
-            for(int i = 29; i >= 0; i--){
-                if (ReturnHomeTimes[i] != 0){
+            for(int k = 0; k<= 5; k++){
+                sprintf(buf, "Timercount %d, time %d  \n", k, ReturnHomeTimes[k]);
+                sendStringSerial4(buf);
+                sprintf(buf, "Cardcount %d, card %d  \n", k, ReturnHomeCards[k]);
+                sendStringSerial4(buf);
+                _delay((unsigned long)((1000)*(64000000/4000.0)));}
+            for(int i = 28; i >= 0; i--){
+                if (ReturnHomeTimes[i+1] != 0){
                     fullSpeedAhead(mL,mR);
-                    sprintf(buf, "Time gonna move for %d \n", ReturnHomeTimes[i]);
+                    sprintf(buf, "Time gonna move for %d \n", ReturnHomeTimes[i+1]);
                     sendStringSerial4(buf);
-                    for (int j=0; j<= ReturnHomeTimes[i]; j++){
+                    for (int j=0; j<= ReturnHomeTimes[i+1]; j++){
                         _delay((unsigned long)((100)*(64000000/4000.0)));
                     }
                     stop(mL,mR);
-                    for(int k = 0; k<= 5; k++){
-                        sprintf(buf, "Cardcount %d, card %d  \n", k, ReturnHomeCards[k]);
-                        sendStringSerial4(buf);
-                    }
                     sprintf(buf, "Card gonna respond to %d \n", ReturnHomeCards[i]);
                     sendStringSerial4(buf);
                     home_response(ReturnHomeCards[i], mL, mR);
                 }
             }
+            sprintf(buf, "Time gonna move for %d \n", ReturnHomeTimes[0]);
+            sendStringSerial4(buf);
+            fullSpeedAhead(mL,mR);
+            for (int j=0; j<= ReturnHomeTimes[0]; j++){
+                _delay((unsigned long)((100)*(64000000/4000.0)));}
             stop(mL,mR);
+            *stop_all = 1;
             break;
         case BLACK:
 
@@ -24727,6 +24731,12 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned
 }
 
 void home_response(colour card, DC_motor *mL, DC_motor *mR){
+    for(colour i = RED; i<= card; i++){
+        LATDbits.LATD7 = 1;
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+        LATDbits.LATD7 = 0;
+        _delay((unsigned long)((100)*(64000000/4000.0)));
+    }
     switch(card){
         case RED:
             turnLeft45(mL,mR);
@@ -24792,7 +24802,7 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR){
 
 }
 
-colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]) {
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[], unsigned int *stop_all) {
 
 
     card = RED;
@@ -24811,7 +24821,7 @@ colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read
     sprintf(buf, "CARD %d \n", card);
     sendStringSerial4(buf);
 
-    motor_response(buf, card, mL, mR, ReturnHomeTimes, ReturnHomeCards);
+    motor_response(buf, card, mL, mR, ReturnHomeTimes, ReturnHomeCards, stop_all);
 
     return card;
 }

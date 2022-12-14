@@ -24491,9 +24491,9 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR);
 
 
 
-void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]);
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[], unsigned int *stop_all);
 
-colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]);
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[], unsigned int *stop_all);
 
 void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR);
 void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR);
@@ -24613,7 +24613,9 @@ void main(void) {
 
     unsigned int ReturnHomeTimes[30] = {0};
     colour ReturnHomeCards[30] = {BLACK};
-# 93 "main.c"
+
+    unsigned int stop_all = 0;
+# 95 "main.c"
     LATDbits.LATD4 = 0;
     for(colour i = RED; i<= BLACK; i++){
         while(PORTFbits.RF2){
@@ -24624,7 +24626,7 @@ void main(void) {
         stop(&motorL, &motorR);
         _delay((unsigned long)((20)*(64000000/4000.0)));
         reverseFullSpeed(&motorL, &motorR);
-        _delay((unsigned long)((150)*(64000000/4000.0)));
+        _delay((unsigned long)((175)*(64000000/4000.0)));
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
@@ -24655,12 +24657,12 @@ void main(void) {
             TimerFlag = 0;
         }
         clear_read = color_read_Clear();
-        if (clear_read > clear_read_check){
+        if (clear_read > clear_read_check && stop_all == 0){
 
             sprintf(buf, "Cardcount %d \n", CardCount);
             sendStringSerial4(buf);
 
-            ReturnHomeTimes[CardCount] = TimerCount;
+            ReturnHomeTimes[CardCount] = TimerCount - 3;
 
             sprintf(buf, "Timercount array reading %d \n", ReturnHomeTimes[CardCount]);
             sendStringSerial4(buf);
@@ -24669,22 +24671,22 @@ void main(void) {
             stop(&motorL, &motorR);
             _delay((unsigned long)((20)*(64000000/4000.0)));
             reverseFullSpeed(&motorL, &motorR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
+            _delay((unsigned long)((175)*(64000000/4000.0)));
             stop(&motorL, &motorR);
             _delay((unsigned long)((2)*(64000000/4000.0)));
 
 
-            card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeTimes, ReturnHomeCards);
+            card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeTimes, ReturnHomeCards, &stop_all);
             _delay((unsigned long)((2)*(64000000/4000.0)));
             ReturnHomeCards[CardCount] = card;
-            sprintf(buf, "Card %d \n", ReturnHomeCards[CardCount]);
-            sendStringSerial4(buf);
+
+
 
             CardCount += 1;
 
             TimerCount = 0;
-            fullSpeedAhead(&motorL, &motorR);
+            if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);}
         }
-# 176 "main.c"
+# 178 "main.c"
     }
 }
