@@ -122,7 +122,7 @@ colour determine_card(unsigned int master_closeness[]){
     return predicted_colour;
 }
 
-void motor_response(colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray){
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray){
     //this function takes in the colour of the card we have found and performs the motor function as directed.
     //reverseFullSpeed(mL,mR);
     //        __delay_ms(50); //adjust to give car enough clearance from the wall to turn freely
@@ -214,10 +214,14 @@ void motor_response(colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHo
             for(int i = 29; i >= 0; i--){
                 if (ReturnHomeArray.TimerCount[i] != 0){
                     fullSpeedAhead(mL,mR);
-                    for (int j=0; j<= ReturnHomeArray.TimerCount[i]; i++){
+                    sprintf(buf, "Time gonna move for %d \n", ReturnHomeArray.TimerCount[i]);
+                    sendStringSerial4(buf);
+                    for (int j=0; j<= ReturnHomeArray.TimerCount[i]; j++){
                         __delay_ms(100);
                     }
                     stop(mL,mR);
+                    sprintf(buf, "Card gonna respond to %d \n", ReturnHomeArray.card[i]);
+                    sendStringSerial4(buf);
                     home_response(ReturnHomeArray.card[i], mL, mR);
                 }
             }
@@ -301,11 +305,11 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR){
     
 }
 
-colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray) {
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray) {
     //this function combines the workflow of the functions needed to determine and respond to the different coloured cards
     
     card  = RED;
-    unsigned int normalised_values[3][9];
+    unsigned int normalised_values[4][9];
     unsigned int master_closeness[9];
         
     collect_avg_readings(clear_read, red_read, green_read, blue_read);
@@ -320,7 +324,7 @@ colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read
     sprintf(buf, "CARD %d \n", card);
     sendStringSerial4(buf);
     
-    motor_response(card, mL, mR, ReturnHomeArray);
+    motor_response(buf, card, mL, mR, ReturnHomeArray);
     
     return card;
 }

@@ -65,7 +65,7 @@ void main(void) {
     colour card; // variable that holds the colour of the card that has been seen
     char buf[150];
 
-    unsigned int expected_values[3][9];
+
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
@@ -77,7 +77,6 @@ void main(void) {
     
     unsigned int expected_values[4][9];
     unsigned int expected_values_easy[4][5];
-    unsigned int ReturnHomeArray[2][30];
     
     HomeStored ReturnHomeArray;
  
@@ -95,7 +94,6 @@ void main(void) {
             BRAKE = 1;
         }
         BRAKE = 0;
-        __delay_ms(500);
         stop(&motorL, &motorR);
         __delay_ms(20);
         reverseFullSpeed(&motorL, &motorR); //this will replicate the distance at which the buggy does the readings in the maze
@@ -106,52 +104,62 @@ void main(void) {
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read;
         expected_values[3][i] = clear_read;
-        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read);
+        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i );
         sendStringSerial4(buf); 
     }
     BRAKE = 1;
     while(PORTFbits.RF2){BRAKE = 0;}
     clear_read_calibration(buf, &clear_read, &clear_read_check);
-    
-    clear_read = clear_read/4;
-    
+   
     sprintf(buf, "\n Expected clear: %d \n", clear_read);
     sendStringSerial4(buf);
     
-    unsigned int clear_read_check = clear_read + 800;
 
     /********************************************//**
     *  Trying code
     ***********************************************/
+    while(PORTFbits.RF2){}
     fullSpeedAhead(&motorL, &motorR); //begin moving  
     while (1) {
         
         if (TimerFlag == 1){ //incrementing the timer counter every ms if the timer overflows. Note this relies on the while loop running more than once every ms - may need to experiment
             TimerCount += 1;
-            if (TimerCount == 10){LATHbits.LATH3=!LATHbits.LATH3; TimerCount = 0;}
+            if (TimerCount % 10 == 0){LATHbits.LATH3=!LATHbits.LATH3;}
             TimerFlag = 0;
         }
         clear_read = color_read_Clear();
         if (clear_read > clear_read_check){
+            
+            sprintf(buf, "Cardcount %d \n", CardCount);
+            sendStringSerial4(buf);
 
             ReturnHomeArray.TimerCount[CardCount] = TimerCount; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
+            sprintf(buf, "Timercount value %d \n", TimerCount);
+            sendStringSerial4(buf);
+            sprintf(buf, "Timercount array reading %d \n", ReturnHomeArray.TimerCount[CardCount]);
+            sendStringSerial4(buf);
+            
+            __delay_ms(2);
+            stop(&motorL, &motorR);
+            __delay_ms(20);
+            reverseFullSpeed(&motorL, &motorR);
+            __delay_ms(150);
             stop(&motorL, &motorR);
             __delay_ms(2);
+                       
                     
-            sprintf(buf, "Timercount %d \n", ReturnHomeArray.TimerCount[CardCount]);
-            sendStringSerial4(buf);
-            __delay_ms(2);
-                    
-            card = card_response(buf, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);    
+            card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);    
             __delay_ms(2);
             ReturnHomeArray.card[CardCount] = card; //log in the array which card has been detected
+            sprintf(buf, "Card %d \n", ReturnHomeArray.card[CardCount]);
+            sendStringSerial4(buf);
       
             CardCount += 1; //indicate that next time a card is detected the timer value should be stored in the next column along
             
             TimerCount = 0; //reset the timer once the buggy is about to move again
             fullSpeedAhead(&motorL, &motorR); //begin moving  
         }
-        
+        /*
         red_read = color_read_Red();
         blue_read = color_read_Blue();
         green_read = color_read_Green();
@@ -160,8 +168,8 @@ void main(void) {
         
         sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
         sendStringSerial4(buf);
-        __delay_ms(500);
-         LATHbits.LATH3=!LATHbits.LATH3;
         
+         LATHbits.LATH3=!LATHbits.LATH3;
+        */
     }
 }

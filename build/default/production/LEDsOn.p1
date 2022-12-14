@@ -2180,6 +2180,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;LEDsOn.c: 41:     LATDbits.LATD3 = 0;
 [e = . . _LATDbits 0 3 -> -> 0 `i `uc ]
 "44
-[; ;LEDsOn.c: 44: }
+[; ;LEDsOn.c: 44:     TRISHbits.TRISH3 = 0;
+[e = . . _TRISHbits 0 3 -> -> 0 `i `uc ]
+"45
+[; ;LEDsOn.c: 45:     LATHbits.LATH3=0;
+[e = . . _LATHbits 0 3 -> -> 0 `i `uc ]
+"46
+[; ;LEDsOn.c: 46:     TRISDbits.TRISD7 = 0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"47
+[; ;LEDsOn.c: 47:     LATDbits.LATD7=0;
+[e = . . _LATDbits 0 7 -> -> 0 `i `uc ]
+"48
+[; ;LEDsOn.c: 48: }
 [e :UE 2017 ]
 }

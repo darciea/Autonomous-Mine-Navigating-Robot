@@ -24,9 +24,9 @@ typedef union HomeStored { //union allows both types relating to the Return_Home
     colour card[30];     
 } HomeStored;
 
-void motor_response(colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
 
-colour card_response(char *buf, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
 
 void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR);
 void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR);
