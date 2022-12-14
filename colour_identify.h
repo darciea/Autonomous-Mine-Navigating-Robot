@@ -19,14 +19,14 @@ colour determine_card(unsigned int master_closeness[]);
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 void home_response(colour card, DC_motor *mL, DC_motor *mR);
 
-typedef union HomeStored { //union allows both types relating to the Return_Home response to be kept in one array
-    unsigned int TimerCount[30];         
-    colour card[30];     
-} HomeStored;
+//typedef union HomeStored { //union allows both types relating to the Return_Home response to be kept in one array
+//    unsigned int TimerCount;         
+//    colour card;     
+//} HomeStored;
 
-void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]);
 
-colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]);
 
 void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR);
 void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR);

@@ -24417,14 +24417,14 @@ colour determine_card(unsigned int master_closeness[]);
 void respond_to_card(colour card, DC_motor *mL, DC_motor *mR);
 void home_response(colour card, DC_motor *mL, DC_motor *mR);
 
-typedef union HomeStored {
-    unsigned int TimerCount[30];
-    colour card[30];
-} HomeStored;
 
-void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
 
-colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray);
+
+
+
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]);
+
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]);
 
 void card_response_easy(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][5], DC_motor *mL, DC_motor *mR);
 void motor_response_easy(colour card, DC_motor *mL, DC_motor *mR);
@@ -24602,7 +24602,7 @@ colour determine_card(unsigned int master_closeness[]){
     return predicted_colour;
 }
 
-void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray){
+void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]){
 
 
 
@@ -24692,19 +24692,24 @@ void motor_response(char *buf, colour card, DC_motor *mL, DC_motor *mR, HomeStor
             turnLeft45(mL,mR);
             stop(mL,mR);
             for(int i = 29; i >= 0; i--){
-                if (ReturnHomeArray.TimerCount[i] != 0){
+                if (ReturnHomeTimes[i] != 0){
                     fullSpeedAhead(mL,mR);
-                    sprintf(buf, "Time gonna move for %d \n", ReturnHomeArray.TimerCount[i]);
+                    sprintf(buf, "Time gonna move for %d \n", ReturnHomeTimes[i]);
                     sendStringSerial4(buf);
-                    for (int j=0; j<= ReturnHomeArray.TimerCount[i]; i++){
+                    for (int j=0; j<= ReturnHomeTimes[i]; j++){
                         _delay((unsigned long)((100)*(64000000/4000.0)));
                     }
                     stop(mL,mR);
-                    sprintf(buf, "Card gonna respond to %d \n", ReturnHomeArray.card[i]);
+                    for(int k = 0; k<= 5; k++){
+                        sprintf(buf, "Cardcount %d, card %d  \n", k, ReturnHomeCards[k]);
+                        sendStringSerial4(buf);
+                    }
+                    sprintf(buf, "Card gonna respond to %d \n", ReturnHomeCards[i]);
                     sendStringSerial4(buf);
-                    home_response(ReturnHomeArray.card[i], mL, mR);
+                    home_response(ReturnHomeCards[i], mL, mR);
                 }
             }
+            stop(mL,mR);
             break;
         case BLACK:
 
@@ -24779,13 +24784,15 @@ void home_response(colour card, DC_motor *mL, DC_motor *mR){
             turnRight45(mL,mR);
             stop(mL,mR);
             break;
+        case WHITE:
+            stop(mL,mR);
         default:
             break;
     }
 
 }
 
-colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, HomeStored ReturnHomeArray) {
+colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read, unsigned int *green_read, unsigned int *blue_read, unsigned int expected_values[][9], colour card, DC_motor *mL, DC_motor *mR, unsigned int ReturnHomeTimes[], colour ReturnHomeCards[]) {
 
 
     card = RED;
@@ -24804,7 +24811,7 @@ colour card_response(char *buf, unsigned int *clear_read, unsigned int *red_read
     sprintf(buf, "CARD %d \n", card);
     sendStringSerial4(buf);
 
-    motor_response(buf, card, mL, mR, ReturnHomeArray);
+    motor_response(buf, card, mL, mR, ReturnHomeTimes, ReturnHomeCards);
 
     return card;
 }

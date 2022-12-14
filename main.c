@@ -78,7 +78,9 @@ void main(void) {
     unsigned int expected_values[4][9];
     unsigned int expected_values_easy[4][5];
     
-    HomeStored ReturnHomeArray;
+    unsigned int ReturnHomeTimes[30] = {0};
+    colour ReturnHomeCards[30] = {BLACK};
+    
  
     /********************************************//**
     *  Calibration sequence
@@ -94,6 +96,7 @@ void main(void) {
             BRAKE = 1;
         }
         BRAKE = 0;
+        __delay_ms(100);
         stop(&motorL, &motorR);
         __delay_ms(20);
         reverseFullSpeed(&motorL, &motorR); //this will replicate the distance at which the buggy does the readings in the maze
@@ -133,10 +136,9 @@ void main(void) {
             sprintf(buf, "Cardcount %d \n", CardCount);
             sendStringSerial4(buf);
 
-            ReturnHomeArray.TimerCount[CardCount] = TimerCount; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
-            sprintf(buf, "Timercount value %d \n", TimerCount);
-            sendStringSerial4(buf);
-            sprintf(buf, "Timercount array reading %d \n", ReturnHomeArray.TimerCount[CardCount]);
+            ReturnHomeTimes[CardCount] = TimerCount; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
+
+            sprintf(buf, "Timercount array reading %d \n", ReturnHomeTimes[CardCount]);
             sendStringSerial4(buf);
             
             __delay_ms(2);
@@ -148,10 +150,10 @@ void main(void) {
             __delay_ms(2);
                        
                     
-            card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeArray);    
+            card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeTimes, ReturnHomeCards);    
             __delay_ms(2);
-            ReturnHomeArray.card[CardCount] = card; //log in the array which card has been detected
-            sprintf(buf, "Card %d \n", ReturnHomeArray.card[CardCount]);
+            ReturnHomeCards[CardCount] = card; //log in the array which card has been detected
+            sprintf(buf, "Card %d \n", ReturnHomeCards[CardCount]);
             sendStringSerial4(buf);
       
             CardCount += 1; //indicate that next time a card is detected the timer value should be stored in the next column along
