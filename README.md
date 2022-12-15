@@ -8,14 +8,16 @@ To start the program within the maze, the RF2 button should be pressed when the 
 
 ### Colour detection and response methodology
 
-To start, variables are created for each of the colour sensors, named red_read, green_read and blue_read, and these are often used to temporarily store the readings of the ColorClick before they are stored elsewhere. An array called expected_values is also created, and this is filled up with the values obtained from each of the colour sensors during the calibration sequence. For example, the first column of the array contains the expected red, green and blue readings for a red card. Another two arrays, ReturnHomeCards and ReturnHomeTimes track the sequence of cards the buggy has encountered, as well as the times between each card respectively.
+To start, variables are created for each of the colour sensors, named red_read, green_read and blue_read, and these are often used to temporarily store the readings of the ColorClick before they are stored elsewhere. An array called expected_values is also created, and this is filled up with the values obtained from each of the colour sensors during the calibration sequence. For example, the first column of the array contains the expected red, green and blue readings for a red card. In the main while loop a clear reading is constantly made, and if this exceeds a predetermined threshold the card reponse sequence is triggered. During this, the readings of the detected card are compared to the expected values for each calibrated card, and whichever card has the values which are closest to those in the new reading is predicted to be the card in front of the buggy. This is then used to execute the appropriate response.
 
 
 ### Returning home methodology
 
-The main function introduces a union variable HomeStored, that contains two arrays, one that holds the time counted by the timer interrupt between cards, and the other that holds the cards seen on the journey of the buggy. 
+The main function introduces two arrays, one that holds the time counted by the timer interrupt between cards ReturnHomeTimes, and the other that holds the cards seen on the journey of the buggy, ReturnHomeCards. 
 A timer is written that overflows every 1/10 second, and the number of times it overflows is counted in the main (where the while loop iterates constantly and therefore is incrementing the timercount every time it detects an overflow), until the buggy detects a card in front of it, therefore counting the time that the buggy moved forward. The buggy then responds to the colour of the card and records the card in the array. As the buggy moves through the maze, both arrays are filled with the time taken to get to each card, and what card it saw. 
 Once the buggy detects a white card, this initiates the return home sequence. The buggy turns around 180 degrees and iterates through the array backwards (skipping past any empty elements). The buggy starts moving forward for the time dictated in the last filled element of the array, and when it stops it carries out the appropriate home response function (i.e. the inverse of the original commands). It then moves to the penultimate element, moves forward for that time and repeats this process until the buggy returns to the start.
+
+Note that the ReturnHomeTimes stores the time taken to reach the ReturnHomeCards value of the same index. This means that when the return home function is called (ie the white card is detected), it first reads the most recent time, then lowers the index by one, then responds to the card of that index, then responds to the timer of that index, then lowers the index by one, etc...
 
 ## Key Program Files
 
@@ -38,21 +40,25 @@ Here the DC motor functions for basic movements (forward, backwards, left and ri
 This file contains all the functions detailed in the colour detection and response methodology section, i.e. collect_avg_readings, normalise_readings, make_master_closeness, determine_card, motor_response, and the overarching function, card_response. It also contains the function home_response which contains the appropriate actions to return home.
 
 Details of these functions are given below:
+
 1: collect_avg_readings: Takes 500 readings (overwriting each other) before storing 3 readings and averaging those. This is done for clear, red, blue, and green colour sensor. During testing, it was discovered that the final 3 saved readings were closer in magnitude if there were several readings before it, hence the 500 unsaved readings.
+
 2: normalise readings: This function takes the collected readings, finds the difference between these readings and the expected for each colour of each possible card, divides by the expected value and stores it in the array normalised_values.
+
 3: make_master_closeness: This short function finds the difference between the normalised values and the expected values of each card.
+
 4: determine_card: parses through the master_closeness array and finds the smallest value (hence corresponding to the colour which the reading is most like)
+
 5: motor_Response: Takes the predicted card and executes the response specified in the brief. 
 	
 
 ### serial.c/h
 This file contains the necessary functions to utilise the serial communication to view the colour sensor readings and for debugging purposes.
 
+### Videos
 The video of the buggy running the test maze is found here: https://youtu.be/ieVXnOMHYYI
 The video of the buggy running the easy maze is found here: https://youtube.com/shorts/kAJKZJEhZO8?feature=share
 The video of the buggy running the hard maze is found here: https://youtu.be/YRGQFnze7Yo
-
-
 
 
 
