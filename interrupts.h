@@ -5,13 +5,11 @@
 
 #define _XTAL_FREQ 64000000
 
-unsigned int TimerFlag;
+unsigned int TimerFlag; //this is used to communicate between timer interrupt and main while loop.
+//Timer interrupt turns it on (every 0.1s), main sees this and increments timer count and turns it off again.
 
 //function prototypes
 void Interrupts_init(void);
 void __interrupt(low_priority) LowISR();
-
-unsigned int response_in_progress=0;
-unsigned int card_detected=0;
 
 #endif

@@ -2,34 +2,13 @@
 
 ## Explanation of our work
 
-The program contains a calibration routine where it fills an 4 by 9 array with the expected readings for each colour sensor (RGBC) for each colour card. Prompted by a button press, the buggy collects 3 data values for each colour sensor and calculates the average for each. The coloured cards follow the calibration sequence: red, green, blue, yellow, pink, orange, light blue, white and black, and the RF2 button input is used to trigger the next card being read. After all of the cards is read there is one background reading of the clear sensor; this is used to determine the threshold value above which the card-reading sequence is initialised. 
+The program contains a calibration routine where it fills an 4 by 9 array with the expected readings for each colour sensor (RGBC) for each colour card. Prompted by a button press, the buggy collects 3 data values for each colour sensor and calculates the average for each. The coloured cards follow the calibration sequence: red, green, blue, yellow, pink, orange, light blue, white and black, and the RF2 button input is used to trigger the next card being read. After all of the cards is read there is one background reading of the clear sensor; this is used to determine the threshold value above which the card-reading sequence is initialised. Note that during calibration the card should be pushed up against the front of the buggy when the button is pressed - the buggy will then automatically move itself to the location where accuracy of reading is greatest, determined experimentally.
 
 To start the program within the maze, the RF2 button should be pressed when the buggy is in the appropriate position and is ready to start the program. Once the button is pressed, the buggy will move forward, recording the time taken, continuously reading the clear sensor reading until the clear sensor reads a reading above a certain threshold. This triggers the sequence of commands that stores the time taken to reach the card, reads the card in front of the buggy and responds appropriately, and then storing the card read in the aforementioned array. The buggy then repeats the steps until the white card is read. Then it enters the ReturnHome sequence, whithin which it turns around and iterates through the array, moving forward for the time stored, and executing the opposite commands to those corresponding to the stored cards.
 
 ### Colour detection and response methodology
 
 To start, variables are created for each of the colour sensors, named red_read, green_read and blue_read, and these are often used to temporarily store the readings of the ColorClick before they are stored elsewhere. An array called expected_values is also created, and this is filled up with the values obtained from each of the colour sensors during the calibration sequence. For example, the first column of the array contains the expected red, green and blue readings for a red card. Another two arrays, ReturnHomeCards and ReturnHomeTimes track the sequence of cards the buggy has encountered, as well as the times between each card respectively.
-
-The colour detection and response is all contained within the function card_response. This function contains multiple functions that carries out each step of the colour detection process. 
-1. collect_avg_readings(red_read, green_read, blue_read)
-
-	This function reads 3 readings and calculates the average for each colour sensor and returns it back to the main. 
-
-2. normalise_readings(red_read, green_read, blue_read, expected_values, normalised_values)
-
-	This function takes the collected readings, finds the difference between these readings and the expected for each colour of each possible card, divides by the expected value and stores it in the array normalised_values. This allows us to find the difference between the current unknown card and what we know for all of the colour cards, for each colour sensor.
-
-3. make_master_closeness(normalised_values, master_closeness)
-
-	This function takes the normalised_values for each colour card and finds the average difference across all the colour sensors for each colour card and puts in into the array master_closeness. This allows us to see the average difference from our current unknown card to each colourcard.
-
-4. card = determine_card(master_closeness)
-
-	This function checks through the master_closeness array to find which colourcard has the smallest difference from our collected values and returns that colour, which is the predicted colour of the card.
-
-5. motor_response(card, mL, mR)
-
-	This function takes the predicted colour and carries out the appropriate response as stated in the project brief. 
 
 
 ### Returning home methodology
@@ -41,7 +20,7 @@ Once the buggy detects a white card, this initiates the return home sequence. Th
 ## Key Program Files
 
 ### Main.c
-In the main, the initiation functions are called, the DC motor is initialised, and key variables are created and it contains the calibration sequence that stores the expected values for each colour card. The main also takes in the flags from the timer interrupt and the colour click interrupt, and these flags determine whether the card_response function is called.
+Here the initiation functions are called, the DC motor structure is defined, and key variables are created. It then runs the calibration sequence that stores the expected values for each colour card. Then in the continuous while loop the Timer interrupt flag is used to increment the timer, and it is checked whether the clear reading indicates a card in front of the buggy. If this is detected then the response to the card is executed. 
 
 ### i2c.c/h
 Here are the key functions required for the I2C communication.
@@ -58,8 +37,26 @@ Here the DC motor functions for basic movements (forward, backwards, left and ri
 ### colour_identify.c/h
 This file contains all the functions detailed in the colour detection and response methodology section, i.e. collect_avg_readings, normalise_readings, make_master_closeness, determine_card, motor_response, and the overarching function, card_response. It also contains the function home_response which contains the appropriate actions to return home.
 
+Details of these functions are given below:
+1: collect_avg_readings: Takes 500 readings (overwriting each other) before storing 3 readings and averaging those. This is done for clear, red, blue, and green colour sensor. During testing, it was discovered that the final 3 saved readings were closer in magnitude if there were several readings before it, hence the 500 unsaved readings.
+2: normalise readings: This function takes the collected readings, finds the difference between these readings and the expected for each colour of each possible card, divides by the expected value and stores it in the array normalised_values.
+3: make_master_closeness: This short function finds the difference between the normalised values and the expected values of each card.
+4: determine_card: parses through the master_closeness array and finds the smallest value (hence corresponding to the colour which the reading is most like)
+5: motor_Response: Takes the predicted card and executes the response specified in the brief. 
+	
+
 ### serial.c/h
 This file contains the necessary functions to utilise the serial communication to view the colour sensor readings and for debugging purposes.
+
+The video of the buggy running the test maze is found here: https://youtu.be/ieVXnOMHYYI
+The video of the buggy running the easy maze is found here: https://youtube.com/shorts/kAJKZJEhZO8?feature=share
+The video of the buggy running the hard maze is found here: https://youtu.be/YRGQFnze7Yo
+
+
+
+
+
+
 
 
 # Course project - Mine navigation search and rescue

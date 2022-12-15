@@ -29,16 +29,18 @@ void LEDSon_init(void) {
     TRISFbits.TRISF7 = 0;
     TRISAbits.TRISA4 = 0;
     
-    BLUEL = 1;
-    REDL = 1;
-    GREENL = 1;
-    
-    
+    //buggy lights
     BRAKE = 0;
     HLAMPS = 0;
     LEFT = 0;
     RIGHT = 0;
     MBEAM = 0;
+    
+    //tri-color LED lights
+    BLUEL = 1;
+    REDL = 1;
+    GREENL = 1;
+    
     
     //Clickerboard lights
     TRISHbits.TRISH3 = 0;

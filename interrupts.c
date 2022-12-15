@@ -4,9 +4,9 @@
 #include "color.h"
 #include "i2c.h"
 
+//initialising the timer interrupt
 void Interrupts_init(void)
 {
-    //timer related commands
     TMR0IE=1; //enable interrupts from timer
     T0CON1bits.T0CS=0b010; // Fosc/4
     T0CON1bits.T0ASYNC=1; // see datasheet errata - needed to ensure correct operation when Fosc/4 used as clock source
@@ -16,11 +16,10 @@ void Interrupts_init(void)
     TMR0H=0b00111100;            //write High reg first, update happens when low reg is written to
     TMR0L=0b10101111;
     T0CON0bits.T0EN=1;	//start the timer
-    //then general commands
     INTCONbits.GIEL = 1; // Peripheral Interrupt Enable bit
     INTCONbits.GIEH=1;} 	//turn on interrupts globally (when this is off, all interrupts are deactivated)
 
-//second timer related interrupts
+//interrupt that is triggered by the timer overflowing
 void __interrupt(low_priority) LowISR()
 {
 	//add your ISR code here i.e. check the flag, do something (i.e. toggle an LED), clear the flag...

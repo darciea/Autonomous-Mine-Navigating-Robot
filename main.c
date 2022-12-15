@@ -5,6 +5,7 @@
 // CONFIG3L
 #pragma config WDTE = OFF        // WDT operating mode (WDT enabled regardless of sleep)
 
+// include all relevant header files
 #include <xc.h>
 #include <stdio.h>
 #include "dc_motor.h"
@@ -68,85 +69,81 @@ void main(void) {
     colour card; // variable that holds the colour of the card that has been seen
     char buf[150];
 
-
+    //temporary variables interacted with by functions involved with colour readings
     unsigned int red_read = 0;
     unsigned int green_read = 0;
     unsigned int blue_read = 0;
     unsigned int clear_read = 0;
     
-    unsigned int TimerCount = 0;
+    unsigned int TimerCount = 0; //keeps track of how long the buggy moves for between cards
     unsigned int CardCount = 0; //count of the cards seen on the route of the buggy
-    unsigned int clear_read_check = 0;
+    unsigned int clear_read_threshold = 0; //the threshold value which triggers a card being detected when the continuous clear reading is exeeded
     
-    unsigned int expected_values[4][9];
-    unsigned int expected_values_easy[4][5];
+    unsigned int expected_values[4][9]; //the array of expected CRGB values for each card filled during calibration sequence
     
-    unsigned int ReturnHomeTimes[30] = {0};
-    colour ReturnHomeCards[30] = {BLACK};
+    unsigned int ReturnHomeTimes[30] = {0}; //Stores the time taken between each card. Max 30 times
+    colour ReturnHomeCards[30]; //stores the order of cards seen during the outwards journey. Max 30 times
     
     unsigned int stop_all = 0; //indicates the end of the return home function
     
  
     /********************************************//**
     *  Calibration sequence
-        1. Press button (within for statement(8 iterations) require button push before incrementing)
+        1. Press button (within for statement(9 iterations) require button push before incrementing)
         2. Read card using collect avg readings function (decide if want to use new variables for these ones)
         3. Store those values in first index of each row of array (assign which colour that index will be)
-        4. Press button to increment i and repeat for all 8 colours                                           * 
+        4. Press button to increment i and repeat for all 9 colours    
+        5. Remove any obstructions in front of the card and perform clear_read_calibration function                                                                           * 
     ***********************************************/
     
     BRAKE = 0;
-    for(colour i = RED; i<= BLACK; i++){ //i <= PINK for easy mode, BLACK for hard mode
-        while(PORTFbits.RF2){
+    for(colour i = RED; i<= BLACK; i++){ //iterate through the cards in order defined in README
+        while(PORTFbits.RF2){ //place card right up against the front of the car before pressing the button
             BRAKE = 1;
         }
         BRAKE = 0;
         __delay_ms(100);
         stop(&motorL, &motorR);
         __delay_ms(20);
-        reverseFullSpeed(&motorL, &motorR); //this will replicate the distance at which the buggy does the readings in the maze
+        reverseFullSpeed(&motorL, &motorR); //this moves the buggy back to the location of optimal reading accuracy
         __delay_ms(260);
         stop(&motorL, &motorR);
-        collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
-        expected_values[RED][i] = red_read;
+        collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read); //take readings of CRGB values at optimal distance
+        //fill the expected values array
+        expected_values[RED][i] = red_read; 
         expected_values[GREEN][i] = green_read;
         expected_values[BLUE][i] = blue_read;
-        expected_values[3][i] = clear_read;
-        sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i );
-        sendStringSerial4(buf); 
+        expected_values[CLEAR_INDEX][i] = clear_read;
     }
-    while(PORTFbits.RF2){BRAKE = 1;}
+    while(PORTFbits.RF2){BRAKE = 1;} // once all colour cards are done clear the space in front of the buggy and let it take one background clear reading
     BRAKE = 0;
-    clear_read_calibration(buf, &clear_read, &clear_read_check);
-   
-    sprintf(buf, "\n Expected clear: %d \n", clear_read);
-    sendStringSerial4(buf);
+    clear_read_calibration(buf, &clear_read, &clear_read_check); // assign the threshold value that will be exceeded in order for it to detect a card
     
 
     /********************************************//**
-    *  Trying code
+    *  Initialise maze sequence
     ***********************************************/
-    while(PORTFbits.RF2){LEFT = 1; RIGHT = 1;}
-    LEFT = 0; RIGHT = 0;
+    while(PORTFbits.RF2){LEFT = 1; RIGHT = 1;} //wait for button press to begin sequence
+    LEFT = 0; RIGHT = 0; //indicate sequence has begun by turning off lights
     fullSpeedAhead(&motorL, &motorR); //begin moving  
-    while (1) {
+    
+    
+    while (1) { //main while loop continuously runs
         
-        if (TimerFlag == 1){ //incrementing the timer counter every ms if the timer overflows. Note this relies on the while loop running more than once every ms - may need to experiment
+        //timer only runs while the buggy is searching for the next card
+        if (TimerFlag == 1){ //incrementing the timer counter every 1/10th second when the timer (in interrupts.c)overflows, triggering the TimerFlag
             TimerCount += 1;
-            if (TimerCount % 10 == 0){LATHbits.LATH3=!LATHbits.LATH3;}
-            TimerFlag = 0;
+            if (TimerCount % 10 == 0){LATHbits.LATH3=!LATHbits.LATH3;} // every second toggle light to indicate it is searching for a card
+            TimerFlag = 0; //Reset the TimerFlag
         }
-        clear_read = color_read_Clear();
-        if (clear_read > clear_read_check && stop_all == 0){
-            
-            sprintf(buf, "Cardcount %d \n", CardCount);
-            sendStringSerial4(buf);
+        
+        
+        clear_read = color_read_Clear(); //continuously check whether there is a card in front of the buggy (causing a peak in the clear reading)
+        if (clear_read > clear_read_threshold && stop_all == 0){ //if current clear reading exceeds the threshold and we are not after the end of the return home sequence
 
             ReturnHomeTimes[CardCount] = TimerCount - 6; //put current timer value in 10ths of a second into ReturnHomeArray to be used on the way back to determine how far forward the buggy moves between each card
-
-            sprintf(buf, "Timercount array reading %d \n", ReturnHomeTimes[CardCount]);
-            sendStringSerial4(buf);
             
+            //move buggy to distance of optimal detection accuray
             __delay_ms(2);
             stop(&motorL, &motorR);
             __delay_ms(20);
@@ -155,34 +152,22 @@ void main(void) {
             stop(&motorL, &motorR);
             __delay_ms(2);
                        
-                    
+            //execute the function that reads the colour and reacts to it appropriately
             card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeTimes, ReturnHomeCards, &stop_all);    
             __delay_ms(2);
-            ReturnHomeCards[CardCount] = card; //log in the array which card has been detected
-            /*sprintf(buf, "Card %d \n", ReturnHomeCards[CardCount]);
-            sendStringSerial4(buf);*/
+            ReturnHomeCards[CardCount] = card; //log in the relevant array which card has been detected
       
             CardCount += 1; //indicate that next time a card is detected the timer value should be stored in the next column along
             
             TimerCount = 0; //reset the timer once the buggy is about to move again
-            if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);} //begin moving unless after the final return home command is executed
+            if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);} //begin moving unless the final return home command has been executed, changing the stop_all flag
         }
         
+        //a function to reset the stop_all function and allow for the buggy to try another maze
         if(!PORTFbits.RF3){
             stop_all = 0;
             fullSpeedAhead(&motorL, &motorR);
         }
-        /*
-        red_read = color_read_Red();
-        blue_read = color_read_Blue();
-        green_read = color_read_Green();
-        clear_read = color_read_Clear();
-
         
-        sprintf(buf, "Raw %d, %d, %d, %d \n", red_read, green_read, blue_read, clear_read);
-        sendStringSerial4(buf);
-        
-         LATHbits.LATH3=!LATHbits.LATH3;
-        */
     }
 }
