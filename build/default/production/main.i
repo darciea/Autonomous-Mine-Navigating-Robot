@@ -24629,7 +24629,7 @@ void main(void) {
         stop(&motorL, &motorR);
         _delay((unsigned long)((20)*(64000000/4000.0)));
         reverseFullSpeed(&motorL, &motorR);
-        _delay((unsigned long)((150)*(64000000/4000.0)));
+        _delay((unsigned long)((260)*(64000000/4000.0)));
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
@@ -24639,8 +24639,8 @@ void main(void) {
         sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i );
         sendStringSerial4(buf);
     }
-    LATDbits.LATD4 = 1;
-    while(PORTFbits.RF2){LATDbits.LATD4 = 0;}
+    while(PORTFbits.RF2){LATDbits.LATD4 = 1;}
+    LATDbits.LATD4 = 0;
     clear_read_calibration(buf, &clear_read, &clear_read_check);
 
     sprintf(buf, "\n Expected clear: %d \n", clear_read);
@@ -24650,7 +24650,8 @@ void main(void) {
 
 
 
-    while(PORTFbits.RF2){}
+    while(PORTFbits.RF2){LATFbits.LATF0 = 1; LATHbits.LATH0 = 1;}
+    LATFbits.LATF0 = 0; LATHbits.LATH0 = 0;
     fullSpeedAhead(&motorL, &motorR);
     while (1) {
 
@@ -24674,7 +24675,7 @@ void main(void) {
             stop(&motorL, &motorR);
             _delay((unsigned long)((20)*(64000000/4000.0)));
             reverseFullSpeed(&motorL, &motorR);
-            _delay((unsigned long)((150)*(64000000/4000.0)));
+            _delay((unsigned long)((260)*(64000000/4000.0)));
             stop(&motorL, &motorR);
             _delay((unsigned long)((2)*(64000000/4000.0)));
 
@@ -24691,7 +24692,10 @@ void main(void) {
             if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);}
         }
 
-        if(!PORTFbits.RF3){stop_all = 0;}
-# 183 "main.c"
+        if(!PORTFbits.RF3){
+            stop_all = 0;
+            fullSpeedAhead(&motorL, &motorR);
+        }
+# 187 "main.c"
     }
 }

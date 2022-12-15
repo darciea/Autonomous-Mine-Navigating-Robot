@@ -12,14 +12,14 @@
   0h - 3h		(dist/default/production\final-project-darciea-matti.X.production.hex)
   18h - 5Fh		(dist/default/production\final-project-darciea-matti.X.production.hex)
   FEF2h - FFFEh		(dist/default/production\final-project-darciea-matti.X.production.hex)
-  10000h - 12D37h		(dist/default/production\final-project-darciea-matti.X.production.hex)
+  10000h - 12D47h		(dist/default/production\final-project-darciea-matti.X.production.hex)
   200000h - 20000Fh		(dist/default/production\final-project-darciea-matti.X.production.hex)
   300000h - 30000Bh		(dist/default/production\final-project-darciea-matti.X.production.hex)
  Unused ranges:
   4h - 17h
   60h - FEF1h
   FFFFh - FFFFh
-  12D38h - 1FFFFFh
+  12D48h - 1FFFFFh
   200010h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -776,7 +776,8 @@
 00012D00 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00012D10 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00012D20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00012D30 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+00012D30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00012D40 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 ----------------------------------------------------------

@@ -118,10 +118,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./colour_identify.h
 [; ;./colour_identify.h: 13: void clear_read_calibration(char *buf, unsigned int *clear_read, unsigned int *clear_read_check);
 [v _clear_read_calibration `(v ~T0 @X0 0 ef3`*uc`*ui`*ui ]
-"23 ./dc_motor.h
-[; ;./dc_motor.h: 23: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
-[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
-"29236 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+"29035 C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29035:     struct {
+[s S1355 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1355 . LATF0 LATF1 LATF2 LATF3 LATF4 LATF5 LATF6 LATF7 ]
+"29045
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29045:     struct {
+[s S1356 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1356 . LF0 LF1 LF2 LF3 LF4 LF5 LF6 LF7 ]
+"29034
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29034: typedef union {
+[u S1354 `S1355 1 `S1356 1 ]
+[n S1354 . . . ]
+"29056
+[; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29056: extern volatile LATFbits_t LATFbits __attribute__((address(0xF7E)));
+[v _LATFbits `VS1354 ~T0 @X0 0 e@3966 ]
+"29236
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29236:     struct {
 [s S1361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1361 . LATH0 LATH1 LATH2 LATH3 ]
@@ -152,6 +164,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29265
 [; ;C:/Program Files/Microchip/MPLABX/v6.00/packs/Microchip/PIC18F-K_DFP/1.5.114/xc8\pic\include\proc\pic18f67k40.h: 29265: extern volatile LATHbits_t LATHbits __attribute__((address(0xF80)));
 [v _LATHbits `VS1360 ~T0 @X0 0 e@3968 ]
+"23 ./dc_motor.h
+[; ;./dc_motor.h: 23: void fullSpeedAhead(DC_motor *mL, DC_motor *mR);
+[v _fullSpeedAhead `(v ~T0 @X0 0 ef2`*S2017`*S2017 ]
 "28 ./color.h
 [; ;./color.h: 28: unsigned int color_read_Clear(void);
 [v _color_read_Clear `(ui ~T0 @X0 0 ef ]
@@ -2381,8 +2396,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 107:         reverseFullSpeed(&motorL, &motorR);
 [e ( _reverseFullSpeed (2 , &U _motorL &U _motorR ]
 "108
-[; ;main.c: 108:         _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 108:         _delay((unsigned long)((260)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 260 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "109
 [; ;main.c: 109:         stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
@@ -2415,18 +2430,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2020 ]
 }
 "118
-[; ;main.c: 118:     LATDbits.LATD4 = 1;
-[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
-"119
-[; ;main.c: 119:     while(PORTFbits.RF2){LATDbits.LATD4 = 0;}
+[; ;main.c: 118:     while(PORTFbits.RF2){LATDbits.LATD4 = 1;}
 [e $U 2025  ]
 [e :U 2026 ]
 {
-[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
 }
 [e :U 2025 ]
 [e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2026  ]
 [e :U 2027 ]
+"119
+[; ;main.c: 119:     LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
 "120
 [; ;main.c: 120:     clear_read_calibration(buf, &clear_read, &clear_read_check);
 [e ( _clear_read_calibration (3 , , &U _buf &U _clear_read &U _clear_read_check ]
@@ -2437,126 +2452,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 123:     sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 &U _buf ]
 "129
-[; ;main.c: 129:     while(PORTFbits.RF2){}
+[; ;main.c: 129:     while(PORTFbits.RF2){LATFbits.LATF0 = 1; LATHbits.LATH0 = 1;}
 [e $U 2028  ]
 [e :U 2029 ]
 {
+[e = . . _LATFbits 0 0 -> -> 1 `i `uc ]
+[e = . . _LATHbits 0 0 -> -> 1 `i `uc ]
 }
 [e :U 2028 ]
 [e $ != -> . . _PORTFbits 0 2 `i -> 0 `i 2029  ]
 [e :U 2030 ]
 "130
-[; ;main.c: 130:     fullSpeedAhead(&motorL, &motorR);
-[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
+[; ;main.c: 130:     LATFbits.LATF0 = 0; LATHbits.LATH0 = 0;
+[e = . . _LATFbits 0 0 -> -> 0 `i `uc ]
+[e = . . _LATHbits 0 0 -> -> 0 `i `uc ]
 "131
-[; ;main.c: 131:     while (1) {
+[; ;main.c: 131:     fullSpeedAhead(&motorL, &motorR);
+[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
+"132
+[; ;main.c: 132:     while (1) {
 [e :U 2032 ]
 {
-"133
-[; ;main.c: 133:         if (TimerFlag == 1){
+"134
+[; ;main.c: 134:         if (TimerFlag == 1){
 [e $ ! == _TimerFlag -> -> 1 `i `ui 2034  ]
 {
-"134
-[; ;main.c: 134:             TimerCount += 1;
-[e =+ _TimerCount -> -> 1 `i `ui ]
 "135
-[; ;main.c: 135:             if (TimerCount % 10 == 0){LATHbits.LATH3=!LATHbits.LATH3;}
+[; ;main.c: 135:             TimerCount += 1;
+[e =+ _TimerCount -> -> 1 `i `ui ]
+"136
+[; ;main.c: 136:             if (TimerCount % 10 == 0){LATHbits.LATH3=!LATHbits.LATH3;}
 [e $ ! == % _TimerCount -> -> 10 `i `ui -> -> 0 `i `ui 2035  ]
 {
 [e = . . _LATHbits 0 3 -> -> ! != -> . . _LATHbits 0 3 `i -> 0 `i `i `uc ]
 }
 [e :U 2035 ]
-"136
-[; ;main.c: 136:             TimerFlag = 0;
-[e = _TimerFlag -> -> 0 `i `ui ]
 "137
-[; ;main.c: 137:         }
+[; ;main.c: 137:             TimerFlag = 0;
+[e = _TimerFlag -> -> 0 `i `ui ]
+"138
+[; ;main.c: 138:         }
 }
 [e :U 2034 ]
-"138
-[; ;main.c: 138:         clear_read = color_read_Clear();
-[e = _clear_read ( _color_read_Clear ..  ]
 "139
-[; ;main.c: 139:         if (clear_read > clear_read_check && stop_all == 0){
+[; ;main.c: 139:         clear_read = color_read_Clear();
+[e = _clear_read ( _color_read_Clear ..  ]
+"140
+[; ;main.c: 140:         if (clear_read > clear_read_check && stop_all == 0){
 [e $ ! && > _clear_read _clear_read_check == _stop_all -> -> 0 `i `ui 2036  ]
 {
-"141
-[; ;main.c: 141:             sprintf(buf, "Cardcount %d \n", CardCount);
-[e ( _sprintf (1 , (. , &U _buf :s 3C _CardCount ]
 "142
-[; ;main.c: 142:             sendStringSerial4(buf);
+[; ;main.c: 142:             sprintf(buf, "Cardcount %d \n", CardCount);
+[e ( _sprintf (1 , (. , &U _buf :s 3C _CardCount ]
+"143
+[; ;main.c: 143:             sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 &U _buf ]
-"144
-[; ;main.c: 144:             ReturnHomeTimes[CardCount] = TimerCount - 6;
+"145
+[; ;main.c: 145:             ReturnHomeTimes[CardCount] = TimerCount - 6;
 [e = *U + &U _ReturnHomeTimes * -> _CardCount `ux -> -> # *U &U _ReturnHomeTimes `ui `ux - _TimerCount -> -> 6 `i `ui ]
-"146
-[; ;main.c: 146:             sprintf(buf, "Timercount array reading %d \n", ReturnHomeTimes[CardCount]);
-[e ( _sprintf (1 , (. , &U _buf :s 4C *U + &U _ReturnHomeTimes * -> _CardCount `ux -> -> # *U &U _ReturnHomeTimes `ui `ux ]
 "147
-[; ;main.c: 147:             sendStringSerial4(buf);
+[; ;main.c: 147:             sprintf(buf, "Timercount array reading %d \n", ReturnHomeTimes[CardCount]);
+[e ( _sprintf (1 , (. , &U _buf :s 4C *U + &U _ReturnHomeTimes * -> _CardCount `ux -> -> # *U &U _ReturnHomeTimes `ui `ux ]
+"148
+[; ;main.c: 148:             sendStringSerial4(buf);
 [e ( _sendStringSerial4 (1 &U _buf ]
-"149
-[; ;main.c: 149:             _delay((unsigned long)((2)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "150
-[; ;main.c: 150:             stop(&motorL, &motorR);
-[e ( _stop (2 , &U _motorL &U _motorR ]
+[; ;main.c: 150:             _delay((unsigned long)((2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "151
-[; ;main.c: 151:             _delay((unsigned long)((20)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"152
-[; ;main.c: 152:             reverseFullSpeed(&motorL, &motorR);
-[e ( _reverseFullSpeed (2 , &U _motorL &U _motorR ]
-"153
-[; ;main.c: 153:             _delay((unsigned long)((150)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"154
-[; ;main.c: 154:             stop(&motorL, &motorR);
+[; ;main.c: 151:             stop(&motorL, &motorR);
 [e ( _stop (2 , &U _motorL &U _motorR ]
+"152
+[; ;main.c: 152:             _delay((unsigned long)((20)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 20 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"153
+[; ;main.c: 153:             reverseFullSpeed(&motorL, &motorR);
+[e ( _reverseFullSpeed (2 , &U _motorL &U _motorR ]
+"154
+[; ;main.c: 154:             _delay((unsigned long)((260)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 260 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "155
-[; ;main.c: 155:             _delay((unsigned long)((2)*(64000000/4000.0)));
+[; ;main.c: 155:             stop(&motorL, &motorR);
+[e ( _stop (2 , &U _motorL &U _motorR ]
+"156
+[; ;main.c: 156:             _delay((unsigned long)((2)*(64000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
-"158
-[; ;main.c: 158:             card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeTimes, ReturnHomeCards, &stop_all);
-[e = _card ( _card_response (4 , , , , , , , , , , , &U _buf &U _clear_read &U _red_read &U _green_read &U _blue_read &U _expected_values _card &U _motorL &U _motorR &U _ReturnHomeTimes &U _ReturnHomeCards &U _stop_all ]
 "159
-[; ;main.c: 159:             _delay((unsigned long)((2)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;main.c: 159:             card = card_response(buf, &clear_read, &red_read, &green_read, &blue_read, expected_values, card, &motorL, &motorR, ReturnHomeTimes, ReturnHomeCards, &stop_all);
+[e = _card ( _card_response (4 , , , , , , , , , , , &U _buf &U _clear_read &U _red_read &U _green_read &U _blue_read &U _expected_values _card &U _motorL &U _motorR &U _ReturnHomeTimes &U _ReturnHomeCards &U _stop_all ]
 "160
-[; ;main.c: 160:             ReturnHomeCards[CardCount] = card;
+[; ;main.c: 160:             _delay((unsigned long)((2)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+"161
+[; ;main.c: 161:             ReturnHomeCards[CardCount] = card;
 [e = *U + &U _ReturnHomeCards * -> _CardCount `ux -> -> # *U &U _ReturnHomeCards `ui `ux _card ]
-"164
-[; ;main.c: 164:             CardCount += 1;
+"165
+[; ;main.c: 165:             CardCount += 1;
 [e =+ _CardCount -> -> 1 `i `ui ]
-"166
-[; ;main.c: 166:             TimerCount = 0;
-[e = _TimerCount -> -> 0 `i `ui ]
 "167
-[; ;main.c: 167:             if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);}
+[; ;main.c: 167:             TimerCount = 0;
+[e = _TimerCount -> -> 0 `i `ui ]
+"168
+[; ;main.c: 168:             if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);}
 [e $ ! == _stop_all -> -> 0 `i `ui 2037  ]
 {
 [e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
 }
 [e :U 2037 ]
-"168
-[; ;main.c: 168:         }
+"169
+[; ;main.c: 169:         }
 }
 [e :U 2036 ]
-"170
-[; ;main.c: 170:         if(!PORTFbits.RF3){stop_all = 0;}
+"171
+[; ;main.c: 171:         if(!PORTFbits.RF3){
 [e $ ! ! != -> . . _PORTFbits 0 3 `i -> 0 `i 2038  ]
 {
+"172
+[; ;main.c: 172:             stop_all = 0;
 [e = _stop_all -> -> 0 `i `ui ]
+"173
+[; ;main.c: 173:             fullSpeedAhead(&motorL, &motorR);
+[e ( _fullSpeedAhead (2 , &U _motorL &U _motorR ]
+"174
+[; ;main.c: 174:         }
 }
 [e :U 2038 ]
-"183
-[; ;main.c: 183:     }
+"187
+[; ;main.c: 187:     }
 }
 [e :U 2031 ]
 [e $U 2032  ]
 [e :U 2033 ]
-"184
-[; ;main.c: 184: }
+"188
+[; ;main.c: 188: }
 [e :UE 2018 ]
 }
 [p f _sprintf 8388736 ]

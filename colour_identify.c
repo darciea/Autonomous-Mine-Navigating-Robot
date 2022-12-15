@@ -69,7 +69,7 @@ void collect_avg_readings(unsigned int *clear_read, unsigned int *red_read, unsi
 
 void normalise_readings(char *buf, unsigned int clear_read, unsigned int red_read, unsigned int green_read, unsigned int blue_read, unsigned int expected_values[][9], unsigned int normalised_values[][9]){   
     //for each colourcard: (comparing our collected values against each expected reading for each colour)
-        //for each reading (Red, Green, Blue):
+        //for each reading (Clear, Red, Green, Blue):
             //calculation done is (absolute value of the difference between measured and expected value)/expected value
             //this is then stored in the full array of all normalised differences per colour read per colour cards
  

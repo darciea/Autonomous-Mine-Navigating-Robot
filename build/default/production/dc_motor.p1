@@ -2501,8 +2501,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2028 ]
 }
 "114
-[; ;dc_motor.c: 114:     _delay((unsigned long)((68)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 68 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 114:     _delay((unsigned long)((75)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 75 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "115
 [; ;dc_motor.c: 115: }
 [e :UE 2026 ]
@@ -2557,8 +2557,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 2032 ]
 }
 "129
-[; ;dc_motor.c: 129:     _delay((unsigned long)((68)*(64000000/4000.0)));
-[e ( __delay (1 -> * -> -> 68 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
+[; ;dc_motor.c: 129:     _delay((unsigned long)((75)*(64000000/4000.0)));
+[e ( __delay (1 -> * -> -> 75 `i `d / -> -> 64000000 `l `d .4000.0 `ul ]
 "130
 [; ;dc_motor.c: 130: }
 [e :UE 2030 ]

@@ -105,7 +105,7 @@ void main(void) {
         stop(&motorL, &motorR);
         __delay_ms(20);
         reverseFullSpeed(&motorL, &motorR); //this will replicate the distance at which the buggy does the readings in the maze
-        __delay_ms(150);
+        __delay_ms(260);
         stop(&motorL, &motorR);
         collect_avg_readings(&clear_read, &red_read, &green_read, &blue_read);
         expected_values[RED][i] = red_read;
@@ -115,8 +115,8 @@ void main(void) {
         sprintf(buf, "\n EXPECTED: Clear %d,R %d, G %d, B %d  CARD: %d \n", clear_read, red_read, green_read, blue_read, i );
         sendStringSerial4(buf); 
     }
-    BRAKE = 1;
-    while(PORTFbits.RF2){BRAKE = 0;}
+    while(PORTFbits.RF2){BRAKE = 1;}
+    BRAKE = 0;
     clear_read_calibration(buf, &clear_read, &clear_read_check);
    
     sprintf(buf, "\n Expected clear: %d \n", clear_read);
@@ -126,7 +126,8 @@ void main(void) {
     /********************************************//**
     *  Trying code
     ***********************************************/
-    while(PORTFbits.RF2){}
+    while(PORTFbits.RF2){LEFT = 1; RIGHT = 1;}
+    LEFT = 0; RIGHT = 0;
     fullSpeedAhead(&motorL, &motorR); //begin moving  
     while (1) {
         
@@ -150,7 +151,7 @@ void main(void) {
             stop(&motorL, &motorR);
             __delay_ms(20);
             reverseFullSpeed(&motorL, &motorR);
-            __delay_ms(150);
+            __delay_ms(260);
             stop(&motorL, &motorR);
             __delay_ms(2);
                        
@@ -167,7 +168,10 @@ void main(void) {
             if (stop_all == 0){fullSpeedAhead(&motorL, &motorR);} //begin moving unless after the final return home command is executed
         }
         
-        if(!PORTFbits.RF3){stop_all = 0;}
+        if(!PORTFbits.RF3){
+            stop_all = 0;
+            fullSpeedAhead(&motorL, &motorR);
+        }
         /*
         red_read = color_read_Red();
         blue_read = color_read_Blue();
