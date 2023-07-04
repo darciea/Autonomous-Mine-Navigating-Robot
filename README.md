@@ -1,5 +1,13 @@
 # Darciea + Matti's Final Project
 
+## Project Brief
+Scenario:
+Operations are currently underway to map an abandoned mine for safety and possible future use. A team of workers has gone into the mine as a part of initial exploration. One member of the team became separated from others and is currently missing. All explorers were asked to lay flags at certain distances on their path of travel inside the mine. It is too dangerous to send another person to look in the region where the explorer has been separated. Furthermore, the communications in the abandoned mine are too unstable for a robot to be remote controlled to look for the separated explorer. 
+Your task is to design a control system for an autonomous robot to locate the flags laid by the explorer and find where they are located. The robot must then return to its original location with a full trace of its route such that a larger robot or, if necessary, manned team, can locate and extract the explorer.
+
+Challenge brief:
+Your task (working in pairs) is to develop an autonomous robot that can navigate using a series of instructions coded as coloured cards and return back to its starting position.
+
 ## Explanation of our work
 
 The program contains a calibration routine where it fills an 4 by 9 array with the expected readings for each colour sensor (RGBC) for each colour card. Prompted by a button press, the buggy collects 3 data values for each colour sensor and calculates the average for each. The coloured cards follow the calibration sequence: red, green, blue, yellow, pink, orange, light blue, white and black, and the RF2 button input is used to trigger the next card being read. After all of the cards is read there is one background reading of the clear sensor; this is used to determine the threshold value above which the card-reading sequence is initialised. Note that during calibration the card should be pushed up against the front of the buggy when the button is pressed - the buggy will then automatically move itself to the location where accuracy of reading is greatest, determined experimentally.
